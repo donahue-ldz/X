@@ -1,6 +1,6 @@
-package com.X.module.student.control;
+package com.X.common.module.admin.control;
 
-import com.X.common.BaseScreen;
+import com.X.common.common.BaseScreen;
 
 /**
  * Created by dezhao.ldz on 11/19/15.
