@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/X-all.iml" filepath="$PROJECT_DIR$/X-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/X-aop/X-aop.iml" filepath="$PROJECT_DIR$/X-aop/X-aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/X-biz/X-biz.iml" filepath="$PROJECT_DIR$/X-biz/X-biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/X-common/X-common.iml" filepath="$PROJECT_DIR$/X-common/X-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/X-dal/X-dal.iml" filepath="$PROJECT_DIR$/X-dal/X-dal.iml" />

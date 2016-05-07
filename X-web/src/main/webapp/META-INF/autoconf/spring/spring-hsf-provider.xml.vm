@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="branchAdminService" class="com.taobao.doa.ams.ops.biz.service.BranchAdminServiceImpl"/>
+
+    <bean class="com.taobao.hsf.app.spring.util.HSFSpringProviderBean" init-method="init">
+        <property name="serviceInterface" value="com.alibaba.doa.amsops.client.service.BranchAdminService" />
+        <property name="target" ref="branchAdminService" />
+        <property name="serviceVersion" value="${ops.hsf.provider.version}" />
+        <property name="serializeType" value="java" />
+        <property name="clientTimeout" value="180000" />
+    </bean>
+
+</beans>

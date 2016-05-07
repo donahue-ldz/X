@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd" >
+
+
+    <context:component-scan base-package="com.taobao.doa.ams.ops.biz"/>
+
+
+    <bean id="nameSpaceManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.NameSpaceManager" />
+    <bean id="recordManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.RecordManager"/>
+    <bean id="changesetManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.ChangeSetManager"/>
+    <bean id="submitResultManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.SubmitResultManager"/>
+    <bean id="tableManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.TableManager"/>
+    <bean id="branchManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.BranchManager"/>
+    <bean id="snapshotManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.SnapshotManager"/>
+    <bean id="tokenManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.TokenManager"/>
+    <bean id="userManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.UserManager"/>
+    <bean id="projectManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.ProjectManager"/>
+    <bean id="projectmanagerManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.ProjectmanagerManager"/>
+    <bean id="permissionManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.PermissionManager"/>
+
+    <bean id="systemAdminManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.SystemAdminManager"/>
+    <bean id="ztreeManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.ZtreeNodeManager"/>
+
+    <bean id="userGroupManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.UserGroupManager"/>
+    <bean id="generatePermissionManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.GeneratePermissionManager"/>
+    <bean id="logManager" class="com.taobao.doa.ams.ops.biz.manager.web.impl.LogManager"/>
+
+    <bean id="taskExecutorManager" class="com.taobao.doa.ams.ops.biz.manager.ops.impl.TaskExecutorManager">
+        <property name="taskExecutorAddr" value="${ops.executor.addr}" />
+    </bean>
+
+</beans>

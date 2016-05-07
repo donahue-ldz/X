@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+    <bean id="amsSys" class="com.taobao.doa.ams.ops.dal.system.AmsSys"/>
+    <bean id="amsSysConfig" class="com.taobao.doa.ams.ops.dal.system.AmsSysConfig">
+        <property name="amsServerHost" value="${amsServerHost}"/>
+        <property name="amsServerPort"  value= "${amsServerPort}"/>
+    </bean>
+    <bean id="amsEnvi" class="com.taobao.doa.ams.ops.dal.system.AmsEnvi" init-method="init">
+        <property name="token" value="${ops.token}" />
+    </bean>
+    <bean id="amsAdminEnv" class="com.taobao.doa.ams.ops.dal.system.AmsAdminEnv" init-method="init">
+        <property name="sysConfigToken" value="${ops.sysConfigToken}" />
+    </bean>
+
+</beans>
