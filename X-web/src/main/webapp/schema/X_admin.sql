@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS `X_admin`;
+CREATE TABLE `X_admin` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`email` VARCHAR(100) DEFAULT  NULL COMMENT '电子邮件,唯一',
+`nick` VARCHAR(100) DEFAULT NULL COMMENT '昵称',
+`status`    VARCHAR(2)       DEFAULT '1' COMMENT '状态',
+`gmt_create` DATE COMMENT '创建时间',
+`gmt_modified` DATE COMMENT '更新时间',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

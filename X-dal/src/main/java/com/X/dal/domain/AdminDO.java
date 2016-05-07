@@ -1,18 +1,42 @@
 package com.X.dal.domain;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by donahue on 5/6/16.
  */
 public class AdminDO implements Serializable{
-
     private static final long serialVersionUID = -3500879575645892867L;
-
     private long id;
-    private String adminID;
+    /**
+     * 电子邮件
+     */
+    @NotEmpty
+    @Email(message = "email illegal")
     private String email;
+    /**
+     * 昵称
+     */
+    @NotEmpty
     private String nick;
+
+    /**
+     * 状态
+     */
+    private String status;
+
+    /**
+     * 创建时间
+     */
+    private Date gmtCreate;
+    /**
+     * 更新时间
+     */
+    private Date gmtModified;
 
     public long getId() {
         return id;
@@ -20,14 +44,6 @@ public class AdminDO implements Serializable{
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getAdminID() {
-        return adminID;
-    }
-
-    public void setAdminID(String adminID) {
-        this.adminID = adminID;
     }
 
     public String getEmail() {
@@ -44,5 +60,29 @@ public class AdminDO implements Serializable{
 
     public void setNick(String nick) {
         this.nick = nick;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 }

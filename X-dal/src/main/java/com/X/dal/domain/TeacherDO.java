@@ -1,6 +1,10 @@
 package com.X.dal.domain;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by donahue on 5/6/16.
@@ -10,10 +14,26 @@ public class TeacherDO implements Serializable{
 
 
     private long id;
+    @NotEmpty
     private String teacherID;
+    @NotEmpty
+    @Email(message = "email illegal")
     private String email;
+    @NotEmpty
     private String nick;
 
+    /**
+     * 状态
+     */
+    private String status;
+    /**
+     * 创建时间
+     */
+    private Date gmtCreate;
+    /**
+     * 更新时间
+     */
+    private Date gmtModified;
     public long getId() {
         return id;
     }
