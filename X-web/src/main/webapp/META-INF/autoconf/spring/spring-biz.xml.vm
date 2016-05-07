@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans default-autowire="byName">
-    <bean id="opsToken" class="com.taobao.doa.ams.ops.biz.system.OpsToken">
-        <property name="token" value="${ops.token}"/>
-    </bean>
-    <bean id="aclBuilder" class="com.taobao.doa.ams.ops.biz.system.ACLBuilder" init-method="init">
-    </bean>
     <!-- 异步线程池 -->
+    <context:component-scan base-package="com.X.biz.*"/>
+
     <bean id="threadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <!-- 核心线程数 -->
         <property name="corePoolSize" value="5"/>

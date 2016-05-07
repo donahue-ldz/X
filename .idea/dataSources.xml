@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3433116931">
-    <data-source source="LOCAL" name="MySQL - @localhost" uuid="1845c43e-af54-4eb9-8d89-c14ff900a2ea">
+  <component name="DataSourceManagerImpl" format="xml" hash="3481375785">
+    <data-source source="LOCAL" name="MySQL - X@localhost" uuid="1845c43e-af54-4eb9-8d89-c14ff900a2ea">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/X</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

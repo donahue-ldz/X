@@ -17,6 +17,11 @@ public class StudentDO implements Serializable {
      */
     private String studentID;
     /**
+     * 学生名
+     */
+    private String studentName;
+
+    /**
      * 电子邮件
      */
     @NotEmpty
@@ -29,6 +34,11 @@ public class StudentDO implements Serializable {
     private String nick;
 
     /**
+     * 状态
+     */
+    private String status;
+
+    /**
      * 创建时间
      */
     private Date gmtCreate;
@@ -37,35 +47,76 @@ public class StudentDO implements Serializable {
      */
     private Date gmtModified;
 
+
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public StudentDO setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public StudentDO setStudentID(String studentID) {
         this.studentID = studentID;
+        return this;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public StudentDO setStudentName(String studentName) {
+        this.studentName = studentName;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public StudentDO setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getNick() {
         return nick;
     }
 
-    public void setNick(String nick) {
+    public StudentDO setNick(String nick) {
         this.nick = nick;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public StudentDO setStatus(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public StudentDO setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+        return this;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public StudentDO setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+        return this;
     }
 }
