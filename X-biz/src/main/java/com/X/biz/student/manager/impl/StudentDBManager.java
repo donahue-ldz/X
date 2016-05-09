@@ -37,7 +37,7 @@ public class StudentDBManager implements IStudentDBManager {
     }
 
     @Override
-    public StudentDO queryStudentByStuID(@NotNull final String stuID) throws Exception {
+    public StudentDO queryStudentByStuID(@NotNull final String stuID) throws XException {
         return RunWrapper.run(new Callable<StudentDO>() {
             @Override
             public StudentDO call() throws Exception {
@@ -47,7 +47,7 @@ public class StudentDBManager implements IStudentDBManager {
     }
 
     @Override
-    public StudentDO queryStudentByEmail(@NotNull final String email) throws Exception {
+    public StudentDO queryStudentByEmail(@NotNull final String email) throws XException {
         return RunWrapper.run(new Callable<StudentDO>() {
             @Override
             public StudentDO call() throws Exception {
