@@ -3,13 +3,13 @@
 Login page
 ***/
 /* bg color */
-.login {
+body {
     background-color: #364150 !important;
 }
 
 .login .logo {
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 0px;
     padding: 15px;
     text-align: center;
 }
@@ -22,7 +22,7 @@ Login page
     -o-border-radius: 7px;
     border-radius: 7px;
     width: 400px;
-    margin: 40px auto 10px auto;
+    margin: 0px auto 10px auto;
     padding: 30px;
     padding-top: 10px;
     overflow: hidden;
