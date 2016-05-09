@@ -1,0 +1,176 @@
+ #set($navInfo="<a href='/list/userTableList.htm'>数据开发</a> &gt; 创建表")
+##parse("/control/list/navInfoPro.vm")
+<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+<style>
+    html,body{
+        height: 100%;
+    }
+
+    #createTable th {
+        background-color: #f5f5f5;
+    }
+
+    #createTable th,
+    #createTable td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #createTable {
+        table-layout: fixed;
+    }
+
+    #createTableForm {
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="row"
+     style="min-width:960px;height:100%;margin-top: 10px;margin-left: 15px; margin-right: 15px;padding: 0px; ">
+
+    <input type="hidden" name="columnData" id="columnData"/>
+    <input type="hidden" name="columnCount" id="columnCount" value="1"/>
+    <input type="hidden" name="data" id="data"/>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href='/list/userTableList.htm'>数据开发</a> &gt; 表管理
+            <a class="btn btn-success btn-xs" style="float: right" id="btnImportDDL">
+                <img src="/assets/imgs/importTableDDL.gif" style="width: 20px;height: 20px;">导入DDL
+            </a>
+            <a id="btnExportTableDDL"
+               class="btn btn-success btn-xs" style="float: right;margin-right: 20px"><img
+                    src="/assets/imgs/exportTableDDL.jpg" style="width: 20px;height: 20px">导出表DDL
+            </a>
+            <a href="/list/exportAndImData.htm"
+               class="btn btn-link btn-xs" style="float: right;margin-right: 20px"><img
+                src="/assets/imgs/dataImportAndEx.jpg" style="width: 20px;height: 20px">数据导入导出
+            </a>
+
+
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="createTableForm">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">基本信息</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="lableForTable" class="col-sm-1 control-label">表名:</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control required" id="tableName" name="table"
+                                       placeholder="输入table名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lableForDescription" class="col-sm-1 control-label">备注:</label>
+
+                            <div class="col-sm-6">
+                                <textarea class="form-control required" id="tableDesc" name="tableDesc"
+                                          placeholder="输入表的备注信息"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--记录显示开始-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">列信息
+                        <a class="btn btn-success btn-xs" id="btnAddColumn" style="margin-left: 10px"><span
+                                class="glyphicon glyphicon-plus"></span>
+                            增加列</a>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="table-responsive" id="recordsShow">
+                            <!--记录显示预留-->
+                            <table class="table table-bordered table-striped table-hover " id="createTable">
+                                <thead id="head">
+                                <tr>
+                                    <th align="center" width="200px">列名</th>
+                                    <th align="center" width="100px">类型</th>
+                                    <th align="center" width="100px">是否必填</th>
+                                    <th align="center" width="100px">是否主键</th>
+                                    <th align="center" width="100px">是否索引</th>
+                                    <th align="center" width="*">描述</th>
+                                    <th align="center" width="100px">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tableBody">
+                                <tr>
+                                    <td>
+
+                                        <input type="text" name="columnName" class="requiredProp"
+                                               style="width: 100%;"
+                                               placeholder="输入列名"></td>
+                                    <td>
+                                        <select name="columnType" style="width: 100%;">
+                                            <option value="string">字符串</option>
+                                            <option value="integer">整型数值</option>
+                                            <option value="number">浮点数值</option>
+                                            <option value="boolean">布尔</option>
+                                            <option value="custom">自定义</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="isRequired">必填</input>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="key" name="isKey">是</input>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="indexable" name="isIndexable">是</input>
+                                    </td>
+                                    <td><textarea name="description" class="requiredProp" style="width: 100%;"
+                                                  placeholder="输入描述"></textarea></td>
+                                    <td>
+                                        <a class="btn btn-link btn-xs btnDelColumn" style="display: none;color: red;">
+                                            <span class="glyphicon glyphicon-remove-sign"
+                                                  style="position: relative;top: 2px;left: -2px;"></span>删除
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+        <div >
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5">
+                    <button  class="btn btn-primary">确认创建表</button>
+                </div>
+            </div>
+        </div>
+        </form>
+        </div>
+
+
+    </div>
+</div>
+
+</div><!--end container-->
+#parse("/control/modal/customTypeModal.vm")
+#parse("/control/modal/tableImportDDLModal.vm")
+#parse("/control/modal/tableDDLExportModal.vm")
+
+<script src="/assets/js/lib/jquery.blockUI.js" charset="utf-8"></script>
+
+<script src="/assets/js/ace/ace.js" charset="utf-8"></script>
+
+<script src="/assets/js/application/ops/tableManager.js" charset="utf-8"></script>
+

@@ -1,0 +1,102 @@
+<div class="modal fade" id="tableDDLModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">表定义详情</span>
+            </div>
+            <form class="form-horizontal" role="form" id="tableDDLForm" name="tableDDLForm">
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+                        <tr>
+                            <td align="right">
+                                表名:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="tableName" name="tableName" class="required"
+                                     style="color: red;font-size:larger;display: inline">
+                                </div>
+                                <div>
+
+                                    <a id="deleteTable"
+                                       class="btn btn-default btn-link" style="float: right"><img
+                                            src="/assets/imgs/deleteTable.jpg" style="width: 20px;height: 20px">删除表结构
+                                    </a>
+                                    <a id="emptyTable"
+                                       class="btn btn-default btn-link" style="float: right"><img
+                                            src="/assets/imgs/emptyTable.jpg" style="width: 20px;height: 20px">清空表数据
+                                    </a>
+                                    <a id="clipButton"
+                                       class="btn btn-default btn-link" style="float: right"><img
+                                            src="/assets/imgs/exportTableDDL.jpg" style="width: 20px;height: 20px">导出表DDL
+                                    </a>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td align="right">
+                                主键:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="keys" name="keys" style=" width:450px"></div>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td align="right">
+                                必填列:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="requiredColumns" name="requiredColumns" style=" width:450px"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                所有列:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="columns" name="columns" style=" width:450px">
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                DDL详情:
+                            </td>
+                            <td align="left" colspan="3">
+                                <input type="checkbox" id="showSchema" unchecked> 查看
+                            </td>
+                        </tr>
+                        <tr style="display:none" id="schemaTr">
+                            <td align="right">
+
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="contentJson" name="contentJson"
+                                     style="height: 700px; width:450px;">
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>

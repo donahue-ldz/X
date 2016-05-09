@@ -1,0 +1,40 @@
+
+<div class="modal fade " id="deployBranchInfoModal" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 800px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">部署详情</span>
+            </div>
+
+            <div class="modal-body" >
+                <div class="table-responsive" id="recordsShow">
+                    <!--记录显示预留-->
+                    <table class="table table-bordered table-striped table-hover " id="deployInfoTable">
+                        <thead id="head">
+                        <tr>
+                            <th>分支</th>
+                            <th>最后修改集</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        #foreach($branch in ${successDeploy.details})
+                        <tr>
+                            <td>
+                                <a href="/list/csList?branch=$!branch.branchName" target="_blank">$!branch.branchName</a>
+                            </td>
+                            <td><a href='/list/changeList.htm?cs=$!branch.branchLastedCs' target="_blank">$!branch.branchLastedCs</a></td>
+                        </tr>
+                        #end
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.modal -->
+    </div>

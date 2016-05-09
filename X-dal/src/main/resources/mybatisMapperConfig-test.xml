@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    <import resource="dataSource-test.xml"/>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--dataSource属性指定要用到的数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动取对应包中不包括包名的类名作为类型别名，多个包之间可以用逗号或分号分开 -->
+        <property name="typeAliasesPackage" value="com.taobao.ams.doa.ops.dal.dao.domain"/>
+        <!--configLocation属性指定mybatis的主配置文件-->
+        <property name="configLocation" value="dal/conf/mybatis-config.xml"/>
+        <!-- 从类路径中加载映射文件，相对于类的根路径-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--basePackage指定要扫描的包，此包及其子包之下的映射器接口
+        都会被搜索到。可指定多个包，包与包之间用逗号或分号分隔-->
+        <property name="basePackage" value="com.taobao.doa.ams.ops.dal.dao.web.mapper"/>
+    </bean>
+</beans>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:services="http://www.alibaba.com/schema/services"
+             xmlns:fm-validators="http://www.alibaba.com/schema/services/form/validators"
+             xsi:schemaLocation="http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+
+                http://www.alibaba.com/schema/services/form/validators http://localhost:8080/schema/services-form-validators.xsd
+                http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <services:form postOnlyByDefault="true">
+        <!--
+          - ===============================================
+          - 用来检查csrf token。
+          - ===============================================
+        -->
+        <group name="csrfCheck">
+            <field name="csrfToken">
+                <fm-validators:csrf-validator>
+                    <message>提交的数据已过期</message>
+                </fm-validators:csrf-validator>
+            </field>
+        </group>
+
+        <!--
+           - ===============================================
+           - 常量 form
+           - ===============================================
+          -->
+        <group name="constantForm">
+            <field name="id" displayName="主键ID"/>
+            <field name="cnName" displayName="常量名称">
+                <fm-validators:required-validator>
+                    <message>必须填写 ${displayName}</message>
+                </fm-validators:required-validator>
+                <!-- <string-length-validator minLength="1" maxLength="50">
+                     <message>${displayName} 最少必须由${minLength}个字组成，最多不能超过${maxLength}个字</ message>
+                 </string-length-validator>-->
+            </field>
+            <field name="enName" displayName="英文名">
+                <fm-validators:required-validator>
+                    <message>必须填写 ${displayName}</message>
+                </fm-validators:required-validator>
+                <!--<string-length-validator minLength="1" maxLength="50">
+                    <message>${displayName} 最少必须由${minLength}个字组成，最多不能超过${maxLength}个字</ message>
+                </string-length-validator>-->
+            </field>
+            <field name="type" displayName="类型">
+                <fm-validators:required-validator>
+                    <message>必须填写 ${displayName}</message>
+                </fm-validators:required-validator>
+                <!--   <regexp-validator pattern="^[emum|bit|int|str]$">
+                       <message>${displayName} 必须由只能是枚举、Bit位、数值、字符串</message>
+                   </regexp-validator>-->
+            </field>
+            <field name="factorField.id" displayName="要素字段">
+                <fm-validators:required-validator>
+                    <message>必须填写 ${displayName}</message>
+                </fm-validators:required-validator>
+                <!-- <regexp-validator pattern="^[0-9]*$">
+                     <message>${displayName} 必须由只能是数值</message>
+                 </regexp-validator>-->
+            </field>
+            <field name="value" displayName="常量值">
+                <fm-validators:required-validator>
+                    <message>必须填写 ${displayName}</message>
+                </fm-validators:required-validator>
+                <!--<string-length-validator minLength="1" maxLength="1000">
+                    <message>${displayName} 最少必须由${minLength}个字组成，最多不能超过${maxLength}个字</ message>
+                </string-length-validator>-->
+            </field>
+        </group>
+
+        <!--
+        - ===============================================
+        - 要素 form
+        - ===============================================
+       -->
+        <group name="factorForm">
+            <field name="id" displayName="主键ID"/>
+            <field name="cnName" displayName="常量名称"/>
+            <field name="enName" displayName="英文名"/>
+            <field name="type" displayName="类型"/>
+            <field name="factorField.id" displayName="要素字段"/>
+            <field name="value" displayName="常量值"/>
+        </group>
+        <!--
+      - ===============================================
+      - 要素字段 form
+      - ===============================================
+     -->
+        <group name="factorFieldForm">
+            <field name="id" displayName="主键ID"/>
+            <field name="cnName" displayName="常量名称"/>
+            <field name="enName" displayName="英文名"/>
+            <field name="type" displayName="类型"/>
+            <field name="factorField.id" displayName="要素字段"/>
+            <field name="value" displayName="常量值"/>
+        </group>
+    </services:form>
+</beans:beans>

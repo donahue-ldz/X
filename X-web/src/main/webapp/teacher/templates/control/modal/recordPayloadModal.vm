@@ -1,0 +1,64 @@
+<div class="modal fade" id="recordPayloadModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">Json格式查看</span>
+            </div>
+            <form class="form-horizontal" role="form" id="recordPayloadForm" name="recordPayloadForm">
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+
+                        <tr>
+                            <td align="right">
+                                修改人:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div>
+                                    <pre id="modifier" name="modifier" style="width: 450px"></pre>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                修改时间:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div>
+                                    <pre id="modified" name="modified" style="width: 450px"></pre>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                Payload:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div>
+                                    <pre id="payloadJson" name="payloadJson"
+                                         style="height: 450px; width:450px;"></pre>
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>

@@ -1,0 +1,13 @@
+<div id="bottomCopyRightDiv" style="margin-top: 2%;width:1198px;margin-left: auto;margin-right: auto;height: 3%">
+    <table class="table" >
+        <tbody>
+        <tr>
+            <td align="center" ><span style="color: #888888;">Copying  rights 2003-2015 Taobao.com 版权所有</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+##<footer class="footer">
+##    <div class="container">
+##        <p class="text-muted">Place sticky footer content here.</p>
+##</footer>

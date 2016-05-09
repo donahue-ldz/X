@@ -1,0 +1,80 @@
+<div class="modal fade" id="csCopyAndPastModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">导入导出</span>
+            </div>
+            <form class="form-horizontal" role="form" id="csCopyAndPastForm" name="csCopyAndPastForm">
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+                        <tr>
+                            <td align="right">
+                                修改集ID:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="cs" name="cs"
+                                     style="color: red;font-size:larger;display: inline">
+                                </div>
+                                <div style="display: inline;float: right">
+                                    <a id="clipButton"
+                                       class="btn btn-default btn-link"><img
+                                            src="/assets/imgs/exportTableDDL.jpg" style="width: 20px;height: 20px">导出修改集内容
+                                    </a>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                修改集备注:
+                            </td>
+                            <td align="left" colspan="3">
+                                <textarea id="csDesc" style="height: 50px; width:450px;"></textarea>
+                            </td>
+                        </tr>
+                       <tr>
+                            <td align="right">
+                                操作类型:
+                            </td>
+                            <td align="left" colspan="3">
+                                <input type="checkbox" id="showRecords" unchecked> 查看内容
+                                <input type="checkbox" id="importRecords" unchecked style="margin-left: 50px"> 数据导入
+                            </td>
+                        </tr>
+                        <tr style="display:none" id="contentTr">
+                            <td align="right">
+
+                            </td>
+                            <td align="left" colspan="3">
+                                <div id="contentJson" name="contentJson"
+                                     style="height: 500px; width:450px;">
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+            <div class="modal-footer" style="display: none" id="confirm">
+                <input class="btn btn-success" type="button" value="确定导入" id="import"></input>
+            </div>
+
+
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config description="自动配置">
+    <group name="web">
+        <property name="X.loggingRoot" defaultValue="/home/admin/logs" description="日常日志地址"/>
+        <property name="X.loggingLevel" defaultValue="info" description="日常日志级别"/>
+        <property name="X.loggingCharset" defaultValue="utf-8" description="日志编码"/>
+        <property name="X.loggingMaxHistory" defaultValue="30" description="日志最大的历史天数"/>
+        <property name="mysqlUrl" defaultValue="jdbc:mysql://localhost:3306/X" description="数据库URL"/>
+        <property name="mysqlUserName" defaultValue="root" description="mysql用户"/>
+        <property name="mysqlPassword" defaultValue="root" description="mysql密码"/>
+    </group>
+    <script>
+        <generate template="uris.xml.vm" destfile="WEB-INF/common/uris.xml" charset="UTF-8" />
+        <generate template="web.xml.vm" destfile="WEB-INF/web.xml" charset="UTF-8" />
+        <generate template="spring/mybatisMapperConfig.xml.vm" destfile="WEB-INF/spring/mybatisMapperConfig.xml" charset="UTF-8" />
+        <generate template="spring/spring-dao.xml.vm" destfile="WEB-INF/spring/spring-dao.xml" charset="UTF-8" />
+        <generate template="spring/spring-biz.xml.vm" destfile="WEB-INF/spring/spring-biz.xml" charset="UTF-8" />
+    </script>
+</config>

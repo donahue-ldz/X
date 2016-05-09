@@ -1,0 +1,58 @@
+<div class="modal fade" id="branchMergeModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">合并分支</span>
+            </div>
+            <form class="form-horizontal" role="form" id="branchMergeForm" name="branchMergeForm">
+
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                当前分支：
+                            </td>
+                            <td align="left">
+                                <input name="sourceBranch" id="sourceBranch" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                目标分支：
+                            </td>
+                            <td align="left">
+                                <input name="targetBranch" id="targetBranch" class="required" type="text" style="width: 80%;"/>
+                            </td>
+                        </tr>
+
+                      
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="Merge" class="btn btn-sm btn-success"
+                            id="btnMergeBranch"><span
+                            class="glyphicon glyphicon-saved"></span>&nbsp;提交
+                    </button>
+                </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+
+
+</div>

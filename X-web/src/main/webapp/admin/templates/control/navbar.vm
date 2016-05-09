@@ -1,0 +1,225 @@
+#macro (markActiveTab $name)
+navBarTab #if ("$!navInfo" != "" && $navInfo.contains($name)) activeTab #end
+#end
+
+<style>
+    .activeTab {
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#468), to(#fff)) !important;
+        color: #006 !important;
+    }
+
+    .open .navBarTab,
+    .navBarTab:hover {
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#444), to(#468)) !important;
+        color: #fff !important;
+    }
+
+    .navBarTab {
+        border-left: solid 1px rgba(0,0,0,0) !important;
+        border-right: solid 1px rgba(0,0,0,0) !important;
+        height: 48px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .tabBox {
+        border-radius: 5px;
+        overflow: hidden;
+        height: 60px;
+        margin-top: 2px;
+    }
+    .bootstrap-select > .dropdown-toggle {
+        width: 100%;
+        padding-right: 25px;
+        padding-left: 10px;
+        padding-top: 3px;
+        z-index: 1;
+        height: 30px;
+        border-radius: 10px;
+        -moz-border-radius: 5px; /* 老的 Firefox */
+    }
+    #a_nameSpace button {
+        background-color: rgba(0, 0, 0, 0);
+        color: #ccc;
+        border-color: #444;
+    }
+    #bs-example-navbar-collapse-1 {
+        height: 50px !important;
+    }
+    .navbar-nav {
+        height: 50px !important;
+    }
+</style>
+<link href="/assets/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
+
+#if($navBarHide)
+<nav class=" navbar-inverse navbar-fixed-top"
+     style="width:100%;min-width:1198px;padding: 0px;margin-left: auto;margin-right: auto;padding-top:1px;height:51px;overflow:visible;visibility: hidden">
+<div class="container-fluid container-nav" style="margin-left: 20px">
+#else
+<nav class=" navbar-inverse navbar-fixed-top"
+     style="width:100%;min-width:1198px;padding: 0px;margin-left: auto;margin-right: auto;padding-top:1px;height:51px;overflow:visible;">
+<div class="container-fluid container-nav" style="margin-left: 20px">
+#end
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" style="width:250px">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand whiteColor" href="/" style="font-size:26px;padding-top:10px;white-space:nowrap">
+            <img src="/assets/imgs/logo_icon.png" style="height: 40px;position: relative;top: -5px;display:inline-block;">
+            <img src="/assets/imgs/logo_main.png" style="height: 40px;position: relative;top: -5px;display:inline-block;">
+        </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="dropdown tabBox">
+                <a href="/" class="whiteColor #markActiveTab("首页")" role="button"
+                   aria-expanded="false" style="padding-left:20px">
+                    <!-- <img src="/assets/imgs/data_ver.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;"> -->
+                    <span class="glyphicon glyphicon-home"></span>
+                    首页</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/versionList.htm" class="whiteColor #markActiveTab("数据版本")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_ver.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据版本</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/userTableList.htm" class="whiteColor #markActiveTab("数据开发")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_dev.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据开发</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/deployList.htm" class="whiteColor #markActiveTab("数据集成")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_dep.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据集成</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle whiteColor #markActiveTab("更多")" data-toggle="dropdown"
+                   role="button"
+                   aria-expanded="false">
+                    更多<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;width: 60px;">
+                    <li><a href="/ops/index.htm">运维</a></li>
+
+                    <li><a href="http://gitlab.alibaba-inc.com/doa/wiki/wikis/ops_v2">帮助</a></li>
+                    <li><a href="#">关于</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">我的项目</a></li>
+                    <li><a href="#">所有项目</a></li>
+                </ul>
+            </li>
+
+            <!--
+            <li class="dropdown" id="systemEnv" style="display: none">
+                <a href="#" class="dropdown-toggle whiteColor" data-toggle="dropdown" role="button"
+                   aria-expanded="false">
+                    <span class="glyphicon glyphicon-th">系统环境</span>
+                    <span id="active_title" style="font-size: larger ;color: #5bc0de"></span>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;width:300px;">
+                    <li style="padding:10px 20px;">
+                        <img src="/assets/imgs/data.png" style="
+                            width: 24px;
+                            margin-right: 10px;
+                            margin-top: -5px;
+                        ">
+                        当前环境：
+                    </li>
+                    <li class="dropdown-header">
+                        <pre>命名空间: <span id="active_ns"></span></pre>
+                        <pre>分    支: <span id="active_branch"></span></pre>
+                        <pre id="active_cs_box">修 改 集: <span id="active_cs"></span></pre>
+                        <pre id="active_snap_box">快    照: <span id="ctive_snap"> </span></pre>
+                    </li>
+                    <li>
+                        <button style="margin-bottom:10px;margin-left:25px" class="btn btn-success btn-xs"
+                                id="btnSwitchEnv">重新选择环境
+                        </button>
+                    </li>
+                </ul>
+            </li>
+            -->
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" id="navbarRight">
+            <li style="margin-top: 10px;margin-right: 10px">
+                <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span style="margin-right: 15px;color: #9d9d9d" >命名空间: </span>
+                    <input type="hidden" id="nav_ns" value="$!rundata.parameters.ns">
+                    <span id="a_nameSpace">
+                           <select id="nsSelect" name="nsSelect" onchange='switchNameSpace(this.value)'
+                                   style='color:#000;visibility: hidden' class="selectpicker show-tick " data-width="auto"
+                                   data-live-search="true">
+                               #foreach($ns in $allNs)
+                                   #if($!ns == $selectedNs)
+                                       <option value="$!ns" selected>$!ns</option>
+                                   #else
+                                       <option value="$!ns">$!ns</option>
+                                   #end
+                               #end
+                           </select>
+                    </span>
+                </span>
+            </li>
+            <li class="dropdown" id="userInfoMenu">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span><img alt="" class="img-circle" style="height: 20px"
+                               src="https://work.alibaba-inc.com/photo/${user.empId}.30x30.jpg"/></span>
+                    <span id="userNick">$!{user.nickNameCn}</span><span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;left: 0px">
+                    <li><a id="logout" href="#" style="width: 20px"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
+    <!-- /.container-fluid -->
+</nav>
+    <script src="/assets/js/application/ops/opsNavBar.js" charset="UTF-8"></script>
+    <script src="/assets/js/lib/jquery.cookie.js" charset="utf-8"></script>
+    <script src="/assets/js/lib/bootstrap-select.js" charset="UTF-8"></script>
+    <script language="JavaScript">
+        function toLogin() {
+            var href = window.location.href;
+            href = "${bucSsoDomain}ssoLogin.htm?APP_NAME=amsweb&BACK_URL=" + href;
+            var msg = "没有登陆。&nbsp;&nbsp;<a href='" + href + "'>点击重新登陆</a>";
+            $.messager.alert("警告", msg);
+        }
+        $(function () {
+            $("#logout").click(function () {
+                var href = window.location.href;
+                window.location.href = "${bucSsoDomain}ssoLogout.htm?APP_NAME=amsweb&BACK_URL=" + href;
+            });
+            $("#btnSwitchEnv").click(function () {
+                location.href = "/list/envList.htm";
+            });
+        });
+        $(".dropdown-toggle").mouseover(function () {
+            if ($(this).parent().find("ul:visible").length == 0) this.click();
+        });
+        $('.selectpicker').selectpicker({
+            size: 6
+        });
+    </script>
+    <!--navBar.vm end -->

@@ -17,7 +17,7 @@ import java.util.concurrent.Callable;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-07 3:23 PM
  **/
-@Service("studentDBManager")
+@Service("teacherDBManager")
 public class TeacherDBManager implements ITeacherDBManager {
     @Autowired
     private StudentMapper studentMapper;

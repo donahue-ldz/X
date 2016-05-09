@@ -1,0 +1,12 @@
+<!-- UC 查询用户详情 -->
+<bean id="enhancedUserQueryService" class="com.taobao.hsf.app.spring.util.HSFSpringConsumerBean" init-method="init">
+    <property name="interfaceName">
+        <value>com.alibaba.buc.api.EnhancedUserQueryService</value>
+    </property>
+    <property name="version">
+        <value>1.0.0</value>
+    </property>
+    <property name="group">
+        <value>HSF</value>
+    </property>
+</bean>

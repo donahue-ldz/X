@@ -1,0 +1,32 @@
+<div id="nav" class="container"
+     style="width:1198px;min-height:480px;margin-bottom:0px;padding: 0px;margin-left: auto;margin-right: auto;">
+    <table class="table table-bordered" style="width: 100%;height:39px;padding: 0px;">
+        <tbody>
+        <tr>
+            <td style="height: 39px;color: red;">
+                目前您还没有访问该模块权限！ <a href="#" class="btn btn-success btn-xs"> <span class="glyphicon glyphicon-ban-circle"></span></a>请到权限平台申请权限后再尝试。
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 39px;color: red;">
+                <span id="noPermitionInfo"> </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script language="JavaScript">
+    $(function () {
+        var online = $!{webResult.otherData.online};
+        var html ="";
+        if(online){
+            html += "<a href='http://acl.alibaba-inc.com/apply/instance/apply.htm?ownerName=amsweb'>点击申请</a>";
+
+        }else{
+            html += "<a href='http://acl-test.alibaba-inc.com/apply/instance/apply.htm?ownerName=amsweb'>点击申请</a>";
+        }
+       $("#noPermitionInfo").html(html);
+   });
+</script>
+

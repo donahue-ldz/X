@@ -1,0 +1,66 @@
+<div class="modal fade text-center" id="tableDDLExportModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="display: inline-block; width: 80%; min-width: 600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">表DDL导出</span>
+            </div>
+            <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                <div class=" panel panel-info" style="margin-top: 10px;height: 600px;"
+                     >
+                    <div class="panel-body" style="height: 95%">
+                        <div class="panel panel-info level_box" id="tablesDiv" style="float: left;width: 45%;height: 100% ">
+                            <div class="panel-heading level_header" style="height: 5%">
+                                <span>表</span>
+                            </div>
+
+                            <div class="panel-body level_body" style="height:95%;width: 100%">
+                                <div class="table-responsive" style="height: 100%">
+                                    <table id="tablesList"
+                                           class="table table-bordered table-striped table-hover level_items">
+                                        <thead>
+                                        <tr>
+                                            <th>表名</th>
+                                            <th class="text-center"><input type="checkbox" id="selectAll"/>全选</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="ddlDiv" class="panel panel-success  level_box" style="float: right;width: 45%;height: 100% ;">
+                            <div class="panel-heading level_header" style="height: 5%">
+                                <span>DDL信息</span>
+                            </div>
+                            <div class="level_body" style="height: 95%;width:100%;">
+                                <pre id="tableDDLs" style="height: 100%;width: 100%;text-align: left">
+
+                                </pre>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="margin-left: 45%;width: 100%">
+                        <input type="submit" id="btnDDLCreate" class="btn btn-success btn-xs col-lg-2 "
+                               style="width: 10%;"
+                               value="生成DDL"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- /.modal-content -->
+    </div>
+
+</div><!-- /.modal -->

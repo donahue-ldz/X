@@ -1,0 +1,75 @@
+#set($navInfo="<!--数据版本--><a href='/list/versionList.htm?&ns=$!{currentNs}'>$!{currentNs}</a> &gt; $!{currentBranch}")
+
+##parse("/control/list/navInfo.vm")
+<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+<style>
+    .table.table-hover > tbody > tr:hover > td,
+    .table.table-hover > tbody > tr:hover > th {
+        background-color: mediumspringgreen;
+    }
+
+    .table.table-hover.table-striped > tbody > tr:hover > td,
+    .table.table-hover.table-striped > tbody > tr:hover > th {
+        background-color: #f5f5f5;
+    }
+
+</style>
+
+<div style="display:none">
+    <span id="currentNs">$!{rundata.parameters.ns}</span>
+    <span id="currentBranch">$!{rundata.parameters.branch}</span>
+</div>
+
+<div class="row panel panel-default  scrollBar"
+     style="min-width:960px;margin-top: 10px;margin-left: 15px; margin-right: 15px;padding: 5px;">
+    <div class="panel-heading">
+        <b><a href="/list/versionList.htm?ns=${rundata.parameters.ns}">分支列表</a></b>
+        &gt;
+        <b>分支</b>
+            $!{rundata.parameters.branch}
+        &gt;
+        <a href="/list/branchInfo.htm?ns=$!{ns}&branch=$!{rundata.parameters.branch}" style="margin-left: 20px">分支详情</a>
+        |
+        <a href="/list/opLogList.htm?ns=$!{rundata.parameters.ns}&branch=$!{rundata.parameters.branch}">操作记录</a>
+        |
+        <a href='/list/csList.htm?ns=$!{rundata.parameters.ns}&branch=$!{rundata.parameters.branch}'>修改集列表</a>
+        |
+        <span class="glyphicon glyphicon-list-alt" style="color: #ffcc00"></span>
+        <b>快照列表</b>
+
+        <button class="btn btn-success btn-xs" id="btnAddSnap"
+                style="width: 80px;height: 30px;margin-top: -5px;float: right;"><span
+                class="glyphicon glyphicon-plus"></span> 新建
+        </button>
+    </div>
+    <div class="panel-body" id="snapList">
+        <div class="table-responsive">
+            <!--记录显示预留-->
+            <table class="table table-striped table-hover ">
+                <thead id="head">
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>所在修改集</th>
+                    <th>创建时间</th>
+                    <th>创建人</th>
+                    <th>描述</th>
+                </tr>
+                </thead>
+
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div><!--end container-->
+#parse("/control/modal/snapAddModal.vm")
+
+<script src="/assets/js/lib/jquery.blockUI.js" charset="UTF-8"></script>
+
+<script src="/assets/js/application/ops/snapList.js" charset="UTF-8"></script>
+

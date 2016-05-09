@@ -1,0 +1,126 @@
+<div class="modal fade" id="customEnvModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">自定义版本信息</span>
+            </div>
+            <form class="form-horizontal" role="form" id="customEnvForm" name="customEnvForm">
+
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                命名空间：
+                            </td>
+                            <td align="left" colspan="2">
+                                <select id="customNsSelect" style='color:#000;min-width:200px;visibility: hidden'
+                                        class="selectpicker show-tick " data-live-search="true">
+                                    #foreach($ns in $allNs)
+                                        #if($!ns == $selectedNs)
+                                            <option value="$!ns" selected>$!ns</option>
+                                        #else
+                                            <option value="$!ns">$!ns</option>
+                                        #end
+                                    #end
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:20%;">
+                                分支：
+                            </td>
+                            <td align="left">
+                                <input id="customBranch" type="text"
+                                       placeholder="请输入分支名" style="width: 100%"/>
+                            </td>
+
+                            <td style="margin-right: 2px">
+                                <a class=" btn btn-link btn-xs" id="fillUpTrunk">
+                                    主干
+                                </a>
+                                #if($rundata.request.getRequestURL().indexOf("taobao.org")!=-1)
+
+                                    <a class=" btn btn-link btn-xs" id="fillUpPre">
+                                        预发
+                                    </a>
+                                    <a class=" btn btn-link btn-xs" id="fillUpOnline">
+                                        线上
+                                    </a>
+                                #else
+                                    <a class=" btn btn-link btn-xs" id="fillUpDaily">
+                                        日常
+                                    </a>
+                                #end
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td colspan="2" align="left">
+                                <input type="radio" name="csOrSnap" value="cs"
+                                       checked style="margin-right: 10px"/>修改集
+                                <input type="radio" name="csOrSnap" value="snap"
+                                       style="margin-left: 50px;margin-right: 10px"/>快照
+
+                            </td>
+                        </tr>
+                        <tr id="csTr">
+                            <td align="right" style="width:18%;">
+                                修改集：
+                            </td>
+                            <td align="left">
+                                <input id="customCs" type="text" style="width: 100%;"
+                                       placeholder="请输入修改集"/>
+                            </td>
+                            <td>
+                                <a class=" btn btn-link btn-xs" id="fillUpCs">
+                                    最新
+                                </a>
+                            </td>
+                        </tr>
+                        <tr style="display: none" id="snapTr">
+                            <td align="right" style="width:18%;">
+                                快照：
+                            </td>
+                            <td align="left">
+                                <input id="customSnap" type="text" style="width: 100%;"
+                                       class="required" placeholder="输入快照名"/>
+                            </td>
+                            <td>
+                                <a class=" btn btn-link btn-xs" id="fillUpSnap">
+                                    最新
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </form>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-sm btn-success"
+                        id="btnCustomEnv"><span
+                        class="glyphicon glyphicon-saved"></span>&nbsp;校验&选择版本
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+
+</div>
+

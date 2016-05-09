@@ -1,0 +1,48 @@
+<div class="modal fade" id="syncResultModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">同步详情</span>
+            </div>
+            <form class="form-horizontal" role="form" id="syncResultForm" name="syncResultForm">
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+
+                        <tr>
+                            <td align="right">
+                                结果:
+                            </td>
+                            <td align="left" colspan="3">
+                                <div>
+                                    <pre id="syncResult" name="syncResult"
+                                         style="height: 600px; width:450px;"></pre>
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+##                <div class="modal-footer">
+##                    <button type="button" class="btn btn-sm btn-success" id="btnSolveConflict"><span
+##                            class="glyphicon glyphicon-retweet"></span>&nbsp;恩,问题解决,我要重试
+##                    </button>
+##                </div>
+            </form>
+
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>

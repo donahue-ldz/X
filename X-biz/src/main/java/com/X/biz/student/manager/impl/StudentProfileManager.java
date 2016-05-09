@@ -5,6 +5,7 @@ import com.X.biz.student.manager.IStudentDBManager;
 import com.X.biz.student.manager.IStudentProfileManager;
 import com.X.dal.domain.StudentDO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-07 11:22 PM
  **/
+@Service("studentProfileManager")
 public class StudentProfileManager implements IStudentProfileManager {
     @Autowired
     private IStudentDBManager studentDBManager;

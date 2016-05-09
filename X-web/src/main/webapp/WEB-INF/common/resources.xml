@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:services="http://www.alibaba.com/schema/services"
+             xmlns:res-loaders="http://www.alibaba.com/schema/services/resource-loading/loaders"
+             xsi:schemaLocation="http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+
+                 http://www.alibaba.com/schema/services/resource-loading/loaders http://localhost:8080/schema/services-resource-loading-loaders.xsd
+                 http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <services:resource-loading>
+
+     <resource-alias pattern="/" name="/webroot" />
+
+        <!--&lt;!&ndash; 子模块模板目录：/*/templates &ndash;&gt;-->
+        <!--&lt;!&ndash; 全局模板目录：  /*/templates/global &ndash;&gt;-->
+        <!--<resource-alias pattern="/*/templates/global" name="/webroot/web/templates" />-->
+
+        <!--&lt;!&ndash; 配置文件根目录：/conf &ndash;&gt;-->
+        <!--<resource-alias pattern="/conf" name="/webroot/WEB-INF" />-->
+        <!--<resource-alias pattern="/amsweb" name="/classpath" />-->
+
+        <resource-alias pattern="/dal/mapper" name="/classpath/dal/mapper" />
+        <resource-alias pattern="/dal/conf" name="/classpath/dal/conf" />
+
+        <!-- 内部资源 -->
+        <resource pattern="/webroot" internal="true">
+            <res-loaders:webapp-loader />
+        </resource>
+        <resource pattern="/classpath" internal="true">
+            <res-loaders:classpath-loader />
+        </resource>
+    </services:resource-loading>
+
+</beans:beans>

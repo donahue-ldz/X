@@ -1,0 +1,36 @@
+<div id="nav" class="container"
+     style="width:1198px; height: 39px;margin-bottom:0px;padding: 0px;margin-left: auto;margin-right: auto;">
+    <table class="table table-bordered" style="width: 100%;height:39px;padding: 0px;">
+        <tbody>
+        <tr>
+            <td>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                $!{navInfo}
+            </td>
+            #if($newAddShow)
+                <td align="right" style="width: 60px;">
+                    <button type="button" class="btn btn-link btn-xs" id="btn_showAddModal">
+                        <span class="glyphicon glyphicon-plus"></span>$newAddShow</button>
+                </td>
+            #end
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script language="JavaScript">
+    $(function () {
+        //应用选项
+        var projectIdListHtml = " <div class=\"input-group\" style=\"width: 95%;height: 13px;\">";
+        projectIdListHtml += "   <span class=\"input-group-addon\" >应用：</span>";
+        projectIdListHtml += "<select class=\"form-control\" id=\"projectId\" onchange='changeProject(this.value)'>";
+        #foreach($project in $projectDOList)
+            projectIdListHtml += "<option value=\"$!{project.id}\">$!{project.cnName}</option>";
+        #end
+        projectIdListHtml += " </select>  </div>";
+        $("#span_project").html(projectIdListHtml);
+        $("#span_project  select[id='projectId'] ")
+                .find("option[value='$!{workProjectId}']").attr("selected", true);
+    });
+</script>
+

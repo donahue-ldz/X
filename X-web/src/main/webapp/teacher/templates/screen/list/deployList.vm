@@ -1,0 +1,607 @@
+#set($navInfo="数据集成")
+#parse("/control/list/macro.vm")
+
+<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/assets/css/envList.css">
+<link rel="stylesheet" href="/assets/css/searchBox.css">
+<link href="/assets/css/custom-table.css" rel="stylesheet" type="text/css"/>
+
+<style>
+
+
+    #rollbackTableBody tr:hover .cellItem {
+        transition: all 0.3s;
+        max-height: 200px;
+    }
+
+    .editGroup {
+        word-break: break-all !important;
+        white-space: normal !important;
+        background-color: #ddd;
+        border-radius: 5px;
+        padding: 5px;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    #rollbackTableBody tr:hover .editGroup {
+        visibility: visible;
+        transition: 0.3s;
+        opacity: 1;
+    }
+
+    #bottomCopyRightDiv {
+        bottom: 20px;
+    }
+
+    .selected {
+        background-color: lightsalmon;
+    }
+
+    .level_box {
+        height: 95%;
+    }
+
+    .title {
+        text-align: center;
+        border: 1px solid #ddf;
+        padding: 5px 20px;
+        border-radius: 5px;
+        -moz-border-radius: 5px; /* 老的 Firefox */
+        background-color: #eef;
+    }
+
+    .rightBox1 {
+        top: 200px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .rightBox3 {
+        /*
+        position: absolute;
+        top: 5px;
+        bottom: 30px;
+        height: auto !important;
+        left: 10px;
+        right: 10px;
+        width: auto !important;
+        */
+        height: auto;
+        min-height: 200px;
+        border: none !important;
+    }
+
+    .rightBox4 {
+        /*
+        position: absolute;
+        bottom: 30px;
+        left: 20px;
+        right: 20px;
+        */
+        margin: 0px 15px;
+    }
+
+    .dataEnvDesc {
+        display: inline;
+        width: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    pre {
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 0px;
+        border: none;
+    }
+
+    #dataEnv {
+        border: none;
+    }
+
+    #tabContent {
+        border: solid 1px #ddd;
+        border-top: none;
+    }
+
+    #dataEnvSelect {
+        min-width: 100px;
+    }
+
+    tbody > td {
+        word-wrap: break-word;
+        font-size: 10px;
+        padding: 8px 2px;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    input[type="text"] {
+        margin-left: 2px;
+        padding-left: 2px;
+    }
+
+    body {
+        overflow-x: auto;
+    }
+
+    .envSpecial {
+        font-weight: bold !important;
+        font-size: 14px;
+        font: 400;
+        text-transform: uppercase;
+        text-align: left;
+        color: red;
+    }
+
+    .disabled {
+        opacity: 0.25;
+        pointer-events: all !important;
+        cursor: not-allowed;
+    }
+</style>
+<div class="row"
+     style="min-width:1260px;margin-top: 10px;margin-left: 15px; margin-right: 15px;padding: 5px;height: 85%">
+    <!--记录显示开始-->
+
+    <div id="dataEnv" class="panel panel-default">
+        <div class="panel-heading" style="border: solid 1px #ddd;">
+
+            <div style="font-size: 10px !important;;" data-spm="1998331251">
+                <div class="title" style="display: inline-block">
+                    <span style="margin-left:10px;font-size: larger">环境中文名:</span>
+                    <span style="margin-right:10px;">$!{dataEnv.dataEnvCn}</span>
+                </div>
+                <div class="title" style="display: inline-block">
+
+                    <span style="margin-left:10px;font-size: larger">环境英文名:</span>
+                    <span style="margin-right:10px;">$!{dataEnv.dataEnvEn}</span>
+                </div>
+                <div class="title" style="display: inline-block">
+
+                    <span style="margin-left:10px;font-size: larger">创建人:</span>
+                    <span style="margin-right:10px;">#showUserName($!{dataEnv.operator} "%s")</span>
+                </div>
+
+                <div class="title" style="display: inline-block">
+
+                    <span style="margin-left:10px;font-size: larger">创建时间:</span>
+                <span style="margin-right:10px;">$!dateUtils.format(
+                    'yyyy-MM-dd HH:mm:ss ',$!{dataEnv.gmtCreate})</span>
+                </div>
+                <div class="title" style="display: inline-block">
+
+                    <span style="margin-left:10px;font-size: larger">描述:</span>
+
+                    <div style="margin-right:10px;" class="dataEnvDesc">$!{dataEnv.description}</div>
+                </div>
+
+                <div style="display: inline;float: right;margin: 2px;">
+
+                    <label for="ns">数据环境:</label>
+                    <select id="dataEnvSelect" class="selectpicker show-tick" data-width="auto"
+                            data-live-search="true" style="visibility: hidden;margin-right: 5px">
+
+                        #if($rundata.request.getRequestURL().indexOf("taobao.org")!=-1)
+                        <optgroup label="线上">
+                        #else
+                        <optgroup label="线下">
+                        #end
+
+                        #foreach($!dataEnvDO in $!dataEnvs)
+                            #if($!dataEnv.dataEnvEn==$!dataEnvDO.dataEnvEn)
+                                <option value="$!dataEnvDO.dataEnvEn" selected>$!dataEnvDO.dataEnvCn</option>
+                            #else
+                                <option value="$!dataEnvDO.dataEnvEn">$!dataEnvDO.dataEnvCn</option>
+
+                            #end
+                        #end
+                    </optgroup>
+                        #if($rundata.request.getRequestURL().indexOf("taobao.org")!=-1)
+                            <optgroup label="去线下" class="envSpecial btn btn-link btn-xs">
+                                <option style="display: none"><a href="#"></a></option>
+                            </optgroup>
+                        #else
+                            <optgroup label="去线上" class="envSpecial btn btn-link btn-xs">
+                                <option style="display: none"><a href="#"></a></option>
+                            </optgroup>
+                        #end
+
+
+                    </select>
+                    <button class="btn btn-danger btn-xs" id="btnDelDataEnv" style="margin-top: 5px;float: right;">
+                        －删除环境
+                    </button>
+                    <button class="btn btn-success btn-xs" id="newDataEnv"
+                            style="margin-top: 5px;float: right;margin-left: 5px">＋创建环境
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <ul id="myTab" class="nav nav-tabs" style="margin-top: 10px">
+            <li class="active">
+                <a href="#intgenv" data-toggle="tab">
+                    环境部署
+                </a>
+            </li>
+            <li>
+                <a href="#deployHistory" data-toggle="tab">
+                    部署记录
+                </a>
+            </li>
+        </ul>
+        <div id="tabContent" class="tab-content">
+        ## 集成信息
+            <div class="tab-pane fade in active" id="intgenv">
+                <span>&nbsp;</span>
+
+                <div class=" panel panel-success scrollBar" style="margin:10px;margin-top:0px;overflow: hidden;">
+                    <div class="panel-heading">部署详情</div>
+                    <div class="panel-body" style="padding-bottom: 0px;">
+                        <div class="table-responsive">
+                            <!--记录显示预留-->
+                            <table class="table" style="margin-bottom:0px;">
+                                <tbody id="tbody">
+                                    #if(!${successDeploy})
+                                    <tr style="display: none" id="successDeploy">
+                                    #else
+                                    <tr>
+                                    #end
+
+                                    <td>
+                                        <span class=""
+                                              style="color: limegreen;font-size:larger;font-weight: bold;margin-top:5px;">
+                                            成功部署
+                                        </span>
+                                    </td>
+                                    <td>
+                                    <pre><span>部署分支:</span><a
+                                            href='/list/branchInfo.htm?branch=$!{successDeploy.mergeBranchName}'
+                                            target='_blank'><input type="text" id="deployBranch" style="width: 180px;"
+                                                                   value="$!{successDeploy.mergeBranchName}"
+                                                                   readonly/></a>
+                                            <a class="btn btn-link btn-xs" onclick="deployBranchInfo()"><span
+                                                    class=" glyphicon glyphicon-eye-open"
+                                                    style="position: relative;top: 2px;"></span>详情</a><a
+                                                class="btn btn-link btn-xs"></a></pre>
+                                    </td>
+                                    <td>
+                                    <pre><span>部署快照:</span><input type="text" id="deploySnap" style="width:180px;"
+                                                                  value="$!{successDeploy.mergeBranchSnap}"
+                                                                  readonly></pre>
+                                    </td>
+                                    <td>
+                                    <pre><span>部署时间:</span><input type="text" id="deployTime" style="width:150px;"
+                                                                  value="$!dateUtils.format(
+                                                                      'yyyy-MM-dd HH:mm:ss ',$!successDeploy.operateTime)"
+                                                                  readonly></pre>
+                                    </td>
+                                    <td>
+                                        <pre><span>部署人:</span>#showUserName($!{successDeploy.operator}
+                                            "<input type='text' id='deployer' style='width:150px;' value='%s' readonly>")</pre>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <a class="btn btn-link btn-xs" id="rollbackEnv"
+                                               style="position: relative;top: 2px;">
+                                                <img
+                                                        src="/assets/imgs/roll-back.png"
+                                                        style="width: 20px;height:20px;position: relative;top: -1px;">回滚
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                    #if(!${failDeploy})
+                                    <tr style="display: none" id="intg">
+                                    #else
+                                    <tr id="intg">
+                                    #end
+
+                                    <td>
+                                        <span class=""
+                                              style="color: red;font-size: larger;font-weight: bold;margin-top:5px;">正在部署
+                                            #if(${failDeploy}&&$failDeploy.status=="0")
+                                                <img src="/assets/imgs/deployRunning.gif"
+                                                     style=" margin-left:10px;height: 30px;width: 30px">
+                                            #end
+                                        </span>
+                                    </td>
+                                    <td>
+                                    <pre><span>操作分支:</span><a
+                                            href='/list/branchInfo.htm?branch=$!{failDeploy.mergeBranchName}'
+                                            target='_blank'><input
+                                            type="text" id="intgenvBranch" style="width:200px;"
+                                            value="$!{failDeploy.mergeBranchName}" readonly></a></pre>
+                                    </td>
+
+                                    <td>
+                                    <pre><span>操作状态:</span>#if(${failDeploy}&&$failDeploy.status=="0")<input type="text"
+                                                                                                             id="intgenvStatus"
+                                                                                                             value="正在集成"
+                                                                                                             style="width:150px"
+                                                                                                             readonly/>#elseif(${failDeploy.status}==
+                                        "2"&&$failDeploy.conflictCs&&$failDeploy.conflictCs!="__sys_solve_conflict")
+                                        <input type="text"
+                                               id="intgenvStatus"
+                                               value="冲突"
+                                               style="width:150px"
+                                               readonly/>#elseif(${failDeploy.status}==
+                                        "2"&&$failDeploy.conflictCs=="__sys_solve_conflict")<input type="text"
+                                                                                                   id="intgenvStatus"
+                                                                                                   value="冲突(已解决冲突)"
+                                                                                                   style="width:150px"
+                                                                                                   readonly/>#else
+                                        <input type="text"
+                                               id="intgenvStatus"
+                                               value="异常"
+                                               style="width:150px"
+                                               readonly/>#end
+                                        #if(${failDeploy.errorMsg}&&${failDeploy.status}=="2" &&!$failDeploy.conflictCs)
+                                            <a
+                                                    class="btn btn-link btn-xs" id="btnErrorMsg"
+                                                    onclick="deployError(${failDeploy.id})"><span
+                                                    class=" glyphicon glyphicon-exclamation-sign"
+                                                    style="position: relative;top: 2px;color: red">详情</span></a>#elseif(${failDeploy.status}==
+                                            "2"&&$failDeploy.conflictCs!=""&&$failDeploy.conflictCs!=
+                                            "__sys_solve_conflict")<a
+                                                href="/list/changeList.htm?branch=$!{failDeploy.mergeBranchName}&cs=$!{failDeploy.conflictCs} &type=CsConflict&from_deploy=true"
+                                                class="btn btn-link btn-xs"> <span><img
+                                                src="/assets/imgs/intgenvConflict.png" style="height: 20px">解决冲突</span>
+                                        </a>#end<a class="btn btn-link btn-xs" onclick="againDeploy('failAgain')"><span><img
+                                                src="/assets/imgs/ingenvContinue.jpg" style="height: 20px" ">再次部署</span></a>
+                                    </pre>
+                                    </td>
+                                    <td>
+                                    <pre><span>操作时间:</span><input type="text" id="intgenvTime"
+
+                                                                  value="$!dateUtils.format(
+                                                                      'yyyy-MM-dd HH:mm:ss ',$!failDeploy.operateTime)"
+                                                                  √ style="width:150px" readonly></pre>
+                                    </td>
+                                    <td>
+                            <pre><span>操作人:</span>#showUserName($!{failDeploy.operator}
+                                "<input type='text' id='intgenver' value='%s' style='width:150px' readonly>")</pre>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class=" panel panel-default  scrollBar" style="margin: 10px">
+                    <div class="panel-heading" style="padding: 0px 15px;">
+                        #if(${failDeploy})
+                            <span>正在部署分支</span>
+                        #else
+                            <span>成功部署分支</span>
+                        #end
+
+                    ##成功部署
+                        #if(!${failDeploy} && $details&&$details.size()>0)
+                            #if(!$isRollback)
+                                <button class="btn btn-sm bg-primary " style="margin-left: 20px ;" id="deployAgain"
+                                        data-toggle='tooltip' title='
+                                如果当前参与部署的分支有更新,再次部署将会增量部署更新的内容,不用重复解决已解决的冲突'><span
+                                        class="glyphicon glyphicon-refresh"></span>再次部署
+                                </button>
+                            #else
+                                <button class="btn btn-sm bg-primary disabled" style="margin-left: 20px ;"
+                                        id="deployAgain"
+                                        data-toggle='tooltip' title='
+                                如果当前参与部署的分支有更新,再次部署将会增量部署更新的内容,不用重复解决已解决的冲突'><span
+                                        class="glyphicon glyphicon-refresh"></span>再次部署
+                                </button>
+                            #end
+                            #if(${isNeedRebase})
+                                <img
+                                        src="/assets/imgs/needRebase.gif" style="height: 20px; margin-left: 20px">
+                                <button class="btn btn-sm btn-warning" id="btnRebaseDeploy" data-toggle='tooltip'
+                                        title='
+                                主干数据有更新,Rebase将会把主干数据拉到成功部署的分支并重新部署所有分支' data-placement='top'>
+                                    Rebase
+                                </button>
+                            #else
+                                <button class="btn btn-sm btn-warning disabled" id="btnRebaseDeploy"
+                                        data-toggle='tooltip' title='
+                                主干数据有更新,Rebase将会把主干数据拉到成功部署的分支并重新部署所有分支' data-placement='top'>
+                                    Rebase
+                                </button>
+                            #end
+
+                            #if($isRollback)
+                                <button class="btn btn-sm btn-danger disabled" style="margin-left: 20px ;"
+                                        id="btnSubmitDeploy" data-toggle='tooltip' title='
+                                将成功部署的所有分支数据全部提交到主干,参与集成的分支将不可写
+                                ' data-placement='top'>
+                                        <span
+                                                class="glyphicon glyphicon-cloud-upload">
+                            </span>发布
+                                </button>
+                            #else
+                                <button class="btn btn-sm btn-danger" style="margin-left: 20px ;"
+                                        id="btnSubmitDeploy" data-toggle='tooltip' title='
+                                            将成功部署的所有分支数据全部提交到主干,参与集成的分支将不可写
+                                ' data-placement='top'><span
+                                        class="glyphicon glyphicon-cloud-upload">
+                            </span>发布
+                                </button>
+                            #end
+
+                        #else  ##含有正在部署
+                            <button class="btn btn-sm bg-primary disabled" style="margin-left: 20px ;" id="deployAgain"
+                                    data-toggle='tooltip' title='
+                                如果当前参与部署的分支有更新,再次部署将会增量部署更新的内容,不用重复解决已解决的冲突'><span
+                                    class="glyphicon glyphicon-refresh"></span>再次部署
+                            </button>
+                            <button class="btn btn-sm btn-warning disabled" id="btnRebaseDeploy"
+                                    data-toggle='tooltip' title='
+                                主干数据有更新,Rebase将会把主干数据拉到成功部署的分支并重新部署所有分支' data-placement='top'>
+                                Rebase
+                            </button>
+                            <button class="btn btn-sm btn-danger disabled" style="margin-left: 20px ;"
+                                    id="btnSubmitDeploy" data-toggle='tooltip' title='
+                                将成功部署的所有分支数据全部提交到主干,参与集成的分支将不可写
+                                ' data-placement='top'>
+                                        <span
+                                                class="glyphicon glyphicon-cloud-upload">
+                            </span>发布
+                            </button>
+
+
+
+                        #end
+
+
+                        <button class="btn btn-sm bg-success" style="height: 30px;margin: 5px;"
+                                id="btnNewIntgenv" data-toggle='tooltip' title='
+                                在当前环境下重新部署新的分支
+                                ' data-placement='top'><img
+                                src="/assets/imgs/newIntgenv.png" style="height: 20px;">新部署
+                        </button>
+
+                        <button class="btn btn-sm btn-default" style="height: 30px;margin: 5px;" id="btnDeployTrunk"
+                                data-toggle='tooltip' title='
+                                在当前环境下部署主干[__trunk__]的内容
+                                ' data-placement='top'>
+                            <span class="glyphicon glyphicon-tree-conifer"></span> 部署主干
+                        </button>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" style="min-height: 200px;">
+                            <table class="table table-striped table-hover  ">
+                                <thead id="head">
+                                <tr>
+                                    <th>编号</th>
+                                    <th>分支</th>
+                                    <th>最后修改集</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="deployList">
+                                    #foreach($k in $!details.keySet())
+                                        #if($details.get($k)==2)
+                                        <tr class="danger">
+                                        #else
+                                        <tr>
+                                        #end
+
+                                        <td>$velocityCount</td>
+                                        <td><a href="/list/branchInfo.htm?branch=$!k.branchName"
+                                               target='_blank' class="deploying">$k.branchName</a></td>
+                                        <td>
+                                            <a href="/list/changeList.htm?cs=$!k.branchLastedCs"
+                                               target='_blank'>$k.branchLastedCs</a>
+                                        </td>
+                                        #if($details.get($k)==1)
+                                            <td><a class="btn btn-xs btn-link"
+                                                   href="/list/branchChangeList.htm?branch=$k.branchName&fromCs=$k.branchLastedCs&type=branchUpdate"
+                                                   target='_blank' style="padding-left:0px;">有更新<img
+                                                    src="/assets/imgs/changeSee.png"
+                                                    style="height: 30px;width:30px;"></a>
+                                            </td>
+                                        #elseif($details.get($k)==0)
+                                            <td>正常</td>
+                                        #else
+                                            <td><a href="#" data-toggle="tooltip" data-placement="top"
+                                                   title="该分支已经发布(提交主干),请移除该分支并重新部署...">
+                                                <span class="glyphicon glyphicon-exclamation-sign"
+                                                      style="color: red"></span>
+                                            </a>已发布
+                                            </td>
+                                        #end
+                                        <td>
+                                            #if($daily)
+                                                <button class="btn btn-default btn-xs"
+                                                        onclick="syncBranch('$!{k.branchName}')" data-toggle='tooltip'
+                                                        title='
+                                将当前分支数据内容同步到线上Ops,全量同步,数据量太大请采用文件导入导出
+                                ' data-placement='top'><img
+                                                        src="/assets/imgs/sync.jpg" style="width: 20px;height: 20px"/>同步线上
+                                                </button>
+                                            #end
+                                        </td>
+                                    </tr>
+                                    #end
+                                    #if(!${failDeploy}&&$details.size()>0)
+                                    <tr id="addBranchInDeployTr">
+                                        <td colspan="5">
+                                            <button class="btn btn-default btn-xs" style="float:left"
+                                                    id="addBranchInDeploy">
+                                                <span style="color: red;font-size: larger">＋</span>添加新分支
+                                            </button>
+
+                                        </td>
+                                    </tr>
+                                    #end
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        ##部署记录
+            <div class="tab-pane fade" id="deployHistory">
+                <span>&nbsp;</span>
+
+                <div class=" panel panel-success" style="margin:10px;margin-top:0px;">
+                    <div class="panel-body rightBox3" style="padding:0px">
+                        <div class="table-responsive">
+                            <!--记录显示预留-->
+                            <table class="table table-striped table-hover table-container rightBox3" id="historyTable"
+                                   style="height:auto; min-height:200px;">
+                                <thead id="head">
+                                <tr>
+                                    <th width="10%">编号</th>
+                                    <th width="25%">部署分支</th>
+                                    <th width="25%">部署快照</th>
+                                    <th width="10%">结果</th>
+                                    <th width="10%">操作人</th>
+                                    <th width="10%">操作时间</th>
+                                    <th width="10%">集成分支</th>
+                                </tr>
+                                </thead>
+
+                                <tbody id="historyBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="rightBox4">
+                    #parse("/control/list/page.vm")
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div><!--end container-->
+<input type="hidden" id="intgStatus" value="$!{rundata.parameters.type}">
+
+#parse("/control/modal/dataEnvAddModal.vm")
+#parse("/control/modal/deployEnvListModal.vm")
+#parse("/control/modal/deployErrorModal.vm")
+
+#parse("/control/modal/rollbackEnvModal.vm")
+#parse("/control/modal/syncResultModal.vm")
+
+#parse("/control/modal/deployBranchInfoModal.vm")
+<script src="/assets/js/ace/ace.js" charset="utf-8"></script>
+<script src="/assets/js/lib/jquery.blockUI.js" charset="utf-8"></script>
+<script src="/assets/js/application/ops/deployList.js" charset="UTF-8"></script>
+<script src="/assets/js/application/ops/deployEnvList.js" charset="UTF-8"></script>

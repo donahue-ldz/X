@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+    <import resource="dal-test.xml"/>
+    <bean id="nameSpaceManager" class="com.taobao.ops.biz.manager.web.impl.NameSpaceManager" />
+    <bean id="recordManager" class="com.taobao.ops.biz.manager.web.impl.RecordManager"/>
+    <bean id="changesetManager" class="com.taobao.ops.biz.manager.web.impl.ChangeSetManager"/>
+    <bean id="submitResultManager" class="com.taobao.ops.biz.manager.web.impl.SubmitResultManager"/>
+    <bean id="tableManager" class="com.taobao.ops.biz.manager.web.impl.TableManager"/>
+    <bean id="snapshotManager" class="com.taobao.ops.biz.manager.web.impl.SnapshotManager"/>
+</beans>

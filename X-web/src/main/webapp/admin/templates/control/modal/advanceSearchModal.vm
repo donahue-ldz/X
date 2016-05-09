@@ -1,0 +1,92 @@
+<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">高级检索</span>
+                <p style="color: red" id="errorShow"></p>
+            </div>
+
+            <div class="modal-body" >
+                <div class="form-horizontal" method="post"  id="advanceSearchForm">
+                    <div class="form-group" id="initKeyValue">
+                        <div class="col-sm-5">
+                            <div class="input-group" style="width: 98%;">
+                                <span class="input-group-addon">列:</span>
+                                    <span id="keyList">
+                                         <select class="form-control"  name ="keys">
+                                             <option value="-911">请选择</option>
+                                         </select>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="input-group" style="width: 98%;">
+                                <span class="input-group-addon">值:</span>
+                                <input class="form-control" name="value1" type="text" placeholder="请输入value">
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <a class="btn btn-link" id="newKeyValueIcon" onclick="newKeyValue()">
+                                <span class="glyphicon glyphicon-plus" name="icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input class="btn btn-success" type="button" value="确定" id="btnSearch"></input>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div><!-- /.modal -->
+
+<input type="hidden" name="keysNum" id="keysNum" >
+<input  type="hidden" name="sumConditions" id="sumConditions" value="1"/>
+
+<script>
+    function newKeyValue(){
+        var oldKeyValue = $("#initKeyValue");
+        var newKeyValue = $("#initKeyValue").clone();
+        oldKeyValue.find('.glyphicon.glyphicon-plus').attr("class","glyphicon glyphicon-minus").parent().attr("onclick","delKeyValue(this)");
+        oldKeyValue.removeAttr("id");
+
+        newKeyValue.find('input.form-control').val("");
+
+
+
+        var newSum = parseInt($('#sumConditions').attr("value"))+1;
+        $('#sumConditions').attr("value",newSum);
+        var keysNum = parseInt($("#keysNum").val());
+        if(keysNum>=newSum) {
+            if(keysNum-newSum>0)
+                $("#advanceSearchForm").append(newKeyValue);
+            else{
+                newKeyValue.find('.glyphicon.glyphicon-plus').attr("class","glyphicon glyphicon-minus").parent().attr("onclick","delKeyValue(this)");
+                $("#advanceSearchForm").append(newKeyValue);
+            }
+        }
+        $("#advanceSearchForm").find("input").unbind().keypress(function (e) {
+            if (e.which == 13) {
+                $('#btnSearch').click();
+            }
+        })
+    }
+    function delKeyValue(event){
+        //删除行
+
+        $(event).parent().parent().remove();
+        var newSum = parseInt($('#sumConditions').attr("value"))-1;
+        $('#sumConditions').attr("value",newSum);
+        $("#advanceSearchForm>div").last().find('.glyphicon.glyphicon-minus').attr("class","glyphicon glyphicon-plus").parent().attr("onclick","newKeyValue(this)");
+        $("#advanceSearchForm>div").last().attr("id","initKeyValue");
+    }
+</script>

@@ -1,0 +1,167 @@
+#set($navInfo="数据开发")
+##parse("/control/list/navInfoPro.vm")
+<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    .pre {
+        border: 2px solid #6b6;
+        padding: 2px 10px;
+        border-radius: 25px;
+        -moz-border-radius: 5px; /* 老的 Firefox */
+        margin: 2px;
+    }
+    .bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+        width: 100%;
+        border-radius: 0px;
+    }
+</style>
+<div class="row"
+     style="min-width:960px;height:95%;margin-top: 10px;margin-left: 15px; margin-right: 15px;padding: 5px; ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href='/list/userTableList.htm'>数据开发</a> &gt;
+            <a href='/list/tableManager.htm'>表管理</a> &gt;
+            数据导入导出
+        </div>
+        <div class="panel panel-info" style="margin: 30px">
+            <div class="panel-heading"><span class="pre">数据导出</span></div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="exportDataForm" enctype="multipart/form-data">
+                    <div class="form-group" style="margin-left: 150px;margin-right: 100px;color:red">
+                        <p id="errorMsg"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="ns" class="control-label col-sm-1"
+                               style="margin-left: 10px;position: relative">命名空间:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <select type="text" class="form-control col-sm-6 selectpicker show-tick" id="ns" name="ns"
+                                    style='color:#000;visibility: hidden'
+                                    data-live-search="true">
+                                #foreach($ns in $!allNs)
+                                    <option value="$ns">$ns</option>
+                                #end
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="type" class="col-sm-1 control-label">类型:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <div class="col-sm-6">
+                                <input type="radio" id="nsType" name="type" value="nsType" checked/> 命名空间
+                                <input type="radio" id="tableType" name="type" value="tableType"
+                                       style="margin-left: 50px"/> 表
+                                <input type="radio" id="branchType" name="type" value="branchType"
+                                       style="margin-left: 50px"/> 分支
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="tableGroup" style="display: none">
+                        <div>
+                            <label for="table" class="col-sm-1 control-label">表:</label>
+
+                            <div style="margin-left: 200px;margin-right: 100px">
+                                <input class="form-control" id="table" name="table"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="table" class="col-sm-1 control-label">分支:</label>
+
+                            <div style="margin-left: 200px;margin-right: 100px">
+                                <input class="form-control" id="tableGroupBranch" name="tableGroupBranch"
+                                       placeholder="分支为__trunk__,代表主干上数据"/>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="table" class="col-sm-1 control-label">修改集:</label>
+
+                            <div style="margin-left: 200px;margin-right: 100px">
+                                <input class="form-control" id="tableGroupCs" name="tableGroupCs"
+                                       placeholder="修改集为空,代表分支上所有数据"/>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group" style="display: none" id="branchGroup">
+                        <label for="table" class="col-sm-1 control-label">分支:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <input class="form-control" id="branch" name="branch" placeholder="分支为__trunk__,代表主干上数据"/>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: none" id="csGroup">
+                        <label for="table" class="col-sm-1 control-label">修改集:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <input class="form-control" id="cs" name="cs" placeholder="修改集为空,代表分支上所有数据"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="margin-left: 150px;margin-right: 100px">
+                            <input type="button" class="form-control col-sm-6 btn btn-success " id="btnExportData"
+                                   value="确定导出"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-success" style="margin: 30px">
+            <div class="panel-heading"><span class="pre">数据导入</span></div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="importDataForm" enctype="multipart/form-data">
+                    <div class="form-group" style="margin-left: 150px;margin-right: 100px;color:red">
+                        <p id="errorMsg"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="ns" class="control-label col-sm-1"
+                               style="margin-left: 10px;position: relative">命名空间:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <select type="text" class="form-control col-sm-6 selectpicker show-tick" id="ns" name="ns" style='color:#000;visibility: hidden;'
+                                    data-live-search="true">
+                                #foreach($ns in $!allNs)
+                                    <option value="$ns">$ns</option>
+                                #end
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="csGroup">
+                        <label for="cs" class="col-sm-1 control-label required">修改集:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <input type="text" class="form-control col-sm-6 required" id="cs" name="cs"
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group" id="fileGroup">
+                        <label for="file" class="col-sm-1 control-label">文件:</label>
+
+                        <div style="margin-left: 200px;margin-right: 100px">
+                            <input type="file" id="file" name="dataFile">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="margin-left: 150px;margin-right: 100px">
+                            <input type="submit" class="form-control col-sm-6 btn btn-warning " id="btnImportData"
+                                   value="确定导入">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/assets/js/lib/jquery.blockUI.js" charset="utf-8"></script>
+
+<script src="/assets/js/ace/ace.js" charset="utf-8"></script>
+
+<script src="/assets/js/application/ops/exportAndImData.js" charset="utf-8"></script>

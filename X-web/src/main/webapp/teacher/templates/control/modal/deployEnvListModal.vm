@@ -1,0 +1,179 @@
+<style>
+    .level_items,
+    .line {
+        border: none;
+    }
+
+    .line td,
+    #deployedTable td {
+        text-align: left;
+        padding: 5px;
+        white-space: normal;
+        word-break: break-all;
+        line-height: 20px;
+        border-bottom: solid 1px #ccc;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+    }
+
+    .listPanel {
+        width: 100%;
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-bottom: solid 1px #ddd;
+    }
+
+    .level_body {
+        height: 100%;
+    }
+
+    .subPanelTitle {
+        border-bottom: solid 1px #09d;
+        margin: 5px;
+        text-align: left;
+        padding-left: 15px;
+        color: #09d;
+        font-weight: bold;
+    }
+
+    .subPanelBody {
+        margin: 0px 15px;
+    }
+</style>
+
+<div class="modal fade text-center" id="deployEnvListModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="display: inline-block; width: 50%; min-width: 600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">集成环境选择</span>
+            </div>
+            <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                <div class="" style="height: 500px; margin:10px 20px;"
+                     id="intgenvList">
+                    <div class="" style="height: 100%;">
+                        <div class="panel panel-info" style="float: left;width: 45% ">
+                            <div class="panel-heading" style="width: 100%">
+                                <div class="panel-title" style="text-align: left;">
+                                    <span>分支</span>
+
+                                    <div id="search_box" style="float: right;">
+                                        <input type="text" id="s" placeholder="分支检索" class="swap_value"
+                                               onkeypress="return branchSearchKeyPress(event)"
+                                               style="position: relative;top: -3px;">
+                                        <input type="image" src="/assets/imgs/btn_search_box.gif" width="27" id="go"
+                                               alt="Search" title="Search" onclick="handleQueryBranch()"
+                                               style="position: relative;top: 1px;left: -3px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body listPanel">
+                                <table id="selectBranchList" class="level_items"></table>
+                            </div>
+                            <div style="padding: 3px;" id="test">
+                                <ul class="pager" style="margin:0px;">
+                                    <li class="previous disabled">
+                                        <a href="#" id="previous" name="0">&larr; 上页</a>
+                                    </li>
+                                    <li class="next">
+                                        <a href="#" id="next" name="2">下页 &rarr;</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    ##                    环境选择
+                        <input type="hidden" id="intgenvAddBranch" name="intgenvAddBranch">
+                        <input type="hidden" id="intgenvDelBranch" name="intgenvDelBranch">
+
+                        <div class="level_box" style="width: 10%">
+                            <div class="level_header">
+                                <span></span>
+                            </div>
+                            <div class="">
+                                <button id="btnIntgenvAddBranch" class="btn btn-default btn-sm"
+                                        style="margin-top: 50%;"><img
+                                        src="/assets/imgs/rightIcon.png"
+                                        style="height: 30px;width: 30px">
+                                </button>
+                                <button id="btnIntgenvDelBranch" class="btn btn-default btn-sm"
+                                        style="margin-top: 20px;"><img
+                                        src="/assets/imgs/leftIcon.png"
+                                        style="height: 30px;width: 30px">
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <div class="panel panel-success" style="float: left;width: 45%;">
+                            <div class="panel-heading">
+                                <div class="panel-title" style="text-align: left;">
+                                    <span>已选分支</span>
+
+                                    <div style="float: right;">
+                                        <input type="checkbox" id="fillPreDeploy" /><span style="font-size: smaller">上次部署</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="level_box" style="width:100%;height:400px;" id="contanier">
+                            </div>
+
+                            <input type="submit" id="btnIntgenv" class="btn btn-success"
+                                   style="display: none;margin:2px;"
+                                   value="提交集成"/>
+
+                        </div>
+
+                    </div>
+
+                ## 新环境部署Div
+                    <div id="newIntgEnvDiv" style="display: none">
+                        <div class="panel-body listPanel">
+                            <div>
+                                <table id="selectedBranchList" class="level_items"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                ## 新增分支集成DIV
+                    <div id="newBranchInDeployDiv" style="display: none">
+                        <div class="level_body">
+                            <div class="subPanelTitle">已集成</div>
+                            <div class="subPanelBody">
+                                <table id="deployedTable" class=" table ">
+
+                                    #foreach($k in $!details.keySet())
+                                        <tr>
+                                            <td>$k.branchName</td>
+                                        </tr>
+                                    #end
+                                </table>
+                            </div>
+                            <div class="subPanelTitle">新增</div>
+                            <div class="subPanelBody">
+                                <table id="selectedBranchList" class="level_items"></table>
+                            </div>
+
+                        </div>
+
+
+                        <input type="hidden" id="againType">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+</div><!-- /.modal -->
+#parse("/control/modal/branchInfoModal.vm")

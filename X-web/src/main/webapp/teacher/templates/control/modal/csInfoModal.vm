@@ -1,0 +1,113 @@
+<div class="modal fade" id="csInfoModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                <span style="font-weight:bold;font-size: 13px;">修改集详情</span>
+                <p style="color: red;font-size: larger" id="errorMsg"></p>
+
+            </div>
+            <form class="form-horizontal" role="form" id="csInfoForm" name="csInfoForm">
+
+                $!csrfToken.hiddenField
+                <input name="id" type="hidden"/>
+
+                <div class="modal-body" style="padding: 2px;padding-top:0px;">
+                    <table class="table" style="width: 99%;padding: 0px;">
+                        <tbody>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                修改集：
+                            </td>
+                            <td align="left">
+                                <input name="cs" id="cs" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                是否关闭：
+                            </td>
+                            <td align="left">
+                                <input name="open" id="open" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                是否提交分支：
+                            </td>
+                            <td align="left">
+                                <input name="submitted" id="submitted" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:20%;">
+                                创建人：
+                            </td>
+                            <td align="left">
+                                <input name="creator" id="creator" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                创建时间：
+                            </td>
+                            <td align="left">
+                                <input name="created" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                最后操作：
+                            </td>
+                            <td align="left">
+                                <input name="modifiedType" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                最后操作人：
+                            </td>
+                            <td align="left">
+                                <input name="modifier" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                最后操作时间：
+                            </td>
+                            <td align="left">
+                                <input name="modified" type="text" style="width: 80%;" readonly/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" style="width:18%;">
+                                备注：
+                            </td>
+                            <td align="left">
+                                <textarea name="description" style="line-height: 3;width: 80%" readonly></textarea>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+
+
+</div>
+

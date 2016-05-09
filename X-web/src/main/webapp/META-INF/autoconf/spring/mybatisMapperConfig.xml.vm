@@ -9,12 +9,12 @@
        default-autowire="byName" default-lazy-init="false">
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.taobao.doa.ams.ops.dal.dao.domain"/>
+        <property name="typeAliasesPackage" value="com.X.dal.domain"/>
         <property name="configLocation" value="/dal/conf/mybatis-config.xml"/>
         <property name="mapperLocations" value="/dal/mapper/*.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.taobao.doa.ams.ops.dal.dao.mapper"/>
+        <property name="basePackage" value="com.X.dal.mapper"/>
     </bean>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
@@ -53,7 +53,7 @@
     com.abc.service.*.*(..)表明匹配com.abc.service包下的所有类的所有方法，
     ..代表方法参数可以是任意的，包括0个。 -->
         <aop:pointcut id="myPointcut"
-                      expression="execution(public * com.taobao.doa.ams.ops.biz.manager.web.impl.*.*(..))"/>
+                      expression="execution(public * com.X.biz.*.*(..))"/>
         <!--将定义好的事务处理策略应用到上述的切入点-->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut"/>
     </aop:config>
