@@ -358,4 +358,8 @@
     <!-- END REGISTRATION FORM -->
 </div>
 <div class="copyright"> 2014 © Metronic. Admin Dashboard Template. </div>
+
 </body>
+<script src="/assets/js/app/student/login.js" type="text/javascript">
+
+</script>
