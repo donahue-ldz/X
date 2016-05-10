@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by donahue on 5/6/16.
  */
-public class TeacherDO implements Serializable{
+public class TeacherDO implements Serializable,User {
     private static final long serialVersionUID = 3630901731174836684L;
 
 
@@ -34,6 +34,12 @@ public class TeacherDO implements Serializable{
      * 更新时间
      */
     private Date gmtModified;
+
+    @Override
+    public Role role() {
+        return Role.TEACHER;
+    }
+
     public long getId() {
         return id;
     }
@@ -64,5 +70,32 @@ public class TeacherDO implements Serializable{
 
     public void setNick(String nick) {
         this.nick = nick;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public TeacherDO setStatus(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public TeacherDO setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+        return this;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public TeacherDO setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+        return this;
     }
 }

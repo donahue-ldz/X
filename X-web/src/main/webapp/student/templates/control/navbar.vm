@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="menu-dropdown classic-menu-dropdown ">
-                        <a href="javascript:;"> 论坛
+                        <a href="/bbs/"> 论坛
                             <span class="arrow"></span>
                         </a>
                         <ul class="dropdown-menu pull-left">

@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by donahue on 5/6/16.
  */
-public class StudentDO implements Serializable {
+public class StudentDO implements Serializable,User {
     private static final long serialVersionUID = 310308226585247132L;
     private long id;
     /**
@@ -47,6 +47,10 @@ public class StudentDO implements Serializable {
      */
     private Date gmtModified;
 
+    @Override
+    public Role role() {
+        return Role.STUDENT;
+    }
 
     public long getId() {
         return id;

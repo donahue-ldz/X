@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by donahue on 5/6/16.
  */
-public class AdminDO implements Serializable{
+public class AdminDO implements Serializable,User {
     private static final long serialVersionUID = -3500879575645892867L;
     private long id;
     /**
@@ -37,6 +37,11 @@ public class AdminDO implements Serializable{
      * 更新时间
      */
     private Date gmtModified;
+
+    @Override
+    public Role role() {
+        return Role.ADMIN;
+    }
 
     public long getId() {
         return id;
