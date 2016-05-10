@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-10 3:12 PM
  **/
-public class topicStat implements Serializable {
+public class TopicStat implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -20,7 +20,7 @@ public class topicStat implements Serializable {
         return id;
     }
 
-    public topicStat setId(Long id) {
+    public TopicStat setId(Long id) {
         this.id = id;
         return this;
     }
@@ -29,7 +29,7 @@ public class topicStat implements Serializable {
         return views;
     }
 
-    public topicStat setViews(Long views) {
+    public TopicStat setViews(Long views) {
         this.views = views;
         return this;
     }
@@ -38,7 +38,7 @@ public class topicStat implements Serializable {
         return loves;
     }
 
-    public topicStat setLoves(Long loves) {
+    public TopicStat setLoves(Long loves) {
         this.loves = loves;
         return this;
     }
@@ -47,7 +47,7 @@ public class topicStat implements Serializable {
         return favorites;
     }
 
-    public topicStat setFavorites(Long favorites) {
+    public TopicStat setFavorites(Long favorites) {
         this.favorites = favorites;
         return this;
     }
@@ -56,7 +56,7 @@ public class topicStat implements Serializable {
         return sinks;
     }
 
-    public topicStat setSinks(Long sinks) {
+    public TopicStat setSinks(Long sinks) {
         this.sinks = sinks;
         return this;
     }
@@ -65,7 +65,7 @@ public class topicStat implements Serializable {
         return comments;
     }
 
-    public topicStat setComments(Long comments) {
+    public TopicStat setComments(Long comments) {
         this.comments = comments;
         return this;
     }
@@ -74,7 +74,7 @@ public class topicStat implements Serializable {
         return create_time;
     }
 
-    public topicStat setCreate_time(Long create_time) {
+    public TopicStat setCreate_time(Long create_time) {
         this.create_time = create_time;
         return this;
     }

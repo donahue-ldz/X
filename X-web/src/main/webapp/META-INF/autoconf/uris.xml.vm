@@ -20,6 +20,9 @@
         <uris:turbine-uri id="teacherModule" exposed="true" extends="server">
             <componentPath>/teacher</componentPath>
         </uris:turbine-uri>
+        <uris:turbine-uri id="bbsModule" exposed="true" extends="server">
+            <componentPath>/bbs</componentPath>
+        </uris:turbine-uri>
     </services:uris>
 
 </beans:beans>

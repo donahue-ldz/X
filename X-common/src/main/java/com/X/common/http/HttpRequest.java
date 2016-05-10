@@ -21,8 +21,9 @@
  */
 package com.X.common.http;
 
-import blade.kit.Assert;
-import blade.kit.Base64;
+import com.X.common.utils.Assert;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 
 import javax.net.ssl.*;
 import java.io.*;
@@ -456,8 +457,6 @@ public class HttpRequest {
 	 * @param encode
 	 *            true to encode the full URL
 	 *
-	 * @see #append(CharSequence, Map)
-	 * @see #encode(CharSequence)
 	 *
 	 * @return request
 	 */
@@ -476,8 +475,6 @@ public class HttpRequest {
 	 *            the name/value query parameter pairs to include as part of the
 	 *            baseUrl
 	 *
-	 * @see #append(CharSequence, Object...)
-	 * @see #encode(CharSequence)
 	 *
 	 * @return request
 	 */
@@ -1508,14 +1505,12 @@ public class HttpRequest {
 	
 	/**
 	 * Set cookie. e.g: key1=val1; key2=val2;
-	 * 
-	 * @param key
-	 * @param val
+	 *
 	 * @return
 	 */
 	public HttpRequest cookie(final String name, final String value) {
-		Assert.notEmpty(name, "Cookie name must not be empty");
-		Assert.notNull(value);
+		Preconditions.checkArgument(!Strings.isNullOrEmpty(name), "Cookie name must not be empty");
+		Preconditions.checkNotNull(value);
 		
 		this.cookies.put(name, value);
 		this.executeCookie(getConnection());
@@ -2001,7 +1996,7 @@ public class HttpRequest {
 	 * @return this request
 	 */
 	public HttpRequest basic(final String name, final String password) {
-		return authorization("Basic " + Base64.encode(name + ':' + password));
+		return authorization("Basic " + URLEncoder.encode(name + ':' + password));
 	}
 
 	/**
@@ -2013,7 +2008,7 @@ public class HttpRequest {
 	 * @return this request
 	 */
 	public HttpRequest proxyBasic(final String name, final String password) {
-		return proxyAuthorization("Basic " + Base64.encode(name + ':' + password));
+		return proxyAuthorization("Basic " + URLEncoder.encode(name + ':' + password));
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package com.X.dal.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author donahue ldz2012yn@gmail.com
@@ -8,115 +9,120 @@ import java.io.Serializable;
  **/
 public class TopicCategoryDO implements Serializable {
 
-        private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-        private Long nid;
+    private long id;
 
-        //父节点id
-        private Long pid;
+    /**
+     * 支持继承
+     */
+    private long parentID;
 
-        //节点名称
-        private String title;
+    /**
+     * 节点中文名
+     */
+    private String nameCn;
+    /**
+     * 节点英文名
+     */
+    private String nameEn;
 
-        //节点描述
-        private String description;
+    /**
+     * 节点描述
+     */
+    private String desc;
 
-        //节点英文简写
-        private String slug;
 
-        // 节点图片
-        private String pic;
+    /**
+     * 节点图片
+     */
+    private String pic;
 
-        //帖子数
-        private Long topics;
 
-        //创建时间
-        private Long create_time;
+    private Date gmtCreate;
 
-        //最后更新时间
-        private Long update_time;
+    private Date gmtModified;
 
-        //是否删除
-        private Integer is_del;
+    private String status;
 
-        public Long getNid() {
-            return nid;
-        }
-
-        public void setNid(Long nid) {
-            this.nid = nid;
-        }
-
-        public Long getPid() {
-            return pid;
-        }
-
-        public void setPid(Long pid) {
-            this.pid = pid;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getSlug() {
-            return slug;
-        }
-
-        public void setSlug(String slug) {
-            this.slug = slug;
-        }
-
-        public Long getTopics() {
-            return topics;
-        }
-
-        public void setTopics(Long topics) {
-            this.topics = topics;
-        }
-
-        public Long getCreate_time() {
-            return create_time;
-        }
-
-        public void setCreate_time(Long create_time) {
-            this.create_time = create_time;
-        }
-
-        public Integer getIs_del() {
-            return is_del;
-        }
-
-        public void setIs_del(Integer is_del) {
-            this.is_del = is_del;
-        }
-
-        public String getPic() {
-            return pic;
-        }
-
-        public void setPic(String pic) {
-            this.pic = pic;
-        }
-
-        public Long getUpdate_time() {
-            return update_time;
-        }
-
-        public void setUpdate_time(Long update_time) {
-            this.update_time = update_time;
-        }
-
+    public long getId() {
+        return id;
     }
+
+    public TopicCategoryDO setId(long id) {
+        this.id = id;
+        return this;
+    }
+
+    public long getParentID() {
+        return parentID;
+    }
+
+    public TopicCategoryDO setParentID(long parentID) {
+        this.parentID = parentID;
+        return this;
+    }
+
+    public String getNameCn() {
+        return nameCn;
+    }
+
+    public TopicCategoryDO setNameCn(String nameCn) {
+        this.nameCn = nameCn;
+        return this;
+    }
+
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public TopicCategoryDO setNameEn(String nameEn) {
+        this.nameEn = nameEn;
+        return this;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public TopicCategoryDO setDesc(String desc) {
+        this.desc = desc;
+        return this;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public TopicCategoryDO setPic(String pic) {
+        this.pic = pic;
+        return this;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public TopicCategoryDO setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+        return this;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public TopicCategoryDO setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public TopicCategoryDO setStatus(String status) {
+        this.status = status;
+        return this;
+    }
+}
