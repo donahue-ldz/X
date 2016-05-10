@@ -1,3 +1,4 @@
+#set($navInfo="首页")
 <link href="/assets/css/app/student/index.css" rel="stylesheet" type="text/css"/>
 
 <div class="page-container">

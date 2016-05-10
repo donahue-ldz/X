@@ -1,3 +1,4 @@
+#set($navInfo="个人中心")
 <link href="/assets/css/app/student/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
 <link href="/assets/css/app/student/profile.css" rel="stylesheet" type="text/css"/>
 

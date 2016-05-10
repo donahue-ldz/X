@@ -16,4 +16,9 @@
          <a href='https://work.alibaba-inc.com/work/search?keywords=$name&type=person' target='_blank'>$name</a>
     #end
     #end
+
+#end
+
+#macro (markActiveNavBarTab $name $navInfo)
+navBarTab  #if ("$!navInfo" != "" && $navInfo.contains($name)) active #end
 #end

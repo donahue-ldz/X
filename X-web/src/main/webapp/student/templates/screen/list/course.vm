@@ -1,3 +1,4 @@
+#set($navInfo="课程")
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="/assets/css/app/student/course.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL STYLES -->
