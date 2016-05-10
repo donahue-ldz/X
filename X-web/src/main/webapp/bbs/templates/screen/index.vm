@@ -5,21 +5,20 @@
                 <div class="panel-heading home-panel">
                     <div class="box-tab">
                         <ul class="nav nav-tabs">
-                            <li #if(null==tab)class="active"#end><a href="${base_url('')}" data-toggle="tab">热门</a></li>
-                            #for(node : hot_nodes)
-                            <li #if(tab==node.slug)class="active"#end><a href="${base_url('/?tab=') + node.slug}" data-toggle="tab">${node.title}</a></li>
-                        #end
+                            <li #if(${tab})class="active"#end><a href="/bbs/?tab=all" data-toggle="tab">所有</a></li>
+                            <li #if(!${tab} && ${tab}=="hotTopics")class="active"#end><a href="/bbs/?tab=hotTopics" data-toggle="tab">热门</a></li>
+                            <li #if(!${tab} && ${tab}=="recentlyTopics")class="active"#end><a href="/bbs/?tab=recentlyTopics" data-toggle="tab">最新</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="home">
-                                #if(null == topicPage.results || topicPage.results.size() == 0)
+                                #if(!${topics} || ${topics.size()}== 0)
                                     <div class="alert alert-info alert-dismissable">
                                         该节点下暂时还木有帖子呢 <i class="twa twa-lg twa-sparkles"></i>
                                     </div>
                                 #else
                                 <section class="widget bg-white post-comments">
 
-                                    #for(topic : topicPage.results)
+                                    #foreach($topic in $topics)
                                     <div class="media">
                                         <a class="pull-left" href="${base_url('/member/') + topic.user_name}">
                                             <img class="media-object avatar avatar-sm" src="${topic.avatar}" alt="${topic.user_name}">

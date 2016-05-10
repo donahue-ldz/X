@@ -21,4 +21,12 @@ public class Index extends BaseScreen{
     protected List<String> getPermissionList() throws XException {
         return null;
     }
+
+    private void setTab(Context context)throws Exception{
+        String tab  = reqContext.getParameters().getString("tab");
+        context.put("tab",tab);
+    }
+    private void setTopics(Context context) throws Exception{
+        context.put("topics",null);
+    }
 }
