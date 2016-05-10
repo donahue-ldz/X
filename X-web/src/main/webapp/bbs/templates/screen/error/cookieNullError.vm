@@ -1,0 +1,25 @@
+<div id="nav" class="container"
+     style="width:1198px;min-height:480px;margin-bottom:0px;padding: 0px;margin-left: auto;margin-right: auto;">
+    <table class="table table-bordered" style="width: 100%;height:39px;padding: 0px;">
+        <tbody>
+        <tr>
+            <td style="height: 39px;color: red;">
+                <span id="cookieNullTip"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script language="JavaScript">
+    $(function () {
+        var html = "应用所必须的环境已经失效!<br><br>";
+
+        html += "你可以重新选取应用环境,<a class='btn btn-success btn-link' href='/list/envList.htm'>重新初始化环境</a>"
+        $("#cookieNullTip").html(html);
+
+    });
+
+
+</script>
+

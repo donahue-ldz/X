@@ -1,0 +1,25 @@
+<style>
+    .navigator {
+        position:absolute;
+        left:15px;
+        top: 60px;;
+        right:15px;
+        width:auto !important;
+        background-color:#fff;
+    }
+</style>
+<div id="nav" class="navigator"
+     style="width:1198px;height:39px;margin-bottom:0px;padding:0px;margin-left:auto;margin-right:auto;margin-top:0px;">
+    <table class="table table-bordered" style="width: 100%;height:29px;padding: 0px;">
+        <tbody>
+        <tr>
+            <td>
+                <span class="glyphicon glyphicon-paperclip"></span>
+                #noescape()$!navInfo#end
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+

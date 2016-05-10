@@ -132,6 +132,8 @@ Page Header
 
 .page-header .page-header-top .page-logo .logo-default {
     margin: 29.5px 0 0 0;
+    height: 40px;
+    width: 40px;
 }
 
 .page-header .page-header-top .top-menu {
