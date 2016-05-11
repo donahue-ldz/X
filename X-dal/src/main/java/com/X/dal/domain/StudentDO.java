@@ -22,6 +22,10 @@ public class StudentDO implements Serializable,User {
     private String studentName;
 
     /**
+     * 用户头像ID,头像保存在图片空间
+     */
+    private long avatarID;
+    /**
      * 电子邮件
      */
     @NotEmpty
@@ -76,6 +80,15 @@ public class StudentDO implements Serializable,User {
 
     public StudentDO setStudentName(String studentName) {
         this.studentName = studentName;
+        return this;
+    }
+
+    public long getAvatarID() {
+        return avatarID;
+    }
+
+    public StudentDO setAvatarID(long avatarID) {
+        this.avatarID = avatarID;
         return this;
     }
 

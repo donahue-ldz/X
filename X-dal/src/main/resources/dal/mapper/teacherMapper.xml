@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.X.dal.mapper.TeacherMapper">
+    <select id="queryTeacherBytTeacherID" parameterType="String"
+            resultMap="teacherResultMap">
+        select *
+        from  X_teacher t
+        where t.teacher_ID = #{teacherID}
+    </select>
+    <select id="queryAllTeachers" resultMap="teacherResultMap">
+        select *
+        from  X_teacher t
+    </select>
+
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into X_teacher(
+        teacher_ID,
+        teacher_name,
+        avatar_ID
+        email,
+        nick,
+        gmt_create)values(
+        #{teacherID},
+        #{teacherName},
+        #{avatarID},
+        #{email},
+        #{nick},
+        #{gmtCreate})
+    </insert>
+
+    <resultMap id="teacherResultMap" type="TeacherDO">
+        <id property="id" column="id"/>
+        <result property="teacherID" column="teacher_ID"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="avatarID" column="avatar_ID"/>
+
+        <result property="email" column="email"/>
+        <result property="nick" column="nick"/>
+        <result property="status" column="status"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+</mapper>

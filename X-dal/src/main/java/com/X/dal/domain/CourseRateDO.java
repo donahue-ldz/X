@@ -29,6 +29,7 @@ public class CourseRateDO implements Serializable{
      * 1. favorite 2.share 3.join
      */
     private String rateType;
+
     private Date gmtCreate;
     private Date gmtModified;
 

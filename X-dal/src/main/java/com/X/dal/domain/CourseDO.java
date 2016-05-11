@@ -19,6 +19,11 @@ public class CourseDO implements Serializable {
     @NotEmpty(message = "课程名不能空")
     private String course;
     /**
+     * 课程图片
+     */
+    private long pictureID;
+
+    /**
      * 状态
      */
     private String status;
@@ -45,8 +50,18 @@ public class CourseDO implements Serializable {
         return course;
     }
 
-    public void setCourse(String course) {
+    public CourseDO setCourse(String course) {
         this.course = course;
+        return this;
+    }
+
+    public long getPictureID() {
+        return pictureID;
+    }
+
+    public CourseDO setPictureID(long pictureID) {
+        this.pictureID = pictureID;
+        return this;
     }
 
     public String getStatus() {

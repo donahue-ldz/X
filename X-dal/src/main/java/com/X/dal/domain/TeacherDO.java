@@ -14,8 +14,22 @@ public class TeacherDO implements Serializable,User {
 
 
     private long id;
+    /**
+     * 教师工号
+     */
     @NotEmpty
     private String teacherID;
+    /**
+     * 教师名
+     */
+    @NotEmpty
+    private String teacherName;
+
+    /**
+     * 头像
+     */
+    private  long avatarID;
+
     @NotEmpty
     @Email(message = "email illegal")
     private String email;
@@ -44,32 +58,54 @@ public class TeacherDO implements Serializable,User {
         return id;
     }
 
-    public void setId(long id) {
+    public TeacherDO setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getTeacherID() {
         return teacherID;
     }
 
-    public void setTeacherID(String teacherID) {
+    public TeacherDO setTeacherID(String teacherID) {
         this.teacherID = teacherID;
+        return this;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public TeacherDO setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+        return this;
+    }
+
+    public long getAvatarID() {
+        return avatarID;
+    }
+
+    public TeacherDO setAvatarID(long avatarID) {
+        this.avatarID = avatarID;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public TeacherDO setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getNick() {
         return nick;
     }
 
-    public void setNick(String nick) {
+    public TeacherDO setNick(String nick) {
         this.nick = nick;
+        return this;
     }
 
     public String getStatus() {

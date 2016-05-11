@@ -18,6 +18,17 @@ public class AdminDO implements Serializable,User {
     @NotEmpty
     @Email(message = "email illegal")
     private String email;
+
+    /**
+     * 姓名
+     */
+    @NotEmpty
+    private String adminName;
+
+    /**
+     * 头像
+     */
+    private long avatarID;
     /**
      * 昵称
      */
@@ -47,47 +58,71 @@ public class AdminDO implements Serializable,User {
         return id;
     }
 
-    public void setId(long id) {
+    public AdminDO setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public AdminDO setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public String getAdminName() {
+        return adminName;
+    }
+
+    public AdminDO setAdminName(String adminName) {
+        this.adminName = adminName;
+        return this;
+    }
+
+    public long getAvatarID() {
+        return avatarID;
+    }
+
+    public AdminDO setAvatarID(long avatarID) {
+        this.avatarID = avatarID;
+        return this;
     }
 
     public String getNick() {
         return nick;
     }
 
-    public void setNick(String nick) {
+    public AdminDO setNick(String nick) {
         this.nick = nick;
+        return this;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public AdminDO setStatus(String status) {
         this.status = status;
+        return this;
     }
 
     public Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public AdminDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
+        return this;
     }
 
     public Date getGmtModified() {
         return gmtModified;
     }
 
-    public void setGmtModified(Date gmtModified) {
+    public AdminDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+        return this;
     }
 }
