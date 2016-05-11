@@ -34,8 +34,12 @@ public class StudentDO implements Serializable,User {
     /**
      * 昵称
      */
-    @NotEmpty
     private String nick;
+
+    /**
+     * 密码
+     */
+    private String password;
 
     /**
      * 状态
@@ -107,6 +111,15 @@ public class StudentDO implements Serializable,User {
 
     public StudentDO setNick(String nick) {
         this.nick = nick;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public StudentDO setPassword(String password) {
+        this.password = password;
         return this;
     }
 

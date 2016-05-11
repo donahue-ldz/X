@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
  * @create 2016-05-07 11:21 PM
  **/
 public interface IStudentProfileManager {
-    void loginWithEmail(@NotEmpty String email) throws XException;
-    void loginWithStudentID(@NotEmpty String studentID, HttpSession session) throws XException;
-    void register(String email,String studentID,String studentName) throws XException;
+    void loginWithEmail(@NotEmpty String email,@NotEmpty String password) throws XException;
+    void loginWithStudentID(@NotEmpty String studentID,@NotEmpty String password, HttpSession session) throws XException;
+    void register(@NotEmpty String email,@NotEmpty String studentID,@NotEmpty String studentName,@NotEmpty String password) throws XException;
 
 }

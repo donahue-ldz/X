@@ -35,6 +35,11 @@ public class AdminDO implements Serializable,User {
     @NotEmpty
     private String nick;
 
+    @NotEmpty
+    /**
+     * 密码
+     */
+    private String password;
     /**
      * 状态
      */
@@ -96,6 +101,15 @@ public class AdminDO implements Serializable,User {
 
     public AdminDO setNick(String nick) {
         this.nick = nick;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public AdminDO setPassword(String password) {
+        this.password = password;
         return this;
     }
 

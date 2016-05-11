@@ -20,15 +20,13 @@
         insert into X_student(
         student_ID,
         student_name,
-        avatar_ID,
         email,
-        nick,
+        password,
         gmt_create)values(
         #{studentID},
         #{studentName},
-        #{avatarID}
         #{email},
-        #{nick},
+        #{password},
         #{gmtCreate})
     </insert>
 
@@ -39,6 +37,7 @@
         <result property="avatarID" column="avatar_ID"/>
         <result property="email" column="email"/>
         <result property="nick" column="nick"/>
+        <result property="password" column="password"/>
         <result property="status" column="status"/>
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>

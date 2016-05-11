@@ -16,21 +16,23 @@ public class ProfileRequest extends BaseAction{
     @Autowired
     private IStudentProfileManager studentProfileManager;
 
-    public WebJsonResult doRegister(@Param("studentID") final String studentID,@Param("email")final String email,
-                                    @Param("studentName")final String studentName){
+    public WebJsonResult doRegister(@Param("studentID") final String studentID,
+                                    @Param("email")final String email,
+                                    @Param("studentName")final String studentName,
+                                    @Param("password") final String password){
         return runWrapper(new Callable<WebJsonResult>() {
             @Override
             public WebJsonResult call() throws Exception {
-                studentProfileManager.register(email,studentID,studentName);
+                studentProfileManager.register(email,studentID,studentName,password);
                 return new WebJsonResult();
             }
         });
     }
-    public WebJsonResult doLogin(@Param("studentID")final String studentID){
+    public WebJsonResult doLogin(@Param("studentID")final String studentID,@Param("password") final String password){
         return runWrapper(new Callable<WebJsonResult>() {
             @Override
             public WebJsonResult call() throws Exception {
-                studentProfileManager.loginWithStudentID(studentID,session);
+                studentProfileManager.loginWithStudentID(studentID,password,session);
                 return new WebJsonResult();
             }
         });

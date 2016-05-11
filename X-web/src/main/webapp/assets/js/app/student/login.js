@@ -46,7 +46,20 @@ var Login = function() {
             },
 
             submitHandler: function(form) {
-                form.submit(); // form validation success, call ajax form submit
+                var fields =$(form).serializeArray();
+                var data ={};
+                $.each(fields, function(i, field){
+                    data[field.name]=field.value;
+                });
+                $.post("/json/ProfileRequest/login.json",data,function(result){
+                    if(result.success){
+                        location.href="/";
+                    }else{
+                        var error = result.errorMsg;
+                        console.log(error);
+                    }
+                })
+
             }
         });
 
@@ -158,24 +171,14 @@ var Login = function() {
             ignore: "",
             rules: {
 
-                fullname: {
+                studentName: {
                     required: true
                 },
                 email: {
                     required: true,
                     email: true
                 },
-                address: {
-                    required: true
-                },
-                city: {
-                    required: true
-                },
-                country: {
-                    required: true
-                },
-
-                username: {
+                studentID: {
                     required: true
                 },
                 password: {
@@ -184,10 +187,9 @@ var Login = function() {
                 rpassword: {
                     equalTo: "#register_password"
                 },
-
-                tnc: {
-                    required: true
-                }
+                // tnc: {
+                //     required: true
+                // }
             },
 
             messages: { // custom messages for radio buttons and checkboxes
@@ -221,7 +223,19 @@ var Login = function() {
             },
 
             submitHandler: function(form) {
-                form.submit();
+                var fields =$(form).serializeArray();
+                var data ={};
+                $.each(fields, function(i, field){
+                    data[field.name]=field.value;
+                });
+                $.post("/json/ProfileRequest/register.json",data,function(result){
+                    if(result.success){
+                        location.href="/";
+                    }else{
+                        var error = result.errorMsg;
+                        $('#register_tnc_error').append(error);
+                    }
+                })
             }
         });
 

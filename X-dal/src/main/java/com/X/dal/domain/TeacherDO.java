@@ -37,6 +37,12 @@ public class TeacherDO implements Serializable,User {
     private String nick;
 
     /**
+     * 密码
+     */
+    @NotEmpty
+    private String password;
+
+    /**
      * 状态
      */
     private String status;
@@ -114,6 +120,15 @@ public class TeacherDO implements Serializable,User {
 
     public TeacherDO setStatus(String status) {
         this.status = status;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public TeacherDO setPassword(String password) {
+        this.password = password;
         return this;
     }
 

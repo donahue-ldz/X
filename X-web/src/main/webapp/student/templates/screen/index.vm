@@ -47,19 +47,9 @@
                                     <div class="caption">
                                         <i class="icon-paper-plane font-yellow-casablanca"></i>
                                         <span class="caption-subject bold font-yellow-casablanca uppercase"> 最新课程 </span>
-                                        <span class="caption-helper">更多...</span>
                                     </div>
-                                    <div class="inputs">
-                                        <div class="portlet-input input-inline input-medium">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control input-circle-left"
-                                                       placeholder="search...">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-circle-right btn-default"
-                                                                    type="submit">Go!</button>
-                                                        </span>
-                                            </div>
-                                        </div>
+                                    <div style="display: inline;float: right;margin-top: 20px">
+                                        <a class="caption-helper">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">

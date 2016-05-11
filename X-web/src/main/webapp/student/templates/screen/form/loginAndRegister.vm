@@ -65,7 +65,7 @@
         </form>
         <!-- END FORGOT PASSWORD FORM -->
         <!-- BEGIN REGISTRATION FORM -->
-        <form class="register-form" action="index.html" method="post">
+        <form class="register-form" method="post">
             <h3 class="font-green">Sign Up</h3>
             <p class="hint"> Enter your personal details below: </p>
             <div class="form-group">
@@ -74,7 +74,7 @@
             <div class="form-group">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                 <label class="control-label visible-ie8 visible-ie9">Email</label>
-                <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
+                <input class="form-control placeholder-no-fix" type="email" placeholder="Email" name="email"/>
             </div>
 
 
@@ -99,7 +99,7 @@
                     <a href="javascript:;">Privacy Policy </a>
                     <span></span>
                 </label>
-                <div id="register_tnc_error"></div>
+##                <div id="register_tnc_error"></div>
             </div>
             <div class="form-actions">
                 <button type="button" id="register-back-btn" class="btn green btn-outline">Back</button>
