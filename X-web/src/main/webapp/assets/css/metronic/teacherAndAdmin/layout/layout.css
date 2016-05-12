@@ -1776,7 +1776,7 @@ Theme Panel
     padding: 20px;
     cursor: pointer;
     position: absolute;
-    background: #536881 url(../img/icon-color.png) center no-repeat;
+    background: #536881 url(img/icon-color.png) center no-repeat;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -1792,7 +1792,7 @@ Theme Panel
     z-index: 101;
     cursor: pointer;
     position: absolute;
-    background: #2b3643 url(../img/icon-color-close.png) center no-repeat !important;
+    background: #2b3643 url(img/icon-color-close.png) center no-repeat !important;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -1873,7 +1873,7 @@ Theme Panel
     right: 0; }
     .page-content-white .theme-panel > .toggler1,
     .page-container-bg-solid .theme-panel > .toggler1 {
-      background: #BFCAD1 url(../img/icon-color.png) center no-repeat; }
+      background: #BFCAD1 url(img/icon-color.png) center no-repeat; }
   .page-content-white.page-sidebar-reversed .theme-panel,
   .page-container-bg-solid.page-sidebar-reversed .theme-panel {
     margin-right: 255px; }

@@ -1,0 +1,3 @@
+#macro (markActiveAsideTab $name $asideTab)
+    #if ("$!asideTab" != "" && $asideTab.contains($name)) active #end
+#end
