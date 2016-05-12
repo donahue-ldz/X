@@ -1,0 +1,18 @@
+<form method="post" name="import_form" id="import_form" enctype="multipart/form-data">
+    <table class="table table-condensed">
+        $csrfToken.hiddenField
+        <tr>
+            <td>
+                文件
+            </td>
+            <td>
+                <input type="file" class="form-control" id="file" name="file"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="hidden" name="action" value="fileUploadAction"/></td>
+            <td><input type="submit" id="import_confirm" name="import_confirm" value="上传"/></td>
+        </tr>
+    </table>
+</form>

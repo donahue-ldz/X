@@ -14,6 +14,9 @@
         <uris:turbine-uri id="studentModule" exposed="true" extends="server">
             <componentPath>/</componentPath>
         </uris:turbine-uri>
+        <uris:turbine-uri id="commonModule" exposed="true" extends="server">
+            <componentPath>/common</componentPath>
+        </uris:turbine-uri>
         <uris:turbine-uri id="adminModule" exposed="true" extends="server">
             <componentPath>/admin</componentPath>
         </uris:turbine-uri>

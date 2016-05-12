@@ -3,7 +3,6 @@ package com.X.web.common;
 import com.X.biz.exception.CookieNullException;
 import com.X.biz.exception.XException;
 import com.alibaba.citrus.service.requestcontext.parser.ParserRequestContext;
-import com.alibaba.citrus.service.requestcontext.rundata.User;
 import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.TurbineRunData;
 import org.slf4j.Logger;
@@ -93,7 +92,7 @@ public abstract class BaseScreen {
        return ;
     }
 
-    final protected User getUser() throws Exception {
-        return null;
+    protected com.X.dal.domain.User getUser(){
+        return (com.X.dal.domain.User) session.getAttribute("user");
     }
 }

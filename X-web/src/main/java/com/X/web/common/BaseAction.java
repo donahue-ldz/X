@@ -1,6 +1,7 @@
 package com.X.web.common;
 
 
+import com.X.dal.domain.User;
 import com.alibaba.citrus.service.requestcontext.parser.ParserRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +40,8 @@ public abstract class BaseAction {
     }
 
 
-
+    protected final User getUser(){
+        return (User) session.getAttribute("user");
+    }
 
 }
