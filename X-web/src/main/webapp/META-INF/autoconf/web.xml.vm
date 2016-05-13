@@ -42,7 +42,8 @@
         <filter-class>com.alibaba.citrus.webx.servlet.WebxFrameworkFilter</filter-class>
         <init-param>
             <param-name>excludes</param-name>
-            <param-value>/assets<!-- 需要被“排除”的URL路径，以逗号分隔，如/static, *.jpg。适合于映射静态页面、图片。 --></param-value>
+            <!-- 需要被“排除”的URL路径，以逗号分隔，如/static, *.jpg。适合于映射静态页面、图片。 -->
+            <param-value>/assets,*.png,*.jpg</param-value>
         </init-param>
         <init-param>
             <param-name>passthru</param-name>
