@@ -16,3 +16,4 @@ CREATE TABLE `X_course_category` (
   ENGINE = InnoDB
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
+INSERT INTO X_course_category(name,parent_ID,`desc`)VALUES ('所有',-1,'根节点');
