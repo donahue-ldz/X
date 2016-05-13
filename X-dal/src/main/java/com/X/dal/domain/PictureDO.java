@@ -26,6 +26,7 @@ public class PictureDO implements Serializable{
      * 图片的状态
      */
     private String status;
+
     private Date gmtCreate;
     private Date gmtModified;
 

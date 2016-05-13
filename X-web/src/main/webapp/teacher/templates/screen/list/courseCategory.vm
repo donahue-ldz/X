@@ -17,51 +17,427 @@
         <div class="page-content">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="note note-danger">
-                        <p> NOTE: The below datatable is not connected to a real database so the filter and sorting is
-                            just simulated for demo purposes only. </p>
-                    </div>
+                    <div id="prefix_946124885289" class="custom-alerts alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button><i class="fa-lg fa fa-warning"></i>  Could not complete request. Please check your internet connection</div>
                     <!-- Begin: life time stats -->
-                    <div class="portlet ">
+                    <div class="portlet">
                         <div class="portlet-title">
                             <div class="caption">
-                                <i class="fa fa-list"></i>积分规则
+                                <i class="fa fa-edit"></i>课程管理
                             </div>
-                            <div class="actions">
-                                <a href="/teacher/list/courseAdd.htm" class="btn btn-circle btn-info">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="hidden-xs"> 新增积分 </span>
-                                </a>
+                            <div class="actions btn-set">
+                                <button type="button" name="back" class="btn btn-secondary-outline">
+                                    <i class="fa fa-angle-left"></i> Back
+                                </button>
+                                <button class="btn btn-secondary-outline">
+                                    <i class="fa fa-reply"></i> Reset
+                                </button>
+                                <button class="btn btn-success">
+                                    <i class="fa fa-check"></i> Save
+                                </button>
+                                <button class="btn btn-success">
+                                    <i class="fa fa-check-circle"></i> Save & Continue Edit
+                                </button>
                                 <div class="btn-group">
-                                    <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;"
+                                    <a class="btn btn-success dropdown-toggle" href="javascript:;"
                                        data-toggle="dropdown">
-                                        <i class="fa fa-share"></i>
-                                        <span class="hidden-xs"> 更多操作 </span>
+                                        <i class="fa fa-share"></i> More
                                         <i class="fa fa-angle-down"></i>
                                     </a>
                                     <div class="dropdown-menu pull-right">
                                         <li>
-                                            <a href="javascript:;"> Export to Excel </a>
+                                            <a href="javascript:;"> Duplicate </a>
                                         </li>
                                         <li>
-                                            <a href="javascript:;"> Export to CSV </a>
+                                            <a href="javascript:;"> Delete </a>
                                         </li>
+                                        <li class="dropdown-divider"></li>
                                         <li>
-                                            <a href="javascript:;"> Export to XML </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <a href="javascript:;"> Print Invoices </a>
+                                            <a href="javascript:;"> Print </a>
                                         </li>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="portlet-body">
-                            <div>
-                                <ul id="treeDemo" class="ztree"></ul>
+                            <div class="tabbable-bordered">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#tab_general" data-toggle="tab"> 基本信息 </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_meta" data-toggle="tab"> 元信息 </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_images" data-toggle="tab"> 图片 </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_reviews" data-toggle="tab"> 预览
+                                            <span class="badge badge-success"> 3 </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab_history" data-toggle="tab"> 历史 </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_general">
+                                        <div class="portlet ">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-list"></i>课程分类
+                                                </div>
+                                                <div class="actions">
+                                                    <a href="/teacher/list/courseAdd.htm" class="btn btn-circle btn-info">
+                                                        <i class="fa fa-plus"></i>
+                                                        <span class="hidden-xs"> 新增积分 </span>
+                                                    </a>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;"
+                                                           data-toggle="dropdown">
+                                                            <i class="fa fa-share"></i>
+                                                            <span class="hidden-xs"> 更多操作 </span>
+                                                            <i class="fa fa-angle-down"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu pull-right">
+                                                            <li>
+                                                                <a href="javascript:;"> Export to Excel </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;"> Export to CSV </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;"> Export to XML </a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <a href="javascript:;"> Print Invoices </a>
+                                                            </li>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div>
+                                                    <ul id="treeDemo" class="ztree"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab_meta">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Meta Title:</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control maxlength-handler"
+                                                           name="product[meta_title]" maxlength="100"
+                                                           placeholder="">
+                                                    <span class="help-block"> max 100 chars </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Meta Keywords:</label>
+                                                <div class="col-md-10">
+                                                        <textarea class="form-control maxlength-handler" rows="8"
+                                                                  name="product[meta_keywords]"
+                                                                  maxlength="1000"></textarea>
+                                                    <span class="help-block"> max 1000 chars </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Meta Description:</label>
+                                                <div class="col-md-10">
+                                                        <textarea class="form-control maxlength-handler" rows="8"
+                                                                  name="product[meta_description]"
+                                                                  maxlength="255"></textarea>
+                                                    <span class="help-block"> max 255 chars </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab_images">
+                                        <div class="alert alert-success margin-bottom-10">
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                    aria-hidden="true"></button>
+                                            <i class="fa fa-warning fa-lg"></i> 照片格式png,大小 300px * 300px.
+                                        </div>
+                                        <div id="tab_images_uploader_container"
+                                             class="text-align-reverse margin-bottom-10">
+                                            <a id="tab_images_uploader_pickfiles" href="javascript:;"
+                                               class="btn btn-success">
+                                                <i class="fa fa-plus"></i> Select Files </a>
+                                            <a id="tab_images_uploader_uploadfiles" href="javascript:;"
+                                               class="btn btn-primary">
+                                                <i class="fa fa-share"></i> Upload Files </a>
+                                        </div>
+                                        <div class="row">
+                                            <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"></div>
+                                        </div>
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                            <tr role="row" class="heading">
+                                                <th width="8%"> Image</th>
+                                                <th width="25%"> 描述</th>
+                                                <th width="8%"> Sort Order</th>
+                                                <th width="10%"> 原图</th>
+                                                <th width="10%"> 小图</th>
+                                                <th width="10%"> 缩略图</th>
+                                                <th width="10%"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="../assets/pages/media/works/img1.jpg"
+                                                       class="fancybox-button" data-rel="fancybox-button">
+                                                        <img class="img-responsive"
+                                                             src="../assets/pages/media/works/img1.jpg" alt=""> </a>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][1][label]" value="Thumbnail image">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][1][sort_order]" value="1"></td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][1][image_type]"
+                                                               value="1"> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][1][image_type]"
+                                                               value="2"> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][1][image_type]"
+                                                               value="3" checked> </label>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                        <i class="fa fa-times"></i> Remove </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="../assets/pages/media/works/img2.jpg"
+                                                       class="fancybox-button" data-rel="fancybox-button">
+                                                        <img class="img-responsive"
+                                                             src="../assets/pages/media/works/img2.jpg" alt=""> </a>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][2][label]"
+                                                           value="Product image #1"></td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][2][sort_order]" value="1"></td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][2][image_type]"
+                                                               value="1"> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][2][image_type]"
+                                                               value="2" checked> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][2][image_type]"
+                                                               value="3"> </label>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                        <i class="fa fa-times"></i> Remove </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="../assets/pages/media/works/img3.jpg"
+                                                       class="fancybox-button" data-rel="fancybox-button">
+                                                        <img class="img-responsive"
+                                                             src="../assets/pages/media/works/img3.jpg" alt=""> </a>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][3][label]"
+                                                           value="Product image #2"></td>
+                                                <td>
+                                                    <input type="text" class="form-control"
+                                                           name="product[images][3][sort_order]" value="1"></td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][3][image_type]"
+                                                               value="1" checked> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][3][image_type]"
+                                                               value="2"> </label>
+                                                </td>
+                                                <td>
+                                                    <label>
+                                                        <input type="radio" name="product[images][3][image_type]"
+                                                               value="3"> </label>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                        <i class="fa fa-times"></i> Remove </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane" id="tab_reviews">
+                                        <div class="table-container">
+                                            <table class="table table-striped table-bordered table-hover"
+                                                   id="datatable_reviews">
+                                                <thead>
+                                                <tr role="row" class="heading">
+                                                    <th width="5%"> Review&nbsp;#</th>
+                                                    <th width="10%"> Review&nbsp;Date</th>
+                                                    <th width="10%"> Customer</th>
+                                                    <th width="20%"> Review&nbsp;Content</th>
+                                                    <th width="10%"> Status</th>
+                                                    <th width="10%"> Actions</th>
+                                                </tr>
+                                                <tr role="row" class="filter">
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm"
+                                                               name="product_review_no"></td>
+                                                    <td>
+                                                        <div class="input-group date date-picker margin-bottom-5"
+                                                             data-date-format="dd/mm/yyyy">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="product_review_date_from"
+                                                                   placeholder="From">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn btn-sm default"
+                                                                                        type="button">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </button>
+                                                                            </span>
+                                                        </div>
+                                                        <div class="input-group date date-picker"
+                                                             data-date-format="dd/mm/yyyy">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="product_review_date_to"
+                                                                   placeholder="To">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn btn-sm default"
+                                                                                        type="button">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </button>
+                                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm"
+                                                               name="product_review_customer"></td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm"
+                                                               name="product_review_content"></td>
+                                                    <td>
+                                                        <select name="product_review_status"
+                                                                class="form-control form-filter input-sm">
+                                                            <option value="">Select...</option>
+                                                            <option value="pending">Pending</option>
+                                                            <option value="approved">Approved</option>
+                                                            <option value="rejected">Rejected</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <button class="btn btn-sm btn-success filter-submit margin-bottom">
+                                                                <i class="fa fa-search"></i> Search
+                                                            </button>
+                                                        </div>
+                                                        <button class="btn btn-sm btn-danger filter-cancel">
+                                                            <i class="fa fa-times"></i> Reset
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab_history">
+                                        <div class="table-container">
+                                            <table class="table table-striped table-bordered table-hover"
+                                                   id="datatable_history">
+                                                <thead>
+                                                <tr role="row" class="heading">
+                                                    <th width="25%"> Datetime</th>
+                                                    <th width="55%"> Description</th>
+                                                    <th width="10%"> Notification</th>
+                                                    <th width="10%"> Actions</th>
+                                                </tr>
+                                                <tr role="row" class="filter">
+                                                    <td>
+                                                        <div class="input-group date datetime-picker margin-bottom-5"
+                                                             data-date-format="dd/mm/yyyy hh:ii">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="product_history_date_from"
+                                                                   placeholder="From">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn btn-sm default date-set"
+                                                                                        type="button">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </button>
+                                                                            </span>
+                                                        </div>
+                                                        <div class="input-group date datetime-picker"
+                                                             data-date-format="dd/mm/yyyy hh:ii">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="product_history_date_to"
+                                                                   placeholder="To">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn btn-sm default date-set"
+                                                                                        type="button">
+                                                                                    <i class="fa fa-calendar"></i>
+                                                                                </button>
+                                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm"
+                                                               name="product_history_desc" placeholder="To"/></td>
+                                                    <td>
+                                                        <select name="product_history_notification"
+                                                                class="form-control form-filter input-sm">
+                                                            <option value="">Select...</option>
+                                                            <option value="pending">Pending</option>
+                                                            <option value="notified">Notified</option>
+                                                            <option value="failed">Failed</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <button class="btn btn-sm btn-default filter-submit margin-bottom">
+                                                                <i class="fa fa-search"></i> Search
+                                                            </button>
+                                                        </div>
+                                                        <button class="btn btn-sm btn-danger-outline filter-cancel">
+                                                            <i class="fa fa-times"></i> Reset
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- End: life time stats -->
                 </div>
             </div>

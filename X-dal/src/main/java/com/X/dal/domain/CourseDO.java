@@ -17,7 +17,27 @@ public class CourseDO implements Serializable {
      * 课程名
      */
     @NotEmpty(message = "课程名不能空")
-    private String course;
+    private String name;
+    /**
+     * 描述
+     */
+    @NotEmpty(message = "描述不能为空")
+    private String desc;
+    /**
+     * 简短描述
+     */
+    @NotEmpty(message = "简短描述不能为空")
+    private String shortDesc;
+
+    /**
+     * 课程学分
+     */
+    private int courseCredit;
+    /**
+     * 课时
+     */
+    private int courseHours;
+
     /**
      * 课程图片
      */
@@ -42,16 +62,53 @@ public class CourseDO implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public CourseDO setId(long id) {
         this.id = id;
+        return this;
     }
 
-    public String getCourse() {
-        return course;
+    public String getName() {
+        return name;
     }
 
-    public CourseDO setCourse(String course) {
-        this.course = course;
+    public CourseDO setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public CourseDO setDesc(String desc) {
+        this.desc = desc;
+        return this;
+    }
+
+    public String getShortDesc() {
+        return shortDesc;
+    }
+
+    public CourseDO setShortDesc(String shortDesc) {
+        this.shortDesc = shortDesc;
+        return this;
+    }
+
+    public int getCourseCredit() {
+        return courseCredit;
+    }
+
+    public CourseDO setCourseCredit(int courseCredit) {
+        this.courseCredit = courseCredit;
+        return this;
+    }
+
+    public int getCourseHours() {
+        return courseHours;
+    }
+
+    public CourseDO setCourseHours(int courseHours) {
+        this.courseHours = courseHours;
         return this;
     }
 
@@ -68,23 +125,26 @@ public class CourseDO implements Serializable {
         return status;
     }
 
-    public void setStatus(String status) {
+    public CourseDO setStatus(String status) {
         this.status = status;
+        return this;
     }
 
     public Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public CourseDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
+        return this;
     }
 
     public Date getGmtModified() {
         return gmtModified;
     }
 
-    public void setGmtModified(Date gmtModified) {
+    public CourseDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+        return this;
     }
 }
