@@ -14,13 +14,16 @@ public class TopicDO implements Serializable {
     private String userRole;
 
     //所属分类
-    private Long topicCategoryID;
+    private Long categoryID;
 
     //帖子标题
     private String title;
 
     //帖子内容
     private String content;
+
+    //帖子关键字
+    private String keyWords;
 
     // 帖子权重
     private Double weight;
@@ -43,6 +46,7 @@ public class TopicDO implements Serializable {
         return this;
     }
 
+
     public Long getUserID() {
         return userID;
     }
@@ -61,12 +65,12 @@ public class TopicDO implements Serializable {
         return this;
     }
 
-    public Long getTopicCategoryID() {
-        return topicCategoryID;
+    public Long getCategoryID() {
+        return categoryID;
     }
 
-    public TopicDO setTopicCategoryID(Long topicCategoryID) {
-        this.topicCategoryID = topicCategoryID;
+    public TopicDO setCategoryID(Long categoryID) {
+        this.categoryID = categoryID;
         return this;
     }
 
@@ -85,6 +89,15 @@ public class TopicDO implements Serializable {
 
     public TopicDO setContent(String content) {
         this.content = content;
+        return this;
+    }
+
+    public String getKeyWords() {
+        return keyWords;
+    }
+
+    public TopicDO setKeyWords(String keyWords) {
+        this.keyWords = keyWords;
         return this;
     }
 
