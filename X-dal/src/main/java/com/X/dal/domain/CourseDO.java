@@ -22,7 +22,7 @@ public class CourseDO implements Serializable {
      * 描述
      */
     @NotEmpty(message = "描述不能为空")
-    private String desc;
+    private String description;
     /**
      * 简短描述
      */
@@ -76,12 +76,12 @@ public class CourseDO implements Serializable {
         return this;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public CourseDO setDesc(String desc) {
-        this.desc = desc;
+    public CourseDO setDescription(String description) {
+        this.description = description;
         return this;
     }
 

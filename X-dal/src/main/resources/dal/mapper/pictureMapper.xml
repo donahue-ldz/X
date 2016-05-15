@@ -7,21 +7,23 @@
         from  X_picture t
         where t.id = #{id}
     </select>
+
+
     <insert id="save"
             useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_picture(
         alt,
         url,
-        status,
         gmt_create
       )values(
         #{alt},
         #{url},
-        #{status},
         #{gmtCreate})
     </insert>
 
-    <resultMap id="pictureResultMap" type="pictureDO">
+
+
+    <resultMap id="pictureResultMap" type="PictureDO">
         <id property="id" column="id"/>
         <result property="alt" column="alt"/>
         <result property="url" column="url"/>

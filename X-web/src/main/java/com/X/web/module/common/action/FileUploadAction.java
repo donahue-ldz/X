@@ -18,6 +18,7 @@ public class FileUploadAction extends BaseAction {
 
     public void execute(TurbineRunData rundata, Context context) throws Exception {
         FileItem file = rundata.getParameters().getFileItem("file");
+        if(file==null) throw new RuntimeException("请选择文件...");
         String fileName = file.getName();
         String fileExt = fileName.substring(fileName.lastIndexOf(".")+1);
         String configDirectory = Config.FILE_UPLOAD_DIRECTORY;

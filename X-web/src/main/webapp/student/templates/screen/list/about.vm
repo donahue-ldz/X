@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="card-title">
                                     <span> Best User Expierence </span>
                                 </div>
-                                <div class="card-desc">
+                                <div class="card-description">
                                             <span> The best way to find yourself is
                                                 <br> to lose yourself in the service of others </span>
                                 </div>
@@ -90,7 +90,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="card-title">
                                     <span> Awards Winner </span>
                                 </div>
-                                <div class="card-desc">
+                                <div class="card-description">
                                             <span> The best way to find yourself is
                                                 <br> to lose yourself in the service of others </span>
                                 </div>
@@ -104,7 +104,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="card-title">
                                     <span> eCommerce Components </span>
                                 </div>
-                                <div class="card-desc">
+                                <div class="card-description">
                                             <span> The best way to find yourself is
                                                 <br> to lose yourself in the service of others </span>
                                 </div>
@@ -118,7 +118,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="card-title">
                                     <span> Adaptive Components </span>
                                 </div>
-                                <div class="card-desc">
+                                <div class="card-description">
                                             <span> The best way to find yourself is
                                                 <br> to lose yourself in the service of others </span>
                                 </div>
@@ -191,7 +191,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="title">
                                     <span> Mark Wahlberg </span>
                                 </div>
-                                <div class="desc">
+                                <div class="description">
                                     <span> We are at our very best, and we are happiest, when we are fully engaged in work we enjoy on the journey toward the goal we've established for ourselves. </span>
                                 </div>
                             </div>
@@ -203,7 +203,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="title">
                                     <span> Lindsay Lohan </span>
                                 </div>
-                                <div class="desc">
+                                <div class="description">
                                     <span> Do what you love to do and give it your very best. Whether it's business or baseball, or the theater, or any field. If you don't love what you're doing and you can't give it your best, get out of it. </span>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="title">
                                     <span> John Travolta </span>
                                 </div>
-                                <div class="desc">
+                                <div class="description">
                                     <span> To be nobody but yourself in a world which is doing its best, to make you everybody else means to fight the hardest battle which any human being can fight; and never stop fighting. </span>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="title">
                                     <span> Tom Brady </span>
                                 </div>
-                                <div class="desc">
+                                <div class="description">
                                     <span> You have to accept whatever comes and the only important thing is that you meet it with courage and with the best that you have to give. Never give up, never surrender. Go all out or gain nothing. </span>
                                 </div>
                             </div>
@@ -593,7 +593,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 4 pending tasks.
+                                            <div class="description"> You have 4 pending tasks.
                                                         <span class="label label-sm label-warning "> Take action
                                                             <i class="fa fa-share"></i>
                                                         </span>
@@ -615,7 +615,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> Finance Report for year 2013 has been released. </div>
+                                                <div class="description"> Finance Report for year 2013 has been released. </div>
                                             </div>
                                         </div>
                                     </div>
@@ -633,7 +633,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
+                                            <div class="description"> You have 5 pending membership that requires a quick review. </div>
                                         </div>
                                     </div>
                                 </div>
@@ -650,7 +650,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> New order received with
+                                            <div class="description"> New order received with
                                                 <span class="label label-sm label-success"> Reference Number: DR23923 </span>
                                             </div>
                                         </div>
@@ -669,7 +669,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
+                                            <div class="description"> You have 5 pending membership that requires a quick review. </div>
                                         </div>
                                     </div>
                                 </div>
@@ -686,7 +686,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> Web server hardware needs to be upgraded.
+                                            <div class="description"> Web server hardware needs to be upgraded.
                                                 <span class="label label-sm label-warning"> Overdue </span>
                                             </div>
                                         </div>
@@ -706,7 +706,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> IPO Report for year 2013 has been released. </div>
+                                                <div class="description"> IPO Report for year 2013 has been released. </div>
                                             </div>
                                         </div>
                                     </div>
@@ -727,7 +727,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 4 pending tasks.
+                                            <div class="description"> You have 4 pending tasks.
                                                         <span class="label label-sm label-warning "> Take action
                                                             <i class="fa fa-share"></i>
                                                         </span>
@@ -749,7 +749,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> Finance Report for year 2013 has been released. </div>
+                                                <div class="description"> Finance Report for year 2013 has been released. </div>
                                             </div>
                                         </div>
                                     </div>
@@ -767,7 +767,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
+                                            <div class="description"> You have 5 pending membership that requires a quick review. </div>
                                         </div>
                                     </div>
                                 </div>
@@ -784,7 +784,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> New order received with
+                                            <div class="description"> New order received with
                                                 <span class="label label-sm label-success"> Reference Number: DR23923 </span>
                                             </div>
                                         </div>
@@ -803,7 +803,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick review. </div>
+                                            <div class="description"> You have 5 pending membership that requires a quick review. </div>
                                         </div>
                                     </div>
                                 </div>
@@ -820,7 +820,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> Web server hardware needs to be upgraded.
+                                            <div class="description"> Web server hardware needs to be upgraded.
                                                 <span class="label label-sm label-default "> Overdue </span>
                                             </div>
                                         </div>
@@ -840,7 +840,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> IPO Report for year 2013 has been released. </div>
+                                                <div class="description"> IPO Report for year 2013 has been released. </div>
                                             </div>
                                         </div>
                                     </div>

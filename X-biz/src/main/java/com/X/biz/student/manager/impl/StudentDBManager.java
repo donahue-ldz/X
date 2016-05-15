@@ -7,7 +7,6 @@ import com.X.common.validator.ValidateHelper;
 import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.StudentDO;
 import com.X.dal.mapper.StudentMapper;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +33,11 @@ public class StudentDBManager implements IStudentDBManager {
                 return studentMapper.save(student);
             }
         });
+    }
+
+    @Override
+    public void updateStudentByID(Long id, StudentDO student) throws XException {
+        studentMapper.updateStudentByID(id,student);
     }
 
     @Override

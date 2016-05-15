@@ -1,10 +1,13 @@
 package com.X.biz.student.manager.impl;
 
 import com.X.biz.RunWrapper;
+import com.X.biz.common.IPictureManager;
 import com.X.biz.common.Void;
 import com.X.biz.exception.XException;
 import com.X.biz.student.manager.IStudentDBManager;
 import com.X.biz.student.manager.IStudentProfileManager;
+import com.X.biz.student.wrapper.StudentWrapper;
+import com.X.dal.domain.PictureDO;
 import com.X.dal.domain.StudentDO;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,8 @@ import java.util.concurrent.Callable;
 public class StudentProfileManager implements IStudentProfileManager {
     @Autowired
     private IStudentDBManager studentDBManager;
+    @Autowired
+    private IPictureManager pictureManager;
 
     @Override
     public void loginWithEmail(@NotEmpty  String email,@NotEmpty String password) throws XException {
@@ -36,8 +41,16 @@ public class StudentProfileManager implements IStudentProfileManager {
                 StudentDO student = studentDBManager.queryStudentByStuID(studentID);
                 if (student == null) throw new RuntimeException("学号不存在!");
                 else {
-                    if (password.equals(student.getPassword()))
-                        session.setAttribute("user", student);
+                    if (password.equals(student.getPassword())){
+                        StudentWrapper wrapper = new StudentWrapper();
+                        wrapper.setStudent(student);
+                        if (student.getAvatarID() != null) {
+                            PictureDO avatar = pictureManager.queryPicturesByID(student.getAvatarID());
+                            if(avatar!=null)
+                                wrapper.setAvatarURL(avatar.getUrl());
+                        }
+                        session.setAttribute("user", wrapper);
+                    }
                     else
                         throw new XException("密码错误");
                 }

@@ -16,8 +16,8 @@ public interface CourseCategoryMapper {
 
     List<CourseCategoryDO> queryAllCourseCategories();
 
-    CourseCategoryDO queryCourseByID(@Param(("id")) long id);
+    CourseCategoryDO queryCourseCategoryByID(@Param(("id")) long id);
 
-    CourseCategoryDO queryCourseByName(@Param(("name")) String name);
+    CourseCategoryDO queryCourseCategoryByName(@Param(("name")) String name);
 }
 

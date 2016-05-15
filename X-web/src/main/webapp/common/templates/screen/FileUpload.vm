@@ -11,8 +11,8 @@
         </tr>
 
         <tr>
-            <td><input type="hidden" name="action" value="fileUploadAction"/></td>
-            <td><input type="submit" id="import_confirm" name="import_confirm" value="上传"/></td>
+            <td><input type="hidden" name="action" value="imageUploadAction"/></td>
+            <td><input type="submit"  value="上传"/></td>
         </tr>
     </table>
 </form>

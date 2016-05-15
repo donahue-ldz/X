@@ -128,11 +128,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="desc" class="col-sm-1 control-label">备注:</label>
+                        <label for="description" class="col-sm-1 control-label">备注:</label>
 
                         <div style="margin-left: 150px;margin-right: 100px">
-                                    <textarea type="text" class="form-control col-sm-6" id="desc"
-                                              name="desc" readonly></textarea>
+                                    <textarea type="text" class="form-control col-sm-6" id="description"
+                                              name="description" readonly></textarea>
                         </div>
                     </div>
                 </form>

@@ -2,9 +2,8 @@ package com.X.biz.common;
 
 import com.X.biz.exception.XException;
 import com.X.dal.domain.PictureDO;
-import org.hibernate.validator.constraints.NotEmpty;
 
-import java.util.List;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author donahue ldz2012yn@gmail.com
@@ -12,5 +11,5 @@ import java.util.List;
  **/
 public interface IPictureManager {
     long save(PictureDO picture) throws XException;
-    PictureDO queryPicturesByIDs(@NotEmpty List<Long> ids);
+    PictureDO queryPicturesByID(@NotNull Long id) throws XException;
 }

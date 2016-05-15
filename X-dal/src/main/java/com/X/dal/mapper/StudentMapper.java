@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StudentMapper {
     long save(StudentDO student);
+    void updateStudentByID(@Param("id") final Long id,@Param("student") StudentDO student);
     StudentDO queryStudentByStuID(@Param("studentID") String stuID);
     StudentDO queryStudentByEmail(@Param("email") String email);
 }

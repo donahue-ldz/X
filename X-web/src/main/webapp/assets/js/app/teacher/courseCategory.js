@@ -1,124 +1,102 @@
-var setting = {
-    view: {
-        addHoverDom: addHoverDom,
-        removeHoverDom: removeHoverDom,
-        selectedMulti: false
-    },
-    edit: {
-        enable: true,
-        editNameSelectAll: true,
-        showRemoveBtn: showRemoveBtn,
-        showRenameBtn: showRenameBtn
-    },
-    data: {
-        simpleData: {
-            enable: true
+var courseCategoryTree = function () {
+    var filter = function (treeId, parentNode, childNodes) {
+        childNodes = childNodes.objList
+        if (!childNodes) return null;
+        for (var i = 0, l = childNodes.length; i < l; i++) {
+            childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+            //异步转化为同步,只加载一次
+            childNodes[i].open = true;
+            childNodes[i].pId = childNodes[i].parentID;
         }
-    },
-    callback: {
-        beforeDrag: beforeDrag,
-        beforeEditName: beforeEditName,
-        beforeRemove: beforeRemove,
-        beforeRename: beforeRename,
-        onRemove: onRemove,
-        onRename: onRename
-    }
-};
-
-var zNodes =[
-    { id:1, pId:0, name:"父节点 1", open:true},
-    { id:11, pId:1, name:"叶子节点 1-1"},
-    { id:12, pId:1, name:"叶子节点 1-2"},
-    { id:13, pId:1, name:"叶子节点 1-3"},
-    { id:2, pId:0, name:"父节点 2", open:true},
-    { id:21, pId:2, name:"叶子节点 2-1"},
-    { id:22, pId:2, name:"叶子节点 2-2"},
-    { id:23, pId:2, name:"叶子节点 2-3"},
-    { id:3, pId:0, name:"父节点 3", open:true},
-    { id:31, pId:3, name:"叶子节点 3-1"},
-    { id:32, pId:3, name:"叶子节点 3-2"},
-    { id:33, pId:3, name:"叶子节点 3-3"}
-];
-var log, className = "dark";
-function beforeDrag(treeId, treeNodes) {
-    return false;
-}
-function beforeEditName(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
-    showLog("[ "+getTime()+" beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-    zTree.selectNode(treeNode);
-    return confirm("进入节点 -- " + treeNode.name + " 的编辑状态吗？");
-}
-function beforeRemove(treeId, treeNode) {
-    className = (className === "dark" ? "":"dark");
-    showLog("[ "+getTime()+" beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-    zTree.selectNode(treeNode);
-    return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
-}
-function onRemove(e, treeId, treeNode) {
-    showLog("[ "+getTime()+" onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
-}
-function beforeRename(treeId, treeNode, newName, isCancel) {
-    className = (className === "dark" ? "":"dark");
-    showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" beforeRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
-    if (newName.length == 0) {
-        alert("节点名称不能为空.");
+        console.log(childNodes)
+        return childNodes;
+    };
+    var beforeRemove = function (treeId, treeNode) {
         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-        setTimeout(function(){zTree.editName(treeNode)}, 10);
-        return false;
-    }
-    return true;
-}
-function onRename(e, treeId, treeNode, isCancel) {
-    showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" onRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
-}
-function showRemoveBtn(treeId, treeNode) {
-    return !treeNode.isFirstNode;
-}
-function showRenameBtn(treeId, treeNode) {
-    return !treeNode.isLastNode;
-}
-function showLog(str) {
-    if (!log) log = $("#log");
-    log.append("<li class='"+className+"'>"+str+"</li>");
-    if(log.children("li").length > 8) {
-        log.get(0).removeChild(log.children("li")[0]);
-    }
-}
-function getTime() {
-    var now= new Date(),
-        h=now.getHours(),
-        m=now.getMinutes(),
-        s=now.getSeconds(),
-        ms=now.getMilliseconds();
-    return (h+":"+m+":"+s+ " " +ms);
-}
+        zTree.selectNode(treeNode);
+        return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+    };
+    var beforeRename = function (treeId, treeNode, newName) {
+        if (newName.length == 0) {
+            alert("节点名称不能为空.");
+            return false;
+        }
+        return true;
+    };
 
-var newCount = 1;
-function addHoverDom(treeId, treeNode) {
-    var sObj = $("#" + treeNode.tId + "_span");
-    if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
-    var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
-        + "' title='add node' onfocus='this.blur();'></span>";
-    sObj.after(addStr);
-    var btn = $("#addBtn_"+treeNode.tId);
-    if (btn) btn.bind("click", function(){
-        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-        zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
-        return false;
-    });
-};
-function removeHoverDom(treeId, treeNode) {
-    $("#addBtn_"+treeNode.tId).unbind().remove();
-};
-function selectAll() {
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-    zTree.setting.edit.editNameSelectAll =  $("#selectAll").attr("checked");
-}
+    var newCount = 1;
+    var addHoverDom = function (treeId, treeNode) {
+        var sObj = $("#" + treeNode.tId + "_span");
+        if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+            + "' title='add node' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtn_" + treeNode.tId);
+        if (btn) btn.bind("click", function () {
+            $("#courseCategoryAddModal input[name='parentName']").val(treeNode.name);
+            $("#courseCategoryAddModal input[name='parentID']").val(treeNode.id);
 
-$(document).ready(function(){
-    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-    $("#selectAll").bind("click", selectAll);
+            $("#courseCategoryAddModal").modal("show");
+            $("#courseCategoryAddModal").find('#saveBtn').click(function () {
+                var data = {};
+                data.name = $("#courseCategoryAddModal").find("input[name='name']").val();
+                data.parentID = $("#courseCategoryAddModal").find("input[name='parentID']").val();
+                data.desc = $("#courseCategoryAddModal").find("textarea[name='desc']").text();
+
+                $.post('/teacher/json/CourseCategoryRequest/addCourseCategory.json', data, function (result) {
+                    if (result.success) {
+                        location.reload();
+                    } else {
+                        console.log(result.errorMsg)
+                    }
+                })
+            });
+
+            return false;
+        });
+    };
+    var removeHoverDom = function (treeId, treeNode) {
+        $("#addBtn_" + treeNode.tId).unbind().remove();
+    };
+
+    var setting = {
+        async: {
+            enable: true,
+            url: "/teacher/json/CourseCategoryRequest/queryAllCourseCategories.json",
+            autoParam: ["id", "name=n", "level=lv"],
+            otherParam: {"otherParam": "oo"},
+            dataFilter: filter
+        },
+        view: {
+            expandSpeed: "",
+            addHoverDom: addHoverDom,
+            removeHoverDom: removeHoverDom,
+            selectedMulti: false
+        },
+        edit: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                pIdKey: "pId",
+                rootPId: -1
+            }
+        },
+        callback: {
+            beforeRemove: beforeRemove,
+            beforeRename: beforeRename
+        }
+    };
+    return {
+        init: function () {
+            $.fn.zTree.init($("#treeDemo"), setting);
+        }
+    }
+
+
+}();
+$(document).ready(function () {
+    courseCategoryTree.init();
 });

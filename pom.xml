@@ -294,7 +294,6 @@
             </dependency>
 
 
-
             <!-- spring jdbc连接mysql-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -336,7 +335,6 @@
             </dependency>
 
 
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -353,11 +351,14 @@
                 <artifactId>hibernate-validator</artifactId>
                 <version>5.2.4.Final</version>
             </dependency>
+            <!--七牛-->
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>[7.0.0, 7.0.99]</version>
+            </dependency>
 
         </dependencies>
-
-
-
 
 
     </dependencyManagement>

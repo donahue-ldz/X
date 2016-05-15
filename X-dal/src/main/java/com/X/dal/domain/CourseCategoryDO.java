@@ -23,7 +23,7 @@ public class CourseCategoryDO implements Serializable {
     /**
      * 节点描述
      */
-    private String desc;
+    private String description;
 
 
 
@@ -60,12 +60,12 @@ public class CourseCategoryDO implements Serializable {
         return this;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public CourseCategoryDO setDesc(String desc) {
-        this.desc = desc;
+    public CourseCategoryDO setDescription(String description) {
+        this.description = description;
         return this;
     }
 

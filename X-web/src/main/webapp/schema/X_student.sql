@@ -15,3 +15,5 @@ CREATE TABLE `X_student` (
   ENGINE = InnoDB
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
+INSERT INTO X_student(student_ID, student_name, email, nick, password)
+              VALUES ('1','student_test','ldz2012yn@gmail.com','与水','1')

@@ -1,4 +1,4 @@
-var EcommerceProductsEdit = function () {
+var courseEdit = function () {
 
     var handleImages = function() {
 
@@ -111,6 +111,44 @@ var EcommerceProductsEdit = function () {
             }
         });
     }
+    var initCourseCategoryTree = function () {
+        var setting = {
+            view: {
+                selectedMulti: false
+            },
+            check: {
+                enable: true
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+        };
+        function setAutoTrigger(e) {
+            var zTree = $.fn.zTree.getZTreeObj("courseCategoryTree");
+            zTree.setting.check.autoCheckTrigger = $("#autoCallbackTrigger").attr("checked");
+            $("#autoCheckTriggerValue").html(zTree.setting.check.autoCheckTrigger ? "true" : "false");
+        }
+        
+        var treeReview = function () {
+            var url = "/teacher/json/CourseCategoryRequest/queryAllCourseCategoryVOs.json";
+            $.post(url,{},function (result) {
+                if(result.success){
+                    var zNodes = result.objList;
+                    $.fn.zTree.init($("#courseCategoryTree"), setting, zNodes);
+                    $("#autoCallbackTrigger").bind("change", {}, setAutoTrigger);
+                }else{
+                    console.log(result.errorMsg);
+                }
+            })
+        };
+
+
+        $(document).ready(function(){
+            treeReview();
+        });
+    }
 
     var handleHistory = function () {
 
@@ -174,7 +212,7 @@ var EcommerceProductsEdit = function () {
         //main function to initiate the module
         init: function () {
             initComponents();
-
+            initCourseCategoryTree();
             handleImages();
             handleReviews();
             handleHistory();
@@ -185,5 +223,5 @@ var EcommerceProductsEdit = function () {
 }();
 
 jQuery(document).ready(function() {    
-   EcommerceProductsEdit.init();
+   courseEdit.init();
 });
