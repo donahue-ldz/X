@@ -16,7 +16,7 @@ public interface ICourseCategoryManager {
 
     List<CourseCategoryDO> queryAllCourseCategories() throws XException;
 
-    CourseCategoryDO queryCourseByID(@Param(("id")) long id) throws XException;
+    CourseCategoryDO queryCourseCategoryByID(@Param(("id")) long id) throws XException;
 
-    CourseCategoryDO queryCourseByName(@Param(("name")) String name) throws XException;
+    CourseCategoryDO queryCourseCategoryByName(@Param(("name")) String name) throws XException;
 }

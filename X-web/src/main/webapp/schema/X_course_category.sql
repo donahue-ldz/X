@@ -5,7 +5,7 @@ CREATE TABLE `X_course_category` (
   COMMENT '分类名',
   `parent_ID`    INT(11)     NULL
   COMMENT '父ID',
-  `desc`         VARCHAR(255) NULL
+  `description`         VARCHAR(255) NULL
   COMMENT '昵称',
   `status`       VARCHAR(2)            DEFAULT '1'
   COMMENT '状态',
@@ -16,4 +16,4 @@ CREATE TABLE `X_course_category` (
   ENGINE = InnoDB
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
-INSERT INTO X_course_category(name,parent_ID,`desc`)VALUES ('所有',-1,'根节点');
+INSERT INTO X_course_category(name,parent_ID,description)VALUES ('所有',-1,'根节点');

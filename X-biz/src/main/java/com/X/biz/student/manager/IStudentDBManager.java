@@ -9,6 +9,7 @@ import com.X.dal.domain.StudentDO;
  **/
 public interface IStudentDBManager {
     long save(StudentDO student) throws XException;
+    void updateStudentByID(Long id,StudentDO student) throws XException;
     StudentDO queryStudentByStuID(String stuID) throws XException;
     StudentDO queryStudentByEmail(String email) throws XException;
 }

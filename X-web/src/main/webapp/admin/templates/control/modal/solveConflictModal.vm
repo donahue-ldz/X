@@ -1,6 +1,6 @@
 <style>
 
-    .cs,.desc {
+    .cs,.description {
         border: 2px solid #a1a1a1;
         padding: 5px 20px;
         border-radius: 5px;

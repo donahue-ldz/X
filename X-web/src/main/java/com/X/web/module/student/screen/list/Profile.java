@@ -1,7 +1,7 @@
 package com.X.web.module.student.screen.list;
 
 import com.X.biz.exception.XException;
-import com.X.dal.domain.StudentDO;
+import com.X.biz.student.wrapper.StudentWrapper;
 import com.X.web.common.BaseScreen;
 import com.X.web.common.WebResult;
 import com.alibaba.citrus.turbine.Context;
@@ -26,7 +26,7 @@ public class Profile extends BaseScreen {
     }
 
     private void setUser(Context context) throws Exception{
-        StudentDO student  = (StudentDO) getUser();
-        context.put("student",student);
+        StudentWrapper student  = (StudentWrapper) getUser();
+        context.put("studentWrapper",student);
     }
 }

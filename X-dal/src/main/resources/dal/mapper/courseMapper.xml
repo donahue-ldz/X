@@ -19,7 +19,7 @@
             useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_course(
         name,
-        desc,
+        description,
         short_desc,
         picture_ID,
         course_hours,
@@ -27,7 +27,7 @@
         gmt_create
       )values(
         #{name},
-        #{desc},
+        #{description},
         #{shortDesc},
         #{pictureID},
         #{courseHours},
@@ -38,7 +38,7 @@
     <resultMap id="courseResultMap" type="CourseDO">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
-        <result property="desc" column="desc"/>
+        <result property="description" column="description"/>
         <result property="shortDesc" column="short_desc"/>
         <result property="pictureID" column="picture_ID"/>
         <result property="courseHours" column="course_hours"/>

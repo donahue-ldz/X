@@ -31,13 +31,13 @@ public class CourseCategoryManager implements ICourseCategoryManager {
             public Long call() throws Exception {
                 CourseCategoryDO courseCategory = new CourseCategoryDO();
                 courseCategory.setName(name);
-                courseCategory.setDesc(desc);
+                courseCategory.setDescription(desc);
                 courseCategory.setGmtCreate(new Date());
                 courseCategory.setParentID(parentID);
                 ValidationResult result = ValidateHelper.validateEntity(courseCategory);
                 if(result.isHasErrors()) throw new XException(result.getErrorMsg().toString());
                 else {
-                    CourseCategoryDO exist = queryCourseByName(name);
+                    CourseCategoryDO exist = queryCourseCategoryByName(name);
                     if(exist==null)
                         return courseCategoryMapper.save(courseCategory);
                     else
@@ -49,16 +49,31 @@ public class CourseCategoryManager implements ICourseCategoryManager {
 
     @Override
     public List<CourseCategoryDO> queryAllCourseCategories() throws XException {
-        return null;
+        return RunWrapper.run(new Callable<List<CourseCategoryDO>>() {
+            @Override
+            public List<CourseCategoryDO> call() throws Exception {
+               return courseCategoryMapper.queryAllCourseCategories();
+            }
+        });
     }
 
     @Override
-    public CourseCategoryDO queryCourseByID(@Param(("id")) long id) throws XException {
-        return null;
+    public CourseCategoryDO queryCourseCategoryByID(@Param(("id")) final long id) throws XException {
+        return RunWrapper.run(new Callable<CourseCategoryDO>() {
+            @Override
+            public CourseCategoryDO call() throws Exception {
+                return courseCategoryMapper.queryCourseCategoryByID(id);
+            }
+        });
     }
 
     @Override
-    public CourseCategoryDO queryCourseByName(@Param(("name")) String name) throws XException {
-        return null;
+    public CourseCategoryDO queryCourseCategoryByName(@Param(("name")) final String name) throws XException {
+        return RunWrapper.run(new Callable<CourseCategoryDO>() {
+            @Override
+            public CourseCategoryDO call() throws Exception {
+                return courseCategoryMapper.queryCourseCategoryByName(name);
+            }
+        });
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.X.dal.mapper.courseCategoryMapper">
+<mapper namespace="com.X.dal.mapper.CourseCategoryMapper">
     <select id="queryCourseCategoryByName" parameterType="String"
             resultMap="courseCategoryResultMap">
         select *
@@ -8,32 +8,35 @@
         where t.name=#{name}
     </select>
 
-    <select id="queryCourseCategoryByID" parameterType="Long"
-            resultMap="courseCategoryResultMap">
+    <select id="queryCourseCategoryByID" parameterType="Long" resultMap="courseCategoryResultMap">
         select *
         from  X_course_category t
         where t.id = #{id}
     </select>
+    <select id="queryAllCourseCategories" resultMap="courseCategoryResultMap">
+        select *
+        from  X_course_category t
+    </select>
 
-    <insert id="save"
-            useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_course_category(
         name,
         parent_ID,
-        desc,
+        description,
         gmt_create
-      )values(
+        )values(
         #{name},
         #{parentID},
-        #{desc},
-        #{gmtCreate})
+        #{description},
+        #{gmtCreate}
+        )
     </insert>
 
-    <resultMap id="courseCategoryResultMap" type="courseCategoryDO">
+    <resultMap id="courseCategoryResultMap" type="CourseCategoryDO">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="parentID" column="parent_ID"/>
-        <result property="desc" column="desc"/>
+        <result property="description" column="description"/>
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>

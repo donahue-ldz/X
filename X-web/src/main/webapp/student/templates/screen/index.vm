@@ -694,7 +694,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 4 pending tasks.
+                                            <div class="description"> You have 4 pending tasks.
                                                         <span class="label label-sm label-warning "> Take action
                                                             <i class="fa fa-share"></i>
                                                         </span>
@@ -716,7 +716,7 @@
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> Finance Report for year 2013 has been released.
+                                                <div class="description"> Finance Report for year 2013 has been released.
                                                 </div>
                                             </div>
                                         </div>
@@ -735,7 +735,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick
+                                            <div class="description"> You have 5 pending membership that requires a quick
                                                 review.
                                             </div>
                                         </div>
@@ -754,7 +754,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> New order received with
+                                            <div class="description"> New order received with
                                                 <span class="label label-sm label-success"> Reference Number: DR23923 </span>
                                             </div>
                                         </div>
@@ -773,7 +773,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick
+                                            <div class="description"> You have 5 pending membership that requires a quick
                                                 review.
                                             </div>
                                         </div>
@@ -792,7 +792,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> Web server hardware needs to be upgraded.
+                                            <div class="description"> Web server hardware needs to be upgraded.
                                                 <span class="label label-sm label-warning"> Overdue </span>
                                             </div>
                                         </div>
@@ -812,7 +812,7 @@
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> IPO Report for year 2013 has been released.</div>
+                                                <div class="description"> IPO Report for year 2013 has been released.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -833,7 +833,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 4 pending tasks.
+                                            <div class="description"> You have 4 pending tasks.
                                                         <span class="label label-sm label-warning "> Take action
                                                             <i class="fa fa-share"></i>
                                                         </span>
@@ -855,7 +855,7 @@
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> Finance Report for year 2013 has been released.
+                                                <div class="description"> Finance Report for year 2013 has been released.
                                                 </div>
                                             </div>
                                         </div>
@@ -874,7 +874,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick
+                                            <div class="description"> You have 5 pending membership that requires a quick
                                                 review.
                                             </div>
                                         </div>
@@ -893,7 +893,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> New order received with
+                                            <div class="description"> New order received with
                                                 <span class="label label-sm label-success"> Reference Number: DR23923 </span>
                                             </div>
                                         </div>
@@ -912,7 +912,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> You have 5 pending membership that requires a quick
+                                            <div class="description"> You have 5 pending membership that requires a quick
                                                 review.
                                             </div>
                                         </div>
@@ -931,7 +931,7 @@
                                             </div>
                                         </div>
                                         <div class="cont-col2">
-                                            <div class="desc"> Web server hardware needs to be upgraded.
+                                            <div class="description"> Web server hardware needs to be upgraded.
                                                 <span class="label label-sm label-default "> Overdue </span>
                                             </div>
                                         </div>
@@ -951,7 +951,7 @@
                                                 </div>
                                             </div>
                                             <div class="cont-col2">
-                                                <div class="desc"> IPO Report for year 2013 has been released.</div>
+                                                <div class="description"> IPO Report for year 2013 has been released.</div>
                                             </div>
                                         </div>
                                     </div>

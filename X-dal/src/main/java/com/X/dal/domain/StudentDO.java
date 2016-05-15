@@ -10,8 +10,8 @@ import java.util.Date;
  * Created by donahue on 5/6/16.
  */
 public class StudentDO implements Serializable,User {
-    private static final long serialVersionUID = 310308226585247132L;
-    private long id;
+    private static final Long serialVersionUID = 310308226585247132L;
+    private Long id;
     /**
      * 学号
      */
@@ -24,7 +24,7 @@ public class StudentDO implements Serializable,User {
     /**
      * 用户头像ID,头像保存在图片空间
      */
-    private long avatarID;
+    private Long avatarID;
     /**
      * 电子邮件
      */
@@ -60,11 +60,11 @@ public class StudentDO implements Serializable,User {
         return Role.STUDENT;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public StudentDO setId(long id) {
+    public StudentDO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -87,11 +87,11 @@ public class StudentDO implements Serializable,User {
         return this;
     }
 
-    public long getAvatarID() {
+    public Long getAvatarID() {
         return avatarID;
     }
 
-    public StudentDO setAvatarID(long avatarID) {
+    public StudentDO setAvatarID(Long avatarID) {
         this.avatarID = avatarID;
         return this;
     }

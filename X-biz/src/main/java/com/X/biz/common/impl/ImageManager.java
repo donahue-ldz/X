@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.util.concurrent.Callable;
 
 /**
@@ -24,21 +23,6 @@ public class ImageManager implements IImageManager {
     @Autowired
     private IFileManager fileManager;
 
-    @Override
-    public String save(final File image, final HttpServletRequest request) throws XException {
-        return RunWrapper.run(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                String configDirectory = Config.FILE_UPLOAD_DIRECTORY + AVATAR_DIRECOTRY;
-                String date = DateUtils.currentDate();
-                String fileName = date + Tool.getUUID32();
-                fileManager.save(image,configDirectory,fileName);
-                return request.getRemoteAddr();
-            }
-        });
-
-
-    }
 
     @Override
     public String save(final byte[] imageBytes, final HttpServletRequest request) throws XException {

@@ -13,8 +13,8 @@ import java.io.FileInputStream;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-11 9:39 PM
  **/
-@Service("fileManager")
-public class FileManager implements IFileManager{
+@Service("localFileManager")
+public class LocalFileManager implements IFileManager{
     @Override
     public void save(byte[] bytes, @NotEmpty String directory, @NotEmpty String fileName) throws Exception {
         File dic = new File(directory);

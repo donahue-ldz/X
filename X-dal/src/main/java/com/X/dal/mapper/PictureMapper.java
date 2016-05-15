@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PictureMapper {
     long save(PictureDO picture);
-    PictureDO queryPictureByID(@Param("id")String id);
+    PictureDO queryPictureByID(@Param("id") Long id);
 }

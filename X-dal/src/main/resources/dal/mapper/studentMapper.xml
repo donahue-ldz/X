@@ -30,6 +30,35 @@
         #{gmtCreate})
     </insert>
 
+    <update id="updateStudentByID" parameterType="StudentDO">
+        update X_student
+        <trim prefix="set" suffixOverrides=",">
+            <if test="student.studentID!=null">
+                student_ID=#{student.studentID},
+            </if>
+            <if test="student.studentName!=null">
+                student_name=#{student.studentName},
+            </if>
+            <if test="student.avatarID!=null">
+                avatar_ID=#{student.avatarID},
+            </if>
+            <if test="student.email!=null">
+                email=#{student.email},
+            </if>
+            <if test="student.nick!=null">
+                nick=#{student.nick},
+            </if>
+            <if test="student.status!=null">
+                status=#{student.status},
+            </if>
+            <if test="student.gmtModified!=null">
+                gmt_modified=#{student.gmtModified},
+            </if>
+
+        </trim>
+        where id = #{id}
+    </update>
+
     <resultMap id="studentResultMap" type="StudentDO">
         <id property="id" column="id"/>
         <result property="studentID" column="student_ID"/>
