@@ -3,7 +3,7 @@ package com.X.biz.common.impl;
 import com.X.biz.RunWrapper;
 import com.X.biz.cloud.CloudConfig;
 import com.X.biz.cloud.upload.Upload;
-import com.X.biz.common.IImageAvatarManager;
+import com.X.biz.common.IImageCourseManager;
 import com.X.biz.common.IPictureManager;
 import com.X.biz.exception.XException;
 import com.X.biz.system.Config;
@@ -21,8 +21,8 @@ import java.util.concurrent.Callable;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-11 11:05 PM
  **/
-@Service("imageAvatarManager")
-public class ImageAvatarManager implements IImageAvatarManager {
+@Service("imageCourseManager")
+public class ImageCourseManager implements IImageCourseManager {
     @Autowired
     private IPictureManager pictureManager;
 
@@ -48,7 +48,7 @@ public class ImageAvatarManager implements IImageAvatarManager {
 
                     @Override
                     protected String getBucketName() {
-                        return CloudConfig.BUCKET_IMAGE_AVATAR;
+                        return CloudConfig.BUCKET_IMAGE_COURSE;
                     }
                 };
                 upload.service();

@@ -2,7 +2,8 @@ package com.X.biz.common;
 
 import com.X.biz.exception.XException;
 import com.X.dal.domain.PictureDO;
-import com.sun.istack.internal.NotNull;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author donahue ldz2012yn@gmail.com
