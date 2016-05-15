@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="menu-dropdown classic-menu-dropdown #markActiveNavBarTab("论坛" $navInfo) ">
-                        <a href="/bbs/"> 论坛
+                        <a href="/bbs/list/profile.htm"> 论坛
                             <span class="arrow"></span>
                         </a>
                     </li>
