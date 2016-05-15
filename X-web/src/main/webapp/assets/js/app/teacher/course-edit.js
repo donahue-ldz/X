@@ -1,56 +1,56 @@
 var courseEdit = function () {
 
-    var handleImages = function() {
+    var handleImages = function () {
 
         // see http://www.plupload.com/
         var uploader = new plupload.Uploader({
-            runtimes : 'html5,flash,silverlight,html4',
-             
-            browse_button : document.getElementById('tab_images_uploader_pickfiles'), // you can pass in id...
+            runtimes: 'html5,flash,silverlight,html4',
+
+            browse_button: document.getElementById('tab_images_uploader_pickfiles'), // you can pass in id...
             container: document.getElementById('tab_images_uploader_container'), // ... or DOM Element itself
-             
-            url : "assets/plugins/plupload/examples/upload.php",
-             
-            filters : {
-                max_file_size : '10mb',
+
+            url: "assets/plugins/plupload/examples/upload.php",
+
+            filters: {
+                max_file_size: '10mb',
                 mime_types: [
-                    {title : "Image files", extensions : "jpg,gif,png"},
-                    {title : "Zip files", extensions : "zip"}
+                    {title: "Image files", extensions: "jpg,gif,png"},
+                    {title: "Zip files", extensions: "zip"}
                 ]
             },
-         
+
             // Flash settings
-            flash_swf_url : 'assets/plugins/plupload/js/Moxie.swf',
-     
+            flash_swf_url: 'assets/plugins/plupload/js/Moxie.swf',
+
             // Silverlight settings
-            silverlight_xap_url : 'assets/plugins/plupload/js/Moxie.xap',             
-         
+            silverlight_xap_url: 'assets/plugins/plupload/js/Moxie.xap',
+
             init: {
-                PostInit: function() {
+                PostInit: function () {
                     $('#tab_images_uploader_filelist').html("");
-         
-                    $('#tab_images_uploader_uploadfiles').click(function() {
+
+                    $('#tab_images_uploader_uploadfiles').click(function () {
                         uploader.start();
                         return false;
                     });
 
-                    $('#tab_images_uploader_filelist').on('click', '.added-files .remove', function(){
-                        uploader.removeFile($(this).parent('.added-files').attr("id"));    
-                        $(this).parent('.added-files').remove();                     
+                    $('#tab_images_uploader_filelist').on('click', '.added-files .remove', function () {
+                        uploader.removeFile($(this).parent('.added-files').attr("id"));
+                        $(this).parent('.added-files').remove();
                     });
                 },
-         
-                FilesAdded: function(up, files) {
-                    plupload.each(files, function(file) {
+
+                FilesAdded: function (up, files) {
+                    plupload.each(files, function (file) {
                         $('#tab_images_uploader_filelist').append('<div class="alert alert-warning added-files" id="uploaded_file_' + file.id + '">' + file.name + '(' + plupload.formatSize(file.size) + ') <span class="status label label-info"></span>&nbsp;<a href="javascript:;" style="margin-top:-5px" class="remove pull-right btn btn-sm red"><i class="fa fa-times"></i> remove</a></div>');
                     });
                 },
-         
-                UploadProgress: function(up, file) {
+
+                UploadProgress: function (up, file) {
                     $('#uploaded_file_' + file.id + ' > .status').html(file.percent + '%');
                 },
 
-                FileUploaded: function(up, file, response) {
+                FileUploaded: function (up, file, response) {
                     var response = $.parseJSON(response.response);
 
                     if (response.result && response.result == 'OK') {
@@ -59,11 +59,16 @@ var courseEdit = function () {
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-success").html('<i class="fa fa-check"></i> Done'); // set successfull upload
                     } else {
                         $('#uploaded_file_' + file.id + ' > .status').removeClass("label-info").addClass("label-danger").html('<i class="fa fa-warning"></i> Failed'); // set failed upload
-                        App.alert({type: 'danger', message: 'One of uploads failed. Please retry.', closeInSeconds: 10, icon: 'warning'});
+                        App.alert({
+                            type: 'danger',
+                            message: 'One of uploads failed. Please retry.',
+                            closeInSeconds: 10,
+                            icon: 'warning'
+                        });
                     }
                 },
-         
-                Error: function(up, err) {
+
+                Error: function (up, err) {
                     App.alert({type: 'danger', message: err.message, closeInSeconds: 10, icon: 'warning'});
                 }
             }
@@ -124,28 +129,44 @@ var courseEdit = function () {
                     enable: true
                 }
             },
+            key: {
+                checked: "checked"//zTree 节点数据中保存check状态的属性名称。默认值："checked"
+            },
+            callback: {
+                onCheck: onCheck,
+
+            },
         };
+
         function setAutoTrigger(e) {
             var zTree = $.fn.zTree.getZTreeObj("courseCategoryTree");
-            zTree.setting.check.autoCheckTrigger = $("#autoCallbackTrigger").attr("checked");
-            $("#autoCheckTriggerValue").html(zTree.setting.check.autoCheckTrigger ? "true" : "false");
         }
-        
+
+        function onCheck(event, treeId, treeNode) {
+            var ztree = $.fn.zTree.getZTreeObj("courseCategoryTree");
+            var checkedNodeIDs = new Array();
+            $.each(ztree.getCheckedNodes(true), function (index, checkedNode) {
+                checkedNodeIDs.push(checkedNode.id);
+            });
+            $("#courseCategoryIDs").val(checkedNodeIDs.join(":"));
+        }
+
+
         var treeReview = function () {
             var url = "/teacher/json/CourseCategoryRequest/queryAllCourseCategoryVOs.json";
-            $.post(url,{},function (result) {
-                if(result.success){
+            $.post(url, {}, function (result) {
+                if (result.success) {
                     var zNodes = result.objList;
                     $.fn.zTree.init($("#courseCategoryTree"), setting, zNodes);
                     $("#autoCallbackTrigger").bind("change", {}, setAutoTrigger);
-                }else{
+                } else {
                     console.log(result.errorMsg);
                 }
             })
         };
 
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             treeReview();
         });
     }
@@ -181,7 +202,7 @@ var courseEdit = function () {
                 ] // set first column as a default sort by asc
             }
         });
-    } 
+    }
 
     var initComponents = function () {
         //init datepickers
@@ -222,6 +243,6 @@ var courseEdit = function () {
 
 }();
 
-jQuery(document).ready(function() {    
-   courseEdit.init();
+jQuery(document).ready(function () {
+    courseEdit.init();
 });

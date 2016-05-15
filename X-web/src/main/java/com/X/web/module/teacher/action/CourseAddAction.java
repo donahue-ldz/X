@@ -33,7 +33,7 @@ public class CourseAddAction extends BaseAction {
                         @Param("course[shortDesc]") final String shortDesc,
                         @Param("course[courseCredit]") final int courseCredit,
                         @Param("course[hours]") final int courseHours,
-                        @Param("course[categoryIDs]") final String categoryIDs) throws Exception {
+                        @Param("courseCategoryIDs") final String categoryIDs) throws Exception {
 
         Preconditions.checkArgument(!StringUtils.isEmpty(categoryIDs),"请选择分类");
         FileItem file = runData.getParameters().getFileItem("file");
