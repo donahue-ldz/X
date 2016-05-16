@@ -1,10 +1,10 @@
-var AppInbox = function () {
+var course = function () {
 
-    var content = $('.inbox-content');
+    var content = $('.content');
     var listListing = '';
 
-    var loadInbox = function (el, name) {
-        var url = 'app_inbox_inbox.html';
+    var loadData= function (el, name) {
+        var url = '/json/CourseRequest/queryCourses.json';
         var title = el.attr('data-title');
         listListing = name;
 
@@ -17,19 +17,16 @@ var AppInbox = function () {
         toggleButton(el);
 
         $.ajax({
-            type: "GET",
+            type: "POST",
             cache: false,
             url: url,
-            dataType: "html",
             success: function (res) {
                 toggleButton(el);
-
                 App.unblockUI('.inbox-content');
-
                 $('.inbox-nav > li.active').removeClass('active');
                 el.closest('li').addClass('active');
                 $('.inbox-header > h1').text(title);
-
+                    
                 content.html(res);
 
                 if (Layout.fixContentHeight) {
@@ -51,178 +48,7 @@ var AppInbox = function () {
             });
         });
     }
-
-    var loadMessage = function (el, name, resetMenu) {
-        var url = 'app_inbox_view.html';
-
-        App.blockUI({
-            target: content,
-            overlayColor: 'none',
-            animate: true
-        });
-
-        toggleButton(el);
-
-        var message_id = el.parent('tr').attr("data-messageid");
-
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            data: {'message_id': message_id},
-            success: function (res) {
-                App.unblockUI(content);
-
-                toggleButton(el);
-
-                if (resetMenu) {
-                    $('.inbox-nav > li.active').removeClass('active');
-                }
-                $('.inbox-header > h1').text('View Message');
-
-                content.html(res);
-                Layout.fixContentHeight();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                toggleButton(el);
-            },
-            async: false
-        });
-    }
-
-    var initWysihtml5 = function () {
-        $('.inbox-wysihtml5').wysihtml5({
-            "stylesheets": ["../assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
-        });
-    }
-
-    var initFileupload = function () {
-
-        $('#fileupload').fileupload({
-            // Uncomment the following to send cross-domain cookies:
-            //xhrFields: {withCredentials: true},
-            url: '../assets/global/plugins/jquery-file-upload/server/php/',
-            autoUpload: true
-        });
-
-        // Upload server status check for browsers with CORS support:
-        if ($.support.cors) {
-            $.ajax({
-                url: '../assets/global/plugins/jquery-file-upload/server/php/',
-                type: 'HEAD'
-            }).fail(function () {
-                $('<span class="alert alert-error"/>')
-                    .text('Upload server currently unavailable - ' +
-                        new Date())
-                    .appendTo('#fileupload');
-            });
-        }
-    }
-
-    var loadCompose = function (el) {
-        var url = 'app_inbox_compose.html';
-
-        App.blockUI({
-            target: content,
-            overlayColor: 'none',
-            animate: true
-        });
-
-        toggleButton(el);
-
-        // load the form via ajax
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            success: function (res) {
-                App.unblockUI(content);
-                toggleButton(el);
-
-                $('.inbox-nav > li.active').removeClass('active');
-                $('.inbox-header > h1').text('Compose');
-
-                content.html(res);
-
-                initFileupload();
-                initWysihtml5();
-
-                $('.inbox-wysihtml5').focus();
-                Layout.fixContentHeight();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                toggleButton(el);
-            },
-            async: false
-        });
-    }
-
-    var loadReply = function (el) {
-        var messageid = $(el).attr("data-messageid");
-        var url = 'app_inbox_reply.html';
-
-        App.blockUI({
-            target: content,
-            overlayColor: 'none',
-            animate: true
-        });
-
-        toggleButton(el);
-
-        // load the form via ajax
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            success: function (res) {
-                App.unblockUI(content);
-                toggleButton(el);
-
-                $('.inbox-nav > li.active').removeClass('active');
-                $('.inbox-header > h1').text('Reply');
-
-                content.html(res);
-                $('[name="message"]').val($('#reply_email_content_body').html());
-
-                handleCCInput(); // init "CC" input field
-
-                initFileupload();
-                initWysihtml5();
-                Layout.fixContentHeight();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                toggleButton(el);
-            },
-            async: false
-        });
-    }
-
-    var handleCCInput = function () {
-        var the = $('.inbox-compose .mail-to .inbox-cc');
-        var input = $('.inbox-compose .input-cc');
-        the.hide();
-        input.show();
-        $('.close', input).click(function () {
-            input.hide();
-            the.show();
-        });
-    }
-
-    var handleBCCInput = function () {
-
-        var the = $('.inbox-compose .mail-to .inbox-bcc');
-        var input = $('.inbox-compose .input-bcc');
-        the.hide();
-        input.show();
-        $('.close', input).click(function () {
-            input.hide();
-            the.show();
-        });
-    }
-
+    
     var toggleButton = function (el) {
         if (typeof el == 'undefined') {
             return;
@@ -290,5 +116,5 @@ var AppInbox = function () {
 }();
 
 jQuery(document).ready(function () {
-    AppInbox.init();
+    course.init();
 });

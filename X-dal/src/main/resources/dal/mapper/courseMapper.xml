@@ -15,6 +15,13 @@
         where t.id = #{id}
     </select>
 
+    <select id="queryTopNRecentlyCourses" parameterType="Long" resultMap="courseResultMap">
+        select *
+        from  X_course t
+        ORDER BY t.gmt_create DESC
+        limit 0,${topN}
+    </select>
+
     <insert id="save"
             useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_course(

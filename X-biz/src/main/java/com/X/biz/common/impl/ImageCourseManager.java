@@ -51,11 +51,12 @@ public class ImageCourseManager implements IImageCourseManager {
                     }
                 };
                 upload.service();
-                String pictureURL = CloudConfig.CLOUD_URL + "/" + fileName;
+                String pictureURL = CloudConfig.CLOUD_IMAGE_COURSE_URL + "/" + fileName;
                 PictureDO picture = new PictureDO();
                 picture.setUrl(pictureURL);
                 picture.setGmtCreate(new Date());
-                return pictureManager.save(picture);
+                pictureManager.save(picture);
+                return picture.getId();
 
             }
         });

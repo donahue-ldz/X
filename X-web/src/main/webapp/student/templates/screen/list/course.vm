@@ -18,50 +18,57 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="inbox-sidebar">
-                                    <a href="javascript:;" data-title="Compose" class="btn red compose-btn btn-block">
-                                        <i class="fa fa-edit"></i> 编辑 </a>
+                                    <a href="javascript:;" data-title="Compose" class="btn red btn-block">
+                                        <i class="fa fa-all"></i> 所有 </a>
                                     <ul class="inbox-nav">
                                         <li class="active">
                                             <a href="javascript:;" data-type="inbox" data-title="Inbox"> 文学
                                                 <span class="badge badge-success">3</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="javascript:;" data-type="important" data-title="Inbox">
-                                                毕设 </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" data-type="sent" data-title="Sent"> 编程 </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" data-type="draft" data-title="Draft"> 游戏
-                                                <span class="badge badge-danger">8</span>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="javascript:;" class="sbold uppercase" data-title="Trash"> 经济学
-                                                <span class="badge badge-info">23</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" data-type="inbox" data-title="Promotions"> 物理
-                                                <span class="badge badge-warning">2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;" data-type="inbox" data-title="News"> 其他 </a>
-                                        </li>
+                                        #foreach($categoryWrapper in $categories)
+                                            <li>
+                                                <a href="javascript:;" data-type="inbox" data-title="Inbox"> $!categoryWrapper.courseCategory.name
+                                                    <span class="badge badge-success">$!categoryWrapper.courseSize</span>
+                                                </a>
+                                            </li>
+                                        #end
+##                                        <li>
+##                                            <a href="javascript:;" data-type="important" data-title="Inbox">
+##                                                毕设 </a>
+##                                        </li>
+##                                        <li>
+##                                            <a href="javascript:;" data-type="sent" data-title="Sent"> 编程 </a>
+##                                        </li>
+##                                        <li>
+##                                            <a href="javascript:;" data-type="draft" data-title="Draft"> 游戏
+##                                                <span class="badge badge-danger">8</span>
+##                                            </a>
+##                                        </li>
+##                                        <li class="divider"></li>
+##                                        <li>
+##                                            <a href="javascript:;" class="sbold uppercase" data-title="Trash"> 经济学
+##                                                <span class="badge badge-info">23</span>
+##                                            </a>
+##                                        </li>
+##                                        <li>
+##                                            <a href="javascript:;" data-type="inbox" data-title="Promotions"> 物理
+##                                                <span class="badge badge-warning">2</span>
+##                                            </a>
+##                                        </li>
+##                                        <li>
+##                                            <a href="javascript:;" data-type="inbox" data-title="News"> 其他 </a>
+##                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="inbox-body">
                                     <div class="inbox-header">
-                                        <h1 class="pull-left">课程</h1>
+                                        <h3 class="pull-left">课程</h3>
                                         <form class="form-inline pull-right" action="index.html">
                                             <div class="input-group input-medium">
-                                                <input type="text" class="form-control" placeholder="Password">
+                                                <input type="text" class="form-control" placeholder="课程">
                                                         <span class="input-group-btn">
                                                             <button type="submit" class="btn green">
                                                                 <i class="fa fa-search"></i>
@@ -70,7 +77,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="inbox-content"></div>
+                                    <div class="content"></div>
                                 </div>
                             </div>
                         </div>

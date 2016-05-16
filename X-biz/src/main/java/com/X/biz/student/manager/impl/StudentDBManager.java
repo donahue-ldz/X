@@ -30,7 +30,8 @@ public class StudentDBManager implements IStudentDBManager {
         return RunWrapper.run(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return studentMapper.save(student);
+                studentMapper.save(student);
+                return student.getId();
             }
         });
     }

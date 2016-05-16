@@ -8,6 +8,7 @@ import com.X.dal.mapper.PictureMapper;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.Callable;
 
@@ -16,6 +17,8 @@ import java.util.concurrent.Callable;
  * @create 2016-05-11 9:12 AM
  **/
 @Service("pictureManager")
+@Transactional(rollbackFor = Exception.class)
+
 public class PictureManager implements IPictureManager {
 
     @Autowired

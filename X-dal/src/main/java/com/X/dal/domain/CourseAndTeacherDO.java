@@ -1,19 +1,16 @@
 package com.X.dal.domain;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author donahue ldz2012yn@gmail.com
- * @create 2016-05-16 9:01 AM
+ * @create 2016-05-16 11:10 PM
  **/
-public class CourseAndCategoryDO implements Serializable {
+public class CourseAndTeacherDO  implements Serializable {
     private Long id;
-    @NotNull
-    private Long courseID;
-    @NotNull
-    private Long categoryID;
+    private Long course_ID;
+    private Long teacher_ID;
     private String status;
     private Date gmtCreate;
     private Date gmtModified;
@@ -22,26 +19,26 @@ public class CourseAndCategoryDO implements Serializable {
         return id;
     }
 
-    public CourseAndCategoryDO setId(Long id) {
+    public CourseAndTeacherDO setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public Long getCourseID() {
-        return courseID;
+    public Long getCourse_ID() {
+        return course_ID;
     }
 
-    public CourseAndCategoryDO setCourseID(Long courseID) {
-        this.courseID = courseID;
+    public CourseAndTeacherDO setCourse_ID(Long course_ID) {
+        this.course_ID = course_ID;
         return this;
     }
 
-    public Long getCategoryID() {
-        return categoryID;
+    public Long getTeacher_ID() {
+        return teacher_ID;
     }
 
-    public CourseAndCategoryDO setCategoryID(Long categoryID) {
-        this.categoryID = categoryID;
+    public CourseAndTeacherDO setTeacher_ID(Long teacher_ID) {
+        this.teacher_ID = teacher_ID;
         return this;
     }
 
@@ -49,7 +46,7 @@ public class CourseAndCategoryDO implements Serializable {
         return status;
     }
 
-    public CourseAndCategoryDO setStatus(String status) {
+    public CourseAndTeacherDO setStatus(String status) {
         this.status = status;
         return this;
     }
@@ -58,7 +55,7 @@ public class CourseAndCategoryDO implements Serializable {
         return gmtCreate;
     }
 
-    public CourseAndCategoryDO setGmtCreate(Date gmtCreate) {
+    public CourseAndTeacherDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
         return this;
     }
@@ -67,7 +64,7 @@ public class CourseAndCategoryDO implements Serializable {
         return gmtModified;
     }
 
-    public CourseAndCategoryDO setGmtModified(Date gmtModified) {
+    public CourseAndTeacherDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
         return this;
     }

@@ -2,6 +2,7 @@ package com.X.biz.teacher.manager.impl;
 
 import com.X.biz.RunWrapper;
 import com.X.biz.common.IImageCourseManager;
+import com.X.biz.constant.TopNConfig;
 import com.X.biz.exception.XException;
 import com.X.biz.teacher.manager.ICourseAndCategoryManager;
 import com.X.biz.teacher.manager.ICourseManager;
@@ -43,7 +44,8 @@ public class CourseManager implements ICourseManager {
                 Preconditions.checkArgument(!CollectionUtils.isEmpty(courseCategoryIDs), "请选择分类");
                 long picID = imageCourseManager.save(imageBytes);
                 course.setPictureID(picID);
-                long courseID = courseMapper.save(course);
+                courseMapper.save(course);
+                long courseID = course.getId();
                 List<CourseAndCategoryDO> courseAndCategoryDOs = Lists.newArrayList();
                 for (Long categoryID : courseCategoryIDs) {
                     CourseAndCategoryDO courseAndCategory = new CourseAndCategoryDO();
@@ -64,6 +66,16 @@ public class CourseManager implements ICourseManager {
             @Override
             public CourseDO call() throws Exception {
                 return courseMapper.queryCourseByID(id);
+            }
+        });
+    }
+
+    @Override
+    public List<CourseDO> queryTopNRecentlyCourses() throws XException {
+        return RunWrapper.run(new Callable<List<CourseDO>>() {
+            @Override
+            public List<CourseDO> call() throws Exception {
+                return courseMapper.queryTopNRecentlyCourses(TopNConfig.INDEX_TOPN_COURSE);
             }
         });
     }

@@ -4,12 +4,17 @@
     <select id="queryCoursesByCategory" parameterType="String"
             resultMap="courseResultMap">
         select course.*
-        from  X_course course JOIN X_course_and_category courseAndCategory  ON course.id=courseAndCategory.course_id
-        JOIN X_course_category category ON courseAndCategory.category_id = category.id
+        from  X_course course JOIN X_course_and_category courseAndCategory  ON course.id=courseAndCategory.course_ID
+        JOIN X_course_category category ON courseAndCategory.category_ID = category.id
         where category.name=#{category}
         limit ${start},${length}
     </select>
 
+    <select id="countCourseSizeByCategory" parameterType="Long" resultType="Long">
+        select count(*) num
+        from X_course_and_category courseAndCategory
+        where courseAndCategory.category_ID = #{categoryID}
+    </select>
     <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_course_and_category(
         course_ID,
@@ -34,6 +39,7 @@
         </foreach>
 
     </insert>
+
 
     <resultMap id="courseAndCategoryResultMap" type="CourseAndCategoryDO">
         <id property="id" column="id"/>

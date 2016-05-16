@@ -13,10 +13,14 @@ import java.util.List;
 @Repository
 public interface CourseAndCategoryMapper {
     Long save(CourseAndCategoryDO courseCourseCategory);
+
     void saveList(List<CourseAndCategoryDO> courseCourseCategories);
 
     List<CourseDO> queryCoursesByCategoryWitePage(@Param("category") String category,
                                                   @Param("start") long start,
                                                   @Param("length") long length);
+
+    long countCourseSizeByCategory(@Param("categoryID") Long categoryID);
+
 
 }

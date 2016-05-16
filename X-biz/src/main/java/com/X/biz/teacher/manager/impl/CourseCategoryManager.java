@@ -38,8 +38,10 @@ public class CourseCategoryManager implements ICourseCategoryManager {
                 if(result.isHasErrors()) throw new XException(result.getErrorMsg().toString());
                 else {
                     CourseCategoryDO exist = queryCourseCategoryByName(name);
-                    if(exist==null)
-                        return courseCategoryMapper.save(courseCategory);
+                    if(exist==null) {
+                        courseCategoryMapper.save(courseCategory);
+                        return courseCategory.getId();
+                    }
                     else
                         throw new XException("已经存在的分类名...");
                 }

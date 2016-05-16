@@ -1,5 +1,7 @@
 package com.X.dal.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,11 +17,13 @@ public class CourseRateDO implements Serializable{
     /**
      * 课程ID
      */
-    private long courseID;
+    @NotEmpty
+    private Long courseID;
     /**
      * 用户ID
      */
-    private long studentID;
+    @NotEmpty
+    private Long studentID;
 
     /**
      * 状态
@@ -28,6 +32,7 @@ public class CourseRateDO implements Serializable{
     /**
      * 1. favorite 2.share 3.join
      */
+    @NotEmpty
     private String rateType;
 
     private Date gmtCreate;
