@@ -3,6 +3,8 @@ package com.X.biz.bbs.manager.impl;
 import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ICommentManager;
 import com.X.biz.exception.XException;
+import com.X.common.validator.ValidateHelper;
+import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.CommentDO;
 import com.X.dal.mapper.CommentMapper;
 
@@ -20,12 +22,13 @@ public class CommentManager implements ICommentManager {
 
     @Override
     public long save(final CommentDO comment) throws XException {
-        return RunWrapper.run(new Callable<Long>() {
+        return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return commentMapper.save(comment);
+                commentMapper.save(comment);
+                return comment.getId();
             }
-        });
+        }, comment);
     }
 
     @Override

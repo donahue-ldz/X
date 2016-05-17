@@ -3,6 +3,8 @@ package com.X.biz.bbs.manager.impl;
 import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ITopicCategoryManager;
 import com.X.biz.exception.XException;
+import com.X.common.validator.ValidateHelper;
+import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.mapper.TopicCategoryMapper;
 import org.springframework.stereotype.Service;
@@ -22,12 +24,13 @@ public class TopicCategoryManager implements ITopicCategoryManager {
 
     @Override
     public long save(final TopicCategoryDO topicCategory) throws XException {
-        return RunWrapper.run(new Callable<Long>() {
+        return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return topicCategoryMapper.save(topicCategory);
+                topicCategoryMapper.save(topicCategory);
+                return topicCategory.getId();
             }
-        });
+        }, topicCategory);
     }
 
     @Override

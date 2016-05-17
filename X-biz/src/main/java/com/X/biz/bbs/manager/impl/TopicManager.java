@@ -25,16 +25,13 @@ public class TopicManager implements ITopicManager {
 
     @Override
     public long save(final TopicDO topic) throws XException {
-        ValidationResult validationResult = ValidateHelper.validateEntity(topic);
-        if (validationResult.isHasErrors()) {
-            throw new XException(validationResult.toString());
-        }
-        return RunWrapper.run(new Callable<Long>() {
+        return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return topicMapper.save(topic);
+                topicMapper.save(topic);
+                return topic.getId();
             }
-        });
+        }, topic);
     }
 
     @Override
