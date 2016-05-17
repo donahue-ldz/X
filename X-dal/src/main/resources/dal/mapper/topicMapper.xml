@@ -5,7 +5,6 @@
         <id property="id" column="id"/>
         <result property="userID" column="user_id"/>
         <result property="userRole" column="user_role"/>
-        <result property="categoryID" column="category_id"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
         <result property="keyWords" column="key_words"/>
@@ -15,13 +14,12 @@
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>
     <insert id="save" parameterType="TopicDO" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        INSERT into `X_topic`(`user_id`,`user_role`,`category_id`,`title`,`content`,`key_words`,`weight`,`status`,`gmt_create`)
-        VALUES (#{userID},#{userRole},#{categoryID},#{title},#{content},#{keyWords},#{weight},#{status},#{gmtCreate})
+        INSERT into `X_topic`(`user_id`,`user_role`,`title`,`content`,`key_words`,`weight`,`status`,`gmt_create`)
+        VALUES (#{userID},#{userRole},#{title},#{content},#{keyWords},#{weight},#{status},#{gmtCreate})
     </insert>
 
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
         SELECT * FROM `X_topic` WHERE
-        <if test="topicCategory != null and topicCategory != ''">`topicCategory`=#{topicCategory}</if>
         <if test="offSet &gt;= 0 and rowCount &gt;= 0">
             limit #{offSet},#{rowCount}
         </if>

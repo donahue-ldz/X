@@ -1,6 +1,7 @@
 package com.X.dal.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author donahue ldz2012yn@gmail.com
@@ -12,9 +13,6 @@ public class TopicDO implements Serializable {
     //发布人
     private Long userID;
     private String userRole;
-
-    //所属分类
-    private Long categoryID;
 
     //帖子标题
     private String title;
@@ -29,10 +27,10 @@ public class TopicDO implements Serializable {
     private Double weight;
 
     //帖子创建时间
-    private Long gmtCreate;
+    private Date gmtCreate;
 
     //最后更新时间
-    private Long gmtModified;
+    private Date gmtModified;
 
     //1:正常 2:删除
     private String status;
@@ -62,15 +60,6 @@ public class TopicDO implements Serializable {
 
     public TopicDO setUserRole(String userRole) {
         this.userRole = userRole;
-        return this;
-    }
-
-    public Long getCategoryID() {
-        return categoryID;
-    }
-
-    public TopicDO setCategoryID(Long categoryID) {
-        this.categoryID = categoryID;
         return this;
     }
 
@@ -110,20 +99,20 @@ public class TopicDO implements Serializable {
         return this;
     }
 
-    public Long getGmtCreate() {
+    public Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public TopicDO setGmtCreate(Long gmtCreate) {
+    public TopicDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
         return this;
     }
 
-    public Long getGmtModified() {
+    public Date getGmtModified() {
         return gmtModified;
     }
 
-    public TopicDO setGmtModified(Long gmtModified) {
+    public TopicDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
         return this;
     }

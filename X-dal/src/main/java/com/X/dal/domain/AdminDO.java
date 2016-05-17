@@ -59,6 +59,11 @@ public class AdminDO implements Serializable,User {
         return Role.ADMIN;
     }
 
+    @Override
+    public Long ID() {
+        return id;
+    }
+
     public long getId() {
         return id;
     }
