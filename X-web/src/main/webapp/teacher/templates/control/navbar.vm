@@ -1,370 +1,225 @@
-<div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
-    <div class="page-header-inner ">
-        <!-- BEGIN LOGO -->
-        <div class="page-logo" style="padding-left: 0px">
-            <a href="index.html">
-                <img src="/assets/imags/logo.png" width="60px" height="50px" alt="logo" class="logo-default" style="margin: auto">
-                <span>运维系统</span>
+#macro (markActiveTab $name)
+navBarTab #if ("$!navInfo" != "" && $navInfo.contains($name)) activeTab #end
+#end
 
-            </a>
+<style>
+    .activeTab {
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#468), to(#fff)) !important;
+        color: #006 !important;
+    }
 
-            <div class="menu-toggler sidebar-toggler">
-                <span></span>
-            </div>
-        </div>
-        <!-- END LOGO -->
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-            <span></span>
+    .open .navBarTab,
+    .navBarTab:hover {
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#444), to(#468)) !important;
+        color: #fff !important;
+    }
+
+    .navBarTab {
+        border-left: solid 1px rgba(0,0,0,0) !important;
+        border-right: solid 1px rgba(0,0,0,0) !important;
+        height: 48px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .tabBox {
+        border-radius: 5px;
+        overflow: hidden;
+        height: 60px;
+        margin-top: 2px;
+    }
+    .bootstrap-select > .dropdown-toggle {
+        width: 100%;
+        padding-right: 25px;
+        padding-left: 10px;
+        padding-top: 3px;
+        z-index: 1;
+        height: 30px;
+        border-radius: 10px;
+        -moz-border-radius: 5px; /* 老的 Firefox */
+    }
+    #a_nameSpace button {
+        background-color: rgba(0, 0, 0, 0);
+        color: #ccc;
+        border-color: #444;
+    }
+    #bs-example-navbar-collapse-1 {
+        height: 50px !important;
+    }
+    .navbar-nav {
+        height: 50px !important;
+    }
+</style>
+<link href="/assets/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
+
+#if($navBarHide)
+<nav class=" navbar-inverse navbar-fixed-top"
+     style="width:100%;min-width:1198px;padding: 0px;margin-left: auto;margin-right: auto;padding-top:1px;height:51px;overflow:visible;visibility: hidden">
+<div class="container-fluid container-nav" style="margin-left: 20px">
+#else
+<nav class=" navbar-inverse navbar-fixed-top"
+     style="width:100%;min-width:1198px;padding: 0px;margin-left: auto;margin-right: auto;padding-top:1px;height:51px;overflow:visible;">
+<div class="container-fluid container-nav" style="margin-left: 20px">
+#end
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" style="width:250px">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand whiteColor" href="/" style="font-size:26px;padding-top:10px;white-space:nowrap">
+            <img src="/assets/imgs/logo_icon.png" style="height: 40px;position: relative;top: -5px;display:inline-block;">
+            <img src="/assets/imgs/logo_main.png" style="height: 40px;position: relative;top: -5px;display:inline-block;">
         </a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN TOP NAVIGATION MENU -->
-        <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-                <!-- BEGIN NOTIFICATION DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="icon-bell"></i>
-                        <span class="badge badge-default"> 7 </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3>
-                                <span class="bold">12 pending</span> notifications</h3>
-                            <a href="page_user_profile_1.html">view all</a>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">just now</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-success">
-                                                        <i class="fa fa-plus"></i>
-                                                    </span> New user registered. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">3 mins</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-danger">
-                                                        <i class="fa fa-bolt"></i>
-                                                    </span> Server #12 overloaded. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">10 mins</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-warning">
-                                                        <i class="fa fa-bell-o"></i>
-                                                    </span> Server #2 not responding. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">14 hrs</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-info">
-                                                        <i class="fa fa-bullhorn"></i>
-                                                    </span> Application error. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">2 days</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-danger">
-                                                        <i class="fa fa-bolt"></i>
-                                                    </span> Database overloaded 68%. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">3 days</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-danger">
-                                                        <i class="fa fa-bolt"></i>
-                                                    </span> A user IP blocked. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">4 days</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-warning">
-                                                        <i class="fa fa-bell-o"></i>
-                                                    </span> Storage Server #4 not responding dfdfdfd. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">5 days</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-info">
-                                                        <i class="fa fa-bullhorn"></i>
-                                                    </span> System Error. </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="time">9 days</span>
-                                                <span class="details">
-                                                    <span class="label label-sm label-icon label-danger">
-                                                        <i class="fa fa-bolt"></i>
-                                                    </span> Storage server failed. </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END NOTIFICATION DROPDOWN -->
-                <!-- BEGIN INBOX DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="icon-envelope-open"></i>
-                        <span class="badge badge-default"> 4 </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3>You have
-                                <span class="bold">7 New</span> Messages</h3>
-                            <a href="app_inbox.html">view all</a>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-                                <li>
-                                    <a href="#">
-                                                <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                    <span class="from"> Lisa Wong </span>
-                                                    <span class="time">Just Now </span>
-                                                </span>
-                                        <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                                <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                    <span class="from"> Richard Doe </span>
-                                                    <span class="time">16 mins </span>
-                                                </span>
-                                        <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                                <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                    <span class="from"> Bob Nilson </span>
-                                                    <span class="time">2 hrs </span>
-                                                </span>
-                                        <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                                <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                    <span class="from"> Lisa Wong </span>
-                                                    <span class="time">40 mins </span>
-                                                </span>
-                                        <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                                <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                    <span class="from"> Richard Doe </span>
-                                                    <span class="time">46 mins </span>
-                                                </span>
-                                        <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END INBOX DROPDOWN -->
-                <!-- BEGIN TODO DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="icon-calendar"></i>
-                        <span class="badge badge-default"> 3 </span>
-                    </a>
-                    <ul class="dropdown-menu extended tasks">
-                        <li class="external">
-                            <h3>You have
-                                <span class="bold">12 pending</span> tasks</h3>
-                            <a href="app_todo.html">view all</a>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">New release v1.2 </span>
-                                                    <span class="percent">30%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 40%;" class="progress-bar progress-bar-success" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">40% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">Application deployment</span>
-                                                    <span class="percent">65%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 65%;" class="progress-bar progress-bar-danger" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">65% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">Mobile app release</span>
-                                                    <span class="percent">98%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 98%;" class="progress-bar progress-bar-success" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">98% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">Database migration</span>
-                                                    <span class="percent">10%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 10%;" class="progress-bar progress-bar-warning" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">10% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">Web server upgrade</span>
-                                                    <span class="percent">58%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">58% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">Mobile development</span>
-                                                    <span class="percent">85%</span>
-                                                </span>
-                                                <span class="progress">
-                                                    <span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">85% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                                <span class="task">
-                                                    <span class="description">New UI release</span>
-                                                    <span class="percent">38%</span>
-                                                </span>
-                                                <span class="progress progress-striped">
-                                                    <span style="width: 38%;" class="progress-bar progress-bar-important" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">38% Complete</span>
-                                                    </span>
-                                                </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END TODO DROPDOWN -->
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-user">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
-                        <span class="username username-hide-on-mobile"> Nick </span>
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-default">
-                        <li>
-                            <a href="page_user_profile_1.html">
-                                <i class="icon-user"></i> My Profile </a>
-                        </li>
-                        <li>
-                            <a href="app_calendar.html">
-                                <i class="icon-calendar"></i> My Calendar </a>
-                        </li>
-                        <li>
-                            <a href="app_inbox.html">
-                                <i class="icon-envelope-open"></i> My Inbox
-                                <span class="badge badge-danger"> 3 </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="app_todo.html">
-                                <i class="icon-rocket"></i> My Tasks
-                                <span class="badge badge-success"> 7 </span>
-                            </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                            <a href="page_user_lock_1.html">
-                                <i class="icon-lock"></i> Lock Screen </a>
-                        </li>
-                        <li>
-                            <a href="page_user_login_1.html">
-                                <i class="icon-key"></i> Log Out </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- END USER LOGIN DROPDOWN -->
-                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                <li class="dropdown dropdown-quick-sidebar-toggler">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <i class="icon-logout"></i>
-                    </a>
-                </li>
-                <!-- END QUICK SIDEBAR TOGGLER -->
-            </ul>
-        </div>
-        <!-- END TOP NAVIGATION MENU -->
     </div>
-    <!-- END HEADER INNER -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="dropdown tabBox">
+                <a href="/" class="whiteColor #markActiveTab("首页")" role="button"
+                   aria-expanded="false" style="padding-left:20px">
+                    <!-- <img src="/assets/imgs/data_ver.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;"> -->
+                    <span class="glyphicon glyphicon-home"></span>
+                    首页</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/versionList.htm" class="whiteColor #markActiveTab("数据版本")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_ver.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据版本</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/userTableList.htm" class="whiteColor #markActiveTab("数据开发")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_dev.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据开发</a>
+            </li>
+            <li class="dropdown tabBox">
+                <a href="/list/deployList.htm" class="whiteColor #markActiveTab("数据集成")" role="button"
+                   aria-expanded="false" style="padding-left:45px">
+                    <img src="/assets/imgs/data_dep.png" width="24" height="24"
+                         style="position: absolute;left: 15px;top: 12px;">
+                    数据集成</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle whiteColor #markActiveTab("更多")" data-toggle="dropdown"
+                   role="button"
+                   aria-expanded="false">
+                    更多<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;width: 60px;">
+                    <li><a href="/ops/index.htm">运维</a></li>
+
+                    <li><a href="http://gitlab.alibaba-inc.com/doa/wiki/wikis/ops_v2">帮助</a></li>
+                    <li><a href="#">关于</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">我的项目</a></li>
+                    <li><a href="#">所有项目</a></li>
+                </ul>
+            </li>
+
+            <!--
+            <li class="dropdown" id="systemEnv" style="display: none">
+                <a href="#" class="dropdown-toggle whiteColor" data-toggle="dropdown" role="button"
+                   aria-expanded="false">
+                    <span class="glyphicon glyphicon-th">系统环境</span>
+                    <span id="active_title" style="font-size: larger ;color: #5bc0de"></span>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;width:300px;">
+                    <li style="padding:10px 20px;">
+                        <img src="/assets/imgs/data.png" style="
+                            width: 24px;
+                            margin-right: 10px;
+                            margin-top: -5px;
+                        ">
+                        当前环境：
+                    </li>
+                    <li class="dropdown-header">
+                        <pre>命名空间: <span id="active_ns"></span></pre>
+                        <pre>分    支: <span id="active_branch"></span></pre>
+                        <pre id="active_cs_box">修 改 集: <span id="active_cs"></span></pre>
+                        <pre id="active_snap_box">快    照: <span id="ctive_snap"> </span></pre>
+                    </li>
+                    <li>
+                        <button style="margin-bottom:10px;margin-left:25px" class="btn btn-success btn-xs"
+                                id="btnSwitchEnv">重新选择环境
+                        </button>
+                    </li>
+                </ul>
+            </li>
+            -->
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" id="navbarRight">
+            <li style="margin-top: 10px;margin-right: 10px">
+                <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span style="margin-right: 15px;color: #9d9d9d" >命名空间: </span>
+                    <input type="hidden" id="nav_ns" value="$!rundata.parameters.ns">
+                    <span id="a_nameSpace">
+                           <select id="nsSelect" name="nsSelect" onchange='switchNameSpace(this.value)'
+                                   style='color:#000;visibility: hidden' class="selectpicker show-tick " data-width="auto"
+                                   data-live-search="true">
+                               #foreach($ns in $allNs)
+                                   #if($!ns == $selectedNs)
+                                       <option value="$!ns" selected>$!ns</option>
+                                   #else
+                                       <option value="$!ns">$!ns</option>
+                                   #end
+                               #end
+                           </select>
+                    </span>
+                </span>
+            </li>
+            <li class="dropdown" id="userInfoMenu">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span><img alt="" class="img-circle" style="height: 20px"
+                               src="https://work.alibaba-inc.com/photo/${user.empId}.30x30.jpg"/></span>
+                    <span id="userNick">$!{user.nickNameCn}</span><span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="font-size: 13px;left: 0px">
+                    <li><a id="logout" href="#" style="width: 20px"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
 </div>
-<!-- END HEADER -->
-<!-- BEGIN HEADER & CONTENT DIVIDER -->
-<div class="clearfix"> </div>
-<!-- END HEADER & CONTENT DIVIDER -->
+    <!-- /.container-fluid -->
+</nav>
+    <script src="/assets/js/application/ops/opsNavBar.js" charset="UTF-8"></script>
+    <script src="/assets/js/lib/jquery.cookie.js" charset="utf-8"></script>
+    <script src="/assets/js/lib/bootstrap-select.js" charset="UTF-8"></script>
+    <script language="JavaScript">
+        function toLogin() {
+            var href = window.location.href;
+            href = "${bucSsoDomain}ssoLogin.htm?APP_NAME=amsweb&BACK_URL=" + href;
+            var msg = "没有登陆。&nbsp;&nbsp;<a href='" + href + "'>点击重新登陆</a>";
+            $.messager.alert("警告", msg);
+        }
+        $(function () {
+            $("#logout").click(function () {
+                var href = window.location.href;
+                window.location.href = "${bucSsoDomain}ssoLogout.htm?APP_NAME=amsweb&BACK_URL=" + href;
+            });
+            $("#btnSwitchEnv").click(function () {
+                location.href = "/list/envList.htm";
+            });
+        });
+        $(".dropdown-toggle").mouseover(function () {
+            if ($(this).parent().find("ul:visible").length == 0) this.click();
+        });
+        $('.selectpicker').selectpicker({
+            size: 6
+        });
+    </script>
+    <!--navBar.vm end -->

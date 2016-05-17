@@ -1,0 +1,93 @@
+#set($asideTab="积分配置 > 积分规则配置")
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="/assets/css/lib/dataTables/datatables.min.css" rel="stylesheet" type="text/css"/>
+      type="text/css"/>
+
+<link href="/assets/css/lib/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<div class="page-container">
+    #parse("/control/list/aside.vm")
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div id="prefix_946124885289" class="custom-alerts alert alert-danger fade in">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                        <i class="fa-lg fa fa-warning"></i> 新增的积分规则请提供规则计算类...
+                    </div>
+                    <form class="form-horizontal form-row-seperated" method="post" enctype="multipart/form-data">
+                        $csrfToken.hiddenField
+                        <div class="portlet">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-edit"></i>新增积分规则
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">规则名:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="ruleName"
+                                                   placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">积分:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="ruleCredit"
+                                                   placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">详细描述:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                                        <textarea class="form-control"
+                                                                  name="ruleDesc"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-6 col-md-6">
+                                        <button type="submit" class="btn green">保存</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="action" value="ruleAddAction"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- BEGIN PAGE -->
+
+<script src="/assets/js/lib/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="/assets/js/lib/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="/assets/js/lib/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/js/app/admin/course-edit.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->

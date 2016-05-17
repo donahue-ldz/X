@@ -12,8 +12,6 @@ import java.util.List;
  * Email : dezhao.ldz@alibaba-inc.com
  */
 public class Navbar extends BaseScreen {
-
-
     @Override
     protected WebResult handleRequest(Context context) throws Exception {
         return null;

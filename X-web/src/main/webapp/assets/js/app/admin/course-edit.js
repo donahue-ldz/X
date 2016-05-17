@@ -153,7 +153,7 @@ var courseEdit = function () {
 
 
         var treeReview = function () {
-            var url = "/teacher/json/CourseCategoryRequest/queryAllCourseCategoryVOs.json";
+            var url = "/admin/json/CourseCategoryRequest/queryAllCourseCategoryVOs.json";
             $.post(url, {}, function (result) {
                 if (result.success) {
                     var zNodes = result.objList;

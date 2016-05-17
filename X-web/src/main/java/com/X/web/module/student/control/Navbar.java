@@ -3,6 +3,8 @@ package com.X.web.module.student.control;
 import com.X.biz.common.IPictureManager;
 import com.X.biz.exception.XException;
 import com.X.biz.student.wrapper.StudentWrapper;
+import com.X.dal.domain.Role;
+import com.X.dal.domain.User;
 import com.X.web.common.BaseScreen;
 import com.X.web.common.WebResult;
 import com.alibaba.citrus.turbine.Context;
@@ -33,8 +35,13 @@ public class Navbar extends BaseScreen {
 
     private void setUserInfo(Context context) throws Exception {
         HttpSession session = request.getSession();
-        StudentWrapper student = (StudentWrapper) session.getAttribute("user");
-        context.put("studentWrapper", student);
+        User user = (User) session.getAttribute("user");
+
+        if(user!=null && user.role().value().equals(Role.STUDENT.value())) {
+            StudentWrapper student = (StudentWrapper) user;
+            context.put("studentWrapper", student);
+
+        }
     }
 }
 

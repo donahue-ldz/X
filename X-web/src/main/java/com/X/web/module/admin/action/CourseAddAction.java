@@ -1,4 +1,4 @@
-package com.X.web.module.teacher.action;
+package com.X.web.module.admin.action;
 
 import com.X.biz.exception.XException;
 import com.X.biz.teacher.manager.ICourseManager;

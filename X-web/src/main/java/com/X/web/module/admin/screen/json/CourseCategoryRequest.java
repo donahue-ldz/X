@@ -1,4 +1,4 @@
-package com.X.web.module.teacher.screen.json;
+package com.X.web.module.admin.screen.json;
 
 import com.X.biz.teacher.manager.ICourseCategoryManager;
 import com.X.biz.teacher.vo.CourseCategoryVO;

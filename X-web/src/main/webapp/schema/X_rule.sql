@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `X_rule`;
+CREATE TABLE `X_rule` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`rule_name` VARCHAR(255)  NOT NULL UNIQUE COMMENT '规则名,唯一',
+`score` INT (11)  NOT NULL COMMENT '积分',
+`description` LONGTEXT DEFAULT NULL COMMENT '描述',
+`creator` VARCHAR(255) DEFAULT NULL COMMENT '创建人',
+`status`    VARCHAR(2)       DEFAULT '1' COMMENT '状态',
+`gmt_create` DATETIME COMMENT '创建时间',
+`gmt_modified` DATETIME COMMENT '更新时间',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

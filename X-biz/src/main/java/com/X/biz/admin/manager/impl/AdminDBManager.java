@@ -3,14 +3,12 @@ package com.X.biz.admin.manager.impl;
 import com.X.biz.RunWrapper;
 import com.X.biz.admin.manager.IAdminDBManager;
 import com.X.biz.exception.XException;
-import com.X.common.validator.ValidateHelper;
-import com.X.common.validator.ValidationResult;
-import com.X.dal.domain.StudentDO;
-import com.X.dal.mapper.StudentMapper;
+import com.X.dal.domain.AdminDO;
+import com.X.dal.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
@@ -20,37 +18,39 @@ import java.util.concurrent.Callable;
 @Service("adminDBManager")
 public class AdminDBManager implements IAdminDBManager {
     @Autowired
-    private StudentMapper studentMapper;
+    private AdminMapper adminMapper;
 
     @Override
-    public long save(final StudentDO student) throws XException {
-        ValidationResult validationResult = ValidateHelper.validateEntity(student);
-        if (validationResult.isHasErrors())
-            throw new XException(validationResult.getErrorMsg().toString());
-        return RunWrapper.run(new Callable<Long>() {
+    public long save(final AdminDO admin) throws XException {
+        return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return studentMapper.save(student);
+                AdminDO adminDB = queryAdminByEmail(admin.getEmail());
+                if(adminDB==null){
+                    adminMapper.save(admin);
+                    return admin.getId();
+                }
+                throw new XException("管理员存在...");
+            }
+        },admin);
+    }
+
+    @Override
+    public AdminDO queryAdminByEmail(final String email) throws XException {
+        return RunWrapper.run(new Callable<AdminDO>() {
+            @Override
+            public AdminDO call() throws Exception {
+                return adminMapper.queryAdminByEmail(email);
             }
         });
     }
 
     @Override
-    public StudentDO queryStudentByStuID(@NotNull final String stuID) throws Exception {
-        return RunWrapper.run(new Callable<StudentDO>() {
+    public List<AdminDO> queryAllAdmins() throws XException {
+        return RunWrapper.run(new Callable<List<AdminDO>>() {
             @Override
-            public StudentDO call() throws Exception {
-                return studentMapper.queryStudentByStuID(stuID);
-            }
-        });
-    }
-
-    @Override
-    public StudentDO queryStudentByEmail(@NotNull final String email) throws Exception {
-        return RunWrapper.run(new Callable<StudentDO>() {
-            @Override
-            public StudentDO call() throws Exception {
-                return studentMapper.queryStudentByEmail(email);
+            public List<AdminDO> call() throws Exception {
+                return adminMapper.queryAllAdmins();
             }
         });
     }

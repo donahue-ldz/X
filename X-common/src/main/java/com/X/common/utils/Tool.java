@@ -32,9 +32,9 @@ public class Tool {
         return uuid.replace("-", "");
     }
 
-	public static String getUUID16() {
-		return getUUID32().substring(16);
-	}
+    public static String getUUID16() {
+        return getUUID32().substring(16);
+    }
 
     /**
      * 返回36位原始UUID
@@ -60,29 +60,31 @@ public class Tool {
         return e != null && !e.isEmpty();
     }
 
-	public static <K,V> Map<K,V> toLinkedMap(List<K> list) {
-		Map<K, V> map = Maps.newLinkedHashMap();
-		for (K k : list) {
-			map.put(k, null);
-		}
-		return map;
-	}
+    public static <K, V> Map<K, V> toLinkedMap(List<K> list) {
+        Map<K, V> map = Maps.newLinkedHashMap();
+        for (K k : list) {
+            map.put(k, null);
+        }
+        return map;
+    }
 
     public static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
-    public static <T>List<T> Set2List(Set<T> set){
+
+    public static <T> List<T> Set2List(Set<T> set) {
         List<T> list = Lists.newArrayList();
         list.addAll(set);
         return list;
     }
 
-    public static boolean isCn(String s){
+    public static boolean isCn(String s) {
         Pattern ALLOWS = Pattern.compile("^[a-zA-Z0-9_]+$");
         if (!ALLOWS.matcher(s).matches()) {
             return true;
         }
         return false;
     }
-    public static boolean containUpperCase(String s){
+
+    public static boolean containUpperCase(String s) {
         Pattern ALLOWS = Pattern.compile("^[a-z0-9_]+$");
         if (ALLOWS.matcher(s).matches()) {
             return false;
@@ -90,22 +92,27 @@ public class Tool {
         return true;
     }
 
-    public static String UTF8EncodeURL(String s){
+    public static String UTF8EncodeURL(String s) {
         String encodeStr = null;
         try {
-            encodeStr  = URLEncoder.encode(s, Charsets.UTF_8.toString());
+            encodeStr = URLEncoder.encode(s, Charsets.UTF_8.toString());
         } catch (UnsupportedEncodingException e) {
             // java platform support utf8
         }
         return encodeStr;
     }
-    public static String UTF8DecodeURL(String s){
+
+    public static String UTF8DecodeURL(String s) {
         String decodeStr = null;
         try {
-            decodeStr = URLDecoder.decode(s,Charsets.UTF_8.toString());
+            decodeStr = URLDecoder.decode(s, Charsets.UTF_8.toString());
         } catch (UnsupportedEncodingException e) {
             // java platform support utf8
         }
-        return  decodeStr;
+        return decodeStr;
+    }
+
+    public static <T> List<T> safeList(List<T> list) {
+        return list!=null?list:Lists.<T>newArrayList();
     }
 }
