@@ -6,4 +6,5 @@ package com.X.dal.domain;
  **/
 public interface User {
     Role role();
+    Long ID();
 }

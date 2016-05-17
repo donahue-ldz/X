@@ -36,4 +36,9 @@ public class StudentWrapper implements Serializable ,User{
     public Role role() {
         return Role.STUDENT;
     }
+
+    @Override
+    public Long ID() {
+        return student.getId();
+    }
 }

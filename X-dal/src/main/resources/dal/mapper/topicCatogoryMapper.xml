@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.X.dal.mapper.TopicCategoryMapper">
+    <resultMap id="topicCategoryResultMap" type="TopicCategoryDO">
+        <id property="id" column="id"/>
+        <result property="parentID" column="parent_id"/>
+        <result property="nameCn" column="name_cn"/>
+        <result property="nameEn" column="name_en"/>
+        <result property="content" column="content"/>
+        <result property="pic" column="pic"/>
+        <result property="desc" column="desc"/>
+        <result property="status" column="status"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <select id="queryAllTopicCategories" resultMap="topicCategoryResultMap">
+        select (`parent_id`,`name_cn`,`name_en`,`content`,`pic`,`desc`,`status`,`gmt_create`,`gmt_modified`) from `X_topic_category`
+    </select>
+</mapper>

@@ -60,6 +60,11 @@ public class StudentDO implements Serializable,User {
         return Role.STUDENT;
     }
 
+    @Override
+    public Long ID() {
+        return id;
+    }
+
     public Long getId() {
         return id;
     }

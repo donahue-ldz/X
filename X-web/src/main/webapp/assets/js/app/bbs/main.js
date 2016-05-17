@@ -315,30 +315,30 @@ $("#info_form .submit").on('click', function(e){
 ////////////////////帖子操作:START//////////////////////
 
 //发布帖子
-$("#topic-add .ladda-button").on('click', function(e){
-	e.preventDefault();
-	var form = $('#topic-add')[0];
-	if(form.checkValidity()) {
-		var l = Ladda.create(this);
-		l.start();
-		var formData = $('#topic-add').serialize();
-		$.post(BASE + '/topic/add', formData, function(response){
-			setTimeout(function () {
-	            l.stop();
-	        }, 600);
-			if(response){
-				if(response.status == 200){
-					 window.location.href = BASE + '/topic/' + response.data;
-				 } else if(response.status == 401){
-					 go_signin();	
-				 } else {
-					 alertError(response.msg);
-				 }
-			}
-		});
-	}
-	return true;
-});
+// $("#topic-add .ladda-button").on('click', function(e){
+// 	e.preventDefault();
+// 	var form = $('#topic-add')[0];
+// 	if(form.checkValidity()) {
+// 		var l = Ladda.create(this);
+// 		l.start();
+// 		var formData = $('#topic-add').serialize();
+// 		$.post(BASE + '/topic/add', formData, function(response){
+// 			setTimeout(function () {
+// 	            l.stop();
+// 	        }, 600);
+// 			if(response){
+// 				if(response.status == 200){
+// 					 window.location.href = BASE + '/topic/' + response.data;
+// 				 } else if(response.status == 401){
+// 					 go_signin();
+// 				 } else {
+// 					 alertError(response.msg);
+// 				 }
+// 			}
+// 		});
+// 	}
+// 	return true;
+// });
 
 // 评论帖子
 $("#comment-form .ladda-button").on('click', function(e){
