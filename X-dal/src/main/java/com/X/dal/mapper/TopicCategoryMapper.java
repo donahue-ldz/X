@@ -1,6 +1,7 @@
 package com.X.dal.mapper;
 
 import com.X.dal.domain.TopicCategoryDO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,6 +12,22 @@ import java.util.List;
  **/
 @Repository
 public interface TopicCategoryMapper {
+    /**
+     * 添加帖子分类
+     *
+     * @param topicCategory TopicCategoryDO
+     * @return long
+     */
+    long save(TopicCategoryDO topicCategory);
+
+    /**
+     * 根据中文名查找帖子目录
+     *
+     * @param titleEn String
+     * @return TopicCategory
+     */
+    TopicCategoryDO queryTopicCategoriesByName(@Param("titleEn") String titleEn);
+
     /**
      * 查询所有贴子的类别
      *

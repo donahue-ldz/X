@@ -22,14 +22,23 @@ public class TopicCategoryManager implements ITopicCategoryManager {
     private TopicCategoryMapper topicCategoryMapper;
 
     @Override
-    public long save(TopicCategoryDO topicCategory) throws XException {
-        return 0;
+    public long save(final TopicCategoryDO topicCategory) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicCategoryMapper.save(topicCategory);
+            }
+        });
     }
 
-
     @Override
-    public TopicCategoryDO queryTopicCategoriesByName(String titleEn) throws XException {
-        return null;
+    public TopicCategoryDO queryTopicCategoriesByName(final String titleEn) throws XException {
+        return RunWrapper.run(new Callable<TopicCategoryDO>() {
+            @Override
+            public TopicCategoryDO call() throws Exception {
+                return topicCategoryMapper.queryTopicCategoriesByName(titleEn);
+            }
+        });
     }
 
     @Override
