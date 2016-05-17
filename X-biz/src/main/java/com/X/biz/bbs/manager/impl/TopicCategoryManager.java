@@ -5,7 +5,6 @@ import com.X.biz.bbs.manager.ITopicCategoryManager;
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.mapper.TopicCategoryMapper;
-import com.google.common.collect.Lists;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

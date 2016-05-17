@@ -8,8 +8,8 @@ CREATE TABLE `X_topic_category` (
   `pic` VARCHAR(255) COMMENT '贴子目录图片',
   `desc` VARCHAR(255) NOT NULL COMMENT '帖子目录描述',
   `status` VARCHAR(2) NOT NULL COMMENT '帖子目录状态(正常:1,删除:2)',
-  `gmt_create` DATE COMMENT '创建时间',
-  `gmt_modified` DATE COMMENT '更新时间',
+  `gmt_create` DATETIME COMMENT '创建时间',
+  `gmt_modified` DATETIME COMMENT '更新时间',
   PRIMARY KEY (`id`)
 )
   ENGINE = Innodb

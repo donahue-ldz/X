@@ -152,6 +152,30 @@
                                 </li>
                             </ul>
             </li>
+            <li class="nav-item start #markActiveAsideTab("论坛" $asideTab)">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="icon-vector"></i>
+                    <span class="title">论坛</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start  #markActiveAsideTab("分类管理" $asideTab)">
+                        <a href="/admin/list/topicCategoryList.htm" class="nav-link ">
+                            <i class="icon-star"></i>
+                            <span class="title">分类管理</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item start #markActiveAsideTab("学生积分信息" $asideTab) ">
+                        <a href="/admin/list/studentCredit.htm" class="nav-link ">
+                            <i class="icon-bulb"></i>
+                            <span class="title">学生积分信息</span>
+                            <span class="badge badge-success">1</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
         <!-- END SIDEBAR MENU -->

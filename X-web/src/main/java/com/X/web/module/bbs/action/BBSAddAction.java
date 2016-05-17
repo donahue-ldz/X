@@ -3,15 +3,10 @@ package com.X.web.module.bbs.action;
 import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ITopicManager;
 import com.X.biz.common.Void;
-import com.X.biz.exception.XException;
-import com.X.biz.student.wrapper.StudentWrapper;
-import com.X.dal.domain.*;
+import com.X.dal.domain.TopicDO;
 import com.X.web.common.BaseAction;
-import com.X.web.common.WebJsonResult;
-import com.alibaba.citrus.turbine.Context;
 import com.alibaba.citrus.turbine.TurbineRunData;
 import com.alibaba.citrus.turbine.dataresolver.Param;
-import org.apache.commons.fileupload.FileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
