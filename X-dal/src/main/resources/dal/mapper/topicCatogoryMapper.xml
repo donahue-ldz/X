@@ -13,7 +13,7 @@
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>
-    <insert id="save" parameterType="TopicCategory" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    <insert id="save" parameterType="TopicCategoryDO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into `X_topic_category`(`parent_id`,`name_cn`,`name_en`,`content`,`pic`,`desc`,`status`,`gmt_create`)
         values (#{parentID},#{nameCn},#{nameEn},#{content},#{pic},#{desc},#{status},#{gmtCreate});
     </insert>

@@ -11,7 +11,7 @@
         <!--configLocation属性指定mybatis的主配置文件-->
         <property name="configLocation" value="dal/conf/mybatis-config.xml"/>
         <!-- 从类路径中加载映射文件，相对于类的根路径-->
-        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath:dal/mapper/*.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--basePackage指定要扫描的包，此包及其子包之下的映射器接口
