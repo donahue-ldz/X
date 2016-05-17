@@ -2,6 +2,7 @@ package com.X.common.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -25,6 +26,17 @@ public class DateUtils {
         return DATE.format(new Date());
     }
 
-
+    /**
+     * 在base 日期的基础上 加减多少天
+     * @param base
+     * @param day
+     * @return
+     */
+    public static Date day(Date base,int day){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(base);
+        calendar.add(Calendar.DAY_OF_YEAR,day);
+        return calendar.getTime();
+    }
 
 }

@@ -55,7 +55,10 @@
             <!-- 假如rundata.setRedirectTarget()被设置，则循环，否则退出循环。 -->
             <pl-valves:breakUnlessTargetRedirected />
         </pl-valves:loop>
+        <pl-valves:valve class="com.X.web.valve.AdminRoleValve"></pl-valves:valve>
 
+
+        <pl-valves:valve class="com.X.web.valve.LogValve"></pl-valves:valve>
     </services:pipeline>
 
 </beans:beans>

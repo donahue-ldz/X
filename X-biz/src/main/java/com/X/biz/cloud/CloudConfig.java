@@ -11,5 +11,8 @@ public class CloudConfig {
     public final static String BUCKET_IMAGE_COURSE = "x-image-course";
     public final static String BUCKET_VIDEO_BUCKETNAME = "x-video";
 
-    public static String CLOUD_URL = "o7716nd3v.bkt.clouddn.com";
+    public static String CLOUD_IMAGE_AVATAR_URL = "o7716nd3v.bkt.clouddn.com";
+    public static String CLOUD_IMAGE_COURSE_URL = "7xu30m.com1.z0.glb.clouddn.com";
+
+
 }

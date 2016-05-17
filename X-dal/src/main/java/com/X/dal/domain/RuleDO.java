@@ -2,6 +2,7 @@ package com.X.dal.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,7 +21,13 @@ public class RuleDO implements Serializable{
     /**
      * 规则对应的积分
      */
-    private int score;
+    @NotNull
+    private Long score;
+    /**
+     * 描述
+     */
+    private String description;
+
     /**
      * 规则创建人
      */
@@ -46,55 +53,71 @@ public class RuleDO implements Serializable{
         return id;
     }
 
-    public void setId(long id) {
+    public RuleDO setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getRuleName() {
         return ruleName;
     }
 
-    public void setRuleName(String ruleName) {
+    public RuleDO setRuleName(String ruleName) {
         this.ruleName = ruleName;
+        return this;
     }
 
-    public int getScore() {
+    public Long getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public RuleDO setScore(Long score) {
         this.score = score;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public RuleDO setDescription(String description) {
+        this.description = description;
+        return this;
     }
 
     public String getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public RuleDO setCreator(String creator) {
         this.creator = creator;
+        return this;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public RuleDO setStatus(String status) {
         this.status = status;
+        return this;
     }
 
     public Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public RuleDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
+        return this;
     }
 
     public Date getGmtModified() {
         return gmtModified;
     }
 
-    public void setGmtModified(Date gmtModified) {
+    public RuleDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+        return this;
     }
 }

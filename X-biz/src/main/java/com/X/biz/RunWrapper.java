@@ -17,6 +17,8 @@ public class RunWrapper{
             return callable.call();
         } catch (SQLException sqlEx){
             throw new XException("DB exception,exception: "+sqlEx.getCause());
+        }catch (XException x){
+            throw x;
         }catch (Exception e) {
             throw new XException(e);
         }
@@ -30,6 +32,8 @@ public class RunWrapper{
             return callable.call();
         } catch (SQLException sqlEx){
             throw new XException("DB exception,exception: "+sqlEx.getCause());
+        }catch (XException x){
+            throw x;
         }catch (Exception e) {
             throw new XException(e);
         }

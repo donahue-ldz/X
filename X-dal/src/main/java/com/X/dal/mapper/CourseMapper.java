@@ -10,6 +10,12 @@ import java.util.List;
  */
 public interface CourseMapper {
     long save(CourseDO course);
-    CourseDO queryCourseByID(@Param("id") long id);
-    List<CourseDO> queryCoursesByName(@Param("name")String name);
+
+    CourseDO queryCourseByID(@Param("id") Long id);
+
+    List<CourseDO> queryCoursesByName(@Param("name") String name);
+
+    List<CourseDO> queryTopNRecentlyCourses(@Param("topN") Long topN);
+
+
 }

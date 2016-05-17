@@ -1,210 +1,162 @@
-<style>
-    .treeview-menu > li.active > a, li.active.treeview > a {
-        color: #24E050 !important;
-    }
-</style>
-<script>
-    (function () {
-        $($("#navbarRight li")[0]).hide();
-    })();
-</script>
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <span style="font-size: 20px;color: #ff791a">运维管理</span><!-- Sidebar toggle button-->
-            </div>
-        </div>
-        <!-- search form -->
-    ##        <form action="#" method="get" class="sidebar-form">
-    ##            <div class="input-group">
-    ##                <input type="text" name="q" class="form-control" placeholder="Search...">
-    ##              <span class="input-group-btn">
-    ##                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-    ##                </button>
-    ##              </span>
-    ##            </div>
-    ##        </form>
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <li class="header">菜单选项</li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>运维监控</span> <i class="fa fa-angle-left pull-right"></i>
+#parse("/control/list/macro.vm")
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+    <!-- BEGIN SIDEBAR -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+            <li class="sidebar-toggler-wrapper hide">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler">
+                    <span></span>
+                </div>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+##            <li class="sidebar-search-wrapper">
+##                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+##                <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+##                <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+##                <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
+####                    <a href="javascript:;" class="remove">
+####                        <i class="icon-close"></i>
+####                    </a>
+##                    <div class="input-group">
+##                        <input type="text" class="form-control" placeholder="Search..."/>
+##                                    <span class="input-group-btn">
+##                                        <a href="javascript:;" class="btn submit">
+##                                            <i class="icon-magnifier"></i>
+##                                        </a>
+##                                    </span>
+##                    </div>
+##                </form>
+##                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+##            </li>
+            <li class="nav-item start #markActiveAsideTab("课程管理" $asideTab)">
+                <a href="/admin/list/course.htm" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">课程管理</span>
+                    <span class="selected"></span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="active treeview">
-                        <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>全局监控</span> <i
-                                class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="index.htm" id="globalNsMonitor"><i class="fa fa-circle-o"></i>
-                                命名空间监控</a></li>
-                            <li><a href="#" id="globalTableMonitor"><i class="fa fa-circle-o"></i> <span>表名监控</span></a>
-                            </li>
-                            <li><a href="#" id="globalExceptionMonitor"><i class="fa fa-circle-o"></i> 异常信息监控</a></li>
-                            <li><a href="#" id="globalLogMonitor"><i class="fa fa-circle-o"></i> 日志流量监控</a></li>
+##                <ul class="sub-menu">
+##                    <li class="nav-item start active open">
+##                        <a href="index.html" class="nav-link ">
+##                            <i class="icon-bar-chart"></i>
+##                            <span class="title">Dashboard 1</span>
+##                            <span class="selected"></span>
+##                        </a>
+##                    </li>
+##                    <li class="nav-item start ">
+##                        <a href="dashboard_2.html" class="nav-link ">
+##                            <i class="icon-bulb"></i>
+##                            <span class="title">Dashboard 2</span>
+##                            <span class="badge badge-success">1</span>
+##                        </a>
+##                    </li>
+##                    <li class="nav-item start ">
+##                        <a href="dashboard_3.html" class="nav-link ">
+##                            <i class="icon-graph"></i>
+##                            <span class="title">Dashboard 3</span>
+##                            <span class="badge badge-danger">5</span>
+##                        </a>
+##                    </li>
+##                </ul>
+            </li>
+            <li class="nav-item start #markActiveAsideTab("课程分类管理" $asideTab)">
+                <a href="/admin/list/courseCategory.htm" class="nav-link nav-toggle">
+                    <i class="fa fa-futbol-o"></i>
+                    <span class="title">课程分类管理</span>
+                    <span class="selected"></span>
+                </a>
+            ##                <ul class="sub-menu">
+            ##                    <li class="nav-item start active open">
+            ##                        <a href="index.html" class="nav-link ">
+            ##                            <i class="icon-bar-chart"></i>
+            ##                            <span class="title">Dashboard 1</span>
+            ##                            <span class="selected"></span>
+            ##                        </a>
+            ##                    </li>
+            ##                    <li class="nav-item start ">
+            ##                        <a href="dashboard_2.html" class="nav-link ">
+            ##                            <i class="icon-bulb"></i>
+            ##                            <span class="title">Dashboard 2</span>
+            ##                            <span class="badge badge-success">1</span>
+            ##                        </a>
+            ##                    </li>
+            ##                    <li class="nav-item start ">
+            ##                        <a href="dashboard_3.html" class="nav-link ">
+            ##                            <i class="icon-graph"></i>
+            ##                            <span class="title">Dashboard 3</span>
+            ##                            <span class="badge badge-danger">5</span>
+            ##                        </a>
+            ##                    </li>
+            ##                </ul>
+            </li>
 
-                        </ul>
+            <li class="nav-item start #markActiveAsideTab("积分配置" $asideTab)">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="icon-settings"></i>
+                    <span class="title">积分配置</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/admin/list/ruleList.htm" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">积分规则配置</span>
+                            <span class="selected"></span>
+                        </a>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>应用监控</span> <i
-                                class="fa fa-angle-left pull-right"></i>
+                    <li class="nav-item start ">
+                        <a href="dashboard_2.html" class="nav-link ">
+                            <i class="icon-bulb"></i>
+                            <span class="title">授权积分</span>
+                            <span class="badge badge-success">1</span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#" id="appNsMonitor"><i class="fa fa-circle-o"></i> 命名空间监控</a></li>
-                            <li><a href="#" id="appTableMonitor"><i class="fa fa-circle-o"></i> 表名监控</a></li>
-                            <li><a href="#" id="appExceptionMonitor"><i class="fa fa-circle-o"></i> 异常信息监控</a></li>
-                            <li><a href="#" id="appLogMonitor"><i class="fa fa-circle-o"></i> 日志流量监控</a></li>
-
-                        </ul>
                     </li>
                 </ul>
             </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-files-o"></i>
-        ##                    <span>Layout Options</span>
-        ##                    <span class="label label-primary pull-right">4</span>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-        ##                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-        ##                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-        ##                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed
-        ##                        Sidebar</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li>
-        ##                <a href="pages/widgets.html">
-        ##                    <i class="fa fa-th"></i> <span>Widgets</span>
-        ##                    <small class="label pull-right bg-green">new</small>
-        ##                </a>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-pie-chart"></i>
-        ##                    <span>Charts</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-        ##                    <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-        ##                    <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-        ##                    <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-laptop"></i>
-        ##                    <span>UI Elements</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-        ##                    <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-        ##                    <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-        ##                    <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-        ##                    <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-        ##                    <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-edit"></i> <span>Forms</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-        ##                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a>
-        ##                    </li>
-        ##                    <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-table"></i> <span>Tables</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-        ##                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li>
-        ##                <a href="pages/calendar.html">
-        ##                    <i class="fa fa-calendar"></i> <span>Calendar</span>
-        ##                    <small class="label pull-right bg-red">3</small>
-        ##                </a>
-        ##            </li>
-        ##            <li>
-        ##                <a href="pages/mailbox/mailbox.html">
-        ##                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
-        ##                    <small class="label pull-right bg-yellow">12</small>
-        ##                </a>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-folder"></i> <span>Examples</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-        ##                    <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-        ##                    <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-        ##                    <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-        ##                    <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-        ##                    <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-        ##                    <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-        ##                    <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-        ##                    <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li class="treeview">
-        ##                <a href="#">
-        ##                    <i class="fa fa-share"></i> <span>Multilevel</span>
-        ##                    <i class="fa fa-angle-left pull-right"></i>
-        ##                </a>
-        ##                <ul class="treeview-menu">
-        ##                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        ##                    <li>
-        ##                        <a href="#"><i class="fa fa-circle-o"></i> Level One <i
-        ##                                class="fa fa-angle-left pull-right"></i></a>
-        ##                        <ul class="treeview-menu">
-        ##                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-        ##                            <li>
-        ##                                <a href="#"><i class="fa fa-circle-o"></i> Level Two <i
-        ##                                        class="fa fa-angle-left pull-right"></i></a>
-        ##                                <ul class="treeview-menu">
-        ##                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-        ##                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-        ##                                </ul>
-        ##                            </li>
-        ##                        </ul>
-        ##                    </li>
-        ##                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        ##                </ul>
-        ##            </li>
-        ##            <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        ##            <li class="header">LABELS</li>
-        ##            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        ##            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        ##            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-        </ul>
-    </section>
-    <!-- /.sidebar -->
-</aside>
 
-<script>
-    $(function () {
-        $("aside li   a i.fa-circle-o").parent().click(function () {
-            $(".fa-circle-o").parent().parent().removeClass("active");
-            $(this).parent("li").addClass("active");
-        })
-    })
-</script>
+            <li class="nav-item start #markActiveAsideTab("学生管理" $asideTab)">
+                <a href="/admin/list/studentManage.htm" class="nav-link nav-toggle">
+                    <i class="icon-users"></i>
+                    <span class="title">学生管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item start  #markActiveAsideTab("学生信息" $asideTab)">
+                                    <a href="/admin/list/studentList.htm" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">学生信息</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start #markActiveAsideTab("学生积分信息" $asideTab) ">
+                                    <a href="/admin/list/studentCredit.htm" class="nav-link ">
+                                        <i class="icon-bulb"></i>
+                                        <span class="title">学生积分信息</span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+                            </ul>
+            </li>
+
+        </ul>
+        <!-- END SIDEBAR MENU -->
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+<!-- END SIDEBAR -->
