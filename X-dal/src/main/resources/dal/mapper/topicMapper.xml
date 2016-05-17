@@ -20,10 +20,9 @@
     </insert>
 
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
-        SELECT * FROM `X_topic` WHERE
-        <if test="topicCategory != null and topicCategory != ''">`topicCategory`=#{topicCategory}</if>
-        <if test="offSet &gt;= 0 and rowCount &gt;= 0">
-            limit #{offSet},#{rowCount}
-        </if>
+        SELECT *
+        FROM `X_topic`
+        WHERE category_id = (select id from X_top_category t WHERE  t.name_en = #{topicCategory})
+            limit ${offSet},${rowCount}
     </select>
 </mapper>

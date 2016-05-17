@@ -7,7 +7,9 @@ import com.X.dal.domain.StudentDO;
  */
 public interface Rule {
     String name();
+
     void setData(StudentDO student);
+
     int run(StudentDO student);
 
 }
