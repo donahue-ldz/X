@@ -10,7 +10,6 @@ import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.domain.TopicDO;
 import com.X.dal.mapper.TopicMapper;
 import com.google.common.base.Preconditions;
-import com.sun.javafx.binding.StringFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +54,16 @@ public class TopicManager implements ITopicManager {
             }
         }, topic);
 
+    }
+
+    @Override
+    public TopicDO queryTopicByID(final Long id) throws XException {
+        return RunWrapper.run(new Callable<TopicDO>() {
+            @Override
+            public TopicDO call() throws Exception {
+                return topicMapper.queryTopicByID(id);
+            }
+        });
     }
 
     @Override

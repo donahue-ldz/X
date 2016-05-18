@@ -11,15 +11,13 @@ import com.X.biz.bbs.vo.TopicStat;
 import com.X.biz.bbs.vo.TopicVO;
 import com.X.biz.exception.XException;
 import com.X.biz.student.manager.IStudentDBManager;
-import com.X.dal.domain.AdminDO;
-import com.X.dal.domain.Role;
-import com.X.dal.domain.StudentDO;
-import com.X.dal.domain.TopicDO;
+import com.X.dal.domain.*;
 import com.google.common.collect.Lists;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -46,7 +44,15 @@ public class TopicAggImpl implements TopicAgg {
 
 
     @Override
-    public TopicDetails queryTopicDetailsByID(Long topicID) throws XException {
+    public TopicDetails queryTopicDetailsByID(@NotNull Long topicID) throws XException {
+        TopicDO topicDO = topicManager.queryTopicByID(topicID);
+        if (topicDO == null) throw new XException(String.format("id = %s topic not exist", topicID));
+        TopicDetails details = new TopicDetails();
+        details.setTopicVO(queryTopicVOByTopic(topicDO));
+        details.setContent(topicDO.getContent());
+        details.setTitle(topicDO.getTitle());
+        List<CommentDO>
+        details.setComments()
         return null;
     }
 

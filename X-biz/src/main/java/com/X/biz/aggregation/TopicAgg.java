@@ -7,6 +7,7 @@ import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicDO;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -14,10 +15,10 @@ import java.util.List;
  * @create 2016-05-18 10:18 AM
  **/
 public interface TopicAgg {
-    TopicDetails queryTopicDetailsByID(Long topicID) throws XException;
-    TopicStat queryTopicStat(Long topicID)throws XException;
+    TopicDetails queryTopicDetailsByID(@NotNull Long topicID) throws XException;
+    TopicStat queryTopicStat(@NotNull Long topicID)throws XException;
 
-    TopicVO queryTopicVOByTopic(TopicDO topicDO) throws XException;
+    TopicVO queryTopicVOByTopic(@NotNull TopicDO topicDO) throws XException;
 
     List<TopicVO> queryTopicVOsByCategoryWithPage(@NotEmpty String category,int pageNO,int pageSize) throws XException;
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -31,6 +32,16 @@ public class CommentManager implements ICommentManager {
                 return comment.getId();
             }
         }, comment);
+    }
+
+    @Override
+    public CommentDO queryCommentByID(@NotNull final Long id) throws XException {
+        return RunWrapper.run(new Callable<CommentDO>() {
+            @Override
+            public CommentDO call() throws Exception {
+                return commentMapper.queryCommentByID(id);
+            }
+        });
     }
 
     @Override

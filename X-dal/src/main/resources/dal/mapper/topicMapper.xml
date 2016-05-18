@@ -18,6 +18,7 @@
         VALUES (#{userID},#{userRole},#{title},#{content},#{keyWords},#{weight},#{status},#{gmtCreate})
     </insert>
 
+
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
         select *
         FROM X_topic_category category JOIN X_topic_and_category topicAndCategory ON category.id = topicAndCategory.topic_category_ID
@@ -26,5 +27,10 @@
         ORDER BY topic.gmt_create DESC
         limit ${offSet},${rowCount}
   </select>
+    <select id="queryTopicByID" parameterType="Long" resultMap="topicResultMap">
+        select *
+         from X_topic t
+         WHERE t.id = #{id}
+    </select>
 
 </mapper>

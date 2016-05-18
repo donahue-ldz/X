@@ -1,7 +1,5 @@
 package com.X.biz.bbs.vo;
 
-import com.X.dal.domain.CommentDO;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,9 +12,7 @@ public class TopicDetails implements Serializable {
     private String title;
     private String content;
     private String category;
-
-    private List<CommentDO> comments;
-
+    private List<CommentVO> comments;
     public TopicVO getTopicVO() {
         return topicVO;
     }
@@ -53,11 +49,11 @@ public class TopicDetails implements Serializable {
         return this;
     }
 
-    public List<CommentDO> getComments() {
+    public List<CommentVO> getComments() {
         return comments;
     }
 
-    public TopicDetails setComments(List<CommentDO> comments) {
+    public TopicDetails setComments(List<CommentVO> comments) {
         this.comments = comments;
         return this;
     }

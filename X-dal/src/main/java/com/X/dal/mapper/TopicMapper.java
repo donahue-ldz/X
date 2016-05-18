@@ -14,17 +14,21 @@ import java.util.List;
 public interface TopicMapper {
     /**
      * 保存帖子并返回帖子的id
+     *
      * @param topic TopicDO
      * @return long
      */
     long save(TopicDO topic);
 
+    TopicDO queryTopicByID(@Param("id") Long id);
+
     /**
      * 根据条件查询帖子
+     *
      * @param topicCategory 帖子类别
-     * @param offSet 偏移量
-     * @param  rowCount 记录行数
+     * @param offSet        偏移量
+     * @param rowCount      记录行数
      * @return List<TopicDO>
      */
-    List<TopicDO> queryTopicsWithPage(@Param("topicCategory") String topicCategory, @Param("offSet")int offSet, @Param("rowCount")int rowCount);
+    List<TopicDO> queryTopicsWithPage(@Param("topicCategory") String topicCategory, @Param("offSet") int offSet, @Param("rowCount") int rowCount);
 }

@@ -24,10 +24,16 @@
         #{gmtCreate})
     </insert>
 
-    <select id="queryCommentsByTopicID" parameterType="long" resultMap="commentResultMap">
+    <select id="queryCommentsByTopicID" parameterType="Long" resultMap="commentResultMap">
         SELECT *
         from X_comment
         WHERE topic_ID = #{topicID}
+    </select>
+
+    <select id="queryCommentByID" parameterType="Long" resultMap="commentResultMap">
+        SELECT *
+        from X_comment
+        WHERE id = #{id}
     </select>
 
     <select id="countCommentsByTopicID" resultType="Long">

@@ -2,7 +2,6 @@ package com.X.biz.bbs.manager;
 
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicDO;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +10,7 @@ import java.util.List;
  */
 public interface ITopicManager {
     long save(TopicDO topic,String topicCategory) throws XException;
+    TopicDO queryTopicByID(Long id) throws XException;
 
     List<TopicDO> queryTopicsWithPage(String topicCategory, int pageNO, int pageNum) throws XException;
 }

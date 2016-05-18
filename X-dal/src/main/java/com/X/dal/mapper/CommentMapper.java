@@ -19,6 +19,7 @@ public interface CommentMapper {
      * @return long
      */
     void save(CommentDO comment);
+    CommentDO queryCommentByID(@Param("id") Long id) ;
 
     /**
      * 根据帖子ID查询评论
