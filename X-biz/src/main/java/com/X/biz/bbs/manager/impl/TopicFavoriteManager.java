@@ -7,6 +7,8 @@ import com.X.common.validator.ValidateHelper;
 import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.TopicFavoriteDO;
 import com.X.dal.mapper.TopicFavoriteMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.concurrent.Callable;
@@ -16,6 +18,8 @@ import java.util.concurrent.Callable;
  * Date 5/17/16
  * Email qnarcup@gmail.com
  */
+@Service("topicFavoriteManager")
+@Transactional(rollbackFor = Exception.class)
 public class TopicFavoriteManager implements ITopicFavoriteManager {
     @Resource
     private TopicFavoriteMapper topicFavoriteMapper;
@@ -37,7 +41,17 @@ public class TopicFavoriteManager implements ITopicFavoriteManager {
             @Override
             public Boolean call() throws Exception {
                 int result = topicFavoriteMapper.update(id, status);
-                return String.valueOf(result).equals("1");
+                return result==1;
+            }
+        });
+    }
+
+    @Override
+    public long countFavoritesByTopicID(final long topicID) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicFavoriteMapper.countFavoritesByTopicID(topicID);
             }
         });
     }

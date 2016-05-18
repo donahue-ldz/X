@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface ICommentManager {
     long save(CommentDO comment) throws XException;
-
     List<CommentDO> queryCommentsByTopicID(long topicID) throws XException;
+    long countCommentsByTopicID(long topicID) throws XException;
+
 }

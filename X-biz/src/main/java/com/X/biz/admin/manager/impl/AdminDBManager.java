@@ -46,6 +46,16 @@ public class AdminDBManager implements IAdminDBManager {
     }
 
     @Override
+    public AdminDO queryAdminByID(final Long id) throws XException {
+        return RunWrapper.run(new Callable<AdminDO>() {
+            @Override
+            public AdminDO call() throws Exception {
+                return adminMapper.queryAdminByID(id);
+            }
+        });
+    }
+
+    @Override
     public List<AdminDO> queryAllAdmins() throws XException {
         return RunWrapper.run(new Callable<List<AdminDO>>() {
             @Override

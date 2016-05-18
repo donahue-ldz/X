@@ -12,6 +12,11 @@
         from  X_student t
         where t.email = #{email}
     </select>
+    <select id="queryStudentByID" parameterType="Long" resultMap="studentResultMap">
+        select *
+        from  X_student t
+        where t.id = #{id}
+    </select>
 
     <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="StudentDO" >
         insert into X_student(

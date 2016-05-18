@@ -12,4 +12,5 @@ public interface IStudentDBManager {
     void updateStudentByID(Long id,StudentDO student) throws XException;
     StudentDO queryStudentByStuID(String stuID) throws XException;
     StudentDO queryStudentByEmail(String email) throws XException;
+    StudentDO queryStudentByID(Long id) throws XException;
 }

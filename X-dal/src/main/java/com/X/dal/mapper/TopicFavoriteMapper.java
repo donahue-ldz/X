@@ -25,4 +25,7 @@ public interface TopicFavoriteMapper {
      * @return boolean
      */
     int update(@Param("id") long id, @Param("status") int status);
+
+    long countFavoritesByTopicID(@Param("topicID") long topicID);
+
 }

@@ -8,6 +8,7 @@ import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.mapper.TopicCategoryMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.concurrent.Callable;
  * @create 2016-05-10 5:38 PM
  **/
 @Service("topicCategoryManager")
+@Transactional(rollbackFor = Exception.class)
 public class TopicCategoryManager implements ITopicCategoryManager {
     @Resource
     private TopicCategoryMapper topicCategoryMapper;

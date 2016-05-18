@@ -8,22 +8,10 @@ import java.io.Serializable;
  **/
 public class TopicStat implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private Long id;
     private Long views;
-    private Long loves;
     private Long favorites;
-    private Long sinks;
     private Long comments;
     private Long create_time;
-    public Long getId() {
-        return id;
-    }
-
-    public TopicStat setId(Long id) {
-        this.id = id;
-        return this;
-    }
 
     public Long getViews() {
         return views;
@@ -34,30 +22,12 @@ public class TopicStat implements Serializable {
         return this;
     }
 
-    public Long getLoves() {
-        return loves;
-    }
-
-    public TopicStat setLoves(Long loves) {
-        this.loves = loves;
-        return this;
-    }
-
     public Long getFavorites() {
         return favorites;
     }
 
     public TopicStat setFavorites(Long favorites) {
         this.favorites = favorites;
-        return this;
-    }
-
-    public Long getSinks() {
-        return sinks;
-    }
-
-    public TopicStat setSinks(Long sinks) {
-        this.sinks = sinks;
         return this;
     }
 

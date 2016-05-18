@@ -12,5 +12,7 @@ import java.util.List;
 public interface IAdminDBManager {
     long save(AdminDO admin) throws XException;
     AdminDO queryAdminByEmail(String email) throws XException;
+    AdminDO queryAdminByID(Long id) throws XException;
+
     List<AdminDO> queryAllAdmins()throws XException;
 }

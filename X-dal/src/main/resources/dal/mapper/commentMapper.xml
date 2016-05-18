@@ -3,8 +3,8 @@
 <mapper namespace="com.X.dal.mapper.CommentMapper">
     <resultMap id="commentResultMap" type="CommentDO">
         <id property="id" column="id"/>
-        <result property="topicID" column="topic_id"/>
-        <result property="userID" column="user_id"/>
+        <result property="topicID" column="topic_ID"/>
+        <result property="userID" column="user_ID"/>
         <result property="userRole" column="user_role"/>
         <result property="content" column="content"/>
         <result property="status" column="status"/>
@@ -12,12 +12,27 @@
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>
     <insert id="save" parameterType="CommentDO" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        insert into `X_comment`(`topic_id`,`user_id`,`user_role`,`content`,`status`,`gmt_create`)
-        VALUES (#{topicID},#{userID}.#{userRole},#{content},#{status},#{gmtCreate})
+        insert into X_comment(topic_ID,
+        user_ID,
+        user_role,
+        content,
+        gmt_create)
+        VALUES (#{topicID},
+        #{userID},
+        #{userRole},
+        #{content},
+        #{gmtCreate})
     </insert>
 
-    <select id="queryCommentsByTopicID" parameterType="long">
-        SELECT * from `X_comment`
-        WHERE `topic_id` = #{topicID}
+    <select id="queryCommentsByTopicID" parameterType="long" resultMap="commentResultMap">
+        SELECT *
+        from X_comment
+        WHERE topic_ID = #{topicID}
+    </select>
+
+    <select id="countCommentsByTopicID" resultType="Long">
+        SELECT count(*) num
+        from X_comment
+        WHERE topic_ID = #{topicID}
     </select>
 </mapper>

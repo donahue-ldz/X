@@ -12,4 +12,6 @@ public interface ITopicFavoriteManager {
     long save(TopicFavoriteDO topicFavorite) throws XException;
 
     boolean update(long id, int status) throws XException;
+
+    long countFavoritesByTopicID(long topicID) throws XException;
 }

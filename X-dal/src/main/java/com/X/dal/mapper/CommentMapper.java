@@ -18,7 +18,7 @@ public interface CommentMapper {
      * @param comment CommentDO
      * @return long
      */
-    long save(CommentDO comment);
+    void save(CommentDO comment);
 
     /**
      * 根据帖子ID查询评论
@@ -27,4 +27,7 @@ public interface CommentMapper {
      * @return List<CommentDO>
      */
     List<CommentDO> queryCommentsByTopicID(@Param("topicID") long topicID);
+
+    long countCommentsByTopicID(@Param("topicID") long topicID);
+
 }

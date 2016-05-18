@@ -60,4 +60,14 @@ public class StudentDBManager implements IStudentDBManager {
             }
         });
     }
+
+    @Override
+    public StudentDO queryStudentByID(final Long id) throws XException {
+        return RunWrapper.run(new Callable<StudentDO>() {
+            @Override
+            public StudentDO call() throws Exception {
+                return studentMapper.queryStudentByID(id);
+            }
+        });
+    }
 }

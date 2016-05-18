@@ -19,9 +19,6 @@ import java.util.List;
  */
 public class Navbar extends BaseScreen {
 
-    @Autowired
-    private IPictureManager pictureManager;
-
     @Override
     protected WebResult handleRequest(Context context) throws Exception {
         setUserInfo(context);

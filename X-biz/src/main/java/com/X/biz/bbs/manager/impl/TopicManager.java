@@ -1,15 +1,21 @@
 package com.X.biz.bbs.manager.impl;
 
 import com.X.biz.RunWrapper;
+import com.X.biz.bbs.manager.ITopicAndCategoryManager;
+import com.X.biz.bbs.manager.ITopicCategoryManager;
 import com.X.biz.bbs.manager.ITopicManager;
 import com.X.biz.exception.XException;
+import com.X.dal.domain.TopicAndCategoryDO;
+import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.domain.TopicDO;
 import com.X.dal.mapper.TopicMapper;
 import com.google.common.base.Preconditions;
+import com.sun.javafx.binding.StringFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -24,14 +30,27 @@ public class TopicManager implements ITopicManager {
     @Autowired
     private TopicMapper topicMapper;
 
+    @Autowired
+    private ITopicAndCategoryManager topicAndCategoryManager;
+    @Autowired
+    private ITopicCategoryManager topicCategoryManager;
 
     @Override
-    public long save(final TopicDO topic) throws XException {
+    public long save(final TopicDO topic, final String topicCategory) throws XException {
         return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
                 topicMapper.save(topic);
+                long topicID = topic.getId();
 
+                TopicAndCategoryDO topicAndCategory = new TopicAndCategoryDO();
+                TopicCategoryDO topicCategoryDO = topicCategoryManager.queryTopicCategoryByName(topicCategory);
+                if (topicCategoryDO == null)
+                    throw new XException(String.format("%s not exist", topicCategory));
+
+                topicAndCategory.setTopicID(topicID).setTopicCategoryID(topicCategoryDO.getId());
+                topicAndCategory.setGmtCreate(new Date());
+                topicAndCategoryManager.save(topicAndCategory);
                 return topic.getId();
             }
         }, topic);

@@ -7,6 +7,14 @@
         from  X_admin t
         where t.email = #{email}
     </select>
+
+    <select id="queryAdminByID" parameterType="Long"
+            resultMap="adminResultMap">
+        select *
+        from  X_admin t
+        where t.id = #{id}
+    </select>
+
     <select id="queryAllAdmins" resultMap="adminResultMap">
         select *
         from  X_admin t

@@ -13,4 +13,6 @@ public interface StudentMapper {
     void updateStudentByID(@Param("id") final Long id,@Param("student") StudentDO student);
     StudentDO queryStudentByStuID(@Param("studentID") String stuID);
     StudentDO queryStudentByEmail(@Param("email") String email);
+    StudentDO queryStudentByID(@Param("id") Long id);
+
 }

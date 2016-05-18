@@ -29,7 +29,7 @@
                                         #foreach($topic in $topics)
                                             <div class="media">
                                                 <a class="pull-left" href="#">
-                                                    <img class="media-object avatar avatar-sm" src="#"
+                                                    <img class="media-object avatar avatar-sm" src="/assets/imags/student/profile/defaultAvatar.png"
                                                          alt="#">
                                                 </a>
                                                 <div class="comment">
@@ -37,26 +37,19 @@
                                                         #if($topic.comments > 0)
                                                             <div class="comment-meta small">
                                                                 <a href="/topic/ + topic.tid + '#Reply' + topic.comments}"
-                                                                   class="badge-comment">${topic.comments}</a>
+                                                                   class="badge-comment">$!{topic.comments}</a>
                                                             </div>
-                                                            <a href="#">${topic.title}</a>
+                                                            <a href="#">$!{topic.title}</a>
                                                         #else
-                                                                <a href="#>${topic.title}</a>
+                                                                <a href="#">$!{topic.title}</a>
                                                         #end
                                                     </div>
                                                     <div class=" comment-bt">
-                                                        <span class="label label-default"><a
-                                                                href="#"</a></span>
+                                                        <strong>
+                                                            <a href="#">$!topic.user</a>
+                                                        </strong>
                                                         &nbsp;•&nbsp;
-                                                        <strong><a
-                                                                href="#"</a></strong>
-                                                        &nbsp;•&nbsp; <span>时间</span>
-                                                        #if($topic.comments > 0)
-                                                            &nbsp;•&nbsp; 最后回复来自
-                                                            <strong><a
-                                                                    href="#"</a>
-                                                            </strong>
-                                                        #end
+                                                        <span>$dateUtils.format("yyyy-mm-dd hh:mm:ss",$!topic.createTime)</span>
                                                     </div>
                                                 </div>
                                             </div>

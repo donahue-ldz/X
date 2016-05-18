@@ -1,7 +1,9 @@
 package com.X.web.module.bbs.screen;
 
+import com.X.biz.aggregation.TopicAgg;
 import com.X.biz.bbs.manager.ITopicCategoryManager;
 import com.X.biz.bbs.manager.ITopicManager;
+import com.X.biz.bbs.vo.TopicVO;
 import com.X.biz.constant.PageConstant;
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicCategoryDO;
@@ -25,6 +27,9 @@ public class Index extends BaseScreen {
     private ITopicCategoryManager topicCategoryManager;
     @Autowired
     private ITopicManager topicManager;
+    @Autowired
+    private TopicAgg topicAgg;
+
 
     @Override
     protected WebResult handleRequest(Context context) throws Exception {
@@ -54,9 +59,9 @@ public class Index extends BaseScreen {
         int pageNO = reqContext.getParameters().getInt("pageNO");
         int pageNum = reqContext.getParameters().getInt("pageNum");
         pageNum = pageNum == 0 ? PageConstant.PAGE_NUM : pageNum;
-        List<TopicDO> topics = null;
+        List<TopicVO> topics = null;
         if (!Strings.isNullOrEmpty(activeTab)) {
-            topics = topicManager.queryTopicsWithPage(activeTab, pageNO, pageNum);
+            topics = topicAgg.queryTopicVOsByCategoryWithPage(activeTab, pageNO, pageNum);
         }
         context.put("topics", Objects.firstNonNull(topics, Lists.newArrayList()));
     }

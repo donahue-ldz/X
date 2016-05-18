@@ -18,7 +18,7 @@
 
     </insert>
 
-    <select id="queryTopicCategoryByName" parameterType="String">
+    <select id="queryTopicCategoryByName" parameterType="String" resultMap="topicCategoryResultMap">
         SELECT * FROM `X_topic_category`
         WHERE `name_en` = #{titleEn}
     </select>

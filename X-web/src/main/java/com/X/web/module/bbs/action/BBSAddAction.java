@@ -23,22 +23,13 @@ import java.util.concurrent.Callable;
 public class BBSAddAction extends BaseAction {
     @Autowired
     private ITopicManager topicManager;
-    @Autowired
-    private ITopicCategoryManager topicCategoryManager;
-
-
     public void execute(TurbineRunData rundata,
                         @Param("category") String category,
                         @Param("title") String title,
                         @Param("content") String content) throws Exception {
-
-
-        TopicCategoryDO topicCategory = topicCategoryManager.queryTopicCategoryByName(category);
-
-        if (topicCategory == null) throw new XException("分类不存在...");
         TopicDO topicDO = new TopicDO();
         topicDO.setUserID(getUser().ID()).setUserRole(getUser().role().value());
         topicDO.setTitle(title).setContent(content).setGmtCreate(new Date());
-        topicManager.save(topicDO);
+        topicManager.save(topicDO, category);
     }
 }

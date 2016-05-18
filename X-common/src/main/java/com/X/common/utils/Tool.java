@@ -115,4 +115,6 @@ public class Tool {
     public static <T> List<T> safeList(List<T> list) {
         return list!=null?list:Lists.<T>newArrayList();
     }
+
+
 }

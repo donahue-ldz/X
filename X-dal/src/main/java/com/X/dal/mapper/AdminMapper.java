@@ -13,5 +13,6 @@ import java.util.List;
 public interface AdminMapper {
     long save(AdminDO admin);
     AdminDO queryAdminByEmail(@Param("email") String email);
+    AdminDO queryAdminByID(@Param("id") Long id);
     List<AdminDO> queryAllAdmins();
 }

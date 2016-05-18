@@ -12,14 +12,6 @@ import java.util.List;
  * Date 5/15/16
  * Email qnarcup@gmail.com
  */
-public class Navbar extends BaseScreen{
-    @Override
-    protected WebResult handleRequest(Context context) throws Exception {
-        return null;
-    }
+public class Navbar extends com.X.web.module.student.control.Navbar{
 
-    @Override
-    protected List<String> getPermissionList() throws XException {
-        return null;
-    }
 }
