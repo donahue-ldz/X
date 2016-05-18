@@ -31,11 +31,11 @@ public class TopicCategoryManager implements ITopicCategoryManager {
     }
 
     @Override
-    public TopicCategoryDO queryTopicCategoriesByName(final String titleEn) throws XException {
+    public TopicCategoryDO queryTopicCategoryByName(final String titleEn) throws XException {
         return RunWrapper.run(new Callable<TopicCategoryDO>() {
             @Override
             public TopicCategoryDO call() throws Exception {
-                return topicCategoryMapper.queryTopicCategoriesByName(titleEn);
+                return topicCategoryMapper.queryTopicCategoryByName(titleEn);
             }
         });
     }

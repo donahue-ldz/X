@@ -10,6 +10,7 @@ import com.X.dal.mapper.TopicMapper;
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -19,22 +20,24 @@ import java.util.concurrent.Callable;
  * @create 2016-05-10 5:34 PM
  **/
 @Service("topicManager")
+
+@Transactional(rollbackFor = Exception.class)
 public class TopicManager implements ITopicManager {
     @Autowired
     private TopicMapper topicMapper;
 
+
+
     @Override
     public long save(final TopicDO topic) throws XException {
-        ValidationResult validationResult = ValidateHelper.validateEntity(topic);
-        if (validationResult.isHasErrors()) {
-            throw new XException(validationResult.toString());
-        }
-        return RunWrapper.run(new Callable<Long>() {
+        return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return topicMapper.save(topic);
+                 topicMapper.save(topic);
+
+                return topic.getId();
             }
-        });
+        },topic);
     }
 
     @Override

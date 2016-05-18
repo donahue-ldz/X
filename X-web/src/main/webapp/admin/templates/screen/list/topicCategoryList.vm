@@ -87,7 +87,7 @@
                                         <td>$!topicCategory.parentID</td>
                                         <td>$!topicCategory.desc</td>
                                         <td>
-                                            #if($rule.status.equals("1"))
+                                            #if($topicCategory.status.equals("1"))
                                                 启用
                                             #else
                                                 禁用

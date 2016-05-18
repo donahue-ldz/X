@@ -21,7 +21,7 @@
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
         SELECT *
         FROM `X_topic`
-        WHERE category_id = (select id from X_top_category t WHERE  t.name_en = #{topicCategory})
+        WHERE category_id = (select id from X_topic_category t WHERE  t.name_en = #{topicCategory})
             limit ${offSet},${rowCount}
   </select>
 

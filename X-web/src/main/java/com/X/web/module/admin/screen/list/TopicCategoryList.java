@@ -18,7 +18,8 @@ public class TopicCategoryList extends BaseScreen {
     private ITopicCategoryManager topicCategoryManager;
     @Override
     protected WebResult handleRequest(Context context) throws Exception {
-        return null;
+        setTopicCategories(context);
+        return new WebResult();
     }
 
     @Override

@@ -26,7 +26,7 @@ public interface TopicCategoryMapper {
      * @param titleEn String
      * @return TopicCategory
      */
-    TopicCategoryDO queryTopicCategoriesByName(@Param("titleEn") String titleEn);
+    TopicCategoryDO queryTopicCategoryByName(@Param("titleEn") String titleEn);
 
     /**
      * 查询所有贴子的类别

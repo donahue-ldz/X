@@ -6,19 +6,18 @@
         <result property="parentID" column="parent_id"/>
         <result property="nameCn" column="name_cn"/>
         <result property="nameEn" column="name_en"/>
-        <result property="content" column="content"/>
         <result property="pic" column="pic"/>
         <result property="desc" column="desc"/>
         <result property="status" column="status"/>
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>
-    <insert id="save" parameterType="TopicCategory" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-        insert into `X_topic_category`(`parent_id`,`name_cn`,`name_en`,`content`,`pic`,`desc`,`status`,`gmt_create`)
-        values (#{parentID},#{nameCn},#{nameEn},#{content},#{pic},#{desc},#{status},#{gmtCreate});
+    <insert id="save" parameterType="TopicCategoryDO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into `X_topic_category`(`name_cn`,`name_en`,`desc`,`gmt_create`)
+        values (#{nameCn},#{nameEn},#{desc},#{gmtCreate});
     </insert>
 
-    <select id="queryTopicCategoriesByName" parameterType="String">
+    <select id="queryTopicCategoryByName" parameterType="String">
         SELECT * FROM `X_topic_category`
         WHERE `name_en` = #{titleEn}
     </select>

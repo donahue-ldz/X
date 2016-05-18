@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.X.dal.mapper.TopicAndCategoryMapper">
+    <resultMap id="topicResultMap" type="TopicAndCategoryDO">
+        <id property="id" column="id"/>
+        <result property="topicID" column="topic_ID"/>
+        <result property="topicCategoryID" column="topic_category_ID"/>
+        <result property="status" column="status"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT into X_topic_and_category(topic_ID,
+        ,topic_category_ID,
+        gmt_create
+        )VALUES (#{topicID},
+        #{topicCategoryID},
+        #{gmtCreate}
+        )
+    </insert>
+
+</mapper>
