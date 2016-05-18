@@ -3,8 +3,6 @@ package com.X.biz.bbs.manager.impl;
 import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ITopicManager;
 import com.X.biz.exception.XException;
-import com.X.common.validator.ValidateHelper;
-import com.X.common.validator.ValidationResult;
 import com.X.dal.domain.TopicDO;
 import com.X.dal.mapper.TopicMapper;
 import com.google.common.base.Preconditions;
@@ -27,17 +25,17 @@ public class TopicManager implements ITopicManager {
     private TopicMapper topicMapper;
 
 
-
     @Override
     public long save(final TopicDO topic) throws XException {
         return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                 topicMapper.save(topic);
+                topicMapper.save(topic);
 
                 return topic.getId();
             }
-        },topic);
+        }, topic);
+
     }
 
     @Override

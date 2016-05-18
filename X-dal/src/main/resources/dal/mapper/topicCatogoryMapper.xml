@@ -15,6 +15,7 @@
     <insert id="save" parameterType="TopicCategoryDO" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into `X_topic_category`(`name_cn`,`name_en`,`desc`,`gmt_create`)
         values (#{nameCn},#{nameEn},#{desc},#{gmtCreate});
+
     </insert>
 
     <select id="queryTopicCategoryByName" parameterType="String">
