@@ -11,6 +11,8 @@ public class WebJsonResult<T>  extends Result {
 
     private List<T> objList;
 
+    private String errorCode;
+
     private Map<String,Object> otherData=new HashMap<String,Object>();
 
     public WebJsonResult() {
@@ -28,6 +30,17 @@ public class WebJsonResult<T>  extends Result {
 
     public List<T> getObjList() {
         return objList;
+    }
+
+    @Override
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    @Override
+    public WebJsonResult setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+        return this;
     }
 
     public WebJsonResult<T> setObjList(List<T> objList) {

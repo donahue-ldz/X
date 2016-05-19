@@ -5,18 +5,17 @@
 <script>
     var comment_members = [];
 </script>
-<div class="container" style="height: 90%">
+<div class="container" >
     <div class="row">
         <div class="col-md-9">
             <div class="panel panel-default topic-detail-heading">
                 <div class="panel-heading pb0">
                     <div class="pull-right">
                         <a href="$!topicDetails.topicVO.userID" title="$!topicDetails.topicVO.user">
-                            <img class="avatar avatar-sm img-circle" src="$!topicDetails.topicVO.userAvatar"
-                                 alt="$topicDetails.topicVO.user">
+                            <img class="avatar avatar-sm img-circle" src="$!topicDetails.topicVO.userAvatar">
                         </a>
                     </div>
-                    <p><a href="/bbs/">首页</a> / <a
+                    <p><a href="/bbs/">论坛首页</a> / $!{topicDetails.topicCategory} <a
                             href="$!{topicDetails.topicVO.topicCategory}">$!{topicDetails.topicVO.topicCategory}</a></p>
                     <h1 class="panel-title">$!{topicDetails.topicVO.title}</h1>
                     <p class="mt5">
@@ -43,15 +42,15 @@
                             #else
                                 <div class="heart " id="like_topic" tid="${topic.tid}" rel="like"></div>
                             #end
-                            <span class="likeCount" id="likeCount">${topic.loves}</span>
+                            <span class="likeCount" id="likeCount">${topicDetails.topicVO.topicStat.favorites}</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <span><a>分享到：</a><a href="javascript:void(0);" class="share-weibo"><i class="fa fa-weibo"
                                                                                                   aria-hidden="true"></i></a></span>
                         </div>
 
                         <div class="pull-right right">
-                            <span class="text-muted">${topic.views}次点击&nbsp;•&nbsp;</span>
-                            <span class="text-muted">${topic.favorites}人收藏</span>
+                            <span class="text-muted">$!{topicDetails.topicVO.topicStat.views}次点击&nbsp;•&nbsp;</span>
+                            <span class="text-muted">$!{topicDetails.topicVO.topicStat.favorites}人收藏</span>
 
                             #if($is_favorite)
                                 <a class="follow" tid="${topic.tid}" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
@@ -91,34 +90,33 @@
                     </div>
                     <div class="panel-body">
                         <ul class="media-list comment-list">
-                            #foreach($comment in $comments)
-                                <li class="media" id="Reply${for.index}">
-                                    <a href="javascript:void(0);" alt="${comment.reply_name}"
+                            #foreach($comment in $topicDetails.comments)
+                                <li class="media" id="Reply$velocityCount">
+                                    <a href="javascript:void(0);" alt="${comment.user}"
                                        class="pull-right text-muted at-user">
-                                        <i class="fa fa-mail-forward"></i> #${for.index}
+                                        <i class="fa fa-mail-forward"></i> #${velocityCount}
                                     </a>
                                     <a class="media-left" href="#">
-                                        <img class="avatar avatar-sm img-circle" src="${comment.reply_avatar}"
-                                             alt="${comment.reply_name}">
+                                        <img class="avatar avatar-sm img-circle" src="${comment.userAvatar}" alt="点我让你嘿嘿"/>
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading topic-list-heading">
                                             <a href="#">
-                                                ${comment.reply_name}
+                                                ${comment.user}
                                                 #if($comment.role_id <= 3)
                                                     &nbsp;<i class="fa fa-slideshare"></i>
                                                 #end
                                             </a>
                                             &nbsp;&nbsp;
 	                                <span class="meta-span">
-	                                	$comment.reply_time)
+	                                	$dateUtils.format("yyyy-MM-dd HH:mm:ss",$comment.gmtCreate)
 	                                </span>
                                         </h4>
                                         ${comment.content}
                                     </div>
                                 </li>
                                 <hr class="smallhr">
-                                <script>comment_members.push('${comment.reply_name}');</script>
+                                <script>comment_members.push('${comment.user}');</script>
                             #end
                         </ul>
                     </div>
@@ -136,8 +134,7 @@
                     #if($login)
                         <form id="comment-form" onsubmit="return topic.comment();" class="form-horizontal" role="form"
                               method="post">
-                            <input type="hidden" name="tid" value="${topic.tid}">
-                            <input type="hidden" name="tuid" value="${topic.uid}">
+                            <input type="hidden" name="topicID" value="${topicDetails.topicVO.id}">
                             <div class="mb10">
 	                        <textarea id="content" class="inputor form-control textarea-control-comment"
                                       name="content" rows="4" placeholder="对楼主说点儿什么吧.." required="required"></textarea>
@@ -147,7 +144,7 @@
                                 </button>
                             </div>
                         </form>
-                        #include("./common/emoji.html")
+                        #parse("/control/list/emoji.vm")
                     #else
                         <div class="well text-center">
                             <a href="/form/loginAndRegister.htm">注册</a> 参与讨论 or <a

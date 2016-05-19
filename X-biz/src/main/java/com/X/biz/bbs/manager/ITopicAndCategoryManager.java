@@ -2,6 +2,7 @@ package com.X.biz.bbs.manager;
 
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicAndCategoryDO;
+import com.X.dal.domain.TopicCategoryDO;
 
 /**
  * @author donahue ldz2012yn@gmail.com

@@ -20,7 +20,7 @@
 
 
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
-        select *
+        select topic.*
         FROM X_topic_category category JOIN X_topic_and_category topicAndCategory ON category.id = topicAndCategory.topic_category_ID
         JOIN X_topic topic ON  topic.id = topicAndCategory.topic_ID
         WHERE category.name_en = #{topicCategory}

@@ -29,13 +29,14 @@ public class PictureManager implements IPictureManager {
         return RunWrapper.run(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                return pictureMapper.save(picture);
+                pictureMapper.save(picture);
+                return picture.getId();
             }
         });
     }
 
     @Override
-    public PictureDO queryPicturesByID(@NotEmpty final Long id) throws XException{
+    public PictureDO queryPicturesByID(@NotEmpty final Long id) throws XException {
         return RunWrapper.run(new Callable<PictureDO>() {
             @Override
             public PictureDO call() throws Exception {

@@ -11,7 +11,6 @@ public class TopicDetails implements Serializable {
     private TopicVO topicVO;
     private String title;
     private String content;
-    private String category;
     private List<CommentVO> comments;
     public TopicVO getTopicVO() {
         return topicVO;
@@ -40,14 +39,6 @@ public class TopicDetails implements Serializable {
         return this;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public TopicDetails setCategory(String category) {
-        this.category = category;
-        return this;
-    }
 
     public List<CommentVO> getComments() {
         return comments;

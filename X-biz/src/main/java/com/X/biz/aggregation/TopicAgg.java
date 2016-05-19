@@ -15,10 +15,10 @@ import java.util.List;
  * @create 2016-05-18 10:18 AM
  **/
 public interface TopicAgg {
-    TopicDetails queryTopicDetailsByID(@NotNull Long topicID) throws XException;
+    TopicDetails queryTopicDetailsByID(@NotNull Long topicID,String topicCategory) throws XException;
     TopicStat queryTopicStat(@NotNull Long topicID)throws XException;
 
-    TopicVO queryTopicVOByTopic(@NotNull TopicDO topicDO) throws XException;
+    TopicVO queryTopicVOByTopic(@NotNull TopicDO topicDO,String topicCategory) throws XException;
 
     List<TopicVO> queryTopicVOsByCategoryWithPage(@NotEmpty String category,int pageNO,int pageSize) throws XException;
 }

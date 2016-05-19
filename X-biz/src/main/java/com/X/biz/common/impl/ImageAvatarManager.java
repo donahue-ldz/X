@@ -54,7 +54,7 @@ public class ImageAvatarManager implements IImageAvatarManager {
                 upload.service();
                 String pictureURL = CloudConfig.CLOUD_IMAGE_AVATAR_URL + "/" + fileName;
                 PictureDO picture = new PictureDO();
-                picture.setUrl(pictureURL);
+                picture.setUrl(CloudConfig.PROTOCAL+pictureURL);
                 picture.setGmtCreate(new Date());
                 return pictureManager.save(picture);
 

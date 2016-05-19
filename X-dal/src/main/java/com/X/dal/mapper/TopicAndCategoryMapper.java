@@ -1,6 +1,8 @@
 package com.X.dal.mapper;
 
 import com.X.dal.domain.TopicAndCategoryDO;
+import com.X.dal.domain.TopicCategoryDO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,5 +11,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TopicAndCategoryMapper {
     void save(TopicAndCategoryDO topicAndCategory);
-
 }

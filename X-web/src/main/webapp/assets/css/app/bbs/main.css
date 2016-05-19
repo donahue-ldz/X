@@ -8,7 +8,7 @@ body {
     overflow: visible;
     transition: transform 300ms cubic-bezier(.7, 0, .3, 1);
     background-color: #CDD2DF;
-    background-image: url("../images/shadow_light.png"), url("../images/pixels.png");
+    background-image: url("./images/shadow_light.png"), url("./images/pixels.png");
     background-position: 0 0px, 0 0;
     background-repeat: repeat-x, repeat;
     font-size: 14px;
@@ -150,7 +150,7 @@ b, optgroup, strong {
 heart
 */
 .heart {
-    background: url(../images/web_heart_animation.png);
+    background: url(./images/web_heart_animation.png);
     background-position: left;
     background-repeat: no-repeat;
     height: 30px;
@@ -25797,7 +25797,7 @@ ol, ul {
     width: 100%;
     height: 100%;
 
-    background-image: url(../images/profile/bg1.jpg);
+    background-image: url(./images/profile/bg1.jpg);
     /* filter:alpha(opacity=90);-moz-opacity:0.9;opacity:0.9; -khtml-opacity: 0.9; */
     -webkit-filter: blur(2px);
     Chrome, Opera

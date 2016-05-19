@@ -1,4 +1,4 @@
-package com.X.web.module.student.control;
+package com.X.web.module.bbs.control;
 
 import com.X.biz.exception.XException;
 import com.X.web.common.BaseScreen;

@@ -16,7 +16,6 @@ public class CommentVO implements Serializable {
     private Long userID;
     private String userAvatar;
     private String content;
-
     private long favorites;
     private Date gmtCreate;
 

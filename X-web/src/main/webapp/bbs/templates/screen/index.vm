@@ -39,9 +39,9 @@
                                                                 <a href="/topic/ + topic.tid + '#Reply' + topic.comments}"
                                                                    class="badge-comment">$!{topic.comments}</a>
                                                             </div>
-                                                            <a href="/bbs/list/topic.htm?topicID=$!{topic.id}">$!{topic.title}</a>
+                                                            <a href="/bbs/list/topic.htm?topicID=$!{topic.id}&topicCategory=$!{topic.topicCategory}">$!{topic.title}</a>
                                                         #else
-                                                                <a href="/bbs/list/topic.htm?topicID=$!{topic.id}">$!{topic.title}</a>
+                                                                <a href="/bbs/list/topic.htm?topicID=$!{topic.id}&topicCategory=$!{topic.topicCategory}">$!{topic.title}</a>
                                                         #end
                                                     </div>
                                                     <div class=" comment-bt">

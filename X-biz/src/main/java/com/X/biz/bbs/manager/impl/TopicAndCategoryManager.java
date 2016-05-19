@@ -4,6 +4,7 @@ import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ITopicAndCategoryManager;
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicAndCategoryDO;
+import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.mapper.TopicAndCategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,6 @@ public class TopicAndCategoryManager implements ITopicAndCategoryManager {
             }
         }, topicAndCategory);
     }
+
+
 }
