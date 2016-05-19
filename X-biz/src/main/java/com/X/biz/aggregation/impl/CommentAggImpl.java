@@ -50,7 +50,7 @@ public class CommentAggImpl implements CommentAgg {
         CommentVO commentVO = new CommentVO();
         Long userID = commentDO.getUserID();
         String userRole = commentDO.getUserRole();
-        if (userRole.equals(Role.STUDENT.value())) {
+        if (userRole.equals(Role.STUDENT.SQLValue())) {
             StudentDO studentDO = studentDBManager.queryStudentByID(userID);
             commentVO.setUser(studentDO.getStudentName());
             PictureDO pictureDO = pictureManager.queryPicturesByID(studentDO.getAvatarID());

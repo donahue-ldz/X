@@ -1,6 +1,7 @@
 package com.X.biz.bbs.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author donahue ldz2012yn@gmail.com
@@ -10,8 +11,9 @@ public class TopicStat implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long views;
     private Long favorites;
+    private Long bookmarks;
     private Long comments;
-    private Long create_time;
+    private Date createTime;
 
     public Long getViews() {
         return views;
@@ -31,6 +33,15 @@ public class TopicStat implements Serializable {
         return this;
     }
 
+    public Long getBookmarks() {
+        return bookmarks;
+    }
+
+    public TopicStat setBookmarks(Long bookmarks) {
+        this.bookmarks = bookmarks;
+        return this;
+    }
+
     public Long getComments() {
         return comments;
     }
@@ -40,12 +51,12 @@ public class TopicStat implements Serializable {
         return this;
     }
 
-    public Long getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public TopicStat setCreate_time(Long create_time) {
-        this.create_time = create_time;
+    public TopicStat setCreateTime(Date createTime) {
+        this.createTime = createTime;
         return this;
     }
 }

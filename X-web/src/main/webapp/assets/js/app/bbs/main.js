@@ -145,13 +145,13 @@ $('.topic-footer .heart').on('click', function () {
         _this.css("background-position", "left");
     }
     var tid = $(this).attr('tid');
-    $.post(BASE + '/favorite', {type: 'love', event_id: tid}, function (response) {
-        if (response) {
-            if (response.status == 200) {
-            } else if (response.status == 401) {
+    $.post('/bbs/json/TopicRequest/favorite.json', {topicID: tid}, function (result) {
+        if (result.success) {
+            }else{
+             if (result.errorCode == "401") {
                 go_signin();
             } else {
-                alertError(response.msg);
+                alertError(result.errorMsg);
             }
         }
     });

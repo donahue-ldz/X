@@ -37,7 +37,7 @@
                 #if($login)
                     <div class="panel-footer topic-footer">
                         <div class="pull-left left">
-                            #if($is_love)
+                            #if($favorite)
                                 <div class="heart heartRed" id="like_topic" tid="${topic.tid}" rel="unlike"></div>
                             #else
                                 <div class="heart " id="like_topic" tid="${topic.tid}" rel="like"></div>
@@ -50,9 +50,9 @@
 
                         <div class="pull-right right">
                             <span class="text-muted">$!{topicDetails.topicVO.topicStat.views}次点击&nbsp;•&nbsp;</span>
-                            <span class="text-muted">$!{topicDetails.topicVO.topicStat.favorites}人收藏</span>
+                            <span class="text-muted">$!{topicDetails.topicVO.topicStat.bookmarks}人收藏</span>
 
-                            #if($is_favorite)
+                            #if($bookmark)
                                 <a class="follow" tid="${topic.tid}" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
                                     <small class="text-muted">取消收藏</small>
                                 </a>
@@ -83,7 +83,7 @@
                 #end
             </div><!-- /.panel content -->
 
-            #if($topicDetails.comments)
+            #if($topicDetails.comments && $topicDetails.comments.size>0 )
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span>$!{topic.comment} 回复 | 直到</span>

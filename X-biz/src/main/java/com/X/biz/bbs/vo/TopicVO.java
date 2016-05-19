@@ -15,7 +15,6 @@ public class TopicVO implements Serializable {
     private String userAvatar;
 
     private String topicCategory;
-
     private TopicStat topicStat;
     private Date createTime;
 
@@ -72,6 +71,7 @@ public class TopicVO implements Serializable {
         this.topicCategory = topicCategory;
         return this;
     }
+
 
     public TopicStat getTopicStat() {
         return topicStat;

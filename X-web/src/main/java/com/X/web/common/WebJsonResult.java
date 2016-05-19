@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class WebJsonResult<T>  extends Result {
 
+
 	private T obj;
 
     private List<T> objList;
@@ -18,6 +19,7 @@ public class WebJsonResult<T>  extends Result {
     public WebJsonResult() {
 
     }
+
 
     public T getObj() {
         return obj;
@@ -40,6 +42,7 @@ public class WebJsonResult<T>  extends Result {
     @Override
     public WebJsonResult setErrorCode(String errorCode) {
         this.errorCode = errorCode;
+        this.success = false;
         return this;
     }
 

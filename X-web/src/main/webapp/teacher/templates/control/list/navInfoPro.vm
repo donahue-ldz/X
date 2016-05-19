@@ -23,14 +23,14 @@
         //应用选项
         var projectIdListHtml = " <div class=\"input-group\" style=\"width: 95%;height: 13px;\">";
         projectIdListHtml += "   <span class=\"input-group-addon\" >应用：</span>";
-        projectIdListHtml += "<select class=\"form-control\" id=\"projectId\" onchange='changeProject(this.value)'>";
+        projectIdListHtml += "<select class=\"form-control\" id=\"projectId\" onchange='changeProject(this.SQLValue)'>";
         #foreach($project in $projectDOList)
-            projectIdListHtml += "<option value=\"$!{project.id}\">$!{project.cnName}</option>";
+            projectIdListHtml += "<option SQLValue=\"$!{project.id}\">$!{project.cnName}</option>";
         #end
         projectIdListHtml += " </select>  </div>";
         $("#span_project").html(projectIdListHtml);
         $("#span_project  select[id='projectId'] ")
-                .find("option[value='$!{workProjectId}']").attr("selected", true);
+                .find("option[SQLValue='$!{workProjectId}']").attr("selected", true);
     });
 </script>
 

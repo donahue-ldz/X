@@ -28,7 +28,7 @@ public class Navbar extends BaseScreen {
     }
     private void setAdminInfo(Context context)throws XException{
         User user = (User) session.getAttribute("user");
-        if(user.role().value().equals(Role.ADMIN.value())) {
+        if(user.role().SQLValue().equals(Role.ADMIN.SQLValue())) {
             AdminDO admin = (AdminDO) user;
             context.put("admin", admin);
 

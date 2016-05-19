@@ -3,7 +3,7 @@ CREATE TABLE `X_course_rate` (
 `id` INT(11) NOT NULL AUTO_INCREMENT,
 `course_ID` VARCHAR(255) DEFAULT  NULL COMMENT '电子邮件,唯一',
 `student_ID` INT(11) COMMENT '头像',
-`rate_type` VARCHAR(1) DEFAULT NULL COMMENT '昵称',
+`rate_type` VARCHAR(1) DEFAULT NULL COMMENT '评价类型 1. favorite 2.share 3.join ',
 `status`    VARCHAR(2)       DEFAULT '1' COMMENT '状态',
 `gmt_create` DATETIME COMMENT '创建时间',
 `gmt_modified` DATETIME COMMENT '更新时间',

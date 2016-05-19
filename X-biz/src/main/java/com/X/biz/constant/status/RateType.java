@@ -5,7 +5,27 @@ package com.X.biz.constant.status;
  * @create 2016-05-16 9:12 PM
  **/
 public enum  RateType {
-    FAVORITE("1"),SHARE("2"),JOIN("3");
+    /**
+     * 点赞
+     */
+    FAVORITE("1"),
+    /**
+     * 社交账号分享
+     */
+    SHARE("2"),
+    /**
+     * 课程的加入
+     */
+    JOIN("3"),
+    /**
+     * 浏览次数
+     */
+    View("4"),
+    /**
+     * 收藏
+     */
+    BOOKMARK("5");
+
     private String value;
 
     RateType(String value) {

@@ -19,7 +19,7 @@ describe 'Morris.Grid#setData', ->
         ykeys: ['y', 'z']
         labels: ['y', 'z']
 
-    it 'should use a user-specified minimum and maximum value', ->
+    it 'should use a user-specified minimum and maximum SQLValue', ->
       line = Morris.Line $.extend @defaults,
         data: [{x: 1, y: 1}]
         ymin: 10
@@ -29,7 +29,7 @@ describe 'Morris.Grid#setData', ->
 
     describe 'auto', ->
 
-      it 'should automatically calculate the minimum and maximum value', ->
+      it 'should automatically calculate the minimum and maximum SQLValue', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1, y: 10}, {x: 2, y: 15}, {x: 3, y: null}, {x: 4}]
           ymin: 'auto'
@@ -37,7 +37,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 10
         line.ymax.should.equal 15
 
-      it 'should automatically calculate the minimum and maximum value given no y data', ->
+      it 'should automatically calculate the minimum and maximum SQLValue given no y data', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1}, {x: 2}, {x: 3}, {x: 4}]
           ymin: 'auto'
@@ -47,7 +47,7 @@ describe 'Morris.Grid#setData', ->
 
     describe 'auto [n]', ->
 
-      it 'should automatically calculate the minimum and maximum value', ->
+      it 'should automatically calculate the minimum and maximum SQLValue', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1, y: 10}, {x: 2, y: 15}, {x: 3, y: null}, {x: 4}]
           ymin: 'auto 11'
@@ -55,7 +55,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 10
         line.ymax.should.equal 15
 
-      it 'should automatically calculate the minimum and maximum value given no data', ->
+      it 'should automatically calculate the minimum and maximum SQLValue given no data', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1}, {x: 2}, {x: 3}, {x: 4}]
           ymin: 'auto 11'
@@ -63,7 +63,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 11
         line.ymax.should.equal 13
 
-      it 'should use a user-specified minimum and maximum value', ->
+      it 'should use a user-specified minimum and maximum SQLValue', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1, y: 10}, {x: 2, y: 15}, {x: 3, y: null}, {x: 4}]
           ymin: 'auto 5'
@@ -71,7 +71,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 5
         line.ymax.should.equal 20
 
-      it 'should use a user-specified minimum and maximum value given no data', ->
+      it 'should use a user-specified minimum and maximum SQLValue given no data', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1}, {x: 2}, {x: 3}, {x: 4}]
           ymin: 'auto 5'

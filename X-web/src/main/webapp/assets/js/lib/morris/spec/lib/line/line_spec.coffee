@@ -34,7 +34,7 @@ describe 'Morris.Line', ->
 
   describe 'generating column labels', ->
 
-    it 'should use user-supplied x value strings by default', ->
+    it 'should use user-supplied x SQLValue strings by default', ->
       chart = Morris.Line
         element: 'graph'
         data: [{x: '2012 Q1', y: 1}, {x: '2012 Q2', y: 1}]
@@ -93,7 +93,7 @@ describe 'Morris.Line', ->
       Morris.Line $.extend(@defaults, smooth: false)
       shouldHavePath /M[\d\.]+,[\d\.]+(L[\d\.]+,[\d\.]+){4}/
 
-    it 'should generate smooth/jagged lines according to the value for each series when options.smooth is an array', ->
+    it 'should generate smooth/jagged lines according to the SQLValue for each series when options.smooth is an array', ->
       Morris.Line $.extend(@defaults, smooth: ['y'])
       shouldHavePath /M[\d\.]+,[\d\.]+(C[\d\.]+(,[\d\.]+){5}){4}/, '#abcdef'
       shouldHavePath /M[\d\.]+,[\d\.]+(L[\d\.]+,[\d\.]+){4}/, '#fedcba'

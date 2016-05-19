@@ -1,11 +1,6 @@
 package com.X.web.module.bbs.action;
 
-import com.X.biz.RunWrapper;
-import com.X.biz.bbs.manager.ITopicCategoryManager;
 import com.X.biz.bbs.manager.ITopicManager;
-import com.X.biz.common.Void;
-import com.X.biz.exception.XException;
-import com.X.dal.domain.TopicCategoryDO;
 import com.X.dal.domain.TopicDO;
 import com.X.web.common.BaseAction;
 import com.alibaba.citrus.turbine.TurbineRunData;
@@ -13,7 +8,6 @@ import com.alibaba.citrus.turbine.dataresolver.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
-import java.util.concurrent.Callable;
 
 /**
  * Author zhong.zhou
@@ -28,7 +22,7 @@ public class BBSAddAction extends BaseAction {
                         @Param("title") String title,
                         @Param("content") String content) throws Exception {
         TopicDO topicDO = new TopicDO();
-        topicDO.setUserID(getUser().ID()).setUserRole(getUser().role().value());
+        topicDO.setUserID(getUser().ID()).setUserRole(getUser().role().SQLValue());
         topicDO.setTitle(title).setContent(content).setGmtCreate(new Date());
         topicManager.save(topicDO, category);
     }

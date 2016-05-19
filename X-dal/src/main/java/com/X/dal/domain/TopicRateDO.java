@@ -7,7 +7,7 @@ import java.util.Date;
  * @author donahue ldz2012yn@gmail.com
  * @create 2016-05-10 4:15 PM
  **/
-public class TopicFavoriteDO implements Serializable{
+public class TopicRateDO implements Serializable{
     private static final long serialVersionUID = 3977314433226729915L;
     private long id;
     /**
@@ -21,11 +21,19 @@ public class TopicFavoriteDO implements Serializable{
     /**
      * 用户角色
      */
+
     private String userRole;
+    /**
+     * 评价类型
+     */
+    private String rateType;
+
     /**
      * 状态
      */
     private String status;
+
+
 
     private Date gmtCreate;
     private Date gmtModified;
@@ -34,7 +42,7 @@ public class TopicFavoriteDO implements Serializable{
         return gmtModified;
     }
 
-    public TopicFavoriteDO setGmtModified(Date gmtModified) {
+    public TopicRateDO setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
         return this;
     }
@@ -43,7 +51,7 @@ public class TopicFavoriteDO implements Serializable{
         return id;
     }
 
-    public TopicFavoriteDO setId(long id) {
+    public TopicRateDO setId(long id) {
         this.id = id;
         return this;
     }
@@ -52,7 +60,7 @@ public class TopicFavoriteDO implements Serializable{
         return topicID;
     }
 
-    public TopicFavoriteDO setTopicID(long topicID) {
+    public TopicRateDO setTopicID(long topicID) {
         this.topicID = topicID;
         return this;
     }
@@ -61,7 +69,7 @@ public class TopicFavoriteDO implements Serializable{
         return userID;
     }
 
-    public TopicFavoriteDO setUserID(long userID) {
+    public TopicRateDO setUserID(long userID) {
         this.userID = userID;
         return this;
     }
@@ -70,8 +78,17 @@ public class TopicFavoriteDO implements Serializable{
         return userRole;
     }
 
-    public TopicFavoriteDO setUserRole(String userRole) {
+    public TopicRateDO setUserRole(String userRole) {
         this.userRole = userRole;
+        return this;
+    }
+
+    public String getRateType() {
+        return rateType;
+    }
+
+    public TopicRateDO setRateType(String rateType) {
+        this.rateType = rateType;
         return this;
     }
 
@@ -79,7 +96,7 @@ public class TopicFavoriteDO implements Serializable{
         return status;
     }
 
-    public TopicFavoriteDO setStatus(String status) {
+    public TopicRateDO setStatus(String status) {
         this.status = status;
         return this;
     }
@@ -88,7 +105,7 @@ public class TopicFavoriteDO implements Serializable{
         return gmtCreate;
     }
 
-    public TopicFavoriteDO setGmtCreate(Date gmtCreate) {
+    public TopicRateDO setGmtCreate(Date gmtCreate) {
         this.gmtCreate = gmtCreate;
         return this;
     }

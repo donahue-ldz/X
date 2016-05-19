@@ -48,7 +48,7 @@ describe "Morris.Hover", ->
         @element.should.have.css('left', '50px')
         @element.should.have.css('top', '40px')
 
-      it "should center the popup vertically if no y value is supplied", ->
+      it "should center the popup vertically if no y SQLValue is supplied", ->
         @hover.moveTo(100)
         @element.should.have.css('left', '50px')
         @element.should.have.css('top', '40px')

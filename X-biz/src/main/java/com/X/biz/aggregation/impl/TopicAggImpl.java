@@ -4,7 +4,9 @@ import com.X.biz.RunWrapper;
 import com.X.biz.admin.manager.IAdminDBManager;
 import com.X.biz.aggregation.CommentAgg;
 import com.X.biz.aggregation.TopicAgg;
-import com.X.biz.bbs.manager.*;
+import com.X.biz.bbs.manager.ICommentManager;
+import com.X.biz.bbs.manager.ITopicManager;
+import com.X.biz.bbs.manager.ITopicRateManager;
 import com.X.biz.bbs.vo.CommentVO;
 import com.X.biz.bbs.vo.TopicDetails;
 import com.X.biz.bbs.vo.TopicStat;
@@ -41,15 +43,10 @@ public class TopicAggImpl implements TopicAgg {
     @Autowired
     private ICommentManager commentManager;
     @Autowired
-    private ITopicFavoriteManager topicFavoriteManager;
+    private ITopicRateManager topicRateManager;
 
     @Autowired
     private CommentAgg commentAgg;
-    @Autowired
-    private ITopicCategoryManager topicCategoryManager;
-
-    @Autowired
-    private ITopicAndCategoryManager topicAndCategoryManager;
     @Autowired
     private IPictureManager pictureManager;
 
@@ -74,8 +71,14 @@ public class TopicAggImpl implements TopicAgg {
     @Override
     public TopicStat queryTopicStat(Long topicID) throws XException {
         long comments = commentManager.countCommentsByTopicID(topicID);
-        long favorites = topicFavoriteManager.countFavoritesByTopicID(topicID);
-        return new TopicStat().setFavorites(favorites).setComments(comments);
+        long favorites = topicRateManager.countFavoritesByTopicID(topicID);
+        long views = topicRateManager.countViewsByTopicID(topicID);
+        long bookmarks = topicRateManager.countBookmarksByTopicID(topicID);
+        return new TopicStat()
+                .setFavorites(favorites)
+                .setComments(comments)
+                .setViews(views)
+                .setBookmarks(bookmarks);
     }
 
     @Override
@@ -88,11 +91,11 @@ public class TopicAggImpl implements TopicAgg {
         topicVO.setTopicCategory(topicCategory);
         String userRole = topic.getUserRole();
         Long userID = topic.getUserID();
-        if (Role.STUDENT.value().equals(userRole)) {
+        if (Role.STUDENT.SQLValue().equals(userRole)) {
             StudentDO studentDO = studentDBManager.queryStudentByID(userID);
             topicVO.setUser(studentDO.getStudentName());
             PictureDO pictureDO = pictureManager.queryPicturesByID(studentDO.getAvatarID());
-            if(pictureDO!=null)
+            if (pictureDO != null)
                 topicVO.setUserAvatar(pictureDO.getUrl());
         } else {
             AdminDO adminDO = adminDBManager.queryAdminByID(userID);

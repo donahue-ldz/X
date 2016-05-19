@@ -1,6 +1,5 @@
 package com.X.web.module.student.control;
 
-import com.X.biz.common.IPictureManager;
 import com.X.biz.exception.XException;
 import com.X.biz.student.wrapper.StudentWrapper;
 import com.X.dal.domain.Role;
@@ -8,7 +7,6 @@ import com.X.dal.domain.User;
 import com.X.web.common.BaseScreen;
 import com.X.web.common.WebResult;
 import com.alibaba.citrus.turbine.Context;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -34,7 +32,7 @@ public class Navbar extends BaseScreen {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
-        if(user!=null && user.role().value().equals(Role.STUDENT.value())) {
+        if(user!=null && user.role().SQLValue().equals(Role.STUDENT.SQLValue())) {
             StudentWrapper student = (StudentWrapper) user;
             context.put("studentWrapper", student);
 
