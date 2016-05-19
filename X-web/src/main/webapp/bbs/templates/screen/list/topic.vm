@@ -22,25 +22,25 @@
                         <small class="text-muted">
                             <span>by <a href="#">$!{topicDetails.topicVO.user}</a></span>&nbsp;•&nbsp;
                             <span>${dateUtils.format("yyyy-mm-dd :hh:mm:ss",$!{topicDetails.topicVO.createTime})}</span>
-                        ##                            #if(null!=login_user)
-                        ##                                &nbsp;&nbsp;&nbsp;<span><a href="javascript:void(0);" tid="${topic.tid}" class="sinks" alt="下沉" title="下沉"><i class="fa fa-sort-desc" aria-hidden="true"></i></a></span>
-                        ##                                #if(topic.uid == login_user.uid)
-                        ##                                    &nbsp;•&nbsp;&nbsp;<span><a href="${base_url('/topic/edit/') + topic.tid}">编辑</a></span>
-                        ##                                #end
-                        ##                            #end
+                            #if($user)
+                                &nbsp;&nbsp;&nbsp;<span><a href="javascript:void(0);" tid="${topic.tid}" class="sinks" alt="下沉" title="下沉"><i class="fa fa-sort-desc" aria-hidden="true"></i></a></span>
+                                #if($!topicDetails.topicVO.userID.equals($user.ID()))
+                                    &nbsp;•&nbsp;&nbsp;<span><a href="/bbs/list/topicEdit.htm?topicID=$!topicDetails.topicVO.id">编辑</a></span>
+                                #end
+                            #end
                         </small>
                     </p>
                 </div>
                 <div class="panel-body topic-detail">
                     ${topicDetails.content}
                 </div>
-                #if($login)
+                #if($user)
                     <div class="panel-footer topic-footer">
                         <div class="pull-left left">
                             #if($favorite)
-                                <div class="heart heartRed" id="like_topic" tid="${topic.tid}" rel="unlike"></div>
+                                <div class="heart heartRed" id="like_topic" tid="$!topicDetails.topicVO.id" rel="unFavorite"></div>
                             #else
-                                <div class="heart " id="like_topic" tid="${topic.tid}" rel="like"></div>
+                                <div class="heart " id="like_topic" tid="$!topicDetails.topicVO.id" rel="favorite"></div>
                             #end
                             <span class="likeCount" id="likeCount">${topicDetails.topicVO.topicStat.favorites}</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -53,16 +53,16 @@
                             <span class="text-muted">$!{topicDetails.topicVO.topicStat.bookmarks}人收藏</span>
 
                             #if($bookmark)
-                                <a class="follow" tid="${topic.tid}" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
+                                <a class="follow" tid="$!topicDetails.topicVO.id" rel="unBookmark" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
                                     <small class="text-muted">取消收藏</small>
                                 </a>
                             #else
-                                <a class="follow" tid="${topic.tid}" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
+                                <a class="follow" tid="$!topicDetails.topicVO.id" rel="bookmark" role="button" href="javascript:void(0);">&nbsp;•&nbsp;
                                     <small class="text-muted">加入收藏</small>
                                 </a>
                             #end
 
-                            #if($login && $login_user.role_id < 3)
+                            #if($user && $user_user.role_id < 3)
                                 #if($topic.is_essence == 0)
                                     <a class="essence" tid="${topic.tid}" role="button" href="javascript:void(0);">
                                         &nbsp;•&nbsp;
@@ -131,7 +131,7 @@
                     </p>
                 </div>
                 <div class="panel-body">
-                    #if($login)
+                    #if($user)
                         <form id="comment-form" onsubmit="return topic.comment();" class="form-horizontal" role="form"
                               method="post">
                             <input type="hidden" name="topicID" value="${topicDetails.topicVO.id}">
@@ -158,6 +158,3 @@
     </div>
 </div>
 <script>hljs.initHighlightingOnLoad();</script>
-
-</body>
-</html>

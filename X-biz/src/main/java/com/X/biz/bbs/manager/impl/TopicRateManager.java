@@ -29,8 +29,10 @@ public class TopicRateManager implements ITopicRateManager {
         return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-               TopicRateDO topicRateDO =  topicRateMapper.queryTopicRate(topicRate.getTopicID(), topicRate.getUserID(), topicRate.getRateType());
-                if(topicRateDO!=null) throw new XException("已经操作过...不能再次操作");
+                if(!topicRate.getRateType().equals(RateType.View.SQLValue())) {
+                    TopicRateDO topicRateDO = topicRateMapper.queryTopicRate(topicRate.getTopicID(), topicRate.getUserID(), topicRate.getRateType());
+                    if (topicRateDO != null) throw new XException("已经操作过...不能再次操作");
+                }
                 topicRateMapper.save(topicRate);
                 return topicRate.getId();
             }
@@ -38,7 +40,7 @@ public class TopicRateManager implements ITopicRateManager {
     }
 
     @Override
-    public boolean update(final long id, final RateType rateType, final int status) throws XException {
+    public boolean update(final long id, final RateType rateType, final String status) throws XException {
         return RunWrapper.run(new Callable<Boolean>() {
             @Override
             public Boolean call() throws Exception {

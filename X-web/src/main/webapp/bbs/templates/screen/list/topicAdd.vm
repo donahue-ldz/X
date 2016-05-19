@@ -30,7 +30,7 @@
                     <button type="submit" class="btn btn-primary btn-small ladda-button" data-style="zoom-out">
                         <span class="ladda-label">发布帖子</span>
                     </button>
-                    <input type="hidden" name="action" value="BBSAddAction"/>
+                    <input type="hidden" name="action" value="topicAddAction"/>
                 </div>
             </form>
         </div>

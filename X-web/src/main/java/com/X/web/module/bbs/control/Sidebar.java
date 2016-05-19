@@ -24,6 +24,7 @@ public class Sidebar extends BaseScreen {
 
     private void setUserInfo(Context context) throws XException{
 
+
     }
     private void setBBSInfo(Context context) throws XException{
 

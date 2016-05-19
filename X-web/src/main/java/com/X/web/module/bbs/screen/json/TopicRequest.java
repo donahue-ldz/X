@@ -2,6 +2,7 @@ package com.X.web.module.bbs.screen.json;
 
 import com.X.biz.bbs.manager.ICommentManager;
 import com.X.biz.bbs.manager.ITopicRateManager;
+import com.X.biz.constant.status.RateType;
 import com.X.dal.domain.CommentDO;
 import com.X.dal.domain.TopicRateDO;
 import com.X.dal.domain.User;
@@ -27,14 +28,14 @@ public class TopicRequest extends BaseAction {
     private ITopicRateManager topicFavoriteManager;
 
     public WebJsonResult doAddComment(@Param("topicID") final Long topicID,
-                                           @Param("content") final String content) {
+                                      @Param("content") final String content) {
         return runWrapper(new Callable<WebJsonResult>() {
             @Override
             public WebJsonResult call() throws Exception {
                 WebJsonResult result = new WebJsonResult();
                 Preconditions.checkArgument(!StringUtils.isEmpty(content), "评论内容不能为空...");
                 User user = getUser();
-                if(user==null)  return result.setErrorCode(ErrorCode.NO_SIGIN);
+                if (user == null) return result.setErrorCode(ErrorCode.NO_SIGIN);
                 CommentDO comment = new CommentDO();
                 comment.setContent(content);
                 comment.setTopicID(topicID);
@@ -46,19 +47,52 @@ public class TopicRequest extends BaseAction {
             }
         });
     }
-    public WebJsonResult doFavorite(@Param("topicID") final Long topicID) {
+
+    public WebJsonResult doFavorite(@Param("topicID") final Long topicID, @Param("type") final String type) {
         return runWrapper(new Callable<WebJsonResult>() {
             @Override
             public WebJsonResult call() throws Exception {
                 WebJsonResult result = new WebJsonResult();
                 User user = getUser();
-                if(user==null)  return result.setErrorCode(ErrorCode.NO_SIGIN);
-                TopicRateDO topicFavoriteDO = new TopicRateDO();
-                topicFavoriteDO.setTopicID(topicID);
-                topicFavoriteDO.setUserID(user.ID());
-                topicFavoriteDO.setGmtCreate(new Date());
-                topicFavoriteDO.setUserRole(user.role().SQLValue());
-                topicFavoriteManager.save(topicFavoriteDO);
+                if (user == null) return result.setErrorCode(ErrorCode.NO_SIGIN);
+                if("favorite".equals(type)) {
+                    TopicRateDO topicRateDO = new TopicRateDO();
+                    topicRateDO.setTopicID(topicID);
+                    topicRateDO.setUserID(user.ID());
+                    topicRateDO.setGmtCreate(new Date());
+                    topicRateDO.setUserRole(user.role().SQLValue());
+                    topicRateDO.setRateType(RateType.FAVORITE.SQLValue());
+                    topicFavoriteManager.save(topicRateDO);
+                }else if("unFavorite".equals(type)){
+                    topicFavoriteManager.update(topicID,RateType.FAVORITE,"0");
+                }else {
+                    result.setErrorMsg("unknown...");
+                }
+                return result;
+            }
+        });
+    }
+
+    public WebJsonResult doBookmark(@Param("topicID") final Long topicID, @Param("type") final String type) {
+        return runWrapper(new Callable<WebJsonResult>() {
+            @Override
+            public WebJsonResult call() throws Exception {
+                WebJsonResult result = new WebJsonResult();
+                User user = getUser();
+                if (user == null) return result.setErrorCode(ErrorCode.NO_SIGIN);
+                if("bookmark".equals(type)) {
+                    TopicRateDO topicRateDO = new TopicRateDO();
+                    topicRateDO.setTopicID(topicID);
+                    topicRateDO.setUserID(user.ID());
+                    topicRateDO.setGmtCreate(new Date());
+                    topicRateDO.setUserRole(user.role().SQLValue());
+                    topicRateDO.setRateType(RateType.BOOKMARK.SQLValue());
+                    topicFavoriteManager.save(topicRateDO);
+                }else if("unBookmark".equals(type)){
+                    topicFavoriteManager.update(topicID,RateType.BOOKMARK,"0");
+                }else {
+                    result.setErrorMsg("unknown...");
+                }
                 return result;
             }
         });

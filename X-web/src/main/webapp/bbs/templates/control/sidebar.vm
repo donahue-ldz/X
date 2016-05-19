@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    #if(!$user)
+##    #if(!$user)
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">我的论坛</h3>
@@ -15,23 +15,24 @@
                         <div class="profile-sidebar-item profile-info">
                             <a href="#" class="h5 bold">个人主页</a>
                             <div class="w150 center-block mt10">
-                                <a class="btn btn-success btn-outline btn-block" href="/bbs/list/bbsAdd.htm">
+                                <a class="btn btn-success btn-outline btn-block" href="/bbs/list/topicAdd.htm">
                                     <span>发布新帖子</span>
                                 </a>
                             </div>
                         </div>
                         <hr>
                         <ul class="profile-sidebar-item profile-numbers-count">
-                            <li><a href="#"><span class="bold">0</span>帖子收藏</a></li>
-                            <li><a href="#"><span class="bold">0</span>节点收藏</a></li>
-                            <li><a href="#"><span class="bold">0</span>特别关注</a></li>
+                            <li><a href="#"><span class="bold">0</span>发帖</a></li>
+                            <li><a href="#"><span class="bold">0</span>回复</a></li>
+                            <li><a href="#"><span class="bold">0</span>收藏</a></li>
+                            <li><a href="#"><span class="bold">0</span>喜欢</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
         </div>
-    #end
+##    #end
 
     #if(!$bbs)
         <div class="panel panel-default">

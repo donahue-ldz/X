@@ -14,7 +14,7 @@ import java.util.List;
 public interface ITopicRateManager {
     long save(TopicRateDO topicRate) throws XException;
 
-    boolean update(long id, RateType rateType, int status) throws XException;
+    boolean update(long id, RateType rateType, String status) throws XException;
     TopicRateDO queryTopicRate(Long topicID,Long userID,RateType rateType)throws XException;
     List<TopicRateDO> queryTopicRatesByUser(Long topicID, Long userID)throws XException;
     long countFavoritesByTopicID(long topicID) throws XException;

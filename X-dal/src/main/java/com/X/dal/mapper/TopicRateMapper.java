@@ -38,7 +38,7 @@ public interface TopicRateMapper {
      * @param status 点赞/不赞
      * @return boolean
      */
-    int update(@Param("id") long id, @Param("rateType") String rateType, @Param("status") int status);
+    int update(@Param("id") long id, @Param("rateType") String rateType, @Param("status") String  status);
 
     long countFavoritesByTopicID(@Param("topicID") long topicID);
 

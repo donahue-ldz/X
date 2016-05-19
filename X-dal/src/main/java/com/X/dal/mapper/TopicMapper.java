@@ -20,6 +20,9 @@ public interface TopicMapper {
      */
     long save(TopicDO topic);
 
+
+    void updateStatus(@Param("id") Long id, @Param("status") String status);
+
     TopicDO queryTopicByID(@Param("id") Long id);
 
     /**

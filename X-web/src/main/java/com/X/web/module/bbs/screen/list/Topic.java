@@ -51,7 +51,7 @@ public class Topic extends BaseScreen {
     private void setView(Context context) throws XException {
         Object o = session.getAttribute("user");
         boolean login = o != null;
-        context.put("login", login);
+        context.put("user", o);
         if (login) {
             User user = getUser();
             long topicID = reqContext.getParameters().getInt("topicID", 0);

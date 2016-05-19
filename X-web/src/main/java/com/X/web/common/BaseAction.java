@@ -41,7 +41,8 @@ public abstract class BaseAction {
 
 
     protected final User getUser(){
-        return (User) session.getAttribute("user");
+        Object o = session.getAttribute("user");
+        return o==null?null:(User) o;
     }
 
 }

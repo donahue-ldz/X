@@ -11,6 +11,11 @@ import java.util.List;
  **/
 public interface ITopicCategoryManager {
     long save(TopicCategoryDO topicCategory) throws XException;
+
     TopicCategoryDO queryTopicCategoryByName(String titleEn) throws XException;
-    List<TopicCategoryDO> queryAllTopicCategories()throws XException;
+
+    List<TopicCategoryDO> queryAllTopicCategories() throws XException;
+
+    List<TopicCategoryDO> avaiCategories() throws XException;
+
 }

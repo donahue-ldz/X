@@ -14,16 +14,21 @@
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>
     <insert id="save" parameterType="TopicDO" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        INSERT into `X_topic`(`user_id`,`user_role`,`title`,`content`,`key_words`,`weight`,`status`,`gmt_create`)
-        VALUES (#{userID},#{userRole},#{title},#{content},#{keyWords},#{weight},#{status},#{gmtCreate})
+        INSERT into `X_topic`(`user_id`,`user_role`,`title`,`content`,`gmt_create`)
+        VALUES (#{userID},#{userRole},#{title},#{content},#{gmtCreate})
     </insert>
 
+    <update id="updateStatus">
+        UPDATE X_topic
+        SET status = #{status}
+        WHERE id = #{id}
+    </update>
 
     <select id="queryTopicsWithPage" resultMap="topicResultMap">
         select topic.*
-        FROM X_topic_category category JOIN X_topic_and_category topicAndCategory ON category.id = topicAndCategory.topic_category_ID
-        JOIN X_topic topic ON  topic.id = topicAndCategory.topic_ID
-        WHERE category.name_en = #{topicCategory}
+        FROM X_topic topic LEFT JOIN X_topic_and_category topicAndCategory ON topic.id = topicAndCategory.topic_ID
+        LEFT JOIN X_topic_category category ON category.id = topicAndCategory.topic_category_ID
+        WHERE category.name_en = #{topicCategory} AND topic.status='1' AND category.status = '1' AND topicAndCategory.status='1'
         ORDER BY topic.gmt_create DESC
         limit ${offSet},${rowCount}
   </select>

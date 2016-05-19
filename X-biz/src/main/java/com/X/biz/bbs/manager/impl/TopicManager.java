@@ -41,7 +41,6 @@ public class TopicManager implements ITopicManager {
             public Long call() throws Exception {
                 topicMapper.save(topic);
                 long topicID = topic.getId();
-
                 TopicAndCategoryDO topicAndCategory = new TopicAndCategoryDO();
                 TopicCategoryDO topicCategoryDO = topicCategoryManager.queryTopicCategoryByName(topicCategory);
                 if (topicCategoryDO == null)
@@ -62,6 +61,18 @@ public class TopicManager implements ITopicManager {
             @Override
             public TopicDO call() throws Exception {
                 return topicMapper.queryTopicByID(id);
+            }
+        });
+    }
+
+    @Override
+    public void editTopic(final Long oldTopicID, final TopicDO topicDO, final String topicCategory) throws XException {
+        RunWrapper.run(new Callable<Object>() {
+            @Override
+            public Object call() throws Exception {
+                topicMapper.updateStatus(oldTopicID,"0");
+                save(topicDO,topicCategory);
+                return null;
             }
         });
     }

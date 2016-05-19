@@ -1,5 +1,5 @@
 #set($navInfo="论坛")
-<div class="container">
+<div class="container" style="min-height: 90%" >
     <div class="row">
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -49,7 +49,7 @@
                                                             <a href="#">$!topic.user</a>
                                                         </strong>
                                                         &nbsp;•&nbsp;
-                                                        <span>$dateUtils.format("yyyy-mm-dd hh:mm:ss",$!topic.createTime)</span>
+                                                        <span>$dateUtils.format("yyyy-MM-dd HH:mm:ss",$!topic.createTime)</span>
                                                     </div>
                                                 </div>
                                             </div>

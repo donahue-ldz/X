@@ -136,21 +136,22 @@ $('.topic-footer .heart').on('click', function () {
     var C = parseInt($("#likeCount").text());
     var D = $("#likeCount");
     $(this).css("background-position", "")
-    if (A == 'like') {
+    if (A == 'favorite') {
         D.text(C + 1);
-        _this.addClass("heartAnimation").attr("rel", "unlike");
+        _this.addClass("heartAnimation").attr("rel", "unFavorite");
     } else {
         D.text(C - 1);
-        _this.removeClass("heartAnimation").attr("rel", "like");
+        _this.removeClass("heartAnimation").attr("rel", "favorite");
         _this.css("background-position", "left");
     }
     var tid = $(this).attr('tid');
-    $.post('/bbs/json/TopicRequest/favorite.json', {topicID: tid}, function (result) {
+    $.post('/bbs/json/TopicRequest/favorite.json', {topicID: tid,type:A}, function (result) {
         if (result.success) {
             }else{
              if (result.errorCode == "401") {
                 go_signin();
             } else {
+                 console.log(result.errorMsg);
                 alertError(result.errorMsg);
             }
         }
@@ -177,15 +178,15 @@ $('.topic-detail-heading .sinks').on('click', function () {
 //帖子收藏
 $('.topic-footer .follow').on('click', function () {
     var tid = $(this).attr("tid");
-    var _this = $(this);
-    $.post(BASE + '/favorite', {type: 'topic', event_id: tid}, function (response) {
-        if (response) {
-            if (response.status == 200) {
-                window.location.reload();
-            } else if (response.status == 401) {
+    var type = $(this).attr("rel");
+    $.post('/bbs/json/TopicRequest/bookmark.json', {type: type, topicID: tid}, function (result) {
+        if (result.success) {
+            window.location.reload();
+        }else{
+             if (result.errorCode == 401) {
                 go_signin();
             } else {
-                alertError(response.msg);
+                alertError(result.errorMsg);
             }
         }
     });
