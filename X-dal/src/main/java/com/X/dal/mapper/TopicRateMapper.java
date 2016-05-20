@@ -25,6 +25,7 @@ public interface TopicRateMapper {
 
     /**
      * 查看用户的评价 排除 views
+     *
      * @param topicID
      * @param userID
      * @return
@@ -38,12 +39,19 @@ public interface TopicRateMapper {
      * @param status 点赞/不赞
      * @return boolean
      */
-    int update(@Param("id") long id, @Param("rateType") String rateType, @Param("status") String  status);
+    int update(@Param("id") long id, @Param("rateType") String rateType, @Param("status") String status);
 
     long countFavoritesByTopicID(@Param("topicID") long topicID);
 
     long countViewsByTopicID(@Param("topicID") long topicID);
 
     long countBookmarksByTopicID(@Param("topicID") long topicID);
+
+    long countFavoritesByUserID(@Param("userID") Long userID);
+
+    long countViewsByUserID(@Param("userID") Long userID);
+
+    long countBookmarksByUserID(@Param("userID") Long userID);
+
 
 }

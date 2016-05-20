@@ -30,5 +30,6 @@ public interface CommentMapper {
     List<CommentDO> queryCommentsByTopicID(@Param("topicID") long topicID);
 
     long countCommentsByTopicID(@Param("topicID") long topicID);
-
+    long countCommentsByUser(@Param("userID") long userID,@Param("userRole") String userRole);
+    List<Long> queryUsers();
 }

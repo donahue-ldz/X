@@ -13,7 +13,13 @@ public interface ITopicManager {
 
     TopicDO queryTopicByID(Long id) throws XException;
 
-    void editTopic(Long oldTopicID, TopicDO topicDO,String topicCategory) throws XException;
+    void editTopic(Long oldTopicID, TopicDO topicDO, String topicCategory) throws XException;
 
     List<TopicDO> queryTopicsWithPage(String topicCategory, int pageNO, int pageNum) throws XException;
+
+    long countTopicsByUser(Long userID, String userRole) throws XException;
+
+    long countAllTopics() throws XException;
+
+    List<Long> queryUsers() throws XException;
 }

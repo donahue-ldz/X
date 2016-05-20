@@ -70,8 +70,8 @@ public class TopicManager implements ITopicManager {
         RunWrapper.run(new Callable<Object>() {
             @Override
             public Object call() throws Exception {
-                topicMapper.updateStatus(oldTopicID,"0");
-                save(topicDO,topicCategory);
+                topicMapper.updateStatus(oldTopicID, "0");
+                save(topicDO, topicCategory);
                 return null;
             }
         });
@@ -87,6 +87,36 @@ public class TopicManager implements ITopicManager {
             @Override
             public List<TopicDO> call() throws Exception {
                 return topicMapper.queryTopicsWithPage(topicCategory, offSet, pageNum);
+            }
+        });
+    }
+
+    @Override
+    public long countTopicsByUser(final Long userID, final String userRole) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicMapper.countTopicsByUser(userID, userRole);
+            }
+        });
+    }
+
+    @Override
+    public long countAllTopics() throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicMapper.countAllTopics();
+            }
+        });
+    }
+
+    @Override
+    public List<Long> queryUsers() throws XException {
+        return RunWrapper.run(new Callable<List<Long>>() {
+            @Override
+            public List<Long> call() throws Exception {
+                return topicMapper.queryUsers();
             }
         });
     }

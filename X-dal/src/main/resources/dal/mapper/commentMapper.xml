@@ -27,7 +27,7 @@
     <select id="queryCommentsByTopicID" parameterType="Long" resultMap="commentResultMap">
         SELECT *
         from X_comment
-        WHERE topic_ID = #{topicID}
+        WHERE topic_ID = #{topicID} AND status = '1'
     </select>
 
     <select id="queryCommentByID" parameterType="Long" resultMap="commentResultMap">
@@ -39,6 +39,13 @@
     <select id="countCommentsByTopicID" resultType="Long">
         SELECT count(*) num
         from X_comment
-        WHERE topic_ID = #{topicID}
+        WHERE topic_ID = #{topicID} AND status = '1'
     </select>
+
+    <select id="countCommentsByUser" resultType="Long">
+        SELECT count(*) num
+        from X_comment
+        WHERE user_ID = #{userID} AND user_role = #{userRole} AND status = '1'
+    </select>
+
 </mapper>

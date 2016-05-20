@@ -63,4 +63,24 @@ public class CommentManager implements ICommentManager {
             }
         });
     }
+
+    @Override
+    public long countCommentsByUser(final long userID, final String userRole) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return commentMapper.countCommentsByUser(userID, userRole);
+            }
+        });
+    }
+
+    @Override
+    public List<Long> queryUsers() throws XException {
+        return RunWrapper.run(new Callable<List<Long>>() {
+            @Override
+            public List<Long> call() throws Exception {
+                return null;
+            }
+        });
+    }
 }

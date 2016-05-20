@@ -15,10 +15,19 @@ public interface ITopicRateManager {
     long save(TopicRateDO topicRate) throws XException;
 
     boolean update(long id, RateType rateType, String status) throws XException;
-    TopicRateDO queryTopicRate(Long topicID,Long userID,RateType rateType)throws XException;
-    List<TopicRateDO> queryTopicRatesByUser(Long topicID, Long userID)throws XException;
+
+    TopicRateDO queryTopicRate(Long topicID, Long userID, RateType rateType) throws XException;
+
+    List<TopicRateDO> queryTopicRatesByUser(Long topicID, Long userID) throws XException;
+
     long countFavoritesByTopicID(long topicID) throws XException;
+
     long countViewsByTopicID(long topicID) throws XException;
+
     long countBookmarksByTopicID(long topicID) throws XException;
+
+    long countFavoritesByUserID(Long userID) throws XException;
+    long countViewsByUserID(Long userID) throws XException;
+    long countBookmarksByUserID(Long userID) throws XException;
 
 }

@@ -5,23 +5,23 @@ package com.X.biz.bbs.vo;
  * @create 2016-05-19 10:16 PM
  **/
 public class BBSView {
-    private Long topics;
-    private Long members;
+    private long topics;
+    private long members;
 
-    public Long getTopics() {
+    public long getTopics() {
         return topics;
     }
 
-    public BBSView setTopics(Long topics) {
+    public BBSView setTopics(long topics) {
         this.topics = topics;
         return this;
     }
 
-    public Long getMembers() {
+    public long getMembers() {
         return members;
     }
 
-    public BBSView setMembers(Long members) {
+    public BBSView setMembers(long members) {
         this.members = members;
         return this;
     }

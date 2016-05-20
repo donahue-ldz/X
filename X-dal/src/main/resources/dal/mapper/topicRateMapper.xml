@@ -56,4 +56,20 @@
         from X_topic_rate
         WHERE topic_ID = #{topicID} AND rate_type = '5' AND status = '1'
     </select>
+
+    <select id="countFavoritesByUserID" resultType="Long" parameterType="Long">
+        SELECT COUNT(*) num
+        from X_topic_rate
+        WHERE user_ID = #{userID} AND rate_type = '1' AND status = '1'
+    </select>
+    <select id="countViewsByUserID" resultType="Long" parameterType="Long">
+        SELECT COUNT(*) num
+        from X_topic_rate
+        WHERE user_ID = #{userID} AND rate_type = '4' AND status = '1'
+    </select>
+    <select id="countBookmarksByUserID" resultType="Long" parameterType="Long">
+        SELECT COUNT(*) num
+        from X_topic_rate
+        WHERE user_ID = #{userID} AND rate_type = '5' AND status = '1'
+    </select>
 </mapper>

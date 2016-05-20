@@ -38,4 +38,23 @@
          WHERE t.id = #{id}
     </select>
 
+    <select id="countTopicsByUser" resultType="Long">
+        SELECT COUNT(*) num
+        FROM X_topic t
+        WHERE t.user_ID = #{userID} and t.user_role = #{userRole} and status = '1'
+    </select>
+
+    <select id="countAllTopics" resultType="Long">
+        SELECT COUNT(*) num
+        FROM X_topic t
+        WHERE status = '1'
+    </select>
+
+    <select id="queryUsers" resultType="Long" >
+        SELECT DISTINCT(user_ID)
+        FROM X_topic t
+        WHERE status = '1'
+    </select>
+
+
 </mapper>

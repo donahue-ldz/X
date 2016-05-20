@@ -3,6 +3,7 @@ package com.X.dal.mapper;
 import com.X.dal.domain.TopicDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import sun.awt.X11.XException;
 
 import java.util.List;
 
@@ -34,4 +35,8 @@ public interface TopicMapper {
      * @return List<TopicDO>
      */
     List<TopicDO> queryTopicsWithPage(@Param("topicCategory") String topicCategory, @Param("offSet") int offSet, @Param("rowCount") int rowCount);
+
+    long countTopicsByUser(@Param("userID") Long userID, @Param("userRole") String userRole) throws XException;
+    long countAllTopics();
+    List<Long> queryUsers();
 }

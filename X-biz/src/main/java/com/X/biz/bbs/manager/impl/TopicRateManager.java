@@ -29,7 +29,7 @@ public class TopicRateManager implements ITopicRateManager {
         return RunWrapper.runWithArgsCheck(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                if(!topicRate.getRateType().equals(RateType.View.SQLValue())) {
+                if (!topicRate.getRateType().equals(RateType.View.SQLValue())) {
                     TopicRateDO topicRateDO = topicRateMapper.queryTopicRate(topicRate.getTopicID(), topicRate.getUserID(), topicRate.getRateType());
                     if (topicRateDO != null) throw new XException("已经操作过...不能再次操作");
                 }
@@ -65,7 +65,7 @@ public class TopicRateManager implements ITopicRateManager {
         return RunWrapper.run(new Callable<List<TopicRateDO>>() {
             @Override
             public List<TopicRateDO> call() throws Exception {
-                return topicRateMapper.queryTopicRatesByUser(topicID,userID);
+                return topicRateMapper.queryTopicRatesByUser(topicID, userID);
             }
         });
     }
@@ -96,6 +96,36 @@ public class TopicRateManager implements ITopicRateManager {
             @Override
             public Long call() throws Exception {
                 return topicRateMapper.countBookmarksByTopicID(topicID);
+            }
+        });
+    }
+
+    @Override
+    public long countFavoritesByUserID(final Long userID) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicRateMapper.countFavoritesByUserID(userID);
+            }
+        });
+    }
+
+    @Override
+    public long countViewsByUserID(final Long userID) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicRateMapper.countViewsByUserID(userID);
+            }
+        });
+    }
+
+    @Override
+    public long countBookmarksByUserID(final Long userID) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return topicRateMapper.countBookmarksByUserID(userID);
             }
         });
     }

@@ -11,8 +11,13 @@ import java.util.List;
  */
 public interface ICommentManager {
     long save(CommentDO comment) throws XException;
+
     CommentDO queryCommentByID(@NotNull Long id) throws XException;
+
     List<CommentDO> queryCommentsByTopicID(long topicID) throws XException;
+
     long countCommentsByTopicID(long topicID) throws XException;
 
+    long countCommentsByUser(long userID, String userRole) throws XException;
+    List<Long> queryUsers() throws XException;
 }
