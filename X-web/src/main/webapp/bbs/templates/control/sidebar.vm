@@ -1,5 +1,5 @@
 <div class="col-md-3">
-##    #if(!$user)
+    #if($user)
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">我的论坛</h3>
@@ -22,27 +22,26 @@
                         </div>
                         <hr>
                         <ul class="profile-sidebar-item profile-numbers-count">
-                            <li><a href="#"><span class="bold">0</span>发帖</a></li>
-                            <li><a href="#"><span class="bold">0</span>回复</a></li>
-                            <li><a href="#"><span class="bold">0</span>收藏</a></li>
-                            <li><a href="#"><span class="bold">0</span>喜欢</a></li>
+                            <li><a href="#"><span class="bold">$!userView.topics</span>发帖</a></li>
+                            <li><a href="#"><span class="bold">$!userView.comments</span>回复</a></li>
+                            <li><a href="#"><span class="bold">$!userView.bookmarks</span>收藏</a></li>
+                            <li><a href="#"><span class="bold">$!userView.favorites</span>喜欢</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
         </div>
-##    #end
+    #end
 
-    #if(!$bbs)
+    #if($bbs)
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">社区运行状况</h3>
             </div>
             <div class="panel-body">
-                <p>社区会员：${bbs.user_count}</p>
-                <p>帖子数　：${bbs.topic_count}</p>
-                <p>回帖数　：${bbs.comment_count}</p>
+                <p>社区会员：${bbs.members}</p>
+                <p>帖子数　：${bbs.topics}</p>
             </div>
         </div>
     #end
