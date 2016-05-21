@@ -2,7 +2,6 @@ package com.X.web.module.admin.screen.list;
 
 import com.X.biz.admin.manager.IRuleManager;
 import com.X.biz.exception.XException;
-import com.X.dal.domain.RuleDO;
 import com.X.web.common.BaseScreen;
 import com.X.web.common.WebResult;
 import com.alibaba.citrus.turbine.Context;
@@ -12,15 +11,15 @@ import java.util.List;
 
 /**
  * @author donahue ldz2012yn@gmail.com
- * @create 2016-05-17 1:01 PM
+ * @create 2016-05-21 8:02 PM
  **/
-public class RuleList extends BaseScreen {
+public class GrantCredit extends BaseScreen {
     @Autowired
     private IRuleManager ruleManager;
 
     @Override
     protected WebResult handleRequest(Context context) throws Exception {
-        setAllRules(context);
+        setRules(context);
         return new WebResult();
     }
 
@@ -29,8 +28,7 @@ public class RuleList extends BaseScreen {
         return null;
     }
 
-    private void setAllRules(Context context) throws XException {
-        List<RuleDO> ruleDOs = ruleManager.queryAllRules();
-        context.put("rules", ruleDOs);
+    private void setRules(Context context) throws XException {
+        context.put("rules", ruleManager.queryAllRules());
     }
 }

@@ -1,10 +1,10 @@
 package com.X.biz.aggregation.impl;
 
+import com.X.biz.admin.manager.ICourseManager;
+import com.X.biz.admin.manager.ICourseRateManager;
 import com.X.biz.aggregation.CourseAgg;
 import com.X.biz.exception.XException;
 import com.X.biz.student.vo.CourseVO;
-import com.X.biz.teacher.manager.ICourseManager;
-import com.X.biz.teacher.manager.ICourseRateManager;
 import com.X.dal.domain.CourseDO;
 import com.google.common.collect.Lists;
 import org.hibernate.validator.constraints.NotEmpty;

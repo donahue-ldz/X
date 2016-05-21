@@ -1,6 +1,6 @@
 package com.X.web.module.admin.action;
 
-import com.X.biz.teacher.manager.IRuleManager;
+import com.X.biz.admin.manager.IRuleManager;
 import com.X.dal.domain.AdminDO;
 import com.X.dal.domain.RuleDO;
 import com.X.web.common.BaseAction;

@@ -1,10 +1,10 @@
 package com.X.biz.aggregation.impl;
 
+import com.X.biz.admin.manager.ICourseAndCategoryManager;
+import com.X.biz.admin.manager.ICourseCategoryManager;
+import com.X.biz.admin.wrapper.CourseCategoryWrapper;
 import com.X.biz.aggregation.CourseCategoryAgg;
 import com.X.biz.exception.XException;
-import com.X.biz.teacher.manager.ICourseAndCategoryManager;
-import com.X.biz.teacher.manager.ICourseCategoryManager;
-import com.X.biz.teacher.wrapper.CourseCategoryWrapper;
 import com.X.dal.domain.CourseCategoryDO;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;

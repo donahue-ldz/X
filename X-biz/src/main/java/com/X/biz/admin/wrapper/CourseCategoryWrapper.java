@@ -1,4 +1,4 @@
-package com.X.biz.teacher.wrapper;
+package com.X.biz.admin.wrapper;
 
 import com.X.dal.domain.CourseCategoryDO;
 

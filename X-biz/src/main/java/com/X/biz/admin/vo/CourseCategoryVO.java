@@ -1,4 +1,4 @@
-package com.X.biz.teacher.vo;
+package com.X.biz.admin.vo;
 
 import com.X.dal.domain.CourseCategoryDO;
 import com.google.common.base.Preconditions;

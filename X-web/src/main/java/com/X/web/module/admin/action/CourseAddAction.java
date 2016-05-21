@@ -1,7 +1,7 @@
 package com.X.web.module.admin.action;
 
+import com.X.biz.admin.manager.ICourseManager;
 import com.X.biz.exception.XException;
-import com.X.biz.teacher.manager.ICourseManager;
 import com.X.dal.domain.CourseDO;
 import com.X.web.common.BaseAction;
 import com.alibaba.citrus.turbine.TurbineRunData;

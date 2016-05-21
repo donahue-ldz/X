@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
@@ -38,7 +39,7 @@ public class StudentDBManager implements IStudentDBManager {
 
     @Override
     public void updateStudentByID(Long id, StudentDO student) throws XException {
-        studentMapper.updateStudentByID(id,student);
+        studentMapper.updateStudentByID(id, student);
     }
 
     @Override
@@ -67,6 +68,16 @@ public class StudentDBManager implements IStudentDBManager {
             @Override
             public StudentDO call() throws Exception {
                 return studentMapper.queryStudentByID(id);
+            }
+        });
+    }
+
+    @Override
+    public List<StudentDO> queryAllStudents() throws XException {
+        return RunWrapper.run(new Callable<List<StudentDO>>() {
+            @Override
+            public List<StudentDO> call() throws Exception {
+                return studentMapper.queryAllStudents();
             }
         });
     }

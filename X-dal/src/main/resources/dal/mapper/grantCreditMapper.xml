@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.X.dal.mapper.GrantCreditMapper">
+    <select id="queryGrantByID" parameterType="Long" resultMap="grantCreditResultMap">
+        select *
+        from  X_grant_credit t
+        where t.id = #{id}
+    </select>
+
+    <select id="queryAllGrants" resultMap="grantCreditResultMap">
+        select *
+        from  X_grant_credit t
+    </select>
+
+    <select id="queryGrantsByStudentID" resultMap="grantCreditResultMap">
+        select *
+        from  X_grant_credit t
+        WHERE t.student_ID = #{studentID}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into X_grant_credit(
+        rules,
+        student_ID,
+        creator,
+        description,
+        gmt_create)values(
+        #{rules},
+        #{studentID},
+        #{creator},
+        #{description},
+        #{gmtCreate})
+    </insert>
+
+    <resultMap id="grantCreditResultMap" type="GrantCreditDO">
+        <id property="id" column="id"/>
+        <result property="rules" column="rules"/>
+        <result property="studentID" column="student_ID"/>
+        <result property="creator" column="creator"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+</mapper>

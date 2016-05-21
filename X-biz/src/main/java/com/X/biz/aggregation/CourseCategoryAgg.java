@@ -1,7 +1,7 @@
 package com.X.biz.aggregation;
 
+import com.X.biz.admin.wrapper.CourseCategoryWrapper;
 import com.X.biz.exception.XException;
-import com.X.biz.teacher.wrapper.CourseCategoryWrapper;
 
 import java.util.List;
 

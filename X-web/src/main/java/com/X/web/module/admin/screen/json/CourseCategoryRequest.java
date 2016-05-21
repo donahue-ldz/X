@@ -1,7 +1,7 @@
 package com.X.web.module.admin.screen.json;
 
-import com.X.biz.teacher.manager.ICourseCategoryManager;
-import com.X.biz.teacher.vo.CourseCategoryVO;
+import com.X.biz.admin.manager.ICourseCategoryManager;
+import com.X.biz.admin.vo.CourseCategoryVO;
 import com.X.dal.domain.CourseCategoryDO;
 import com.X.web.common.BaseAction;
 import com.X.web.common.WebJsonResult;
