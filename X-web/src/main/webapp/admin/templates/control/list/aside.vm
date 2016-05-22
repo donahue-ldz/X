@@ -130,7 +130,13 @@
                     <li class="nav-item start ">
                         <a href="/admin/list/grantCredit.htm" class="nav-link ">
                             <i class="icon-bulb"></i>
-                            <span class="title">手动授权积分</span>
+                            <span class="title">积分授权</span>
+                        </a>
+                    </li>
+                    <li class="nav-item start ">
+                        <a href="/admin/list/grantCreditList.htm" class="nav-link ">
+                            <i class="icon-bulb"></i>
+                            <span class="title">授权记录</span>
                         </a>
                     </li>
                 </ul>

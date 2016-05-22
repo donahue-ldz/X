@@ -4,6 +4,7 @@ import com.X.biz.admin.manager.ITrafficAnalysisManager;
 import com.X.common.utils.Tool;
 import com.X.dal.domain.TrafficAnalysisDO;
 import com.alibaba.citrus.service.pipeline.PipelineContext;
+import com.alibaba.citrus.service.pipeline.PipelineException;
 import com.alibaba.citrus.service.pipeline.Valve;
 import com.alibaba.citrus.turbine.TurbineRunData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +68,9 @@ public class TrafficAnalysisValve implements Valve {
             }
             pipelineContext.invokeNext();
 
+        } catch (Exception e) {
+            if (!(e instanceof PipelineException))
+                pipelineContext.invokeNext();
         } finally {
 
         }

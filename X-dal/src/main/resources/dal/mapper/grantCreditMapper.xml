@@ -23,11 +23,13 @@
         rules,
         student_ID,
         creator,
+        scores,
         description,
         gmt_create)values(
         #{rules},
         #{studentID},
         #{creator},
+        #{scores},
         #{description},
         #{gmtCreate})
     </insert>
@@ -36,9 +38,9 @@
         <id property="id" column="id"/>
         <result property="rules" column="rules"/>
         <result property="studentID" column="student_ID"/>
+        <result property="scores" column="scores"/>
         <result property="creator" column="creator"/>
         <result property="description" column="description"/>
-        <result property="status" column="status"/>
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>
     </resultMap>

@@ -1,5 +1,6 @@
 package com.X.dal.domain;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,6 +15,7 @@ public class GrantCreditDO implements Serializable {
      * 多个积分规则用|分割
      */
     private String rules;
+    @NotNull
     private Long scores;
     /**
      * 学号
