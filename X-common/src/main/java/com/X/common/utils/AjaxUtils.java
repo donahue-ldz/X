@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by dezhao.ldz on 6/18/15.
  * Email : dezhao.ldz@alibaba-inc.com
- * �ж������ǲ���ajax����
  */
 public class AjaxUtils {
     public static boolean isAjax(HttpServletRequest request) {
@@ -13,5 +12,6 @@ public class AjaxUtils {
             return true;
         return false;
     }
+
 
 }

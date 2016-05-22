@@ -71,6 +71,16 @@ public class CourseManager implements ICourseManager {
     }
 
     @Override
+    public long countAll() throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                return courseMapper.countAll();
+            }
+        });
+    }
+
+    @Override
     public List<CourseDO> queryTopNRecentlyCourses() throws XException {
         return RunWrapper.run(new Callable<List<CourseDO>>() {
             @Override

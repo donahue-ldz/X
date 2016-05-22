@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS `X_traffic_analysis`;
+CREATE TABLE `X_traffic_analysis` (
+`id` BIGINT(11) NOT NULL AUTO_INCREMENT,
+`ip` VARCHAR(255)  NOT NULL  COMMENT 'IP',
+`gmt_create` DATETIME COMMENT '创建时间',
+`gmt_modified` DATETIME COMMENT '更新时间',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

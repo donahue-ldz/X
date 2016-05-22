@@ -113,9 +113,9 @@
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="1349">0</span>
+                                <span data-counter="counterup" data-value="$!XView.views">0</span>
                             </div>
-                            <div class="description"> 帖子数 </div>
+                            <div class="description"> 访问数 </div>
                         </div>
                     </a>
                 </div>
@@ -126,7 +126,8 @@
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="12,5">0</span>M$ </div>
+                                <span data-counter="counterup" data-value="$!XView.courses">0</span>
+                            </div>
                             <div class="description"> 课程数 </div>
                         </div>
                     </a>
@@ -138,9 +139,9 @@
                         </div>
                         <div class="details">
                             <div class="number">
-                                <span data-counter="counterup" data-value="549">0</span>
+                                <span data-counter="counterup" data-value="$!XView.courseCategories">0</span>
                             </div>
-                            <div class="description"> 课程数 </div>
+                            <div class="description"> 课程分类数 </div>
                         </div>
                     </a>
                 </div>
@@ -151,8 +152,9 @@
                         </div>
                         <div class="details">
                             <div class="number"> +
-                                <span data-counter="counterup" data-value="89"></span>% </div>
-                            <div class="description"> 课程分类数 </div>
+                                <span data-counter="counterup" data-value="$!XView.topics">0</span>
+                            </div>
+                            <div class="description"> 帖子数 </div>
                         </div>
                     </a>
                 </div>

@@ -12,8 +12,11 @@ import java.util.List;
  **/
 public interface ICourseManager {
     long save(CourseDO course, List<Long> courseCategoryIDs, byte[] imageBytes) throws XException;
+
     CourseDO queryCourseByID(@NotNull Long id) throws XException;
 
-    List<CourseDO>queryTopNRecentlyCourses()throws XException;
+    long countAll() throws XException;
+
+    List<CourseDO> queryTopNRecentlyCourses() throws XException;
 
 }

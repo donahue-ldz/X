@@ -22,6 +22,12 @@
         limit 0,${topN}
     </select>
 
+    <select id="countAll" resultType="Long">
+        SELECT COUNT(*)
+        FROM X_course t
+        WHERE t.status = '1'
+
+    </select>
     <insert id="save"
             useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into X_course(

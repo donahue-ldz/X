@@ -17,5 +17,5 @@ public interface CourseMapper {
 
     List<CourseDO> queryTopNRecentlyCourses(@Param("topN") Long topN);
 
-
+    long countAll();
 }
