@@ -12,19 +12,14 @@
              ">
 
     <services:pipeline>
-
         <!-- 初始化turbine rundata，并在pipelineContext中设置可能会用到的对象(如rundata、utils)，以便valve取得。 -->
         <pl-valves:prepareForTurbine />
-
         <!-- 设置日志系统的上下文，支持把当前请求的详情打印在日志中。 -->
         <pl-valves:setLoggingContext />
-
         <!-- 分析URL，取得target。 -->
         <pl-valves:analyzeURL />
-
         <!-- 检查csrf token，防止csrf攻击和重复提交。假如request和session中的token不匹配，则出错，或显示expired页面。 -->
         <pl-valves:checkCsrfToken />
-
         <pl-valves:loop>
             <pl-valves:choose>
                 <when>
@@ -51,14 +46,11 @@
                     <pl-valves:exit />
                 </otherwise>
             </pl-valves:choose>
-
             <!-- 假如rundata.setRedirectTarget()被设置，则循环，否则退出循环。 -->
             <pl-valves:breakUnlessTargetRedirected />
         </pl-valves:loop>
         <pl-valves:valve class="com.X.web.valve.AdminRoleValve"></pl-valves:valve>
-
         <pl-valves:valve class="com.X.web.valve.TrafficAnalysisValve"></pl-valves:valve>
-
         <pl-valves:valve class="com.X.web.valve.LogValve"></pl-valves:valve>
     </services:pipeline>
 
