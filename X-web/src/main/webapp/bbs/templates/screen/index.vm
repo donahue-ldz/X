@@ -34,10 +34,10 @@
                                                 </a>
                                                 <div class="comment">
                                                     <div class="comment-author h6 no-margin">
-                                                        #if($topic.comments > 0)
+                                                        #if($topic.topicStat.comments)
                                                             <div class="comment-meta small">
                                                                 <a href="/topic/ + topic.tid + '#Reply' + topic.comments}"
-                                                                   class="badge-comment">$!{topic.comments}</a>
+                                                                   class="badge-comment">$!{$topic.topicStat.comments}</a>
                                                             </div>
                                                             <a href="/bbs/list/topic.htm?topicID=$!{topic.id}&topicCategory=$!{topic.topicCategory}">$!{topic.title}</a>
                                                         #else

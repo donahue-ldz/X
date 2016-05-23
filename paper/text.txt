@@ -1,1 +1,16 @@
-            if(log.isErrorEnabled())
+public class TopicVO implements Serializable {
+    // 帖子的ID,唯一区分
+    private Long id;
+    // 帖子的标题
+    private String title;
+    // 发帖人
+    private String user;
+    // 发帖人的ID
+    private Long userID;
+    //用户头像
+    private String userAvatar;
+    //帖子分类
+    private String topicCategory;
+    // 帖子的统计状态
+    private TopicStat topicStat;
+    private Date createTime;

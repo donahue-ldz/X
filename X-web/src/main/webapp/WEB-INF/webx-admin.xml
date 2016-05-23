@@ -4,7 +4,6 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:services="http://www.alibaba.com/schema/services"
              xmlns:ml-factories="http://www.alibaba.com/schema/services/module-loader/factories"
-             xmlns:uris="http://www.springframework.org/schema/c"
              xsi:schemaLocation="http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
 
                  http://www.alibaba.com/schema/services/module-loader/factories http://localhost:8080/schema/services-module-loader-factories.xsd
@@ -25,10 +24,6 @@
     <services:property-placeholder>
         <property key="component">admin</property>
     </services:property-placeholder>
-
-    <uris:turbine-uri id="adminModule" exposed="true" extends="server">
-        <componentPath>/admin</componentPath>
-    </uris:turbine-uri>
     <!-- 装载模块。 -->
     <services:module-loader>
         <ml-factories:class-modules>
