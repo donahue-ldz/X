@@ -28,15 +28,21 @@ public class AdminRoleValve extends AbstractValve {
     @Override
     public void invoke(PipelineContext pipelineContext) throws Exception {
         String adminModule = "/admin";
-        String loginURL = adminModule+"/form/login.htm";
+        String loginURL = adminModule + "/form/login.htm";
         TurbineRunData runData = getTurbineRunData(request);
         String url = runData.getRequest().getRequestURI();
-        if (url.indexOf(adminModule) != -1 && !loginURL.equals(url) && url.indexOf("login.json")==-1) {
+        if (url.indexOf(adminModule) != -1 && !loginURL.equals(url) && url.indexOf("login.json") == -1) {
             String pre = url.substring(0, url.indexOf(adminModule)).toLowerCase();
-            String suff = url.substring(url.indexOf(adminModule) + 4).toLowerCase();
             if (!CharMatcher.JAVA_LOWER_CASE.matchesAnyOf(pre)) {
-                if (session.getAttribute("user") == null){
+                Object o = session.getAttribute("user");
+                if (o == null) {
                     runData.setRedirectLocation(loginURL);
+
+                } else {
+                    User user = (User) o;
+                    if (!Role.ADMIN.SQLValue().equals(user.role().SQLValue())) {
+                        runData.setRedirectLocation(loginURL);
+                    }
                 }
             }
         }
