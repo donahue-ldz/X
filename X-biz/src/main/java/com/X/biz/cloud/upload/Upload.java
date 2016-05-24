@@ -23,43 +23,33 @@ public abstract class Upload {
     protected Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
     //创建上传对象
     UploadManager uploadManager = new UploadManager();
-
     //简单上传，使用默认策略，只需要设置上传的空间名就可以了
     protected String getUpToken() {
         return auth.uploadToken(getBucketName());
     }
-
     public void service() throws IOException {
         try {
             //调用put方法上传
             Response res = uploadManager.put(getBytes(), getKey(), getUpToken());
-            //打印返回的信息
-            System.out.println(res.bodyString());
-
         } catch (QiniuException e) {
             Response r = e.response;
-            // 请求失败时打印的异常的信息
-            System.out.println(r.toString());
             try {
-                //响应的文本信息
-                System.out.println(r.bodyString());
+                if(log.isErrorEnabled())
+                    log.error("七牛文件上传失败,异常信息:{}",r.bodyString());
             } catch (QiniuException e1) {
                 //ignore
             }
         }
     }
-
     /**
      * 上传的文件bytes
      * @return
      */
     protected abstract byte [] getBytes();
-
     /**
      * 上传的文件key
      * @return
      */
     protected abstract String getKey();
-
     protected abstract  String getBucketName();
 }

@@ -1,16 +1,36 @@
-public class TopicVO implements Serializable {
-    // 帖子的ID,唯一区分
-    private Long id;
-    // 帖子的标题
-    private String title;
-    // 发帖人
-    private String user;
-    // 发帖人的ID
-    private Long userID;
-    //用户头像
-    private String userAvatar;
-    //帖子分类
-    private String topicCategory;
-    // 帖子的统计状态
-    private TopicStat topicStat;
-    private Date createTime;
+public long save(final byte[] imageBytes, final HttpServletRequest request) throws XException {
+        return RunWrapper.run(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+                final StringBuffer fileName = new StringBuffer()
+                        .append(DateUtils.currentDate())
+                        .append("_").append(Tool.getUUID32())
+                        .append(".").append(Config.IMAGE_TYPE);
+                Upload upload = new Upload() {
+                    @Override
+                    protected byte[] getBytes() {
+                        return imageBytes;
+                    }
+                    @Override
+                    protected String getKey() {
+                        return fileName.toString();
+                    }
+                    @Override
+                    protected String getBucketName() {
+                        return CloudConfig.BUCKET_IMAGE_AVATAR;
+                    }
+                };
+                upload.service();
+                String pictureURL = new StringBuffer()
+                        .append(CloudConfig.CLOUD_IMAGE_AVATAR_URL)
+                        .append("/")
+                        .append(fileName)
+                        .toString();
+                PictureDO picture = new PictureDO();
+                picture.setUrl(CloudConfig.PROTOCAL+pictureURL);
+                picture.setGmtCreate(new Date());
+                return pictureManager.save(picture);
+
+            }
+        });
+    }
