@@ -1,4 +1,4 @@
-#set($asideTab="积分配置 > 授权积分")
+#set($asideTab="积分配置 > 积分授权")
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <link href="/assets/css/lib/select2/css/select2.min.css" rel="stylesheet" type="text/css"/>
 <link href="/assets/css/lib/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>

@@ -1,36 +1,1 @@
-public long save(final byte[] imageBytes, final HttpServletRequest request) throws XException {
-        return RunWrapper.run(new Callable<Long>() {
-            @Override
-            public Long call() throws Exception {
-                final StringBuffer fileName = new StringBuffer()
-                        .append(DateUtils.currentDate())
-                        .append("_").append(Tool.getUUID32())
-                        .append(".").append(Config.IMAGE_TYPE);
-                Upload upload = new Upload() {
-                    @Override
-                    protected byte[] getBytes() {
-                        return imageBytes;
-                    }
-                    @Override
-                    protected String getKey() {
-                        return fileName.toString();
-                    }
-                    @Override
-                    protected String getBucketName() {
-                        return CloudConfig.BUCKET_IMAGE_AVATAR;
-                    }
-                };
-                upload.service();
-                String pictureURL = new StringBuffer()
-                        .append(CloudConfig.CLOUD_IMAGE_AVATAR_URL)
-                        .append("/")
-                        .append(fileName)
-                        .toString();
-                PictureDO picture = new PictureDO();
-                picture.setUrl(CloudConfig.PROTOCAL+pictureURL);
-                picture.setGmtCreate(new Date());
-                return pictureManager.save(picture);
-
-            }
-        });
-    }
+对于积分的规则列表则详细显示积分的所有信息，具体图如下：这里显示的积分规则，对于学生积分的计算起到了指导作用，系统在进行积分的采集的时候会针对每一个积分规则所需要的数据进行采集和存储，在进行积分计算的时候会用积分规则采集存储的数据进行计算积分，生成最后的总积分和积分明细。

@@ -120,22 +120,22 @@
 
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start active open">
+                    <li class="nav-item start #markActiveAsideTab("积分规则配置" $asideTab)">
                         <a href="/admin/list/ruleList.htm" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">积分规则配置</span>
                             <span class="selected"></span>
                         </a>
                     </li>
-                    <li class="nav-item start ">
+                    <li class="nav-item start #markActiveAsideTab("积分授权" $asideTab) ">
                         <a href="/admin/list/grantCredit.htm" class="nav-link ">
                             <i class="icon-bulb"></i>
                             <span class="title">积分授权</span>
                         </a>
                     </li>
-                    <li class="nav-item start ">
+                    <li class="nav-item start #markActiveAsideTab("授权记录" $asideTab)">
                         <a href="/admin/list/grantCreditList.htm" class="nav-link ">
-                            <i class="icon-bulb"></i>
+                            <i class="fa fa-creative-commons"></i>
                             <span class="title">授权记录</span>
                         </a>
                     </li>
