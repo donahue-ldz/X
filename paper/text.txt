@@ -1,1 +1,28 @@
-对于积分的规则列表则详细显示积分的所有信息，具体图如下：这里显示的积分规则，对于学生积分的计算起到了指导作用，系统在进行积分的采集的时候会针对每一个积分规则所需要的数据进行采集和存储，在进行积分计算的时候会用积分规则采集存储的数据进行计算积分，生成最后的总积分和积分明细。
+public class RunWrapper{
+    public  static <T> T run(Callable<T> callable) throws XException {
+        try {
+            return callable.call();
+        } catch (SQLException sqlEx){
+            throw new XException("DB exception,exception: "+sqlEx.getCause());
+        }catch (XException x){
+            throw x;
+        }catch (Exception e) {
+            throw new XException(e);
+        }
+    }
+
+
+    public  static <T> T runWithArgsCheck(Callable<T> callable,Object args) throws XException {
+        try {
+            ValidationResult result = ValidateHelper.validateEntity(args);
+            if(result.isHasErrors()) throw new Exception(result.getErrorMsg().toString());
+            return callable.call();
+        } catch (SQLException sqlEx){
+            throw new XException("DB exception,exception: "+sqlEx.getCause());
+        }catch (XException x){
+            throw x;
+        }catch (Exception e) {
+            throw new XException(e);
+        }
+    }
+}
