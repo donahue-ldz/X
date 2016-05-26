@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.X.dal.mapper.PreviewMapper">
+    <select id="queryPreviewByID" resultMap="previewMap">
+        select *
+        from  X_preview t
+        WHERE t.id=#{id}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into X_preview(
+        file_name,
+        content,
+        gmt_create)values(
+        #{fileName},
+        #{content},
+        #{gmtCreate})
+    </insert>
+
+    <resultMap id="previewMap" type="PreviewDO">
+        <id property="id" column="id"/>
+        <result property="fileName" column="file_name"/>
+        <result property="content" column="content"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+</mapper>

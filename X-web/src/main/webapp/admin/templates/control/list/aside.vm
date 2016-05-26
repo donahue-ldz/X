@@ -184,6 +184,24 @@
 
                 </ul>
             </li>
+            <li class="nav-item start #markActiveAsideTab("论坛" $asideTab)">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="icon-vector"></i>
+                    <span class="title">工具箱</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start  #markActiveAsideTab("代码预览" $asideTab)">
+                        <a href="/admin/list/previewList.htm" class="nav-link ">
+                            <i class="icon-star"></i>
+                            <span class="title">代码预览</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
 
         </ul>
         <!-- END SIDEBAR MENU -->
