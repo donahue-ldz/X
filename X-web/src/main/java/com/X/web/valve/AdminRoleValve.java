@@ -1,7 +1,5 @@
 package com.X.web.valve;
 
-import com.X.biz.admin.manager.IAdminDBManager;
-import com.X.dal.domain.AdminDO;
 import com.X.dal.domain.Role;
 import com.X.dal.domain.User;
 import com.alibaba.citrus.service.pipeline.PipelineContext;

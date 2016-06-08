@@ -30,7 +30,13 @@
         <listener-class>com.alibaba.citrus.webx.context.WebxContextLoaderListener</listener-class>
     </listener>
 
-
+    <listener>
+        <listener-class>com.X.web.module.student.listener.UserTimeCounter</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.X.web.module.student.listener.UserOnlineCounter</listener-class>
+    </listener>
+    
     <filter>
         <filter-name>mdc</filter-name>
         <filter-class>com.alibaba.citrus.webx.servlet.SetLoggingContextFilter</filter-class>

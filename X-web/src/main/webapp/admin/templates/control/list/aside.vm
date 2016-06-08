@@ -164,6 +164,12 @@
                             <span class="badge badge-success">1</span>
                         </a>
                     </li>
+                    <li class="nav-item start #markActiveAsideTab("学生积分报表" $asideTab) ">
+                        <a href="/admin/list/studentCreditReport.htm" class="nav-link ">
+                            <i class="fa fa-database"></i>
+                            <span class="title">学生积分报表</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item start #markActiveAsideTab("论坛" $asideTab)">

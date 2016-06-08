@@ -34,6 +34,24 @@
         #{gmtCreate})
     </insert>
 
+
+    <!--报表展示-->
+    <select id="yearReport" resultMap="creditReportResultMap">
+        select DATE_FORMAT(gmt_create,'%Y') `time`,SUM(scores)  scores from X_grant_credit
+        WHERE student_ID=#{studentID}
+        group by `time`;
+    </select>
+    <select id="monthReport" resultMap="creditReportResultMap">
+        select DATE_FORMAT(gmt_create,'%Y%m') `time`,SUM(scores) scores from X_grant_credit t
+        WHERE #{toMonth}>=gmt_create>=#{fromMonth} and student_ID=#{studentID};
+        group by `time`
+    </select>
+    <select id="dayReport" resultMap="creditReportResultMap">
+        select DATE_FORMAT(gmt_create,'%Y%m%d') `time`,SUM(scores) scores from X_grant_credit
+        WHERE #{toDay}>=gmt_create>=#{fromDay} and student_ID=#{studentID};
+         group by `time`;
+    </select>
+
     <resultMap id="grantCreditResultMap" type="GrantCreditDO">
         <id property="id" column="id"/>
         <result property="rules" column="rules"/>
@@ -43,6 +61,11 @@
         <result property="description" column="description"/>
         <result property="gmtCreate" column="gmt_create"/>
         <result property="gmtModified" column="gmt_modified"/>
+    </resultMap>
+
+    <resultMap id="creditReportResultMap" type="CreditReportDO">
+        <result property="time" column="time"/>
+        <result property="scores" column="scores"/>
     </resultMap>
 
 </mapper>
