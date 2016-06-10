@@ -5,7 +5,7 @@ Anout Us Page
 /* BEGIN HEADER */
 .about-header {
   height: 500px;
-  background-image: url("/assets/imags/common/bg/5.jpg");
+  background-image: url("/assets/imags/common//bg/5.jpg");
   background-position: center;
   text-align: center;
   margin: 0 -20px; }
@@ -134,7 +134,7 @@ Anout Us Page
 .stories-cont .desc {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 30px; }
+  margin-bottom: 10px; }
 
 .stories-cont .desc span {
   font-size: 14px;

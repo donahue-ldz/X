@@ -35,8 +35,10 @@ public class Sidebar extends BaseScreen {
 
     private void setUserInfo(Context context) throws XException {
         User user = getUser();
-        if (user != null)
+        if (user != null) {
             context.put("userView", userViewAgg.view(user.ID(), user.role().SQLValue()));
+            context.put("user",user);
+        }
 
     }
 

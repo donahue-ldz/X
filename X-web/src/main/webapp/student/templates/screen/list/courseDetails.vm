@@ -1,0 +1,411 @@
+#set($navInfo="课程")
+
+<link href="/assets/css/app/student/about.css" rel="stylesheet" type="text/css"/>
+<style>
+    ition:
+
+    -
+    59
+    px
+
+    -
+    93
+    px
+
+    }
+    .rating {
+        color: #666;
+        margin: 0;
+        padding: 0
+    }
+
+    ul.rating {
+        display: inline-block
+    }
+
+    .rating li {
+        display: inline-block;
+        padding: 1px;
+        text-align: center;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif
+    }
+
+    .rating .filled {
+        color: #EFAA1F !important
+    }
+
+    .rating-value {
+        display: inline-block;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+        width: 70px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 100px;
+    }
+
+    .rate-top {
+        float: left;
+        width: 100%;
+    }
+
+    .rate-content {
+        float: left;
+        width: 100%;
+    }
+
+    .dl-horizontal {
+        border: solid 1px #4a4bff;
+    }
+    .rate-user{
+        background: #ddd;
+        margin-right: 100px;
+    }
+
+</style>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <!-- BEGIN PAGE CONTENT BODY -->
+        <div class="page-content">
+            <div class="container">
+                <!-- BEGIN PAGE BREADCRUMBS -->
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="index.html">课程</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="#">课程清单</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>引爆点</span>
+                    </li>
+                </ul>
+                <!-- END PAGE BREADCRUMBS -->
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <div class="page-content-inner">
+                    <div class="row mt-widget-2">
+                        <div class="col-md-4" style="height: 250px;">
+                        ##                                                ##课程照片
+                            <div class="mt-head"
+                                 style="background-image: url(/assets/imags/student/course/course1.png);">
+                                <div class="mt-head-user">
+                                    <div class="mt-head-user-img">
+                                    ##teacher 照片
+                                        <img src="/assets/imags/teacher/photos/team7.jpg"></div>
+                                    <div class="mt-head-user-info">
+                                        <span class="mt-user-name">与水</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height: 250px;background: beige;">
+                            <div class="mt-body" style="padding-top: 0px;">
+                                <h3 class="mt-body-title" style="margin-top: 10px"> 引爆点 </h3>
+                                <div class="mt-body-description">
+                                    <p>讲课老师: 胡邓 李强 雷明 石真语 赵强</p>
+                                    <p>上课时间:2016.05.09－2016.05.31</p>
+                                    <p>课程时长:16学时</p>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-body"
+                             style="height: 250px;padding-top: 90px;background: #3a464d;margin: 0px;text-align: center">
+                            <ul class="mt-body-stats">
+                                <li class="font-green">
+                                    <i class="icon-emoticon-smile"></i> 3,7k
+                                </li>
+                                <li class="font-yellow">
+                                    <i class=" icon-share"></i> 3,7k
+                                </li>
+                            </ul>
+                            <a href="/list/courseLearn.htm" class="btn btn-success">开始学习</a>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <div class="col-md-9" style="padding-left: 0px">
+                            <!-- BEGIN TAB PORTLET-->
+                            <div class="portlet light ">
+                                <div class="portlet-title tabbable-line">
+                                    <ul class="nav nav-tabs" style="float: left">
+                                        <li class="active">
+                                            <a href="#tab_courseInfo" data-toggle="tab"> 课程介绍 </a>
+                                        </li>
+                                        <li>
+                                            <a href="#portlet_tab2_2" data-toggle="tab"> 章节试学</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#portlet_tab2_1" data-toggle="tab"> 教学安排 </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_courseRate" data-toggle="tab"> 课程评价&nbsp;(&nbsp;<span
+                                                    style="color: blue">5&nbsp;</span>)</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="portlet_tab2_1">
+                                            <div class="alert alert-success">
+                                                后期可能调整,请及时关注
+                                            </div>
+                                            <div class="list-group" style="width: 100%">
+                                                <a href="#" class="list-group-item">第1周：玩</a>
+                                                <a href="#" class="list-group-item">第2周：吃</a>
+                                                <a href="#" class="list-group-item">第3周：睡</a>
+                                                <a href="#" class="list-group-item">第4周：回家</a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="portlet_tab2_2">
+                                            <h3>第一章 优秀员工</h3>
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item active">第1讲：宝贵的职场平台</a>
+                                                <a href="#" class="list-group-item">第2讲：快乐工作</a>
+                                                <a href="#" class="list-group-item">第3讲：你的价值几何</a>
+                                                <a href="#" class="list-group-item">第4讲：懈怠的后果</a>
+                                            </div>
+
+                                            <h3>第二章 人际交往</h3>
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item">第1讲：人际关系无形财富</a>
+                                                <a href="#" class="list-group-item">第2讲：知己知彼</a>
+                                                <a href="#" class="list-group-item">第3讲：塑造第一印象</a>
+                                                <a href="#" class="list-group-item">第4讲：人际交往技巧（上）</a>
+                                            </div>
+                                            <h3>第三章 职场减压</h3>
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item">第1讲：压力从何来</a>
+                                                <a href="#" class="list-group-item">第2讲：正确面对压力</a>
+                                                <a href="#" class="list-group-item">第3讲：压力的积极作用</a>
+                                                <a href="#" class="list-group-item">第4讲：压力的消极后果</a>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane active" id="tab_courseInfo">
+                                            <p> &nbsp;&nbsp;&nbsp;&nbsp;我们的世界看上去很坚固，但在《纽约客》怪才格拉德威尔的眼里，只要你找到那个点，轻轻一触，这个世界就会动起来：<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;一位满意而归的顾客能让新开张的餐馆座无虚席<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;一位涂鸦爱好者能在地铁掀起犯罪浪潮，一位精明小伙传递的信息拉开了美国独立战争的序幕——这个看起来不起眼的点，却是任何人都不能忽视的引爆点。
+                                            </p>
+
+                                            <p>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;《引爆点》是一本谈论怎样让产品发起流行潮的专门性著作。书中将产品爆发流行的现象归因为三种模式：个别人物法则、附着力因素及环境威力法则。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;个别人物法则是圈层营销或者说窄众营销的理论基础。作者在书中详细地指导了我们如何去寻找目标客户中的传播员、内行与推销员——那些有着非凡人际能力的人们。<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;附着力因素解决的是项目应该怎样传递信息的问题。附着力因素首先告诉我们要在诸多卖点中提炼出高质量的信息，并寻找一种简单的信息包装方法，使信息变得不可抗拒。环境威力法则针对的是客户感知与项目期望表达的信息是否高度一致的问题。
+
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane" id="tab_courseRate">
+                                            <div style="float: left">
+                                                <span>课程评价</span>
+                                                <span class="star-fill"></span>
+                                                <div class="score" style="display: inline-block">
+                                                    <ul class="rating">
+                                                        <li class="star filled">★</li>
+                                                        <li class="star filled">★</li>
+                                                        <li class="star filled">★</li>
+                                                        <li class="star filled">★</li>
+                                                        <li class="star filled">★</li>
+
+                                                    </ul>
+                                                    <div class="rating-value">(5分)</div>
+                                                </div>
+                                            </div>
+                                            <div style="float: right">共5个评价</div>
+
+                                            <br>
+
+                                            <div style="clear: both;border-top: #ff2117 1px">
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        <img alt="" class="img-circle" style="height: 50px"
+                                                             src="/assets/imags/student/profile/defaultAvatar.png"/>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rate-top">
+                                                            <span class="rate-user">与水</span>
+                                                            <span>2016-06-10 16:21:57</span>
+                                                            <div style="display: inline-block;float: right">
+                                                                <ul class="rating">
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rate-content">
+                                                            虽然只是简单的看几节课 ，但对我受益匪浅
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        <img alt="" class="img-circle" style="height: 50px"
+                                                             src="/assets/imags/student/profile/defaultAvatar.png"/>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rate-top">
+                                                            <span class="rate-user">与水</span>
+                                                            <span>2016-06-08 15:23:57</span>
+                                                            <div style="display: inline-block;float: right">
+                                                                <ul class="rating">
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rate-content">
+                                                            悦我生活,微笑至上!
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        <img alt="" class="img-circle" style="height: 50px"
+                                                             src="/assets/imags/student/profile/defaultAvatar.png"/>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rate-top">
+                                                            <span class="rate-user">与水</span>
+                                                            <span>2016-06-07 12:29:57</span>
+                                                            <div style="display: inline-block;float: right">
+                                                                <ul class="rating">
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rate-content">
+                                                            坚持健身
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        <img alt="" class="img-circle" style="height: 50px"
+                                                             src="/assets/imags/student/profile/defaultAvatar.png"/>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rate-top">
+                                                            <span class="rate-user">与水</span>
+                                                            <span>2016-06-03 19:41:52</span>
+                                                            <div style="display: inline-block;float: right">
+                                                                <ul class="rating">
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rate-content">
+                                                            不是很开心
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt>
+                                                        <img alt="" class="img-circle" style="height: 50px"
+                                                             src="/assets/imags/student/profile/defaultAvatar.png"/>
+                                                    </dt>
+                                                    <dd>
+                                                        <div class="rate-top">
+                                                            <span class="rate-user">与水</span>
+                                                            <span>2016-06-01 11:11:57</span>
+                                                            <div style="display: inline-block;float: right">
+                                                                <ul class="rating">
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                    <li class="star filled">★</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rate-content">
+                                                            马上要离开学校了,难过
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <ul class="pager">
+                                                    <li class="previous">
+                                                        <a href="javascript:;"> ← 上页 </a>
+                                                    </li>
+                                                    <li class="next">
+                                                        <a href="javascript:;"> 下页 → </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TAB PORTLET-->
+                        </div>
+                        <div class="col-md-3" style="padding-right: 0px">
+                            <div class="portlet light ">
+                                <div class="portlet-title ">
+                                    <div class="caption">
+                                        <i class="icon-users font-dark"></i>
+                                        <span class="caption-subject font-dark bold uppercase">课程讲师</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body stories-cont">
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="/assets/imags/student/profile/defaultAvatar.png" alt=""
+                                                 class="img-responsive"></div>
+                                        <div class="title">
+                                            <span> 与水 </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> 阿里巴巴商品平台 </span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet light">
+                                        <div class="photo">
+                                            <img src="/assets/imags/student/profile/defaultAvatar.png" alt=""
+                                                 class="img-responsive"></div>
+                                        <div class="title">
+                                            <span> 李德钊 </span>
+                                        </div>
+                                        <div class="desc">
+                                            <span> 大连理工大学 </span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT INNER -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT BODY -->
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+
+</div>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+##<script src="../assets/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->

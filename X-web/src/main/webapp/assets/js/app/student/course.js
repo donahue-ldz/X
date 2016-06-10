@@ -58,57 +58,15 @@ var course = function () {
         } else {
             el.attr("disabled", true);
         }
-    }
+    };
+
 
     return {
         //main function to initiate the module
         init: function () {
-
-            // handle compose btn click
-            $('.inbox').on('click', '.compose-btn', function () {
-                loadCompose($(this));
+            $(".mt-widget-2").click(function () {
+                location.href="/list/courseDetails.htm?courseID=1";
             });
-
-            // handle discard btn
-            $('.inbox').on('click', '.inbox-discard-btn', function (e) {
-                e.preventDefault();
-                loadInbox($(this), listListing);
-            });
-
-            // handle reply and forward button click
-            $('.inbox').on('click', '.reply-btn', function () {
-                loadReply($(this));
-            });
-
-            // handle view message
-            $('.inbox').on('click', '.view-message', function () {
-                loadMessage($(this));
-            });
-
-            // handle inbox listing
-            $('.inbox-nav > li > a').click(function () {
-                loadInbox($(this), 'inbox');
-            });
-
-            //handle compose/reply cc input toggle
-            $('.inbox-content').on('click', '.mail-to .inbox-cc', function () {
-                handleCCInput();
-            });
-
-            //handle compose/reply bcc input toggle
-            $('.inbox-content').on('click', '.mail-to .inbox-bcc', function () {
-                handleBCCInput();
-            });
-
-            //handle loading content based on URL parameter
-            if (App.getURLParameter("a") === "view") {
-                loadMessage();
-            } else if (App.getURLParameter("a") === "compose") {
-                loadCompose();
-            } else {
-                $('.inbox-nav > li:first > a').click();
-            }
-
         }
 
     };
@@ -117,4 +75,5 @@ var course = function () {
 
 jQuery(document).ready(function () {
     course.init();
+
 });

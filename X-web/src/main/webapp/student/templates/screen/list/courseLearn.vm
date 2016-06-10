@@ -1,0 +1,189 @@
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGINS -->
+<link rel="shortcut icon" href="favicon.ico" />
+<style>
+    .title{
+        color: #ff760f;
+    }
+</style>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <!-- BEGIN PAGE CONTENT BODY -->
+        <div class="page-content">
+            <div class="container">
+                <!-- BEGIN PAGE BREADCRUMBS -->
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="index.html">课程</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="#">课程清单</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span>课程学习</span>
+                    </li>
+                </ul>
+                <!-- END PAGE BREADCRUMBS -->
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <div class="page-content-inner">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="portlet light form-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-social-youtube font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase">视频学习</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body" style="padding-bottom: 20px;padding-left: 20px">
+                                    <object data="http://imgcache.qq.com/open/qcloud/video/flash/video_player.swf?max_age=1800"
+                                            id="video_1465548302664_object" width="670px" height="376.875px"
+                                            style="background-color:#000000;" align="middle"
+                                            classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                                            codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab#version=9,0,0,0">
+                                        <param name="flashVars"
+                                               value="auto_play=0&amp;version=1&amp;refer=play.video.qcloud.com&amp;jscbid=video_1465548302664&amp;disable_full_screen=0&amp;file_id=14651978969256244875&amp;app_id=1251419256">
+                                        <param name="src"
+                                               value="http://imgcache.qq.com/open/qcloud/video/flash/video_player.swf?max_age=1800">
+                                        <param name="wmode" value="window">
+                                        <param name="quality" value="High">
+                                        <param name="allowScriptAccess" value="always">
+                                        <param name="allowNetworking" value="all">
+                                        <param name="allowFullScreen" value="true">
+                                        <embed style="background-color:#000000;" id="video_1465548302664_embed" width="670px"
+                                               height="376.875px"
+                                               flashvars="auto_play=0&amp;version=1&amp;refer=play.video.qcloud.com&amp;jscbid=video_1465548302664&amp;disable_full_screen=0&amp;file_id=14651978969256244875&amp;app_id=1251419256"
+                                               align="middle" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                                               type="application/x-shockwave-flash" allowfullscreen="true" bgcolor="#000000"
+                                               quality="high"
+                                               src="http://imgcache.qq.com/open/qcloud/video/flash/video_player.swf?max_age=1800"
+                                               wmode="window" invokeurls="false" allownetworking="all" allowscriptaccess="always">
+                                    </object>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height: 473px;background: #fff;
+">
+                            <div class="portlet light form-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-list font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase">课程信息</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body ">
+                                    <p><span class="title">课程:</span>引爆点</p>
+                                    <hr>
+                                    <p><span class="title">章节:</span>第一章:人格测试</p>
+                                    <hr>
+                                    <p><span class="title">讲课老师:</span> 胡邓 李强 雷明 石真语 赵强</p>
+                                    <hr>
+                                    <p><span class="title">课程时长:</span>16分钟</p>
+                                    <p style="text-align: left;margin-top: 40px">
+                                        <a href="" class="btn btn-link "> >> 更多章节</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light form-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-note font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase">新建笔记</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <form class="form-horizontal form-bordered">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn dark">
+                                                        <i class="fa fa-check"></i> 保存</button>
+                                                    <button type="button" class="btn default">取消</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light form-fit ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-notebook font-red"></i>
+                                        <span class="caption-subject font-red bold uppercase">笔记: 测试笔记</span>
+                                    </div>
+                                    <div class="form-actions" style="display: inline-block;float: right;margin-right: 30px ">
+                                        <div class="row">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <button type="submit" class="btn btn-success btn-xs">
+                                                    <i class="fa fa-save"></i> 保存</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <form class="form-horizontal form-bordered">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END PAGE CONTENT INNER -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT BODY -->
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+<script src="/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+<script src="/assets/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+<script src="/assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+<script src="/assets/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/js/app/student/components-editors.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+</body>
+
+</html>
