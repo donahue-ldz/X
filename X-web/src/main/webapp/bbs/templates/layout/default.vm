@@ -31,7 +31,7 @@
     $control.setTemplate("navbar.vm")
 <!-- END HEADER -->
     $screen_placeholder
-    #parse("/control/list/footer.vm")
+
 </body>
 <script type="text/javascript" src="/assets/js/app/bbs/sweetalert.js"></script>
 <script type="text/javascript" src="/assets/js/app/bbs/spin.js"></script>

@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav navbar-right" style="float: right">
                 #if(!$studentWrapper)
                     <li class="menu-dropdown classic-menu-dropdown">
-                        <a href="/form/loginAndRegister.htm" class="btn btn-success"> 登录/注册
+                        <a href="/form/loginAndRegister.htm" class="btn btn-success" style="height: 50px"> 登录/注册
                         </a>
                     </li>
                 #else
@@ -33,7 +33,7 @@
                                 class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" style="font-size: 13px;left: 0px">
                             <li><a href="/list/profile.htm" style="width: 20px"><span class="icon-user"></span>个人中心</a>
-                            <li><a href="/list/lockScreen.htm" style="width: 20px"><span
+                            <li><a href="/common/lockScreen.htm" style="width: 20px"><span
                                     class="glyphicon glyphicon-off"></span>锁屏</a>
                             <li><a href="#" style="width: 20px"><span class="icon-logout"></span>&nbsp;退出</a>
                             </li>
@@ -66,12 +66,7 @@
                 ##                            <span class="arrow"></span>
                 ##                        </a>
                 ##                    </li>
-                    <li class="menu-dropdown classic-menu-dropdown #markActiveNavBarTab("加入我" $navInfo)">
-                        <a href="javascript:;"> 加入我
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
-                    <li class="menu-dropdown mega-menu-dropdown  mega-menu-full">
+                    <li class="menu-dropdown mega-menu-dropdown  mega-menu-full #markActiveNavBarTab("关于" $navInfo)">
                         <a href="/list/about.htm"> 关于
                             <span class="arrow"></span>
                         </a>

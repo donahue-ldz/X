@@ -149,32 +149,21 @@
                                     <div class="caption font-green-sharp">
                                         <i class="icon-paper-plane font-green-sharp"></i>
                                         <span class="caption-subject bold  uppercase font-green-sharp"> 热门课程 </span>
-                                        <span class="caption-helper">更多...</span>
                                     </div>
-                                    <div class="inputs">
-                                        <div class="portlet-input input-inline input-medium">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control input-circle-left"
-                                                       placeholder="search...">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-circle-right btn-default"
-                                                                    type="submit">Go!</button>
-                                                        </span>
-                                            </div>
-                                        </div>
+                                    <div style="display: inline;float: right;margin-top: 20px">
+                                        <a class="caption-helper">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/32.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-success">Manhattan</button>
-                                                    </div>
+                                            ##                                                ##课程照片
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course1.png);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team7.jpg"> </div>
+                                                        ##teacher 照片
+                                                            <img src="/assets/imags/teacher/photos/team7.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Chris Jagers</span>
                                                                     <span class="mt-user-time">
@@ -183,26 +172,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-body">
-                                                    <h3 class="mt-body-title"> Thomas Clark </h3>
+                                                    <h3 class="mt-body-title"> 引爆点 </h3>
                                                     <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class="icon-share"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/43.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-danger">London</button>
-                                                    </div>
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
+
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team3.jpg"> </div>
+                                                            <img src="/assets/imags/teacher/photos/team3.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
                                                                     <span class="mt-user-time">
@@ -217,30 +205,17 @@
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-social-twitter"></i> 3,7k</li>
-                                                        <li class="font-red">
-                                                            <i class="  icon-bubbles"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
-                                                    <div class="mt-body-actions">
-                                                        <div class="btn-group btn-group btn-group-justified">
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-bubbles"></i> Bookmark </a>
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-social-twitter"></i> Share </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/43.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-danger">London</button>
-                                                    </div>
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team3.jpg"> </div>
+                                                            <img src="/assets/imags/teacher/photos/team2.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
                                                                     <span class="mt-user-time">
@@ -255,18 +230,9 @@
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-social-twitter"></i> 3,7k</li>
-                                                        <li class="font-red">
-                                                            <i class="  icon-bubbles"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
-                                                    <div class="mt-body-actions">
-                                                        <div class="btn-group btn-group btn-group-justified">
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-bubbles"></i> Bookmark </a>
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-social-twitter"></i> Share </a>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -286,32 +252,21 @@
                                     <div class="caption font-purple-plum">
                                         <i class="icon-paper-plane font-purple-plum"></i>
                                         <span class="caption-subject bold font-yellow-casablanca font-purple-plum uppercase"> 其他 </span>
-                                        <span class="caption-helper">更多...</span>
                                     </div>
-                                    <div class="inputs">
-                                        <div class="portlet-input input-inline input-medium">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control input-circle-left"
-                                                       placeholder="search...">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn btn-circle-right btn-default"
-                                                                    type="submit">Go!</button>
-                                                        </span>
-                                            </div>
-                                        </div>
+                                    <div style="display: inline;float: right;margin-top: 20px">
+                                        <a class="caption-helper">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/32.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-success">Manhattan</button>
-                                                    </div>
+                                            ##                                                ##课程照片
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course1.png);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team7.jpg"> </div>
+                                                        ##teacher 照片
+                                                            <img src="/assets/imags/teacher/photos/team7.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Chris Jagers</span>
                                                                     <span class="mt-user-time">
@@ -320,36 +275,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="mt-body">
-                                                    <h3 class="mt-body-title"> Thomas Clark </h3>
+                                                    <h3 class="mt-body-title"> 引爆点 </h3>
                                                     <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-social-twitter"></i> 3,7k</li>
-                                                        <li class="font-red">
-                                                            <i class="  icon-bubbles"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
-                                                    <div class="mt-body-actions">
-                                                        <div class="btn-group btn-group btn-group-justified">
-                                                            <a href="javascript:;" class="btn">
-                                                                <i class="icon-bubbles"></i> Bookmark </a>
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-social-twitter"></i> Share </a>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/43.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-danger">London</button>
-                                                    </div>
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
+
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team3.jpg"> </div>
+                                                            <img src="/assets/imags/teacher/photos/team3.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
                                                                     <span class="mt-user-time">
@@ -364,30 +308,17 @@
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-social-twitter"></i> 3,7k</li>
-                                                        <li class="font-red">
-                                                            <i class="  icon-bubbles"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
-                                                    <div class="mt-body-actions">
-                                                        <div class="btn-group btn-group btn-group-justified">
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-bubbles"></i> Bookmark </a>
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-social-twitter"></i> Share </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(../assets/pages/img/background/43.jpg);">
-                                                    <div class="mt-head-label">
-                                                        <button type="button" class="btn btn-danger">London</button>
-                                                    </div>
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
-                                                            <img src="../assets/pages/img/avatars/team3.jpg"> </div>
+                                                            <img src="/assets/imags/teacher/photos/team2.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
                                                                     <span class="mt-user-time">
@@ -402,18 +333,9 @@
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-social-twitter"></i> 3,7k</li>
-                                                        <li class="font-red">
-                                                            <i class="  icon-bubbles"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,7k</li>
                                                     </ul>
-                                                    <div class="mt-body-actions">
-                                                        <div class="btn-group btn-group btn-group-justified">
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-bubbles"></i> Bookmark </a>
-                                                            <a href="javascript:;" class="btn ">
-                                                                <i class="icon-social-twitter"></i> Share </a>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

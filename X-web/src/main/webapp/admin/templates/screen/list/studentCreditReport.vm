@@ -3,6 +3,8 @@
 <link href="/assets/css/lib/dataTables/datatables.min.css" rel="stylesheet" type="text/css"/>
 <link href="/assets/css/lib/dataTables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet"
       type="text/css"/>
+<link href="/assets/plugins/amcharts/amcharts/plugins/export/export.css" rel="stylesheet" type="text/css"/>
+
 #parse("/control/list/aside.vm")
 
 <div class="page-container">
@@ -32,11 +34,13 @@
                                                         <i class="fa fa-user">学号</i>
                                                     </span>
                                                     <input type="text" class="form-control input-circle-right"
-                                                           placeholder="学生学号" id="studentID"></div>
+                                                           placeholder="学生学号" id="studentID" value="$!{studentID}"
+                                                           #if($studentID)readonly#else 设定 #end></div>
                                             </div>
                                         </div>
                                         <div class="form-actions">
-                                            <button type="submit"  id="set" class="btn blue">设定</button>
+
+                                            <button type="submit"  id="set" class="btn blue">#if($studentID)取消设定#else 设定 #end</button>
                                         </div>
                                     </form>
                                 </div>
@@ -95,7 +99,20 @@
                                     <div id="chart_month" class="chart" style="height: 500px;"></div>
                                     <div class="well margin-top-20">
                                         <div class="row">
+                                            <div>
+                                                <label class="col-md-3">日期范围(单位是月)</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="2016-01" data-date-format="yyyy-mm">
+                                                        <input type="text" class="form-control" name="from" id="fromMonth" value="${time.fromMonth}">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input type="text" class="form-control" name="to" id="toMonth" value="${time.toMonth}">
+                                                    </div>
 
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <button class="btn btn-success" id="btnMonth" style="float: right;margin-right: 200px">确定</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +146,20 @@
                                     <div id="chart_day" class="chart" style="height: 500px;"></div>
                                     <div class="well margin-top-20">
                                         <div class="row">
+                                            <div>
+                                                <label class="col-md-3">日期范围(单位是天)</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="2016-06-01" data-date-format="yyyy-mm-dd">
+                                                        <input type="text" class="form-control" name="from"  id="fromDay" value="${time.fromDay}">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input type="text" class="form-control" name="to" id="toDay" value="${time.toDay}">
+                                                    </div>
 
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <button class="btn btn-success" id="btnDay" style="float: right;margin-right: 200px">确定</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -150,13 +180,12 @@
 <script src="/assets/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
 <script src="/assets/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
 <script src="/assets/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
-<script src="/assets/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
-<script src="/assets/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
-<script src="/assets/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-<script src="/assets/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-<script src="/assets/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+<script src="/assets/plugins/amcharts/amcharts/plugins/export/export.js" type="text/javascript"></script>
+
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="/assets/js/app/admin/studetnCreditReport.js" type="text/javascript"></script>
+<script src="/assets/js/app/admin/components-date-time-pickers.js" type="text/javascript"></script>
+
 <!-- END PAGE LEVEL SCRIPTS -->

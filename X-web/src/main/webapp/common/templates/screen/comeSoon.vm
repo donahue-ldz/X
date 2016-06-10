@@ -1,0 +1,44 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="/assets/css/app/student/coming-soon.css" rel="stylesheet" type="text/css"/>
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN THEME LAYOUT STYLES -->
+<!-- END THEME LAYOUT STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/> </head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 coming-soon-header">
+            <a class="brand" href="index.html">
+                <img src="/assets/imags/logo.png" alt="logo" style="width: 50px;height: 50px"/> </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 coming-soon-content">
+            <h1>Coming Soon!</h1>
+            <p>
+               开发人员(与水),持续开发中...
+            </p>
+            <div id="github-stats">
+                <iframe src="http://ghbtns.com/github-btn.html?user=donahue-ldz&amp;repo=X&amp;type=star&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0"
+                style="height: 20px"></iframe>
+                <iframe src="http://ghbtns.com/github-btn.html?user=donahue-ldz&amp;repo=X&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0"
+                style="float: left;margin-top: 10px;"></iframe>
+            </div>
+
+            <br>
+        </div>
+        <div class="col-md-6 coming-soon-countdown">
+            <div id="defaultCountdown"></div>
+        </div>
+    </div>
+    <!--/end row-->
+
+</div>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="/assets/plugins/countdown/jquery.countdown.min.js" type="text/javascript"></script>
+<script src="/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/js/app/student/coming-soon.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->

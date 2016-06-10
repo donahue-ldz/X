@@ -1,0 +1,49 @@
+
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="/assets/css/app/common/lockScreen.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" /> </head>
+<!-- END HEAD -->
+
+<body class="">
+<div class="page-lock">
+    <div class="page-logo">
+        <a class="brand" href="index.html">
+            <img src="/assets/imags/logo.png" alt="logo" width="50px" height="50px"/> </a>
+    </div>
+    <div class="page-body">
+        <img class="page-lock-img" src="/assets/imags/student/profile/defaultAvatar.png" alt="">
+        <div class="page-lock-info">
+            <h1>student</h1>
+            <span class="email"> 1@qq.com </span>
+            <span class="locked"> Locked </span>
+            <form class="form-inline" action="/">
+                <div class="input-group input-medium">
+                    <input type="text" class="form-control" placeholder="Password">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn green icn-only">
+                                    <i class="m-icon-swapright m-icon-white"></i>
+                                </button>
+                            </span>
+                </div>
+                <!-- /input-group -->
+                <div class="relogin">
+                    <a href="/form/loginAndRegister.htm"> Not donahue ? </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page-footer-custom"> 2016 &copy; donahue. </div>
+</div>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+
+<script src="/assets/js/app/common/lockScreen.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<!-- END THEME LAYOUT SCRIPTS -->
+</body>

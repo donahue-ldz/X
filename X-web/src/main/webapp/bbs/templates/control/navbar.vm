@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav navbar-right" style="float: right">
                 #if(!$studentWrapper)
                     <li class="menu-dropdown classic-menu-dropdown">
-                        <a href="/form/loginAndRegister.htm" class="btn btn-success"> 登录/注册
+                        <a href="/form/loginAndRegister.htm" class="btn btn-success" style="height: 50px"> 登录/注册
                         </a>
                     </li>
                 #else
@@ -66,11 +66,6 @@
                 ##                            <span class="arrow"></span>
                 ##                        </a>
                 ##                    </li>
-                    <li class="menu-dropdown classic-menu-dropdown #markActiveNavBarTab("加入我" $navInfo)">
-                        <a href="javascript:;"> 加入我
-                            <span class="arrow"></span>
-                        </a>
-                    </li>
                     <li class="menu-dropdown mega-menu-dropdown  mega-menu-full">
                         <a href="/list/about.htm"> 关于
                             <span class="arrow"></span>

@@ -56,12 +56,12 @@ public class CreditReportRequest extends BaseAction {
                 SimpleDateFormat format = new ThreadLocal<SimpleDateFormat>(){
                     @Override
                     synchronized protected SimpleDateFormat initialValue() {
-                        return new SimpleDateFormat("yyyy-MM");
+                        return new SimpleDateFormat("yyyy-MM-dd");
                     }
                 }.get();
                 Date fromDate = format.parse(fromDay);
                 Date toDate  = format.parse(toDay);
-                return new WebJsonResult().setObjList(creditReportManager.monthReport(studentID,fromDate,toDate));
+                return new WebJsonResult().setObjList(creditReportManager.dayReport(studentID,fromDate,toDate));
             }
         });
     }

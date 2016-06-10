@@ -5,6 +5,7 @@ import com.X.dal.domain.GrantCreditDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +23,8 @@ public interface GrantCreditMapper {
                                      @Param("fromMonth") String fromMonth,@Param("toMonth")String toMonth);
     List<CreditReportDO> dayReport(@Param("studentID")String studentID,
                                    @Param("fromDay")String fromDays,@Param("toDay")String toDay);
+
+
 
 
 }

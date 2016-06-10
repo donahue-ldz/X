@@ -42,13 +42,13 @@
         group by `time`;
     </select>
     <select id="monthReport" resultMap="creditReportResultMap">
-        select DATE_FORMAT(gmt_create,'%Y%m') `time`,SUM(scores) scores from X_grant_credit t
-        WHERE #{toMonth}>=gmt_create>=#{fromMonth} and student_ID=#{studentID};
+        select DATE_FORMAT(gmt_create,'%Y-%m') `time`,SUM(scores) scores from X_grant_credit t
+        WHERE #{toMonth}>=gmt_create and gmt_create>=#{fromMonth} and student_ID=#{studentID}
         group by `time`
     </select>
     <select id="dayReport" resultMap="creditReportResultMap">
-        select DATE_FORMAT(gmt_create,'%Y%m%d') `time`,SUM(scores) scores from X_grant_credit
-        WHERE #{toDay}>=gmt_create>=#{fromDay} and student_ID=#{studentID};
+        select DATE_FORMAT(gmt_create,'%Y-%m-%d') `time`,SUM(scores) scores from X_grant_credit
+        WHERE #{toDay}>=gmt_create AND gmt_create>=#{fromDay} and student_ID=#{studentID}
          group by `time`;
     </select>
 
