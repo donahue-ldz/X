@@ -21,4 +21,5 @@ public interface TopicAgg {
     TopicVO queryTopicVOByTopic(@NotNull TopicDO topicDO,String topicCategory) throws XException;
 
     List<TopicVO> queryTopicVOsByCategoryWithPage(@NotEmpty String category,int pageNO,int pageSize) throws XException;
+    List<TopicVO> queryHotTopicVOs() throws XException;
 }

@@ -14,6 +14,11 @@
         #{ip},
         #{gmtCreate})
     </insert>
+    <select id="visitedReport" resultType="java.util.HashMap">
+        select DATE_FORMAT(gmt_create,'%Y-%m-%d') `time`,COUNT(ip) visited from X_traffic_analysis
+        WHERE #{toDay}>=gmt_create AND gmt_create>=#{fromDay}
+        group by `time`;
+    </select>
 
     <resultMap id="trafficAnalysisResultMap" type="TrafficAnalysisDO">
         <id property="id" column="id"/>

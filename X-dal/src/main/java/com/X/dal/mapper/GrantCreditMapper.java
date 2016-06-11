@@ -5,7 +5,6 @@ import com.X.dal.domain.GrantCreditDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ import java.util.List;
 @Repository
 public interface GrantCreditMapper {
     void save(GrantCreditDO grantCredit);
-    List<GrantCreditDO> queryGrantsByStudentID(@Param("studentID") Long studentID);
+    List<GrantCreditDO> queryGrantsByStudentID(@Param("studentID") String studentID);
     List<GrantCreditDO> queryAllGrants();
     GrantCreditDO queryGrantByID(@Param("id") Long id);
 

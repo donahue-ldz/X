@@ -1,8 +1,10 @@
 package com.X.biz.student.manager;
 
+import com.X.biz.admin.vo.RegisterCountVO;
 import com.X.biz.exception.XException;
 import com.X.dal.domain.StudentDO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,4 +18,5 @@ public interface IStudentDBManager {
     StudentDO queryStudentByEmail(String email) throws XException;
     StudentDO queryStudentByID(Long id) throws XException;
     List<StudentDO> queryAllStudents()throws XException;
+    List<RegisterCountVO> registerReport(Date fromDay, Date toDay) throws XException;
 }

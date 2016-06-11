@@ -2,14 +2,20 @@ package com.X.biz.bbs.manager.impl;
 
 import com.X.biz.RunWrapper;
 import com.X.biz.bbs.manager.ITopicRateManager;
+import com.X.biz.constant.TopNConfig;
 import com.X.biz.constant.status.RateType;
 import com.X.biz.exception.XException;
 import com.X.dal.domain.TopicRateDO;
 import com.X.dal.mapper.TopicRateMapper;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -126,6 +132,23 @@ public class TopicRateManager implements ITopicRateManager {
             @Override
             public Long call() throws Exception {
                 return topicRateMapper.countBookmarksByUserID(userID);
+            }
+        });
+    }
+
+    @Override
+    public List<Long> topNHotTopicIDs() throws XException {
+        return RunWrapper.run(new Callable<List<Long>>() {
+            @Override
+            public List<Long> call() throws Exception {
+                List<Long> topicIDs  = Lists.newArrayList();
+                List<HashMap> results = topicRateMapper.topNHotTopicIDs(TopNConfig.BBS_TOPN_HOT);
+                if(!CollectionUtils.isEmpty(results)){
+                    for(HashMap map:results){
+                        topicIDs.add((Long) map.get("topic_ID"));
+                    }
+                }
+                return topicIDs;
             }
         });
     }

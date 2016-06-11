@@ -83,7 +83,7 @@ var ChartsAmcharts = function () {
                 var data = result.objList;
                 var chart = AmCharts.makeChart("chart_month", chartConfig(data));
 
-                $('#chart_year').closest('.portlet').find('.fullscreen').click(function () {
+                $('#chart_month').closest('.portlet').find('.fullscreen').click(function () {
                     chart.invalidateSize();
                 });
             } else {
@@ -101,7 +101,7 @@ var ChartsAmcharts = function () {
             if (result.success) {
                 var data = result.objList;
                 var chart = AmCharts.makeChart("chart_day", chartConfig(data));
-                $('#chart_year').closest('.portlet').find('.fullscreen').click(function () {
+                $('#chart_day').closest('.portlet').find('.fullscreen').click(function () {
                     chart.invalidateSize();
                 });
             } else {
@@ -125,6 +125,8 @@ jQuery(document).ready(function () {
         ChartsAmcharts.yearReport({studentID: studentID});
         ChartsAmcharts.monthReport({studentID: studentID});
         ChartsAmcharts.dayReport({studentID: studentID});
+        $("#set").parent().append("<a class='btn btn-link' style='float: right;margin-right: 50px' href='/admin/list/studentCreditItems.htm?studentID="+$("#studentID").val()+"'><i class='fa fa-eye'></i>积分明细</a>")
+
     }
 
     $("#setStudentForm").submit(function (e) {
@@ -132,6 +134,7 @@ jQuery(document).ready(function () {
         if ($.trim($("#set").text()) === "设定") {
             $("#studentID").prop("readOnly", true);
             $("#set").text("取消设定");
+            $("#set").parent().append("<a class='btn btn-link'  style='float: right;margin-right: 50px' href='/admin/list/studentCreditItems.htm?studentID="+$("#studentID").val()+"'><i class='fa fa-eye'></i>积分明细</a>")
             ChartsAmcharts.yearReport();
             ChartsAmcharts.monthReport();
             ChartsAmcharts.dayReport();

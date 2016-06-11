@@ -4,6 +4,7 @@ import com.X.dal.domain.TopicRateDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -52,6 +53,14 @@ public interface TopicRateMapper {
     long countViewsByUserID(@Param("userID") Long userID);
 
     long countBookmarksByUserID(@Param("userID") Long userID);
+
+    /**
+     * 热门的TopicID
+     * 倒序排列
+     * topN
+     */
+    List<HashMap> topNHotTopicIDs(@Param("topN") Long topN);
+
 
 
 }

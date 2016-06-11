@@ -72,4 +72,12 @@
         from X_topic_rate
         WHERE user_ID = #{userID} AND rate_type = '5' AND status = '1'
     </select>
+
+    <select id="topNHotTopicIDs"  parameterType="Long" resultType="java.util.HashMap">
+        select topic_ID,count(topic_ID) num
+        from X_topic_rate
+        GROUP BY topic_ID
+        ORDER BY num DESC
+        limit 0,${topN}
+    </select>
 </mapper>

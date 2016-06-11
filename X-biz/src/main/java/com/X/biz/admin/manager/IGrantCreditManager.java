@@ -15,7 +15,8 @@ public interface IGrantCreditManager {
 
     void saveList(List<GrantCreditDO> grantCredits) throws XException;
 
-    List<GrantCreditDO> queryGrantsByStudentID(@NotNull Long studentID) throws XException;
+    List<GrantCreditDO> queryGrantsByStudentID(@NotNull String studentID) throws XException;
+
 
     List<GrantCreditDO> queryAllGrants() throws XException;
 

@@ -44,7 +44,7 @@ public class GrantCreditManager implements IGrantCreditManager {
     }
 
     @Override
-    public List<GrantCreditDO> queryGrantsByStudentID(@NotNull final Long studentID) throws XException {
+    public List<GrantCreditDO> queryGrantsByStudentID(@NotNull final String studentID) throws XException {
         return RunWrapper.run(new Callable<List<GrantCreditDO>>() {
             @Override
             public List<GrantCreditDO> call() throws Exception {

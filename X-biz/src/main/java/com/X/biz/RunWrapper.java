@@ -5,7 +5,10 @@ import com.X.common.validator.ValidateHelper;
 import com.X.common.validator.ValidationResult;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.concurrent.Callable;
+
+import static com.X.common.utils.Tool.safeList;
 
 /**
  * @author donahue ldz2012yn@gmail.com

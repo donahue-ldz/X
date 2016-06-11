@@ -1,4 +1,4 @@
-#set($asideTab="学生管理 > 学生积分信息")
+#set($asideTab="学生管理 > 学生积分信息 > 积分明细")
 <style>
     .sorting, .sorting_asc, .sorting_desc {
         background-image: none !important;
@@ -24,7 +24,7 @@
                         <div class="portlet-title">
                             <div class="caption font-green">
                                 <i class="icon-list font-green"></i>
-                                <span class="caption-subject bold uppercase">学生积分信息</span>
+                                <span class="caption-subject bold uppercase">学生(<u><span style="font-size: 20px;color: red">$!studentName</span></u>)积分明细</span>
                             </div>
                             <div class="tools"></div>
                         </div>
@@ -35,28 +35,28 @@
                                 <tr>
                                     <th></th>
                                     <th class="all">编号</th>
-                                    <th class="all">学号</th>
-                                    <th class="min-phone-l">姓名</th>
-                                    <th class="min-tablet">总积分</th>
-                                    <th class="desktop">积分明细</th>
-                                    <th class="desktop">积分报表</th>
+                                    <th class="all">积分规则</th>
+                                    <th class="min-phone-l">积分</th>
+                                    <th class="min-tablet">创建人</th>
+                                    <th class="desktop">创建时间</th>
+                                    <th class="desktop">修改时间</th>
                                     <th class="none">备注:</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                            #foreach($studentCreditVO in $studentCreditVOs)
-                            <tr>
-                                <th></th>
-                                <td>$velocityCount</td>
-                                <td>$!studentCreditVO.studentID</td>
-                                <td>$!studentCreditVO.studentName</td>
-                                <td>$!studentCreditVO.sumScores</td>
-                                <td><a href="/admin/list/studentCreditItems.htm?studentID=$!studentCreditVO.studentID&studentName=$!studentCreditVO.studentName"><i class="fa fa-eye"></i></a></td>
-                                <td><a href="/admin/list/studentCreditReport.htm?studentID=$!studentCreditVO.studentID"><i class="fa fa-line-chart"></i></a> </td>
-                                <td>无</td>
-                            </tr>
-                            #end
+                                    #foreach($creditItem in $creditItems)
+                                    <tr>
+                                        <th></th>
+                                        <td>$velocityCount</td>
+                                        <td>$!creditItem.rules</td>
+                                        <td>$!creditItem.scores</td>
+                                        <td>$!creditItem.creator</td>
+                                        <td>$!dateUtils.format("yyyy-MM-dd HH:mm:ss",$!creditItem.gmtCreate)</td>
+                                        <td>$!dateUtils.format("yyyy-MM-dd HH:mm:ss",$!creditItem.gmtModified)</td>
+                                        <td>$!creditItem.description</td>
+                                    </tr>
+                                    #end
 
 
                                 </tbody>

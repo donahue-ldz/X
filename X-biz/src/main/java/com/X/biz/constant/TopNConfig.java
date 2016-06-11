@@ -6,4 +6,9 @@ package com.X.biz.constant;
  **/
 public class TopNConfig {
     public static final long INDEX_TOPN_COURSE = 10;
+
+    /**
+     * 热门的帖子数
+     */
+    public static final long BBS_TOPN_HOT = 10;
 }

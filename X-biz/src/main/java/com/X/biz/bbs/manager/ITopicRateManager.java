@@ -29,5 +29,6 @@ public interface ITopicRateManager {
     long countFavoritesByUserID(Long userID) throws XException;
     long countViewsByUserID(Long userID) throws XException;
     long countBookmarksByUserID(Long userID) throws XException;
+    List<Long>topNHotTopicIDs() throws XException;
 
 }

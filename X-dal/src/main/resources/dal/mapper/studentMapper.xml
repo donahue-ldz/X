@@ -22,6 +22,13 @@
         where t.id = #{id}
     </select>
 
+    <select id="registerReport" resultType="java.util.HashMap">
+        select DATE_FORMAT(gmt_create,'%Y-%m-%d') `time`,COUNT(student_ID) registerNum from X_student
+        WHERE #{toDay}>=gmt_create AND gmt_create>=#{fromDay}
+        group by `time`;
+    </select>
+
+
     <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="StudentDO" >
         insert into X_student(
         student_ID,

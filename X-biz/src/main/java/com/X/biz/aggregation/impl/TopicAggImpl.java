@@ -14,6 +14,8 @@ import com.X.biz.bbs.vo.TopicVO;
 import com.X.biz.common.IPictureManager;
 import com.X.biz.exception.XException;
 import com.X.biz.student.manager.IStudentDBManager;
+import com.X.common.cache.LightCache;
+import com.X.common.cache.LocalLightCache;
 import com.X.dal.domain.*;
 import com.google.common.collect.Lists;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -50,6 +52,8 @@ public class TopicAggImpl implements TopicAgg {
     @Autowired
     private IPictureManager pictureManager;
 
+    private List<String> cacheCategories = Lists.newArrayList("hot");
+    private LightCache lightCache = LocalLightCache.createDefault("hotCategory");
 
     @Override
     public TopicDetails queryTopicDetailsByID(@NotNull Long topicID, String topicCategory) throws XException {
@@ -115,15 +119,39 @@ public class TopicAggImpl implements TopicAgg {
         return RunWrapper.run(new Callable<List<TopicVO>>() {
             @Override
             public List<TopicVO> call() throws Exception {
-                List<TopicDO> topicDOs = safeList(topicManager.queryTopicsWithPage(category, pageNO, pageSize));
-                List<TopicVO> topicVOs = Lists.newArrayList();
-                for (TopicDO topicDO : topicDOs) {
-                    TopicVO vo = queryTopicVOByTopic(topicDO, category);
-                    topicVOs.add(vo);
+                if (cacheCategories.contains(category)) {
+
+                    return lightCache.get("hotCategory", new Callable<List<TopicVO>>() {
+                        @Override
+                        public List<TopicVO> call() throws Exception {
+                            return queryHotTopicVOs();
+                        }
+                    });
+                } else {
+                    List<TopicDO> topicDOs = safeList(topicManager.queryTopicsWithPage(category, pageNO, pageSize));
+                    List<TopicVO> topicVOs = Lists.newArrayList();
+                    for (TopicDO topicDO : topicDOs) {
+                        TopicVO vo = queryTopicVOByTopic(topicDO, category);
+                        topicVOs.add(vo);
+                    }
+                    return topicVOs;
                 }
-                return topicVOs;
             }
 
         });
+    }
+
+    @Override
+    public List<TopicVO> queryHotTopicVOs() throws XException {
+        List<Long> hotTopicIDs = topicRateManager.topNHotTopicIDs();
+        List<TopicDO> topicDOs = Lists.newArrayList();
+        for (Long topicID : hotTopicIDs)
+            topicDOs.add(topicManager.queryTopicByID(topicID));
+        List<TopicVO> topicVOs = Lists.newArrayList();
+        for (TopicDO topicDO : topicDOs) {
+            TopicVO vo = queryTopicVOByTopic(topicDO, "hot");
+            topicVOs.add(vo);
+        }
+        return topicVOs;
     }
 }
