@@ -84,8 +84,11 @@ public class CreditReportManager implements ICreditReportManager {
                         return new SimpleDateFormat("yyyy-MM");
                     }
                 }.get();
+                Calendar toCal = Calendar.getInstance();
+                toCal.setTime(toMonth);
+                toCal.add(Calendar.MONTH,1);
 
-                List<CreditReportDO> creditReportDOs = grantCreditMapper.monthReport(studentID, format.format(fromMonth), format.format(toMonth));
+                List<CreditReportDO> creditReportDOs = grantCreditMapper.monthReport(studentID, format.format(fromMonth), format.format(toCal.getTime()));
                 List<CreditReportDO> allCredits = Lists.newArrayList();
                 Calendar endCal = Calendar.getInstance();
                 endCal.setTime(toMonth);

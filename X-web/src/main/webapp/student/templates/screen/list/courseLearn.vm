@@ -88,9 +88,9 @@
                                     <hr>
                                     <p><span class="title">讲课老师:</span> 胡邓 李强 雷明 石真语 赵强</p>
                                     <hr>
-                                    <p><span class="title">课程时长:</span>16分钟</p>
+                                    <p><span class="title">课程时长:</span>99分钟</p>
                                     <p style="text-align: left;margin-top: 40px">
-                                        <a href="" class="btn btn-link "> >> 更多章节</a>
+                                        <a href="/common/comeSoon.htm" class="btn btn-link "> >> 更多章节</a>
                                     </p>
                                 </div>
                             </div>
@@ -118,8 +118,8 @@
                                         <div class="form-actions">
                                             <div class="row">
                                                 <div class="col-md-offset-2 col-md-10">
-                                                    <button type="submit" class="btn dark">
-                                                        <i class="fa fa-check"></i> 保存</button>
+                                                    <a a href="/common/comeSoon.htm" class="btn dark">
+                                                        <i class="fa fa-check"></i> 保存</a>
                                                     <button type="button" class="btn default">取消</button>
                                                 </div>
                                             </div>
@@ -140,8 +140,8 @@
                                     <div class="form-actions" style="display: inline-block;float: right;margin-right: 30px ">
                                         <div class="row">
                                             <div class="col-md-offset-2 col-md-10">
-                                                <button type="submit" class="btn btn-success btn-xs">
-                                                    <i class="fa fa-save"></i> 保存</button>
+                                                <a href="/common/comeSoon.htm" type="submit" class="btn btn-success btn-xs">
+                                                    <i class="fa fa-save"></i> 保存</a>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,9 @@
                                         <div class="form-body">
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                                                    <textarea name="content" data-provide="markdown" rows="10">
+                                                        这个课程很无聊诶,笔记测试
+                                                    </textarea>
                                                 </div>
                                             </div>
                                         </div>

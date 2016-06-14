@@ -3,7 +3,7 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo" style="padding-left: 0px">
-            <a href="index.html">
+            <a href="/admin">
                 <img src="/assets/imags/logo.png" width="60px" height="50px" alt="logo" class="logo-default" style="margin: auto">
                 <span>运维系统</span>
 

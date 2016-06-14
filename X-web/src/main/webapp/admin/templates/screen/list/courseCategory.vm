@@ -19,8 +19,7 @@
                 <div class="col-md-12">
                     <div id="prefix_946124885289" class="custom-alerts alert alert-danger fade in">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        <i class="fa-lg fa fa-warning"></i> Could not complete request. Please check your internet
-                        connection
+                        <i class="fa-lg fa fa-warning"></i>配置立即生效,请谨慎...
                     </div>
                     <!-- Begin: life time stats -->
                     <div class="portlet">

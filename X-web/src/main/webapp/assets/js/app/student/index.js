@@ -21,11 +21,8 @@
             }
 
         });
-        // $(".mt-widget-2").hover(function(){
-        //     $(this).find(".mt-body-description").show();
-        // },function(){
-        //     $(this).find(".mt-body-description").hide();
-        //
-        // })
+        $(".mt-widget-2").click(function () {
+            location.href="/list/courseDetails.htm?courseID=1";
+        });
     })
 })(jQuery)

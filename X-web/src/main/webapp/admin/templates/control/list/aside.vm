@@ -189,9 +189,9 @@
 
                 </ul>
             </li>
-            <li class="nav-item start #markActiveAsideTab("论坛" $asideTab)">
+            <li class="nav-item start #markActiveAsideTab("工具箱" $asideTab)">
                 <a href="#" class="nav-link nav-toggle">
-                    <i class="icon-vector"></i>
+                    <i class="fa fa-briefcase"></i>
                     <span class="title">工具箱</span>
                     <span class="selected"></span>
                     <span class="arrow open"></span>
@@ -208,6 +208,31 @@
                 </ul>
             </li>
 
+            <li class="nav-item start #markActiveAsideTab("日志管理" $asideTab)">
+                <a href="#" class="nav-link nav-toggle">
+                    <i class="fa fa-anchor"></i>
+                    <span class="title">日志管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start  #markActiveAsideTab("错误日志" $asideTab)">
+                        <a href="/common/comeSoon.htm" class="nav-link ">
+                            <i class="icon-star"></i>
+                            <span class="title">错误日志</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item start  #markActiveAsideTab("错误日志" $asideTab)">
+                        <a href="/common/comeSoon.htm" class="nav-link ">
+                            <i class="icon-star"></i>
+                            <span class="title">性能日志</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->

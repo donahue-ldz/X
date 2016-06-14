@@ -49,7 +49,7 @@
                                         <span class="caption-subject bold font-yellow-casablanca uppercase"> 最新课程 </span>
                                     </div>
                                     <div style="display: inline;float: right;margin-top: 20px">
-                                        <a class="caption-helper">更多 ></a>
+                                        <a class="caption-helper" href="/common/comeSoon.htm">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -63,20 +63,23 @@
                                                             ##teacher 照片
                                                             <img src="/assets/imags/teacher/photos/team7.jpg"> </div>
                                                         <div class="mt-head-user-info">
-                                                            <span class="mt-user-name">Chris Jagers</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-emoticon-smile"></i> 3 mins ago </span>
+                                                            <span class="mt-user-name">时间</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mt-body">
                                                     <h3 class="mt-body-title"> 引爆点 </h3>
-                                                    <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
+                                                    <div class="mt-body-description">
+                                                        <p>思想、行为、信息以及产品常常会像传染病爆发一样，迅速传播蔓延。</p>
+                                                        <p>作者:  [美] 马尔科姆·格拉德威尔 </p>
+
+
+                                                    </div>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
-                                                            <i class="icon-emoticon-smile"></i> 3,7k</li>
+                                                            <i class="icon-emoticon-smile"></i> 1.2k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-share"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 3,1k</li>
                                                     </ul>
 
                                                 </div>
@@ -84,21 +87,22 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/22.jpg);">
 
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
                                                             <img src="/assets/imags/teacher/photos/team3.jpg"> </div>
                                                         <div class="mt-head-user-info">
-                                                            <span class="mt-user-name">Harry Harris</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-user"></i> 3 mins ago </span>
+                                                            <span class="mt-user-name">与水</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mt-body">
-                                                    <h3 class="mt-body-title"> Christian Davidson </h3>
-                                                    <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
+                                                    <h3 class="mt-body-title"> 异类 </h3>
+                                                    <div class="mt-body-description">
+                                                        <p>不一样的成功启示录...</p>
+                                                        <p>作者:  [美] 马尔科姆·格拉德威尔 </p>
+                                                    </div>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
                                                             <i class="icon-emoticon-smile"></i> 3,7k</li>
@@ -116,19 +120,21 @@
                                                             <img src="/assets/imags/teacher/photos/team2.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-user"></i> 3 mins ago </span>
+
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mt-body">
-                                                    <h3 class="mt-body-title"> Christian Davidson </h3>
-                                                    <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
+                                                    <h3 class="mt-body-title"> 眨眼之间 </h3>
+                                                    <div class="mt-body-description">
+                                                        <p>不假思索的决断力...</p>
+                                                        <p>作者:  [美] 马尔科姆·格拉德威尔 </p>
+                                                    </div>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
-                                                            <i class="icon-emoticon-smile"></i> 3,7k</li>
+                                                            <i class="icon-emoticon-smile"></i> 0</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-share"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 0</li>
                                                     </ul>
 
                                                 </div>
@@ -151,7 +157,7 @@
                                         <span class="caption-subject bold  uppercase font-green-sharp"> 热门课程 </span>
                                     </div>
                                     <div style="display: inline;float: right;margin-top: 20px">
-                                        <a class="caption-helper">更多 ></a>
+                                        <a class="caption-helper" href="/common/comeSoon.htm">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -166,8 +172,6 @@
                                                             <img src="/assets/imags/teacher/photos/team7.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Chris Jagers</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-emoticon-smile"></i> 3 mins ago </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,9 +180,9 @@
                                                     <p class="mt-body-description"> It is a long established fact that a reader will be distracted </p>
                                                     <ul class="mt-body-stats">
                                                         <li class="font-green">
-                                                            <i class="icon-emoticon-smile"></i> 3,7k</li>
+                                                            <i class="icon-emoticon-smile"></i> 2,7k</li>
                                                         <li class="font-yellow">
-                                                            <i class=" icon-share"></i> 3,7k</li>
+                                                            <i class=" icon-share"></i> 5,7k</li>
                                                     </ul>
 
                                                 </div>
@@ -186,15 +190,14 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/23.jpg);">
 
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
                                                             <img src="/assets/imags/teacher/photos/team3.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-user"></i> 3 mins ago </span>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -218,8 +221,7 @@
                                                             <img src="/assets/imags/teacher/photos/team2.jpg"> </div>
                                                         <div class="mt-head-user-info">
                                                             <span class="mt-user-name">Harry Harris</span>
-                                                                    <span class="mt-user-time">
-                                                                        <i class="icon-user"></i> 3 mins ago </span>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -254,7 +256,7 @@
                                         <span class="caption-subject bold font-yellow-casablanca font-purple-plum uppercase"> 其他 </span>
                                     </div>
                                     <div style="display: inline;float: right;margin-top: 20px">
-                                        <a class="caption-helper">更多 ></a>
+                                        <a class="caption-helper" href="/common/comeSoon.htm">更多 ></a>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -262,7 +264,7 @@
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
                                             ##                                                ##课程照片
-                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course1.png);">
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/25.jpg);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
                                                         ##teacher 照片
@@ -315,7 +317,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mt-widget-2">
-                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/course2.png);">
+                                                <div class="mt-head" style="background-image: url(/assets/imags/student/course/24.jpg);">
                                                     <div class="mt-head-user">
                                                         <div class="mt-head-user-img">
                                                             <img src="/assets/imags/teacher/photos/team2.jpg"> </div>

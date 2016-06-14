@@ -50,7 +50,7 @@
                                 <div class="inbox-body">
                                     <div class="inbox-header">
                                         <h3 class="pull-left">课程</h3>
-                                        <form class="form-inline pull-right" action="index.html">
+                                        <form class="form-inline pull-right" action="/common/comeSoon.htm">
                                             <div class="input-group input-medium">
                                                 <input type="text" class="form-control" placeholder="课程">
                                                         <span class="input-group-btn">
